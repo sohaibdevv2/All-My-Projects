@@ -86,3 +86,7 @@ The collection includes projects built with different tools and technologies. So
 ## About This Collection
 
 Together, these folders document two years of practice and experimentation: learning new frameworks, building useful tools, exploring AI and data applications, creating interactive interfaces, and developing backend services. The individual project folders are the best place to find each project's setup instructions, features, and technology details.
+
+<img width="1819" height="958" alt="Screenshot 2026-10-24 031539" src="https://github.com/user-attachments/assets/cdf8c763-166a-4252-848e-d31609078e6c" />
+<img width="1051" height="559" alt="Screenshot 2026-10-24 031603" src="https://github.com/user-attachments/assets/d2ffeab7-92e5-44e6-b077-cd38341e4065" />
+<img width="393" height="587" alt="Screenshot 2026-10-24 031623" src="https://github.com/user-attachments/assets/4f067dd6-dbed-469f-a000-65d0c9d4dbcc" />
