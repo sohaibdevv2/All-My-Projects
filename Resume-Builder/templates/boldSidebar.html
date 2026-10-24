@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bold Sidebar Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template bold-sidebar-template">
+        <div class="layout-container">
+            <div class="sidebar">
+                <div class="profile-section">
+                    <div class="profile-avatar">
+                        <div class="initials">YN</div>
+                    </div>
+                    <h1 class="name" id="previewName">Your Name</h1>
+                    <h2 class="title" id="previewJobTitle">Professional Title</h2>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3>Contact</h3>
+                    <div class="contact-list">
+                        <div class="contact-item">
+                            <span class="contact-label">Email:</span>
+                            <span id="previewEmail"></span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">Phone:</span>
+                            <span id="previewPhone"></span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">Location:</span>
+                            <span id="previewLocation"></span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">LinkedIn:</span>
+                            <span id="previewLinkedIn"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3>Skills</h3>
+                    <div id="previewSkills" class="sidebar-skills"></div>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3>Languages</h3>
+                    <div id="previewLanguages" class="sidebar-skills"></div>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3>Interests</h3>
+                    <div class="interests-list">
+                        <div class="interest-item">Technology Innovation</div>
+                        <div class="interest-item">Team Leadership</div>
+                        <div class="interest-item">Strategic Planning</div>
+                        <div class="interest-item">Continuous Learning</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="main-content">
+                <div class="section">
+                    <h3>Professional Summary</h3>
+                    <p id="previewSummary"></p>
+                </div>
+                
+                <div class="section">
+                    <h3>Professional Experience</h3>
+                    <div id="previewExperience"></div>
+                </div>
+                
+                <div class="section">
+                    <h3>Education</h3>
+                    <div id="previewEducation"></div>
+                </div>
+                
+                <div class="section">
+                    <h3>Key Achievements</h3>
+                    <ul class="achievements-list">
+                        <li>Increased team productivity by 35% through process optimization</li>
+                        <li>Led successful implementation of new technology stack</li>
+                        <li>Mentored 15+ junior professionals in career development</li>
+                        <li>Delivered projects consistently ahead of schedule and under budget</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .bold-sidebar-template { 
+            font-family: 'Open Sans', 'Arial', sans-serif; 
+            background: #ffffff; 
+            color: #333; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+        }
+        .bold-sidebar-template .layout-container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            min-height: 100vh;
+        }
+        .bold-sidebar-template .sidebar { 
+            background: #2c3e50; 
+            color: white; 
+            padding: 2.5rem 2rem; 
+        }
+        .bold-sidebar-template .profile-section {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #34495e;
+        }
+        .bold-sidebar-template .profile-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .bold-sidebar-template .name { 
+            font-size: 1.8rem; 
+            margin: 0 0 0.5rem 0; 
+            font-weight: 700; 
+            letter-spacing: 1px; 
+        }
+        .bold-sidebar-template .title { 
+            font-size: 1rem; 
+            margin: 0; 
+            font-weight: 300; 
+            opacity: 0.9; 
+            color: #3498db;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .bold-sidebar-template .sidebar-section {
+            margin-bottom: 2.5rem;
+        }
+        .bold-sidebar-template .sidebar h3 { 
+            color: #3498db; 
+            font-size: 1.1rem; 
+            margin-bottom: 1.5rem; 
+            font-weight: 600; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #34495e;
+            padding-bottom: 0.5rem;
+        }
+        .bold-sidebar-template .contact-list {
+            display: grid;
+            gap: 1rem;
+        }
+        .bold-sidebar-template .contact-item {
+            font-size: 0.9rem;
+        }
+        .bold-sidebar-template .contact-label {
+            display: block;
+            color: #3498db;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+        .bold-sidebar-template .sidebar-skills { 
+            display: block; 
+        }
+        .bold-sidebar-template .skill-tag { 
+            display: block; 
+            background: #34495e; 
+            color: white; 
+            padding: 0.8rem 1rem; 
+            margin: 0.5rem 0; 
+            border-radius: 5px; 
+            font-size: 0.9rem; 
+            font-weight: 500; 
+            border-left: 3px solid #3498db;
+        }
+        .bold-sidebar-template .interests-list {
+            display: grid;
+            gap: 0.8rem;
+        }
+        .bold-sidebar-template .interest-item {
+            background: #34495e;
+            padding: 0.8rem 1rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            border-left: 3px solid #e74c3c;
+        }
+        .bold-sidebar-template .main-content { 
+            padding: 2.5rem 3rem; 
+            background: white;
+        }
+        .bold-sidebar-template .main-content .section { 
+            margin-bottom: 3rem; 
+        }
+        .bold-sidebar-template .main-content h3 { 
+            color: #2c3e50; 
+            font-size: 1.4rem; 
+            margin-bottom: 2rem; 
+            font-weight: 600; 
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        .bold-sidebar-template .main-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #3498db;
+            border-radius: 2px;
+        }
+        .bold-sidebar-template .experience-entry, .bold-sidebar-template .education-entry { 
+            margin-bottom: 2.5rem; 
+            padding: 2rem; 
+            background: #f8f9fa; 
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+        }
+        .bold-sidebar-template .entry-title { 
+            font-weight: 700; 
+            font-size: 1.2rem; 
+            color: #2c3e50; 
+            margin-bottom: 0.5rem;
+        }
+        .bold-sidebar-template .entry-company { 
+            color: #3498db; 
+            font-weight: 600; 
+            font-size: 1rem;
+        }
+        .bold-sidebar-template .entry-dates { 
+            color: #7f8c8d; 
+            font-size: 0.9rem; 
+            float: right;
+            background: #2c3e50;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+        }
+        .bold-sidebar-template .achievements-list {
+            list-style: none;
+            padding: 0;
+        }
+        .bold-sidebar-template .achievements-list li {
+            margin-bottom: 1rem;
+            padding: 1.2rem;
+            background: #f8f9fa;
+            border-left: 4px solid #27ae60;
+            border-radius: 5px;
+            position: relative;
+        }
+        .bold-sidebar-template .achievements-list li::before {
+            content: '★';
+            position: absolute;
+            left: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #27ae60;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

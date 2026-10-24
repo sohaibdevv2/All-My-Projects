@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic CV Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template academic-cv-template">
+        <div class="header">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <div class="contact-info">
+                <div id="previewEmail"></div>
+                <div id="previewPhone"></div>
+                <div id="previewLocation"></div>
+                <div id="previewLinkedIn"></div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Education</h2>
+            <div id="previewEducation"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Research Experience</h2>
+            <div id="previewExperience"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Publications</h2>
+            <ul class="publications-list">
+                <li>Publication placeholder - Journal name, Year</li>
+                <li>Publication placeholder - Conference proceedings, Year</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>Research Interests</h2>
+            <p id="previewSummary"></p>
+        </div>
+        
+        <div class="section">
+            <h2>Technical Skills</h2>
+            <div id="previewSkills"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Awards & Honors</h2>
+            <ul class="awards-list">
+                <li>Award placeholder - Institution, Year</li>
+                <li>Honor placeholder - Organization, Year</li>
+            </ul>
+        </div>
+    </div>
+
+    <style>
+        .academic-cv-template { 
+            font-family: 'Times New Roman', serif; 
+            background: #ffffff; 
+            color: #000000; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+            padding: 1in;
+        }
+        .academic-cv-template .header { 
+            text-align: center; 
+            margin-bottom: 2rem; 
+            padding-bottom: 1rem;
+        }
+        .academic-cv-template .name { 
+            font-size: 2.2rem; 
+            margin: 0 0 1rem 0; 
+            font-weight: bold; 
+            color: #000000;
+        }
+        .academic-cv-template .contact-info { 
+            font-size: 1rem; 
+            color: #333333;
+        }
+        .academic-cv-template .contact-info div { 
+            display: inline-block; 
+            margin: 0 1rem; 
+        }
+        .academic-cv-template .section { 
+            margin-bottom: 2rem; 
+        }
+        .academic-cv-template h2 { 
+            color: #000000; 
+            font-size: 1.3rem; 
+            margin-bottom: 1rem; 
+            font-weight: bold; 
+            border-bottom: 1px solid #000000;
+            padding-bottom: 0.3rem;
+        }
+        .academic-cv-template .publications-list, .academic-cv-template .awards-list { 
+            margin: 0; 
+            padding-left: 1.5rem; 
+        }
+        .academic-cv-template .publications-list li, .academic-cv-template .awards-list li { 
+            margin-bottom: 0.8rem; 
+            color: #333333;
+        }
+        .academic-cv-template .experience-entry, .academic-cv-template .education-entry { 
+            margin-bottom: 1.5rem; 
+        }
+        .academic-cv-template .entry-title { 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            color: #000000; 
+            margin-bottom: 0.3rem;
+        }
+        .academic-cv-template .entry-company { 
+            color: #333333; 
+            font-weight: normal; 
+            font-size: 1rem;
+            font-style: italic;
+        }
+        .academic-cv-template .entry-dates { 
+            color: #666666; 
+            font-size: 0.9rem; 
+            margin-top: 0.3rem;
+        }
+        .academic-cv-template .skills-list { 
+            display: block; 
+        }
+        .academic-cv-template .skill-tag { 
+            display: inline; 
+            background: transparent; 
+            color: #333333; 
+            padding: 0; 
+            margin: 0; 
+            font-size: 1rem; 
+        }
+        .academic-cv-template .skill-tag:after { 
+            content: ", "; 
+        }
+        .academic-cv-template .skill-tag:last-child:after { 
+            content: ""; 
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

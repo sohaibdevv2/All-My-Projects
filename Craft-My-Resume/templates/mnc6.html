@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MNC Template 6</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template mnc6-template">
+        <div class="header-section">
+            <div class="header-overlay">
+                <div class="name-block">
+                    <h1 class="name" id="previewName">Your Name</h1>
+                    <div class="title-divider"></div>
+                    <h2 class="title" id="previewJobTitle">Senior Executive</h2>
+                </div>
+                <div class="contact-block">
+                    <div class="contact-item" id="previewEmail"></div>
+                    <div class="contact-item" id="previewPhone"></div>
+                    <div class="contact-item" id="previewLocation"></div>
+                    <div class="contact-item" id="previewLinkedIn"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-wrapper">
+            <div class="summary-section">
+                <h3>Professional Summary</h3>
+                <p id="previewSummary"></p>
+            </div>
+            
+            <div class="dual-column">
+                <div class="content-column">
+                    <div class="section">
+                        <h3>Professional Experience</h3>
+                        <div id="previewExperience"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Education</h3>
+                        <div id="previewEducation"></div>
+                    </div>
+                </div>
+                
+                <div class="info-column">
+                    <div class="section">
+                        <h3>Skills</h3>
+                        <div id="previewSkills" class="skills-list"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Projects</h3>
+                        <ul id="previewProjects"></ul>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Languages</h3>
+                        <div id="previewLanguages" class="skills-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .mnc6-template { 
+            font-family: 'Verdana', 'Geneva', sans-serif; 
+            background: #ffffff; 
+            color: #2d3748; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .mnc6-template .header-section { 
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 50%, #4a5568 100%); 
+            color: white; 
+            padding: 0;
+            position: relative;
+            min-height: 200px;
+        }
+        .mnc6-template .header-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        .mnc6-template .header-overlay {
+            position: relative;
+            z-index: 1;
+            padding: 3rem 2.5rem;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 3rem;
+            align-items: center;
+        }
+        .mnc6-template .name { 
+            font-size: 3.5rem; 
+            margin: 0; 
+            font-weight: 300; 
+            letter-spacing: 3px; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .mnc6-template .title-divider {
+            width: 120px;
+            height: 2px;
+            background: linear-gradient(90deg, #ffffff, transparent);
+            margin: 1.5rem 0;
+        }
+        .mnc6-template .title { 
+            font-size: 1.4rem; 
+            margin: 0; 
+            font-weight: 400; 
+            opacity: 0.95; 
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .mnc6-template .contact-block {
+            text-align: right;
+        }
+        .mnc6-template .contact-item { 
+            display: block;
+            margin-bottom: 1rem; 
+            font-size: 1rem; 
+            opacity: 0.9;
+        }
+        .mnc6-template .main-wrapper { 
+            padding: 3rem 2.5rem; 
+        }
+        .mnc6-template .summary-section { 
+            margin-bottom: 3rem; 
+            padding: 2.5rem; 
+            background: linear-gradient(135deg, #edf2f7 0%, #e2e8f0 100%); 
+            border-radius: 12px;
+            border: 1px solid #cbd5e0;
+            position: relative;
+        }
+        .mnc6-template .summary-section::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            right: -1px;
+            height: 4px;
+            background: linear-gradient(90deg, #1a202c, #4a5568);
+            border-radius: 12px 12px 0 0;
+        }
+        .mnc6-template .summary-section h3 { 
+            margin: 0 0 1.5rem 0; 
+            color: #1a202c; 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+        }
+        .mnc6-template .dual-column { 
+            display: grid; 
+            grid-template-columns: 2fr 1fr; 
+            gap: 3rem; 
+        }
+        .mnc6-template .section { 
+            margin-bottom: 2.5rem; 
+        }
+        .mnc6-template h3 { 
+            color: #1a202c; 
+            font-size: 1.3rem; 
+            margin-bottom: 1.5rem; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        .mnc6-template h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #1a202c, #4a5568);
+        }
+        .mnc6-template .experience-entry, .mnc6-template .education-entry { 
+            margin-bottom: 2.5rem; 
+            padding: 2rem; 
+            background: #f7fafc; 
+            border-left: 5px solid #4a5568;
+            border-radius: 0 10px 10px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .mnc6-template .entry-title { 
+            font-weight: 700; 
+            font-size: 1.2rem; 
+            color: #1a202c; 
+            margin-bottom: 0.5rem;
+        }
+        .mnc6-template .entry-company { 
+            color: #2d3748; 
+            font-weight: 600; 
+            font-size: 1.1rem;
+        }
+        .mnc6-template .entry-dates { 
+            color: #4a5568; 
+            font-size: 0.95rem; 
+            font-weight: 500;
+        }
+        .mnc6-template .info-column {
+            background: linear-gradient(180deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            height: fit-content;
+            border: 1px solid #e2e8f0;
+        }
+        .mnc6-template .skills-list { 
+            display: block; 
+        }
+        .mnc6-template .skill-tag { 
+            display: inline-block; 
+            background: linear-gradient(135deg, #1a202c, #4a5568); 
+            color: white; 
+            padding: 0.6rem 1.2rem; 
+            margin: 0.4rem; 
+            border-radius: 20px; 
+            font-size: 0.85rem; 
+            font-weight: 600; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

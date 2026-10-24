@@ -1,0 +1,72 @@
+<div class="resume-template creative5-template">
+    <div class="wave-header">
+        <svg class="wave" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="#667eea"></path>
+            <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="#667eea"></path>
+            <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="#667eea"></path>
+        </svg>
+        <div class="header-content">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <h2 class="title" id="previewJobTitle">Professional Title</h2>
+            <div class="contact-row">
+                <span id="previewEmail">email@example.com</span>
+                <span id="previewPhone">+1 (555) 123-4567</span>
+                <span id="previewLocation">Location</span>
+                <div id="previewLinkedIn"></div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="summary-card">
+            <h3>About Me</h3>
+            <p id="previewSummary"></p>
+        </div>
+        <div class="content-columns">
+            <div class="left-column">
+                <div class="section">
+                    <h3>Experience</h3>
+                    <div id="previewExperience"></div>
+                </div>
+                <div class="section">
+                    <h3>Education</h3>
+                    <div id="previewEducation"></div>
+                </div>
+            </div>
+            <div class="right-column">
+                <div class="section">
+                    <h3>Skills</h3>
+                    <div id="previewSkills" class="skills-list"></div>
+                </div>
+                <div class="section">
+                    <h3>Projects</h3>
+                    <ul id="previewProjects"></ul>
+                </div>
+                <div class="section">
+                    <h3>Languages</h3>
+                    <div id="previewLanguages" class="skills-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+.creative5-template { font-family: 'Nunito', sans-serif; background: #fff; color: #333; }
+.creative5-template .wave-header { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 3rem 2rem 1rem; text-align: center; position: relative; }
+.creative5-template .wave { position: absolute; bottom: 0; left: 0; width: 100%; height: 60px; }
+.creative5-template .header-content { position: relative; z-index: 2; }
+.creative5-template .name { font-size: 2.5rem; margin: 0; font-weight: 700; }
+.creative5-template .title { font-size: 1.2rem; margin: 0.5rem 0 1rem 0; opacity: 0.9; font-weight: 300; }
+.creative5-template .contact-row { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; font-size: 0.9rem; }
+.creative5-template .main-content { padding: 2rem; margin-top: 60px; }
+.creative5-template .summary-card { background: #f8f9fa; padding: 2rem; border-radius: 15px; margin-bottom: 2rem; text-align: center; }
+.creative5-template .summary-card h3 { margin: 0 0 1rem 0; color: #667eea; font-size: 1.3rem; }
+.creative5-template .content-columns { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; }
+.creative5-template .section { margin-bottom: 2rem; }
+.creative5-template h3 { color: #667eea; font-size: 1.2rem; margin-bottom: 1rem; font-weight: 600; }
+.creative5-template .experience-entry, .creative5-template .education-entry { margin-bottom: 1.5rem; padding: 1rem; background: white; border-radius: 10px; box-shadow: 0 2px 15px rgba(102,126,234,0.1); }
+.creative5-template .entry-title { font-weight: bold; font-size: 1.1rem; color: #333; }
+.creative5-template .entry-company { color: #667eea; font-weight: 500; }
+.creative5-template .entry-dates { color: #666; font-size: 0.9rem; }
+.creative5-template .skills-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.creative5-template .skill-tag { background: linear-gradient(45deg, #667eea, #764ba2); color: white; padding: 0.4rem 1rem; border-radius: 25px; font-size: 0.85rem; }
+</style>

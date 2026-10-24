@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traditional Classic Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template traditional-classic-template">
+        <div class="header-section">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <div class="contact-info">
+                <span id="previewEmail"></span> • <span id="previewPhone"></span> • <span id="previewLocation"></span> • <span id="previewLinkedIn"></span>
+            </div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="section">
+                <h3>Professional Summary</h3>
+                <p id="previewSummary"></p>
+            </div>
+            
+            <div class="section">
+                <h3>Professional Experience</h3>
+                <div id="previewExperience"></div>
+            </div>
+            
+            <div class="section">
+                <h3>Education</h3>
+                <div id="previewEducation"></div>
+            </div>
+            
+            <div class="section">
+                <h3>Skills</h3>
+                <div id="previewSkills" class="skills-list"></div>
+            </div>
+            
+            <div class="section">
+                <h3>Languages</h3>
+                <div id="previewLanguages" class="skills-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .traditional-classic-template { 
+            font-family: 'Times New Roman', serif; 
+            background: #ffffff; 
+            color: #000000; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+            padding: 1in;
+        }
+        .traditional-classic-template .header-section { 
+            text-align: center; 
+            margin-bottom: 2rem; 
+            border-bottom: 1px solid #000;
+            padding-bottom: 1rem;
+        }
+        .traditional-classic-template .name { 
+            font-size: 2.5rem; 
+            margin: 0 0 0.5rem 0; 
+            font-weight: normal; 
+            color: #000000;
+        }
+        .traditional-classic-template .contact-info { 
+            font-size: 1rem; 
+            color: #000; 
+        }
+        .traditional-classic-template .content-wrapper { 
+            max-width: 100%; 
+        }
+        .traditional-classic-template .section { 
+            margin-bottom: 2rem; 
+        }
+        .traditional-classic-template h3 { 
+            color: #000000; 
+            font-size: 1.2rem; 
+            margin-bottom: 1rem; 
+            font-weight: bold; 
+            text-transform: uppercase;
+            border-bottom: 1px solid #000;
+            padding-bottom: 0.3rem;
+        }
+        .traditional-classic-template .experience-entry, .traditional-classic-template .education-entry { 
+            margin-bottom: 1.5rem; 
+        }
+        .traditional-classic-template .entry-title { 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            color: #000000; 
+            margin-bottom: 0.3rem;
+        }
+        .traditional-classic-template .entry-company { 
+            color: #000000; 
+            font-weight: normal; 
+            font-size: 1rem;
+            font-style: italic;
+        }
+        .traditional-classic-template .entry-dates { 
+            color: #000000; 
+            font-size: 0.9rem; 
+            margin-top: 0.3rem;
+        }
+        .traditional-classic-template .skills-list { 
+            display: block; 
+        }
+        .traditional-classic-template .skill-tag { 
+            display: inline; 
+            background: transparent; 
+            color: #000000; 
+            padding: 0; 
+            margin: 0; 
+            font-size: 1rem; 
+            font-weight: normal; 
+        }
+        .traditional-classic-template .skill-tag:not(:last-child):after {
+            content: ", ";
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

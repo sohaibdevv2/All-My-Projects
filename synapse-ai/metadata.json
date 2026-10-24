@@ -1,0 +1,6 @@
+{
+  "name": "Synapse",
+  "description": "An AI conversational chat application powered by the Google Gemini API, designed to provide a seamless and intuitive chat experience.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}

@@ -1,0 +1,19 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.env
+.env.*
+
+# Streamlit local files
+.streamlit/terraform*
+.streamlit/*.lock
+
+# OS files
+.DS_Store
+
+# Hugging Face cache
+cache/

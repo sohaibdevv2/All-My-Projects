@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATS Skills First Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template ats-skills-first-template">
+        <div class="header">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <div class="contact-info">
+                <span id="previewEmail"></span> • 
+                <span id="previewPhone"></span> • 
+                <span id="previewLocation"></span> • 
+                <span id="previewLinkedIn"></span>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Core Competencies</h2>
+            <div id="previewSkills"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Professional Summary</h2>
+            <p id="previewSummary"></p>
+        </div>
+        
+        <div class="section">
+            <h2>Professional Experience</h2>
+            <div id="previewExperience"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Education & Certifications</h2>
+            <div id="previewEducation"></div>
+        </div>
+    </div>
+
+    <style>
+        .ats-skills-first-template { 
+            font-family: 'Arial', sans-serif; 
+            background: #ffffff; 
+            color: #000000; 
+            line-height: 1.5; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+            padding: 1in;
+        }
+        .ats-skills-first-template .header { 
+            text-align: center; 
+            margin-bottom: 1.5rem; 
+        }
+        .ats-skills-first-template .name { 
+            font-size: 2.3rem; 
+            margin: 0 0 0.5rem 0; 
+            font-weight: bold; 
+            color: #000000;
+        }
+        .ats-skills-first-template .contact-info { 
+            font-size: 1rem; 
+            color: #000000;
+        }
+        .ats-skills-first-template .section { 
+            margin-bottom: 1.8rem; 
+        }
+        .ats-skills-first-template h2 { 
+            color: #000000; 
+            font-size: 1.3rem; 
+            margin-bottom: 1rem; 
+            font-weight: bold; 
+            background: #f5f5f5;
+            padding: 0.5rem;
+        }
+        .ats-skills-first-template .experience-entry, .ats-skills-first-template .education-entry { 
+            margin-bottom: 1.3rem; 
+        }
+        .ats-skills-first-template .entry-title { 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            color: #000000; 
+            margin-bottom: 0.2rem;
+        }
+        .ats-skills-first-template .entry-company { 
+            color: #000000; 
+            font-weight: normal; 
+            font-size: 1rem;
+        }
+        .ats-skills-first-template .entry-dates { 
+            color: #666666; 
+            font-size: 1rem; 
+            margin-top: 0.2rem;
+        }
+        .ats-skills-first-template .skills-list { 
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+        }
+        .ats-skills-first-template .skill-tag { 
+            color: #000000; 
+            font-size: 1rem; 
+            padding: 0.3rem;
+            background: #ffffff;
+            border: 1px solid #ddd;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

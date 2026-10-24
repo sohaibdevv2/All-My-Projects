@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Template 8</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template company8-template">
+        <div class="header-wrapper">
+            <div class="header-section">
+                <h1 class="name" id="previewName">Your Name</h1>
+                <h2 class="title" id="previewJobTitle">Professional Title</h2>
+                <div class="contact-bar">
+                    <span class="contact-item" id="previewEmail"></span>
+                    <span class="divider">•</span>
+                    <span class="contact-item" id="previewPhone"></span>
+                    <span class="divider">•</span>
+                    <span class="contact-item" id="previewLocation"></span>
+                    <span class="divider">•</span>
+                    <span class="contact-item" id="previewLinkedIn"></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-container">
+            <div class="summary-section">
+                <h3>Professional Summary</h3>
+                <p id="previewSummary"></p>
+            </div>
+            
+            <div class="content-layout">
+                <div class="main-content">
+                    <div class="section">
+                        <h3>Professional Experience</h3>
+                        <div id="previewExperience"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Education</h3>
+                        <div id="previewEducation"></div>
+                    </div>
+                </div>
+                
+                <div class="sidebar-content">
+                    <div class="section">
+                        <h3>Core Skills</h3>
+                        <div id="previewSkills" class="skills-list"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Key Projects</h3>
+                        <ul id="previewProjects"></ul>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Languages</h3>
+                        <div id="previewLanguages" class="skills-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .company8-template { 
+            font-family: 'Tahoma', Geneva, Verdana, sans-serif; 
+            background: #ffffff; 
+            color: #212529; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+        }
+        .company8-template .header-wrapper { 
+            background: #343a40; 
+            color: white; 
+        }
+        .company8-template .header-section { 
+            padding: 2rem; 
+            text-align: center; 
+        }
+        .company8-template .name { 
+            font-size: 2.6rem; 
+            margin: 0; 
+            font-weight: 600; 
+            letter-spacing: 2px; 
+        }
+        .company8-template .title { 
+            font-size: 1.3rem; 
+            margin: 0.5rem 0 1.5rem 0; 
+            font-weight: 300; 
+            opacity: 0.9; 
+        }
+        .company8-template .contact-bar { 
+            font-size: 1rem; 
+        }
+        .company8-template .divider { 
+            margin: 0 1rem; 
+            opacity: 0.7; 
+        }
+        .company8-template .main-container { 
+            padding: 2rem; 
+        }
+        .company8-template .summary-section { 
+            background: #f8f9fa; 
+            padding: 1.5rem; 
+            margin-bottom: 2rem; 
+            border-radius: 8px; 
+            border-left: 5px solid #343a40; 
+        }
+        .company8-template .summary-section h3 { 
+            margin: 0 0 1rem 0; 
+            color: #343a40; 
+            font-size: 1.3rem; 
+            font-weight: 600; 
+        }
+        .company8-template .content-layout { 
+            display: grid; 
+            grid-template-columns: 2fr 1fr; 
+            gap: 2rem; 
+        }
+        .company8-template .section { 
+            margin-bottom: 2rem; 
+        }
+        .company8-template h3 { 
+            color: #343a40; 
+            font-size: 1.2rem; 
+            margin-bottom: 1rem; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            border-bottom: 2px solid #343a40; 
+            padding-bottom: 0.5rem; 
+        }
+        .company8-template .experience-entry, .company8-template .education-entry { 
+            margin-bottom: 1.5rem; 
+            padding-bottom: 1rem; 
+            border-bottom: 1px solid #dee2e6; 
+        }
+        .company8-template .entry-title { 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            color: #343a40; 
+        }
+        .company8-template .entry-company { 
+            color: #495057; 
+            font-weight: 500; 
+        }
+        .company8-template .entry-dates { 
+            color: #6c757d; 
+            font-size: 0.9rem; 
+        }
+        .company8-template .skills-list { 
+            display: block; 
+        }
+        .company8-template .skill-tag { 
+            display: inline-block; 
+            background: #343a40; 
+            color: white; 
+            padding: 0.4rem 0.8rem; 
+            margin: 0.2rem; 
+            border-radius: 20px; 
+            font-size: 0.85rem; 
+            font-weight: 500; 
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

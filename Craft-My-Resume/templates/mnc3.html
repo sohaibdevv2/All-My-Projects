@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MNC Template 3</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template mnc3-template">
+        <div class="header-banner">
+            <div class="header-content">
+                <div class="name-section">
+                    <h1 class="name" id="previewName">Your Name</h1>
+                    <div class="divider-line"></div>
+                    <h2 class="title" id="previewJobTitle">Global Executive</h2>
+                </div>
+                <div class="contact-section">
+                    <div class="contact-item" id="previewEmail"></div>
+                    <div class="contact-item" id="previewPhone"></div>
+                    <div class="contact-item" id="previewLocation"></div>
+                    <div class="contact-item" id="previewLinkedIn"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-area">
+            <div class="summary-highlight">
+                <h3>Executive Summary</h3>
+                <p id="previewSummary"></p>
+            </div>
+            
+            <div class="content-grid">
+                <div class="main-column">
+                    <div class="section">
+                        <h3>Professional Experience</h3>
+                        <div id="previewExperience"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Education & Qualifications</h3>
+                        <div id="previewEducation"></div>
+                    </div>
+                </div>
+                
+                <div class="side-column">
+                    <div class="section">
+                        <h3>Core Skills</h3>
+                        <div id="previewSkills" class="skills-list"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Key Projects</h3>
+                        <ul id="previewProjects"></ul>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Languages</h3>
+                        <div id="previewLanguages" class="skills-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .mnc3-template { 
+            font-family: 'Georgia', 'Times New Roman', serif; 
+            background: #ffffff; 
+            color: #1a202c; 
+            line-height: 1.7; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+        }
+        .mnc3-template .header-banner { 
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 50%, #3182ce 100%); 
+            color: white; 
+            padding: 3rem 0; 
+            position: relative;
+        }
+        .mnc3-template .header-banner::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #ffffff, transparent);
+        }
+        .mnc3-template .header-content {
+            max-width: 90%;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 3rem;
+            align-items: center;
+        }
+        .mnc3-template .name { 
+            font-size: 3.5rem; 
+            margin: 0; 
+            font-weight: 400; 
+            letter-spacing: 2px; 
+            font-family: 'Georgia', serif;
+        }
+        .mnc3-template .divider-line {
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #ffffff, transparent);
+            margin: 1rem 0;
+        }
+        .mnc3-template .title { 
+            font-size: 1.5rem; 
+            margin: 0; 
+            font-weight: 300; 
+            opacity: 0.95; 
+            font-style: italic;
+        }
+        .mnc3-template .contact-section {
+            text-align: right;
+        }
+        .mnc3-template .contact-item { 
+            display: block;
+            margin-bottom: 0.8rem; 
+            font-size: 1rem; 
+            opacity: 0.9;
+        }
+        .mnc3-template .content-area { 
+            padding: 3rem 2.5rem; 
+        }
+        .mnc3-template .summary-highlight { 
+            margin-bottom: 3rem; 
+            padding: 2.5rem; 
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%); 
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            position: relative;
+        }
+        .mnc3-template .summary-highlight::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1a365d, #3182ce);
+            border-radius: 12px 12px 0 0;
+        }
+        .mnc3-template .summary-highlight h3 { 
+            margin: 0 0 1.5rem 0; 
+            color: #1a365d; 
+            font-size: 1.5rem; 
+            font-weight: 600; 
+        }
+        .mnc3-template .content-grid { 
+            display: grid; 
+            grid-template-columns: 2fr 1fr; 
+            gap: 3rem; 
+        }
+        .mnc3-template .section { 
+            margin-bottom: 2.5rem; 
+        }
+        .mnc3-template h3 { 
+            color: #1a365d; 
+            font-size: 1.4rem; 
+            margin-bottom: 1.5rem; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        .mnc3-template h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, #1a365d, #3182ce);
+        }
+        .mnc3-template .experience-entry, .mnc3-template .education-entry { 
+            margin-bottom: 2.5rem; 
+            padding: 2rem; 
+            background: #f9f9f9; 
+            border-left: 5px solid #3182ce;
+            border-radius: 0 8px 8px 0;
+        }
+        .mnc3-template .entry-title { 
+            font-weight: 700; 
+            font-size: 1.3rem; 
+            color: #1a202c; 
+            margin-bottom: 0.5rem;
+        }
+        .mnc3-template .entry-company { 
+            color: #1a365d; 
+            font-weight: 600; 
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+        .mnc3-template .entry-dates { 
+            color: #4a5568; 
+            font-size: 1rem; 
+            font-weight: 500;
+        }
+        .mnc3-template .skills-list { 
+            display: block; 
+        }
+        .mnc3-template .skill-tag { 
+            display: inline-block; 
+            background: linear-gradient(135deg, #1a365d, #3182ce); 
+            color: white; 
+            padding: 0.7rem 1.3rem; 
+            margin: 0.4rem; 
+            border-radius: 30px; 
+            font-size: 0.9rem; 
+            font-weight: 500; 
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        }
+        .mnc3-template .side-column {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 12px;
+            height: fit-content;
+            border: 1px solid #e2e8f0;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

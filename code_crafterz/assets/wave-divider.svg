@@ -1,0 +1,33 @@
+<svg width="900" height="40" viewBox="0 0 900 40" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="wg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#3b0764" stop-opacity="0"/>
+      <stop offset="20%"  stop-color="#7c3aed" stop-opacity="0.8"/>
+      <stop offset="50%"  stop-color="#a855f7"/>
+      <stop offset="80%"  stop-color="#7c3aed" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#3b0764" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .wave { animation: waveMove 4s linear infinite; }
+    @keyframes waveMove {
+      0%   { transform: translateX(-100px); }
+      100% { transform: translateX(100px); }
+    }
+    .dot { animation: dotPulse 3s ease-in-out infinite; }
+    .dot:nth-child(2) { animation-delay: 0.4s; }
+    .dot:nth-child(3) { animation-delay: 0.8s; }
+    .dot:nth-child(4) { animation-delay: 1.2s; }
+    .dot:nth-child(5) { animation-delay: 1.6s; }
+    @keyframes dotPulse {
+      0%,100% { opacity: 0.3; r: 2; }
+      50%      { opacity: 1;   r: 3.5; }
+    }
+  </style>
+  <line x1="0" y1="20" x2="900" y2="20" stroke="url(#wg)" stroke-width="1.5"/>
+  <circle class="dot" cx="180" cy="20" r="2.5" fill="#c084fc"/>
+  <circle class="dot" cx="360" cy="20" r="2.5" fill="#a855f7"/>
+  <circle class="dot" cx="450" cy="20" r="3" fill="#e9d5ff"/>
+  <circle class="dot" cx="540" cy="20" r="2.5" fill="#a855f7"/>
+  <circle class="dot" cx="720" cy="20" r="2.5" fill="#c084fc"/>
+</svg>

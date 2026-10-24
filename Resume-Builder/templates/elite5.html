@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Template 5</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template elite5-template">
+        <div class="header-wrapper">
+            <div class="header-content">
+                <div class="name-section">
+                    <h1 class="name" id="previewName">Your Name</h1>
+                    <div class="title-line">
+                        <div class="line-accent"></div>
+                        <h2 class="title" id="previewJobTitle">Executive Director</h2>
+                        <div class="line-accent"></div>
+                    </div>
+                </div>
+                <div class="contact-section">
+                    <div class="contact-row">
+                        <span id="previewEmail"></span>
+                        <span id="previewPhone"></span>
+                    </div>
+                    <div class="contact-row">
+                        <span id="previewLocation"></span>
+                        <span id="previewLinkedIn"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-container">
+            <div class="summary-banner">
+                <h3>Executive Summary</h3>
+                <p id="previewSummary"></p>
+            </div>
+            
+            <div class="content-columns">
+                <div class="main-column">
+                    <div class="section">
+                        <div class="section-title">
+                            <h3>Leadership Experience</h3>
+                            <div class="title-underline"></div>
+                        </div>
+                        <div id="previewExperience" class="experience-list"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-title">
+                            <h3>Education & Qualifications</h3>
+                            <div class="title-underline"></div>
+                        </div>
+                        <div id="previewEducation"></div>
+                    </div>
+                </div>
+                
+                <div class="side-column">
+                    <div class="skills-section">
+                        <div class="section-title">
+                            <h3>Executive Skills</h3>
+                            <div class="title-underline"></div>
+                        </div>
+                        <div id="previewSkills" class="skills-list"></div>
+                    </div>
+                    
+                    <div class="languages-section">
+                        <div class="section-title">
+                            <h3>Languages</h3>
+                            <div class="title-underline"></div>
+                        </div>
+                        <div id="previewLanguages" class="skills-list"></div>
+                    </div>
+                    
+                    <div class="certifications-section">
+                        <div class="section-title">
+                            <h3>Certifications</h3>
+                            <div class="title-underline"></div>
+                        </div>
+                        <div class="cert-list">
+                            <div class="cert-item">Executive Leadership Certificate</div>
+                            <div class="cert-item">Strategic Management Diploma</div>
+                            <div class="cert-item">Digital Transformation Certificate</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .elite5-template { 
+            font-family: 'Playfair Display', 'Georgia', serif; 
+            background: #ffffff; 
+            color: #2c3e50; 
+            line-height: 1.7; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+        }
+        .elite5-template .header-wrapper { 
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); 
+            color: white; 
+            padding: 4rem 3rem; 
+            text-align: center;
+            position: relative;
+        }
+        .elite5-template .header-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 30px;
+            background: #2c3e50;
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+        }
+        .elite5-template .name { 
+            font-size: 4rem; 
+            margin: 0; 
+            font-weight: 400; 
+            letter-spacing: 3px; 
+            margin-bottom: 2rem;
+        }
+        .elite5-template .title-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .elite5-template .line-accent {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #e74c3c, transparent);
+        }
+        .elite5-template .title { 
+            font-size: 1.8rem; 
+            margin: 0; 
+            font-weight: 300; 
+            font-style: italic;
+            color: #e74c3c;
+        }
+        .elite5-template .contact-section {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+        .elite5-template .contact-row {
+            margin-bottom: 0.8rem;
+        }
+        .elite5-template .contact-row span {
+            margin: 0 2rem;
+        }
+        .elite5-template .content-container { 
+            padding: 4rem 3rem 3rem; 
+        }
+        .elite5-template .summary-banner { 
+            margin-bottom: 4rem; 
+            padding: 3rem; 
+            background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%); 
+            border-radius: 25px;
+            text-align: center;
+            position: relative;
+        }
+        .elite5-template .summary-banner::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 30px;
+            background: #ecf0f1;
+            clip-path: polygon(50% 0, 0 100%, 100% 100%);
+        }
+        .elite5-template .summary-banner h3 { 
+            margin: 0 0 2rem 0; 
+            color: #2c3e50; 
+            font-size: 1.6rem; 
+            font-weight: 600; 
+        }
+        .elite5-template .content-columns { 
+            display: grid; 
+            grid-template-columns: 2fr 1fr; 
+            gap: 4rem; 
+        }
+        .elite5-template .section { 
+            margin-bottom: 3rem; 
+        }
+        .elite5-template .section-title {
+            margin-bottom: 2rem;
+        }
+        .elite5-template .section-title h3 { 
+            color: #2c3e50; 
+            font-size: 1.4rem; 
+            margin: 0 0 0.5rem 0; 
+            font-weight: 600; 
+        }
+        .elite5-template .title-underline {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #e74c3c, #c0392b);
+            border-radius: 2px;
+        }
+        .elite5-template .experience-entry, .elite5-template .education-entry { 
+            margin-bottom: 2.5rem; 
+            padding: 2.5rem; 
+            background: #f8f9fa; 
+            border-radius: 20px;
+            border: 1px solid #ecf0f1;
+            position: relative;
+        }
+        .elite5-template .experience-entry::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 2.5rem;
+            width: 20px;
+            height: 20px;
+            background: #e74c3c;
+            border-radius: 50%;
+            border: 4px solid white;
+        }
+        .elite5-template .entry-title { 
+            font-weight: 700; 
+            font-size: 1.3rem; 
+            color: #2c3e50; 
+            margin-bottom: 0.5rem;
+        }
+        .elite5-template .entry-company { 
+            color: #e74c3c; 
+            font-weight: 600; 
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+        .elite5-template .entry-dates { 
+            color: #7f8c8d; 
+            font-size: 1rem; 
+            font-weight: 500;
+            float: right;
+            background: #ecf0f1;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+        .elite5-template .side-column > div {
+            margin-bottom: 2.5rem;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 20px;
+            border-left: 6px solid #e74c3c;
+        }
+        .elite5-template .skill-tag { 
+            display: block; 
+            background: linear-gradient(135deg, #e74c3c, #c0392b); 
+            color: white; 
+            padding: 1rem 1.5rem; 
+            margin: 0.5rem 0; 
+            border-radius: 15px; 
+            font-size: 0.9rem; 
+            font-weight: 500; 
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(231, 76, 60, 0.2);
+        }
+        .elite5-template .cert-list {
+            font-size: 0.95rem;
+        }
+        .elite5-template .cert-item {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+            border-left: 4px solid #e74c3c;
+            font-weight: 500;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

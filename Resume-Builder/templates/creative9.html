@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative 9 Resume Template</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="resume-template creative9-template">
+    <div class="circle-header">
+        <div class="circle-bg"></div>
+        <div class="header-info">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <h2 class="title" id="previewJobTitle">Professional Title</h2>
+            <div class="contact-circle">
+                <span id="previewEmail">email@example.com</span>
+                <span id="previewPhone">+1 (555) 123-4567</span>
+                <span id="previewLocation">Location</span>
+                <div id="previewLinkedIn"></div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="summary-circle">
+            <h3>Creative Summary</h3>
+            <p id="previewSummary"></p>
+        </div>
+        <div class="content-grid">
+            <div class="left-content">
+                <div class="section">
+                    <h3>Experience</h3>
+                    <div id="previewExperience"></div>
+                </div>
+                <div class="section">
+                    <h3>Education</h3>
+                    <div id="previewEducation"></div>
+                </div>
+            </div>
+            <div class="right-content">
+                <div class="section">
+                    <h3>Skills</h3>
+                    <div id="previewSkills" class="skills-list"></div>
+                </div>
+                <div class="section">
+                    <h3>Projects</h3>
+                    <ul id="previewProjects"></ul>
+                </div>
+                <div class="section">
+                    <h3>Languages</h3>
+                    <div id="previewLanguages" class="skills-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+.creative9-template { font-family: 'Raleway', sans-serif; background: #fff; color: #333; }
+.creative9-template .circle-header { background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%); color: #333; padding: 2rem; text-align: center; position: relative; overflow: hidden; }
+.creative9-template .circle-bg { position: absolute; top: -75px; right: -75px; width: 200px; height: 200px; background: rgba(255,255,255,0.2); border-radius: 50%; }
+.creative9-template .header-info { position: relative; z-index: 2; }
+.creative9-template .name { font-size: 2.5rem; margin: 0; font-weight: 700; color: #2c3e50; }
+.creative9-template .title { font-size: 1.2rem; margin: 0.5rem 0 1rem 0; opacity: 0.8; font-weight: 300; color: #34495e; }
+.creative9-template .contact-circle { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; font-size: 0.9rem; color: #2c3e50; }
+.creative9-template .main-content { padding: 2rem; }
+.creative9-template .summary-circle { background: #f8f9fa; padding: 1.5rem; border-radius: 15px; margin-bottom: 2rem; border: 2px solid #a8edea; }
+.creative9-template .summary-circle h3 { margin: 0 0 1rem 0; color: #2c3e50; font-size: 1.2rem; }
+.creative9-template .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; }
+.creative9-template .section { margin-bottom: 2rem; }
+.creative9-template h3 { color: #2c3e50; font-size: 1.2rem; margin-bottom: 1rem; font-weight: 600; }
+.creative9-template .experience-entry, .creative9-template .education-entry { margin-bottom: 1.5rem; padding: 1rem; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(168,237,234,0.2); }
+.creative9-template .entry-title { font-weight: bold; font-size: 1.1rem; color: #333; }
+.creative9-template .entry-company { color: #2c3e50; font-weight: 500; }
+.creative9-template .entry-dates { color: #666; font-size: 0.9rem; }
+.creative9-template .skills-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.creative9-template .skill-tag { background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%); color: #2c3e50; padding: 0.4rem 1rem; border-radius: 25px; font-size: 0.85rem; font-weight: 500; }
+</style>
+</body>
+</html>

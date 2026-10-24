@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <meta name="description" content="Sohaib Malik | Software Engineer Portfolio">
+    <meta property="og:title" content="Sohaib Malik | Portfolio">
+    <meta property="og:description" content="Portfolio website of Sohaib Malik, Software Engineer.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sohaibdevv.github.io/sohaibdevv-portfolio/">
+    <meta property="og:image" content="https://sohaibdevv.github.io/sohaibdevv-portfolio/images/hero-image.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="manifest" href="/images/site.webmanifest">
+
+    <title>Sohaib Malik | Portfolio</title>
+</head>
+
+<body>
+    <header>
+        <nav aria-label="Main navigation">
+            <h3 class="logo">Sohaib.dev</h3>
+            <ul>
+                <li><a href="#home" aria-label="Home section">Home</a></li>
+                <li><a href="#about" aria-label="About section">About</a></li>
+                <li><a href="#projects" aria-label="Projects section">Projects</a></li>
+                <li><a href="#skills" aria-label="Skills section">Skills</a></li>
+                <li><a href="#contact" aria-label="Contact section">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <img src="images/hero-image.png" alt="Sohaib Malik" class="hero-image">
+            <h2>Hi, I'm Sohaib Malik</h2>
+            <p>Software Engineer based in Karachi, Pakistan</p>
+            <a href="#projects" class="cta-button">View My Work</a>
+        </div>
+    </section>
+
+    <!-- About Me section -->
+    <section id="about" class="about-section">
+        <img src="images/about-me-image.png" alt="About Me Image" class="about-me-image">
+        <h3>About me</h3>
+        <h4>
+            Software Engineer<br>
+            based in Karachi, Pakistan 📍
+        </h4>
+        <p>
+            Hi, I'm Sohaib Malik, a software engineer.<br><br>
+            I'm a lifelong learner, always exploring opportunities to grow my skills and knowledge.
+        </p>
+    </section>
+
+    <!-- Project Section -->
+    <section id="projects" class="projects-section">
+        <h2>Projects</h2>
+        <div class="projects-list">
+            <article class="project-item">
+                <figure>
+                    <img src="images/project-image.png" alt="Project Image">
+                    <figcaption>Project</figcaption>
+                </figure>
+                <h3>Project 1</h3>
+                <p>This project integrates traditional technologies with cutting-edge AI to deliver powerful, enhanced
+                    capabilities.</p>
+                <a href="https://github.com/sohaibdevv" target="_blank" rel="noopener">View on GitHub</a>
+            </article>
+            <article class="project-item">
+                <figure>
+                    <img src="images/project-image.png" alt="Project Image">
+                    <figcaption>Project</figcaption>
+                </figure>
+                <h3>Project 2</h3>
+                <p>This project integrates traditional technologies with cutting-edge AI to deliver powerful, enhanced
+                    capabilities.</p>
+                <a href="https://github.com/sohaibdevv" target="_blank" rel="noopener">View on GitHub</a>
+            </article>
+            <article class="project-item">
+                <figure>
+                    <img src="images/project-image.png" alt="Project Image">
+                    <figcaption>Project</figcaption>
+                </figure>
+                <h3>Project 3</h3>
+                <p>This project integrates traditional technologies with cutting-edge AI to deliver powerful, enhanced
+                    capabilities.</p>
+                <a href="https://github.com/sohaibdevv" target="_blank" rel="noopener">View on GitHub</a>
+            </article>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <h2>Tech Stack</h2>
+        <ul class="skills-list">
+            <li><img src="https://skillicons.dev/icons?i=html" alt="HTML"></li>
+            <li><img src="https://skillicons.dev/icons?i=css" alt="CSS"></li>
+            <li><img src="https://skillicons.dev/icons?i=javascript" alt="JavaScript"></li>
+            <li><img src="https://go-skill-icons.vercel.app/api/icons?i=githubcopilot&titles=true&theme=dark"
+                    alt="GitHub Copilot"></li>
+            <li><img src="https://go-skill-icons.vercel.app/api/icons?i=git&titles=true&theme=dark" alt="Git"></li>
+        </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form id="contactForm" action="#" method="post" novalidate>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <span class="error-message" id="nameError"></span>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <span class="error-message" id="emailError"></span>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <span class="error-message" id="messageError"></span>
+
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footerb">
+                <h3></h3>
+                <div class="footerb__socials">
+                    <a aria-label="linkedin" rel="noopener" target="_blank" href="https://www.linkedin.com/in/sohaib-m-malik/">
+                        <!-- LinkedIn SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-brand-linkedin">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M8 11v5" />
+                            <path d="M8 8v.01" />
+                            <path d="M12 16v-5" />
+                            <path d="M16 16v-3a2 2 0 1 0 -4 0" />
+                            <path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" />
+                        </svg>
+                    </a>
+                    <a aria-label="GitHub" rel="noopener noreferrer" target="_blank"
+                        href="https://github.com/sohaibdevv">
+                        <!-- GitHub SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-brand-github">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path
+                                d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+                        </svg>
+                    </a>
+                    <a aria-label="Hugging Face" rel="noreferrer" target="_blank" href="https://huggingface.co/sohaibdevv"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tabler-icon tabler-icon-mood-smile "><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path><path d="M9 10l.01 0"></path><path d="M15 10l.01 0"></path><path d="M9.5 15a3.5 3.5 0 0 0 5 0"></path></svg></a>
+                    <a aria-label="Medium" rel="noopener noreferrer" target="_blank"
+                        href="https://medium.com/@sohaibmalikdev">
+                        <!-- Medium SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-brand-medium">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+                            <path d="M8 9h1l3 3l3 -3h1" />
+                            <path d="M8 15l2 0" />
+                            <path d="M14 15l2 0" />
+                            <path d="M9 9l0 6" />
+                            <path d="M15 9l0 6" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

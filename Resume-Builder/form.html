@@ -1,0 +1,1742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder - CMR</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- BUILDER LAYOUT — inline CSS always wins over external rules -->
+    <style>
+      html, body { height: 100%; overflow: hidden !important; margin: 0; }
+
+      .builder-container {
+        position: fixed !important;
+        top: 76px !important;
+        left: 0 !important; right: 0 !important; bottom: 0 !important;
+        width: 100% !important; height: auto !important;
+        display: flex !important; flex-direction: row !important;
+        overflow: hidden !important;
+        z-index: 10 !important;
+        background: #f3f9f0 !important;
+      }
+
+      .builder-container > aside.sidebar {
+        width: 260px !important; min-width: 260px !important; max-width: 260px !important;
+        height: 100% !important; flex-shrink: 0 !important;
+        display: flex !important; flex-direction: column !important;
+        overflow: hidden !important;
+        background: #fefdf8 !important;
+        border-right: 1px solid #cce5d3 !important;
+        position: static !important;
+      }
+
+      .builder-container .sidebar-tab-bar {
+        height: 60px !important; min-height: 60px !important;
+        flex-shrink: 0 !important; flex-grow: 0 !important;
+        display: flex !important; align-items: stretch !important;
+        background: #fefdf8 !important;
+        border-bottom: 2px solid #cce5d3 !important;
+        padding: 0 6px !important; gap: 2px !important;
+        position: static !important; top: auto !important;
+        width: auto !important;
+      }
+      .builder-container .sidebar-tab-bar .stab {
+        display: flex !important; flex-direction: column !important;
+        align-items: center !important; justify-content: center !important;
+        gap: 3px !important; padding: 8px 6px !important;
+        font-size: 0.73rem !important; white-space: nowrap !important;
+        min-height: 0 !important; overflow: visible !important;
+      }
+
+      .builder-container .sidebar-pane {
+        display: none !important;
+        overflow-y: auto !important; overflow-x: hidden !important;
+        position: static !important;
+        top: auto !important; left: auto !important;
+        right: auto !important; bottom: auto !important;
+        height: 0 !important; flex: 0 !important;
+      }
+      .builder-container .sidebar-pane.active {
+        display: block !important;
+        height: calc(100% - 60px) !important;
+        flex: none !important;
+        overflow-y: auto !important;
+      }
+
+      .builder-container > main.builder-main {
+        flex: 1 1 0 !important; min-width: 0 !important;
+        height: 100% !important;
+        overflow-y: auto !important; overflow-x: hidden !important;
+        background: #fefdf8 !important; display: block !important;
+      }
+
+      .builder-container > aside.preview-panel {
+        width: 380px !important; min-width: 380px !important;
+        height: 100% !important; flex-shrink: 0 !important;
+        overflow-y: auto !important;
+        background: #e8f5e3 !important;
+        border-left: 1px solid #cce5d3 !important;
+        display: block !important;
+      }
+      /* EXPANDED (half-page): hide the form, preview fills the space — scrollable + editable */
+      .builder-container.preview-big > main.builder-main { display: none !important; }
+      .builder-container.preview-big > aside.preview-panel {
+        flex: 1 1 auto !important;
+        width: auto !important; min-width: 0 !important; max-width: none !important;
+        height: 100% !important;
+        overflow-y: auto !important;
+      }
+      .builder-container.preview-big > aside.preview-panel .preview-content > div:not(.error-message) {
+        zoom: 0.9 !important;
+      }
+      .builder-container.preview-big > aside.preview-panel .preview-content {
+        padding: 24px 30px !important;
+      }
+
+      @media (max-width: 1100px) {
+        .builder-container > aside.preview-panel { display: none !important; }
+        .builder-container.preview-big > aside.preview-panel { display: block !important; }
+        .builder-container.preview-big > aside.sidebar { display: none !important; }
+      }
+      @media (max-width: 700px) {
+        .builder-container > aside.sidebar { display: none !important; }
+        .builder-container { top: 60px !important; }
+      }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <img src="logo.png" alt="CMR" class="logo-icon" style="width:36px;height:36px;object-fit:contain;border-radius:6px;">
+                    <div class="logo-text">
+                        <h1>CMR</h1>
+                        <span>Resume Builder</span>
+                    </div>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Templates</a>
+                    <a href="form.html" class="nav-link active">Builder</a>
+                    <a href="cover.html" class="nav-link">Cover Letter</a>
+                </div>
+                <div class="nav-actions"></div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Welcome Guide — shown on first visit -->
+    <div id="welcomeGuide" class="welcome-guide" style="display:none">
+      <div class="welcome-guide-content">
+        <h2>Welcome to CMR Builder! 👋</h2>
+        <p>Build your professional resume in 5 simple steps — your preview updates live as you type.</p>
+        <div class="welcome-steps">
+          <div class="welcome-step">
+            <div class="ws-num">1</div>
+            <div class="ws-info"><strong>Personal Info</strong><span>Name, email, phone, summary & photo</span></div>
+          </div>
+          <div class="welcome-step">
+            <div class="ws-num">2</div>
+            <div class="ws-info"><strong>Work Experience</strong><span>Your jobs, roles and achievements</span></div>
+          </div>
+          <div class="welcome-step">
+            <div class="ws-num">3</div>
+            <div class="ws-info"><strong>Education</strong><span>Degrees, colleges and qualifications</span></div>
+          </div>
+          <div class="welcome-step">
+            <div class="ws-num">4</div>
+            <div class="ws-info"><strong>Skills</strong><span>Technical skills, soft skills, languages</span></div>
+          </div>
+          <div class="welcome-step">
+            <div class="ws-num">5</div>
+            <div class="ws-info"><strong>Download PDF</strong><span>Pick a template from the left and export</span></div>
+          </div>
+        </div>
+        <div class="welcome-tips">
+          <p>🎨 Change template anytime — your data stays safe</p>
+          <p>🤖 Tap the AI button to auto-fill your resume instantly</p>
+          <p>📊 ATS Score shows how recruiter-friendly your resume is</p>
+        </div>
+        <button class="btn btn-primary btn-large" onclick="closeWelcomeGuide()" style="width:100%">Start Building My Resume →</button>
+      </div>
+    </div>
+
+    <div id="offlineIndicator" class="offline-indicator hidden">
+      <span class="offline-icon">📡</span>
+      <span>You are offline - Your work is saved locally</span>
+    </div>
+
+    <div class="builder-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- 3-Tab bar — fixed at top -->
+            <div class="sidebar-tab-bar">
+                <button class="stab active" id="stab-btn-templates" onclick="showSidebarTab('templates')" title="Choose Template">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                    Templates
+                </button>
+                <button class="stab" id="stab-btn-design" onclick="showSidebarTab('design')" title="Colours & Fonts">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 0 0 20"/><path d="M12 12l6-6"/></svg>
+                    Design
+                </button>
+                <button class="stab" id="stab-btn-tools" onclick="showSidebarTab('tools')" title="Download & ATS">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    Tools
+                </button>
+            </div>
+
+            <!-- TAB 1: Templates -->
+            <div class="sidebar-pane active" id="stab-templates">
+                <div class="sidebar-content-inner">
+                    <div class="builder-mode-switch">
+                        <button class="bmode-btn active" id="resumeModeBtn" onclick="switchBuilderMode('resume')">📄 Resume</button>
+                        <button class="bmode-btn" id="cvModeBtn" onclick="switchBuilderMode('cv')">🎓 CV</button>
+                    </div>
+
+                    <!-- Hidden select kept for script.js compatibility -->
+                    <select id="templateSelect" onchange="changeTemplate()" style="display:none">
+                        <optgroup label="Classic">
+                          <option value="modern">Modern Professional</option>
+                          <option value="classic">Classic Traditional</option>
+                          <option value="elegant">Elegant Minimal</option>
+                          <option value="creative">Creative Bold</option>
+                          <option value="ats-friendly">ATS Optimized</option>
+                          <option value="executive">Executive Premium</option>
+                          <option value="tech">Tech Specialist</option>
+                          <option value="academic">Academic Scholar</option>
+                        </optgroup>
+                        <optgroup label="Premium with Photo">
+                          <option value="premium1">Onyx Executive</option>
+                          <option value="premium2">Rose Gold Luxury</option>
+                          <option value="premium3">Nordic Minimal</option>
+                          <option value="premium4">Cyber Neon Dark</option>
+                          <option value="premium5">Navy Gold Executive</option>
+                          <option value="premium6">Magazine Bold</option>
+                          <option value="premium7">Pastel Professional</option>
+                          <option value="premium8">Coral Modern</option>
+                          <option value="premium9">Forest Executive</option>
+                          <option value="premium10">Timeline Pro</option>
+                        </optgroup>
+                        <optgroup label="Glassmorphism">
+                          <option value="glass1">Glass Aurora</option>
+                          <option value="glass2">Glass Ocean</option>
+                          <option value="glass3">Glass Emerald</option>
+                          <option value="glass4">Glass Rose</option>
+                          <option value="glass5">Glass Midnight</option>
+                          <option value="glass6">Glass Holographic</option>
+                        </optgroup>
+                        <optgroup label="Dark + Photo">
+                          <option value="darkPhoto1">Dark Crimson</option>
+                          <option value="darkPhoto2">Dark Indigo</option>
+                          <option value="darkPhoto3">Dark Emerald</option>
+                          <option value="darkPhoto4">Dark Gold</option>
+                          <option value="darkPhoto5">Dark Rose</option>
+                          <option value="darkPhoto6">Dark Violet</option>
+                        </optgroup>
+                        <optgroup label="Gradient + Photo">
+                          <option value="gradientPhoto1">Gradient Sunrise</option>
+                          <option value="gradientPhoto2">Gradient Ocean</option>
+                          <option value="gradientPhoto3">Gradient Forest</option>
+                          <option value="gradientPhoto4">Gradient Sunset</option>
+                          <option value="gradientPhoto5">Gradient Aurora</option>
+                          <option value="gradientPhoto6">Gradient Lavender</option>
+                        </optgroup>
+                        <optgroup label="Split + Photo">
+                          <option value="splitPhoto1">Split Minimal</option>
+                          <option value="splitPhoto2">Split Bold</option>
+                          <option value="splitPhoto3">Split Classic</option>
+                          <option value="splitPhoto4">Split Dark</option>
+                          <option value="splitPhoto5">Split Warm</option>
+                          <option value="splitPhoto6">Split Cool</option>
+                        </optgroup>
+                        <optgroup label="Minimal + Photo">
+                          <option value="minimalPhoto1">Minimal Clean</option>
+                          <option value="minimalPhoto2">Minimal Line</option>
+                          <option value="minimalPhoto3">Minimal Dot</option>
+                          <option value="minimalPhoto4">Minimal Square</option>
+                          <option value="minimalPhoto5">Minimal Arc</option>
+                        </optgroup>
+                        <optgroup label="Creative + Photo">
+                          <option value="creativePhoto1">Creative Vivid</option>
+                          <option value="creativePhoto2">Creative Retro</option>
+                          <option value="creativePhoto3">Creative Dark</option>
+                          <option value="creativePhoto4">Creative Warm</option>
+                          <option value="creativePhoto5">Creative Minimal</option>
+                        </optgroup>
+                        <optgroup label="Creative Shapes">
+                          <option value="creative13">Hexagon</option>
+                          <option value="creative14">Arrow</option>
+                          <option value="creative15">Spiral</option>
+                          <option value="creative16">Lightning</option>
+                          <option value="creative17">Crystal</option>
+                          <option value="creative18">Flame</option>
+                        </optgroup>
+                        <optgroup label="CV Formats">
+                          <option value="cv-academic">Academic CV</option>
+                          <option value="cv-professional">Professional CV</option>
+                          <option value="cv-executive">Executive CV</option>
+                          <option value="cv-creative">Creative CV</option>
+                          <option value="cv-technical">Technical CV</option>
+                        </optgroup>
+                    </select>
+
+                    <!-- Visual Card Picker — Resume Mode -->
+                    <div class="tpl-picker-wrap" id="resumePickerWrap">
+                        <div class="tpl-cat-row">
+                            <span class="tpl-cat-lbl">🏆 Premium Picks — One Page</span>
+                        </div>
+                        <div class="tpl-grid">
+                            <div class="tpl-card" data-value="resumeWorded" onclick="pickTemplate('resumeWorded')"><div class="tpl-thumb" style="background:#fff;border-bottom:2px solid #111"><div class="tpl-lines" style="left:8%;right:30%"></div></div><span>Resume Worded</span></div>
+                            <div class="tpl-card" data-value="carlosTorres" onclick="pickTemplate('carlosTorres')"><div class="tpl-thumb" style="background:linear-gradient(#1a1a1a 22%,#fff 22%)"><div class="tpl-lines" style="margin-top:14px;border-color:#2d8653"></div></div><span>Carlos Blue</span></div>
+                            <div class="tpl-card" data-value="prashantSingh" onclick="pickTemplate('prashantSingh')"><div class="tpl-thumb" style="background:#fff"><div class="tpl-lines" style="left:8%;right:8%"></div></div><span>Academic Pro</span></div>
+                            <div class="tpl-card" data-value="greyLining" onclick="pickTemplate('greyLining')"><div class="tpl-thumb" style="background:#fff;border-left:3px solid #2d8653"><div class="tpl-bar" style="background:#eceef0;width:100%;height:8px;position:absolute;top:14px;left:0"></div><div class="tpl-lines" style="margin-top:6px"></div></div><span>Grey Lining</span></div>
+                            <div class="tpl-card" data-value="basicBlue" onclick="pickTemplate('basicBlue')"><div class="tpl-thumb" style="background:linear-gradient(#3a3f47 22%,#fff 22%)"><div class="tpl-lines" style="margin-top:14px;margin-left:38%"></div></div><span>Basic Blue</span></div>
+                            <div class="tpl-card" data-value="greenElegance" onclick="pickTemplate('greenElegance')"><div class="tpl-thumb" style="background:linear-gradient(to right,#fff 64%,#f0faf3 64%)"><div class="tpl-photo-dot" style="top:6px;left:auto;right:8px;width:13px;height:13px;transform:none;border-color:#2d8653"></div><div class="tpl-lines" style="right:38%"></div></div><span>Green Elegance</span></div>
+                        </div>
+                        <div class="tpl-cat-row">
+                            <span class="tpl-cat-lbl">⭐ Single Page Pro — Recommended</span>
+                        </div>
+                        <div class="tpl-grid">
+                            <div class="tpl-card" data-value="proSimple" onclick="pickTemplate('proSimple')"><div class="tpl-thumb" style="background:#fff;border-bottom:3px solid #2d8653"><div class="tpl-photo-dot" style="top:6px;left:auto;right:8px;width:14px;height:14px;transform:none"></div><div class="tpl-lines"></div></div><span>Pro Simple</span></div>
+                            <div class="tpl-card" data-value="proSidebar" onclick="pickTemplate('proSidebar')"><div class="tpl-thumb" style="background:linear-gradient(to right,#fff 62%,#2d8653 62%)"><div class="tpl-lines" style="right:42%"></div></div><span>Pro Sidebar</span></div>
+                            <div class="tpl-card" data-value="proTimeline" onclick="pickTemplate('proTimeline')"><div class="tpl-thumb" style="background:#fff;border-top:3px solid #2d8653"><div class="tpl-timeline-dot"></div><div class="tpl-lines" style="margin-left:12px"></div></div><span>Pro Timeline</span></div>
+                            <div class="tpl-card" data-value="proMinimal" onclick="pickTemplate('proMinimal')"><div class="tpl-thumb" style="background:#fff"><div class="tpl-lines" style="text-align:center;left:25%;right:25%"></div></div><span>Pro Minimal</span></div>
+                        </div>
+                        <div class="tpl-cat-row">
+                            <span class="tpl-cat-lbl">✅ ATS Pro Designs</span>
+                        </div>
+                        <div class="tpl-grid">
+                            <div class="tpl-card" data-value="atsHarvard" onclick="pickTemplate('atsHarvard')"><div class="tpl-thumb" style="background:#fff;border-bottom:2px solid #000"><div class="tpl-lines" style="text-align:center;left:25%;right:25%"></div></div><span>Harvard</span></div>
+                            <div class="tpl-card" data-value="atsBlueAccent" onclick="pickTemplate('atsBlueAccent')"><div class="tpl-thumb" style="background:#fff;border-top:5px solid #2563eb"><div class="tpl-lines"></div></div><span>Blue Accent</span></div>
+                            <div class="tpl-card" data-value="atsLeftBar" onclick="pickTemplate('atsLeftBar')"><div class="tpl-thumb" style="background:#fff;border-left:5px solid #2d8653"><div class="tpl-lines"></div></div><span>Left Bar</span></div>
+                            <div class="tpl-card" data-value="atsTwoColumn" onclick="pickTemplate('atsTwoColumn')"><div class="tpl-thumb" style="background:linear-gradient(to right,#fff 62%,#f5f5f5 62%)"><div class="tpl-lines" style="right:42%"></div></div><span>Two Column</span></div>
+                            <div class="tpl-card" data-value="atsBoldName" onclick="pickTemplate('atsBoldName')"><div class="tpl-thumb" style="background:#fff;border-bottom:3px solid #1a1a1a"><div class="tpl-lines" style="border-color:#2d8653"></div></div><span>Bold Name</span></div>
+                            <div class="tpl-card" data-value="atsModernGray" onclick="pickTemplate('atsModernGray')"><div class="tpl-thumb" style="background:#fafafa"><div class="tpl-lines" style="background:#fff"></div></div><span>Modern Gray</span></div>
+                            <div class="tpl-card" data-value="atsCompact" onclick="pickTemplate('atsCompact')"><div class="tpl-thumb" style="background:#fff"><div class="tpl-lines" style="gap:2px"></div></div><span>Compact</span></div>
+                            <div class="tpl-card" data-value="atsUnderline" onclick="pickTemplate('atsUnderline')"><div class="tpl-thumb" style="background:#fff;border-bottom:2px solid #2d8653"><div class="tpl-lines"></div></div><span>Underline</span></div>
+                            <div class="tpl-card" data-value="atsHeaderBand" onclick="pickTemplate('atsHeaderBand')"><div class="tpl-thumb" style="background:linear-gradient(#2d8653 30%,#fff 30%)"><div class="tpl-lines" style="margin-top:8px"></div></div><span>Header Band</span></div>
+                            <div class="tpl-card" data-value="atsElegantSerif" onclick="pickTemplate('atsElegantSerif')"><div class="tpl-thumb" style="background:#fff"><div class="tpl-lines" style="text-align:center;left:25%;right:25%"></div></div><span>Elegant</span></div>
+                        </div>
+                        <div class="tpl-cat-row">
+                            <span class="tpl-cat-lbl">Classic</span>
+                        </div>
+                        <div class="tpl-grid">
+                            <div class="tpl-card active" data-value="modern" onclick="pickTemplate('modern')"><div class="tpl-thumb" style="background:#fff;border-bottom:3px solid #2d8653"><div class="tpl-bar" style="background:#2d8653;width:4px;height:100%;position:absolute;left:0;top:0"></div><div class="tpl-lines"></div></div><span>Modern Pro</span></div>
+                            <div class="tpl-card" data-value="classic" onclick="pickTemplate('classic')"><div class="tpl-thumb" style="background:#fff;border-top:4px solid #1a2e20"><div class="tpl-lines"></div></div><span>Classic</span></div>
+                            <div class="tpl-card" data-value="elegant" onclick="pickTemplate('elegant')"><div class="tpl-thumb" style="background:#fffdf5;border-bottom:2px solid #c8a85a"><div class="tpl-lines"></div></div><span>Elegant</span></div>
+                            <div class="tpl-card" data-value="creative" onclick="pickTemplate('creative')"><div class="tpl-thumb" style="background:linear-gradient(135deg,#2d8653 40%,#fff 40%)"><div class="tpl-lines" style="margin-left:40%"></div></div><span>Creative</span></div>
+                            <div class="tpl-card" data-value="ats-friendly" onclick="pickTemplate('ats-friendly')"><div class="tpl-thumb" style="background:#fff"><div class="tpl-lines"></div></div><span>ATS Clean</span></div>
+                            <div class="tpl-card" data-value="executive" onclick="pickTemplate('executive')"><div class="tpl-thumb" style="background:#fff;border-top:2px solid var(--primary-color,#2d8653)"><div class="tpl-lines"></div></div><span>Executive</span></div>
+                            <div class="tpl-card" data-value="tech" onclick="pickTemplate('tech')"><div class="tpl-thumb" style="background:#fff;border-top:2px solid #22c55e"><div class="tpl-lines"></div></div><span>Tech</span></div>
+                            <div class="tpl-card" data-value="academic" onclick="pickTemplate('academic')"><div class="tpl-thumb" style="background:#fff;border-left:5px double #1a2e20"><div class="tpl-lines"></div></div><span>Academic</span></div>
+                        </div>
+
+                        <div class="tpl-cat-row"><span class="tpl-cat-lbl">Clean + Photo</span></div>
+                        <div class="tpl-grid">
+                            <div class="tpl-card" data-value="premium2" onclick="pickTemplate('premium2')"><div class="tpl-thumb tp-premium" style="background:#fdf2f4"><div class="tpl-photo-dot" style="border-color:#e8a0b0"></div></div><span>Rose Gold</span></div>
+                            <div class="tpl-card" data-value="premium3" onclick="pickTemplate('premium3')"><div class="tpl-thumb tp-premium" style="background:#f8fafc"><div class="tpl-photo-dot" style="border-color:#334155"></div></div><span>Nordic</span></div>
+                            <div class="tpl-card" data-value="premium7" onclick="pickTemplate('premium7')"><div class="tpl-thumb tp-premium" style="background:#fdf2f8"><div class="tpl-photo-dot" style="border-color:#e91e63"></div></div><span>Pastel</span></div>
+                            <div class="tpl-card" data-value="premium10" onclick="pickTemplate('premium10')"><div class="tpl-thumb" style="background:#fff;border-left:3px solid #2d8653"><div class="tpl-timeline-dot"></div><div class="tpl-lines"></div></div><span>Timeline</span></div>
+                            <div class="tpl-card" data-value="splitPhoto1" onclick="pickTemplate('splitPhoto1')"><div class="tpl-thumb" style="background:linear-gradient(to right,#e8f5e3 40%,#fff 40%)"><div class="tpl-photo-dot" style="left:20%;top:30%;border-color:#2d8653;transform:none"></div></div><span>Split Mint</span></div>
+                            <div class="tpl-card" data-value="splitPhoto5" onclick="pickTemplate('splitPhoto5')"><div class="tpl-thumb" style="background:linear-gradient(to right,#ffe8d6 40%,#fff 40%)"><div class="tpl-photo-dot" style="left:20%;top:30%;border-color:#d4845a;transform:none"></div></div><span>Split Warm</span></div>
+                            <div class="tpl-card" data-value="splitPhoto6" onclick="pickTemplate('splitPhoto6')"><div class="tpl-thumb" style="background:linear-gradient(to right,#e0f2fe 40%,#fff 40%)"><div class="tpl-photo-dot" style="left:20%;top:30%;border-color:#0ea5e9;transform:none"></div></div><span>Split Cool</span></div>
+                            <div class="tpl-card" data-value="minimalPhoto1" onclick="pickTemplate('minimalPhoto1')"><div class="tpl-thumb tp-premium" style="background:#fafafa"><div class="tpl-photo-dot" style="border-color:#94a3b8"></div></div><span>Min Clean</span></div>
+                            <div class="tpl-card" data-value="minimalPhoto2" onclick="pickTemplate('minimalPhoto2')"><div class="tpl-thumb tp-premium" style="background:#fff;border-top:2px solid #1a2e20"><div class="tpl-photo-dot" style="border-color:#1a2e20"></div></div><span>Min Line</span></div>
+                            <div class="tpl-card" data-value="premium6" onclick="pickTemplate('premium6')"><div class="tpl-thumb tp-premium" style="background:linear-gradient(to right,#e8f5e3 50%,#fff 50%)"><div class="tpl-photo-dot" style="left:25%;transform:translateX(-50%);border-color:#2d8653"></div></div><span>Magazine</span></div>
+                        </div>
+
+                        <div class="tpl-cat-row"><span class="tpl-cat-lbl">Minimal + Creative</span></div>
+                        <div class="tpl-grid">
+                            <div class="tpl-card" data-value="minimalPhoto1" onclick="pickTemplate('minimalPhoto1')"><div class="tpl-thumb tp-premium" style="background:#fafafa"><div class="tpl-photo-dot" style="border-color:#94a3b8"></div></div><span>Min Clean</span></div>
+                            <div class="tpl-card" data-value="minimalPhoto2" onclick="pickTemplate('minimalPhoto2')"><div class="tpl-thumb tp-premium" style="background:#fff;border-top:2px solid #1a2e20"><div class="tpl-photo-dot" style="border-color:#1a2e20"></div></div><span>Min Line</span></div>
+                            <div class="tpl-card" data-value="minimalPhoto3" onclick="pickTemplate('minimalPhoto3')"><div class="tpl-thumb tp-premium" style="background:#fff"><div class="tpl-photo-dot" style="border-radius:0;border-color:#2d8653"></div></div><span>Min Dot</span></div>
+                            <div class="tpl-card" data-value="creativePhoto1" onclick="pickTemplate('creativePhoto1')"><div class="tpl-thumb tp-premium" style="background:linear-gradient(135deg,#ff6b6b,#feca57)"><div class="tpl-photo-dot"></div></div><span>Vivid</span></div>
+                            <div class="tpl-card" data-value="creativePhoto2" onclick="pickTemplate('creativePhoto2')"><div class="tpl-thumb tp-premium" style="background:linear-gradient(135deg,#f39c12,#e74c3c)"><div class="tpl-photo-dot"></div></div><span>Retro</span></div>
+                            <div class="tpl-card" data-value="creative13" onclick="pickTemplate('creative13')"><div class="tpl-thumb" style="background:#1a2e20"><div class="tpl-hex"></div></div><span>Hexagon</span></div>
+                        </div>
+                    </div>
+
+
+                        <div class="tpl-cat-row"><span class="tpl-cat-lbl">ATS Optimized</span></div>
+                        <div class="tpl-grid">
+                            <div class="tpl-card" data-value="ats-friendly" onclick="pickTemplate('ats-friendly')"><div class="tpl-thumb" style="background:#fff"><div class="tpl-lines"></div></div><span>ATS Clean</span></div>
+                            <div class="tpl-card" data-value="atsModernProfessional" onclick="pickTemplate('atsModernProfessional')"><div class="tpl-thumb" style="background:#fff;border-top:3px solid #2d8653"><div class="tpl-lines"></div></div><span>ATS Modern</span></div>
+                            <div class="tpl-card" data-value="atsAcademicProfile" onclick="pickTemplate('atsAcademicProfile')"><div class="tpl-thumb" style="background:#fff;border-left:3px solid #1f6b42"><div class="tpl-lines"></div></div><span>ATS Academic</span></div>
+                            <div class="tpl-card" data-value="atsCareerSwitch" onclick="pickTemplate('atsCareerSwitch')"><div class="tpl-thumb" style="background:#f0fff4;border-top:3px solid #52c27a"><div class="tpl-lines"></div></div><span>Career Switch</span></div>
+                            <div class="tpl-card" data-value="atsChronologicalFocus" onclick="pickTemplate('atsChronologicalFocus')"><div class="tpl-thumb" style="background:#fff;border-top:2px solid #1a2e20"><div class="tpl-lines"></div></div><span>Chronological</span></div>
+                            <div class="tpl-card" data-value="atsCompactPro" onclick="pickTemplate('atsCompactPro')"><div class="tpl-thumb" style="background:#fafafa"><div class="tpl-lines"></div></div><span>Compact Pro</span></div>
+                            <div class="tpl-card" data-value="atsExecutiveMinimal" onclick="pickTemplate('atsExecutiveMinimal')"><div class="tpl-thumb" style="background:#fff;border-left:4px solid #1a2e20"><div class="tpl-lines"></div></div><span>Exec Minimal</span></div>
+                            <div class="tpl-card" data-value="atsLegalFinanceReady" onclick="pickTemplate('atsLegalFinanceReady')"><div class="tpl-thumb" style="background:#fff;border-top:3px solid #b45309"><div class="tpl-lines"></div></div><span>Legal/Finance</span></div>
+                            <div class="tpl-card" data-value="atsPrimeClassic" onclick="pickTemplate('atsPrimeClassic')"><div class="tpl-thumb" style="background:#fffdf5"><div class="tpl-lines"></div></div><span>Prime Classic</span></div>
+                            <div class="tpl-card" data-value="atsSimpleTimeline" onclick="pickTemplate('atsSimpleTimeline')"><div class="tpl-thumb" style="background:#fff;border-left:3px solid #2d8653"><div class="tpl-lines"></div></div><span>Timeline</span></div>
+                            <div class="tpl-card" data-value="atsSkillsFirst" onclick="pickTemplate('atsSkillsFirst')"><div class="tpl-thumb" style="background:#e8f5e3;border-top:3px solid #2d8653"><div class="tpl-lines"></div></div><span>Skills First</span></div>
+                            <div class="tpl-card" data-value="atsTechnicalLayout" onclick="pickTemplate('atsTechnicalLayout')"><div class="tpl-thumb" style="background:#fff;border-top:2px solid #22c55e"><div class="tpl-lines"></div></div><span>Technical</span></div>
+                            <div class="tpl-card" data-value="atsWideHeader" onclick="pickTemplate('atsWideHeader')"><div class="tpl-thumb" style="background:#fff;border-top:3px solid #2d8653"><div class="tpl-lines"></div></div><span>Wide Header</span></div>
+                            <div class="tpl-card" data-value="modernATS" onclick="pickTemplate('modernATS')"><div class="tpl-thumb" style="background:#fff;border-top:4px solid #3b82f6"><div class="tpl-lines"></div></div><span>Modern ATS</span></div>
+                        </div>
+
+                        <div class="tpl-cat-row"><span class="tpl-cat-lbl">✨ New Clean ATS</span></div>
+                        <div class="tpl-grid">
+                            <div class="tpl-card" data-value="atsPinnacle" onclick="pickTemplate('atsPinnacle')"><div class="tpl-thumb" style="background:#fff;border-bottom:2px solid var(--primary-color,#2d8653)"><div class="tpl-lines"></div></div><span>Pinnacle</span></div>
+                            <div class="tpl-card" data-value="atsLeaderPro" onclick="pickTemplate('atsLeaderPro')"><div class="tpl-thumb" style="background:linear-gradient(to right,#fff 62%,#f9fafb 62%)"><div class="tpl-lines" style="right:42%"></div></div><span>Leader Pro</span></div>
+                            <div class="tpl-card" data-value="atsGradPro" onclick="pickTemplate('atsGradPro')"><div class="tpl-thumb" style="background:#fff;border-bottom:2px solid #2d8653"><div class="tpl-lines" style="text-align:right;left:auto;right:0;width:50%"></div></div><span>Grad Pro</span></div>
+                            <div class="tpl-card" data-value="atsSeniorExpert" onclick="pickTemplate('atsSeniorExpert')"><div class="tpl-thumb" style="background:#fff"><div class="tpl-lines" style="text-align:center;left:20%;right:20%"></div></div><span>Senior Expert</span></div>
+                            <div class="tpl-card" data-value="atsCrossRule" onclick="pickTemplate('atsCrossRule')"><div class="tpl-thumb" style="background:#fff;border-top:1px solid #2d8653"><div class="tpl-lines"></div></div><span>Cross Rule</span></div>
+                            <div class="tpl-card" data-value="atsCleanGrid" onclick="pickTemplate('atsCleanGrid')"><div class="tpl-thumb" style="background:linear-gradient(to bottom,#f9fafb 38%,#fff 38%)"><div class="tpl-lines" style="margin-top:18px"></div></div><span>Clean Grid</span></div>
+                            <div class="tpl-card" data-value="atsCorporate" onclick="pickTemplate('atsCorporate')"><div class="tpl-thumb" style="background:#fff;border-left:3px solid var(--primary-color,#2d8653)"><div class="tpl-lines"></div></div><span>Corporate</span></div>
+                            <div class="tpl-card" data-value="atsOnePager" onclick="pickTemplate('atsOnePager')"><div class="tpl-thumb" style="background:#fff;border-bottom:1.5px solid #2d8653"><div class="tpl-lines" style="gap:2px"></div></div><span>One Pager</span></div>
+                            <div class="tpl-card" data-value="atsNarrowBorder" onclick="pickTemplate('atsNarrowBorder')"><div class="tpl-thumb" style="background:#fff;border-left:4px solid var(--primary-color,#2d8653)"><div class="tpl-lines" style="margin-left:8px"></div></div><span>Narrow Border</span></div>
+                            <div class="tpl-card" data-value="atsTableClean" onclick="pickTemplate('atsTableClean')"><div class="tpl-thumb" style="background:#fff;border-top:2px solid var(--primary-color,#2d8653)"><div class="tpl-lines"></div></div><span>Table Clean</span></div>
+                            <div class="tpl-card" data-value="atsMidLevel" onclick="pickTemplate('atsMidLevel')"><div class="tpl-thumb" style="background:linear-gradient(to right,#fff 62%,#f9fafb 62%)"><div class="tpl-lines" style="right:42%"></div></div><span>Mid Level</span></div>
+                        </div>
+
+                        <div class="tpl-cat-row"><span class="tpl-cat-lbl">Professional</span></div>
+                        <div class="tpl-grid">
+                            <div class="tpl-card" data-value="professional1" onclick="pickTemplate('professional1')"><div class="tpl-thumb" style="background:#fff;border-left:4px solid #2d8653"><div class="tpl-lines"></div></div><span>Pro 1</span></div>
+                            <div class="tpl-card" data-value="professional2" onclick="pickTemplate('professional2')"><div class="tpl-thumb" style="background:#1a2e20"><div class="tpl-lines"></div></div><span>Pro 2</span></div>
+                            <div class="tpl-card" data-value="professional3" onclick="pickTemplate('professional3')"><div class="tpl-thumb" style="background:#fff;border-top:3px solid #1e3a5f"><div class="tpl-lines"></div></div><span>Pro 3</span></div>
+                            <div class="tpl-card" data-value="professional4" onclick="pickTemplate('professional4')"><div class="tpl-thumb" style="background:#1e3a5f"><div class="tpl-lines"></div></div><span>Pro 4</span></div>
+                            <div class="tpl-card" data-value="professional5" onclick="pickTemplate('professional5')"><div class="tpl-thumb" style="background:#fff;border-left:3px solid #b45309"><div class="tpl-lines"></div></div><span>Pro 5</span></div>
+                            <div class="tpl-card" data-value="professional6" onclick="pickTemplate('professional6')"><div class="tpl-thumb" style="background:#fff;border-top:3px solid #ef4444"><div class="tpl-lines"></div></div><span>Pro 6</span></div>
+                            <div class="tpl-card" data-value="professional7" onclick="pickTemplate('professional7')"><div class="tpl-thumb" style="background:#fafafa;border-left:3px solid #475569"><div class="tpl-lines"></div></div><span>Pro 7</span></div>
+                            <div class="tpl-card" data-value="professional8" onclick="pickTemplate('professional8')"><div class="tpl-thumb" style="background:#fff;border-top:5px solid #2d8653"><div class="tpl-lines"></div></div><span>Pro 8</span></div>
+                        </div>
+
+                        <div class="tpl-cat-row"><span class="tpl-cat-lbl">Modern</span></div>
+                        <div class="tpl-grid">
+                            <div class="tpl-card" data-value="modern1" onclick="pickTemplate('modern1')"><div class="tpl-thumb" style="background:linear-gradient(135deg,#2d8653 35%,#fff 35%)"><div class="tpl-lines"></div></div><span>Modern 1</span></div>
+                            <div class="tpl-card" data-value="modern2" onclick="pickTemplate('modern2')"><div class="tpl-thumb" style="background:#fff;border-top:4px solid #3b82f6"><div class="tpl-lines"></div></div><span>Modern 2</span></div>
+                            <div class="tpl-card" data-value="modern3" onclick="pickTemplate('modern3')"><div class="tpl-thumb" style="background:linear-gradient(to right,#1a2e20 40%,#fff 40%)"><div class="tpl-lines"></div></div><span>Modern 3</span></div>
+                            <div class="tpl-card" data-value="modern4" onclick="pickTemplate('modern4')"><div class="tpl-thumb" style="background:#fff;border-left:5px solid #f59e0b"><div class="tpl-lines"></div></div><span>Modern 4</span></div>
+                            <div class="tpl-card" data-value="modernSidebarBlue" onclick="pickTemplate('modernSidebarBlue')"><div class="tpl-thumb" style="background:linear-gradient(to right,#1e3a5f 35%,#fff 35%)"><div class="tpl-lines"></div></div><span>Sidebar Blue</span></div>
+                        </div>
+
+                        <div class="tpl-cat-row"><span class="tpl-cat-lbl">Elegant</span></div>
+                        <div class="tpl-grid">
+                            <div class="tpl-card" data-value="elegant1" onclick="pickTemplate('elegant1')"><div class="tpl-thumb" style="background:#fffdf5;border-top:2px solid #c8a85a"><div class="tpl-lines"></div></div><span>Elegant 1</span></div>
+                            <div class="tpl-card" data-value="elegant2" onclick="pickTemplate('elegant2')"><div class="tpl-thumb" style="background:#fff;border-left:2px solid #c8a85a"><div class="tpl-lines"></div></div><span>Elegant 2</span></div>
+                            <div class="tpl-card" data-value="elegant3" onclick="pickTemplate('elegant3')"><div class="tpl-thumb" style="background:#1a1209;border-top:2px solid #c8a85a"><div class="tpl-lines"></div></div><span>Elegant 3</span></div>
+                            <div class="tpl-card" data-value="elegant4" onclick="pickTemplate('elegant4')"><div class="tpl-thumb" style="background:#fffdf5;border:1px solid #e8d9a0"><div class="tpl-lines"></div></div><span>Elegant 4</span></div>
+                            <div class="tpl-card" data-value="elegantModern" onclick="pickTemplate('elegantModern')"><div class="tpl-thumb" style="background:linear-gradient(to right,#fffdf5 60%,#e8d9a0 60%)"><div class="tpl-lines"></div></div><span>Elegant Mod</span></div>
+                        </div>
+
+                        <div class="tpl-cat-row"><span class="tpl-cat-lbl">Tech Themes</span></div>
+                        <div class="tpl-grid">
+                            <div class="tpl-card" data-value="tech1" onclick="pickTemplate('tech1')"><div class="tpl-thumb" style="background:#0d1710"><div class="tpl-lines"></div></div><span>Tech 1</span></div>
+                            <div class="tpl-card" data-value="tech2" onclick="pickTemplate('tech2')"><div class="tpl-thumb" style="background:#0a0f1a"><div class="tpl-lines"></div></div><span>Tech 2</span></div>
+                            <div class="tpl-card" data-value="tech3" onclick="pickTemplate('tech3')"><div class="tpl-thumb" style="background:#050d1a;border-top:2px solid #00ffcc"><div class="tpl-lines"></div></div><span>Tech 3</span></div>
+                            <div class="tpl-card" data-value="tech4" onclick="pickTemplate('tech4')"><div class="tpl-thumb" style="background:#1a1a2e"><div class="tpl-lines"></div></div><span>Tech 4</span></div>
+                            <div class="tpl-card" data-value="tech5" onclick="pickTemplate('tech5')"><div class="tpl-thumb" style="background:#0d1710;border-left:3px solid #52c27a"><div class="tpl-lines"></div></div><span>Tech 5</span></div>
+                            <div class="tpl-card" data-value="tech6" onclick="pickTemplate('tech6')"><div class="tpl-thumb" style="background:#0f172a;border-top:3px solid #38bdf8"><div class="tpl-lines"></div></div><span>Tech 6</span></div>
+                            <div class="tpl-card" data-value="tech7" onclick="pickTemplate('tech7')"><div class="tpl-thumb" style="background:#0d1710"><div class="tpl-lines"></div></div><span>Tech 7</span></div>
+                            <div class="tpl-card" data-value="tech8" onclick="pickTemplate('tech8')"><div class="tpl-thumb" style="background:#0a0a0a;border-left:3px solid #a855f7"><div class="tpl-lines"></div></div><span>Tech 8</span></div>
+                            <div class="tpl-card" data-value="techGrid" onclick="pickTemplate('techGrid')"><div class="tpl-thumb" style="background:#0d1710;border:1px solid #1e3524"><div class="tpl-lines"></div></div><span>Tech Grid</span></div>
+                            <div class="tpl-card" data-value="technology" onclick="pickTemplate('technology')"><div class="tpl-thumb" style="background:linear-gradient(135deg,#0d1710,#1a2e20)"><div class="tpl-lines"></div></div><span>Technology</span></div>
+                        </div>
+
+                        <div class="tpl-cat-row"><span class="tpl-cat-lbl">Creative</span></div>
+                        <div class="tpl-grid">
+                            <div class="tpl-card" data-value="creative1" onclick="pickTemplate('creative1')"><div class="tpl-thumb" style="background:linear-gradient(135deg,#ff6b6b,#ffd93d)"><div class="tpl-lines"></div></div><span>Creative 1</span></div>
+                            <div class="tpl-card" data-value="creative2" onclick="pickTemplate('creative2')"><div class="tpl-thumb" style="background:linear-gradient(135deg,#6c5ce7,#fd79a8)"><div class="tpl-lines"></div></div><span>Creative 2</span></div>
+                            <div class="tpl-card" data-value="creative3" onclick="pickTemplate('creative3')"><div class="tpl-thumb" style="background:linear-gradient(135deg,#00b894,#00cec9)"><div class="tpl-lines"></div></div><span>Creative 3</span></div>
+                            <div class="tpl-card" data-value="creative4" onclick="pickTemplate('creative4')"><div class="tpl-thumb" style="background:linear-gradient(135deg,#e17055,#fdcb6e)"><div class="tpl-lines"></div></div><span>Creative 4</span></div>
+                            <div class="tpl-card" data-value="creative5" onclick="pickTemplate('creative5')"><div class="tpl-thumb" style="background:linear-gradient(135deg,#0984e3,#74b9ff)"><div class="tpl-lines"></div></div><span>Creative 5</span></div>
+                            <div class="tpl-card" data-value="creative6" onclick="pickTemplate('creative6')"><div class="tpl-thumb" style="background:linear-gradient(135deg,#6c5ce7,#a29bfe)"><div class="tpl-lines"></div></div><span>Creative 6</span></div>
+                            <div class="tpl-card" data-value="creative7" onclick="pickTemplate('creative7')"><div class="tpl-thumb" style="background:linear-gradient(135deg,#fd79a8,#e84393)"><div class="tpl-lines"></div></div><span>Creative 7</span></div>
+                            <div class="tpl-card" data-value="creative8" onclick="pickTemplate('creative8')"><div class="tpl-thumb" style="background:linear-gradient(135deg,#00b894,#55efc4)"><div class="tpl-lines"></div></div><span>Creative 8</span></div>
+                            <div class="tpl-card" data-value="creative9" onclick="pickTemplate('creative9')"><div class="tpl-thumb" style="background:linear-gradient(135deg,#fdcb6e,#e17055)"><div class="tpl-lines"></div></div><span>Creative 9</span></div>
+                            <div class="tpl-card" data-value="creative10" onclick="pickTemplate('creative10')"><div class="tpl-thumb" style="background:linear-gradient(135deg,#2d3436,#636e72)"><div class="tpl-lines"></div></div><span>Creative 10</span></div>
+                            <div class="tpl-card" data-value="creative11" onclick="pickTemplate('creative11')"><div class="tpl-thumb" style="background:linear-gradient(135deg,#6c5ce7,#fd79a8)"><div class="tpl-lines"></div></div><span>Creative 11</span></div>
+                            <div class="tpl-card" data-value="creative12" onclick="pickTemplate('creative12')"><div class="tpl-thumb" style="background:linear-gradient(135deg,#00cec9,#0984e3)"><div class="tpl-lines"></div></div><span>Creative 12</span></div>
+                            <div class="tpl-card" data-value="creativeBold" onclick="pickTemplate('creativeBold')"><div class="tpl-thumb" style="background:linear-gradient(to right,#2d8653 40%,#fff 40%)"><div class="tpl-lines"></div></div><span>Bold</span></div>
+                            <div class="tpl-card" data-value="creativePortfolio" onclick="pickTemplate('creativePortfolio')"><div class="tpl-thumb" style="background:linear-gradient(135deg,#1a2e20,#2d8653)"><div class="tpl-lines"></div></div><span>Portfolio</span></div>
+                        </div>
+
+                        <div class="tpl-cat-row"><span class="tpl-cat-lbl">Elite</span></div>
+                        <div class="tpl-grid">
+                            <div class="tpl-card" data-value="elite1" onclick="pickTemplate('elite1')"><div class="tpl-thumb" style="background:#1a1a2e"><div class="tpl-lines"></div></div><span>Elite 1</span></div>
+                            <div class="tpl-card" data-value="elite2" onclick="pickTemplate('elite2')"><div class="tpl-thumb" style="background:#0d1710"><div class="tpl-lines"></div></div><span>Elite 2</span></div>
+                            <div class="tpl-card" data-value="elite3" onclick="pickTemplate('elite3')"><div class="tpl-thumb" style="background:linear-gradient(135deg,#1a1a2e,#2d8653)"><div class="tpl-lines"></div></div><span>Elite 3</span></div>
+                            <div class="tpl-card" data-value="elite4" onclick="pickTemplate('elite4')"><div class="tpl-thumb" style="background:#1e3a5f"><div class="tpl-lines"></div></div><span>Elite 4</span></div>
+                            <div class="tpl-card" data-value="elite5" onclick="pickTemplate('elite5')"><div class="tpl-thumb" style="background:linear-gradient(135deg,#1a2e20,#c8a85a)"><div class="tpl-lines"></div></div><span>Elite 5</span></div>
+                            <div class="tpl-card" data-value="elite6" onclick="pickTemplate('elite6')"><div class="tpl-thumb" style="background:#0a0a0a;border-top:3px solid #c8a85a"><div class="tpl-lines"></div></div><span>Elite 6</span></div>
+                            <div class="tpl-card" data-value="elite7" onclick="pickTemplate('elite7')"><div class="tpl-thumb" style="background:linear-gradient(135deg,#1a1a2e,#6c5ce7)"><div class="tpl-lines"></div></div><span>Elite 7</span></div>
+                            <div class="tpl-card" data-value="elite8" onclick="pickTemplate('elite8')"><div class="tpl-thumb" style="background:linear-gradient(135deg,#0d1710,#1e3a5f)"><div class="tpl-lines"></div></div><span>Elite 8</span></div>
+                        </div>
+
+                        <div class="tpl-cat-row"><span class="tpl-cat-lbl">MNC & Company</span></div>
+                        <div class="tpl-grid">
+                            <div class="tpl-card" data-value="mnc1" onclick="pickTemplate('mnc1')"><div class="tpl-thumb" style="background:#fff;border-top:4px solid #1e3a5f"><div class="tpl-lines"></div></div><span>MNC 1</span></div>
+                            <div class="tpl-card" data-value="mnc2" onclick="pickTemplate('mnc2')"><div class="tpl-thumb" style="background:#1e3a5f"><div class="tpl-lines"></div></div><span>MNC 2</span></div>
+                            <div class="tpl-card" data-value="mnc3" onclick="pickTemplate('mnc3')"><div class="tpl-thumb" style="background:#fff;border-left:4px solid #ef4444"><div class="tpl-lines"></div></div><span>MNC 3</span></div>
+                            <div class="tpl-card" data-value="mnc4" onclick="pickTemplate('mnc4')"><div class="tpl-thumb" style="background:#fff;border-top:4px solid #f59e0b"><div class="tpl-lines"></div></div><span>MNC 4</span></div>
+                            <div class="tpl-card" data-value="mnc5" onclick="pickTemplate('mnc5')"><div class="tpl-thumb" style="background:linear-gradient(to right,#1e3a5f 35%,#fff 35%)"><div class="tpl-lines"></div></div><span>MNC 5</span></div>
+                            <div class="tpl-card" data-value="mnc6" onclick="pickTemplate('mnc6')"><div class="tpl-thumb" style="background:#0d1710;border-top:3px solid #c8a85a"><div class="tpl-lines"></div></div><span>MNC 6</span></div>
+                            <div class="tpl-card" data-value="mnc7" onclick="pickTemplate('mnc7')"><div class="tpl-thumb" style="background:#fff;border-left:5px solid #2d8653"><div class="tpl-lines"></div></div><span>MNC 7</span></div>
+                            <div class="tpl-card" data-value="mnc8" onclick="pickTemplate('mnc8')"><div class="tpl-thumb" style="background:linear-gradient(135deg,#1e3a5f,#fff)"><div class="tpl-lines"></div></div><span>MNC 8</span></div>
+                            <div class="tpl-card" data-value="company1" onclick="pickTemplate('company1')"><div class="tpl-thumb" style="background:#fff;border-top:5px solid #3b82f6"><div class="tpl-lines"></div></div><span>Company 1</span></div>
+                            <div class="tpl-card" data-value="company2" onclick="pickTemplate('company2')"><div class="tpl-thumb" style="background:#fff;border-top:5px solid #ef4444"><div class="tpl-lines"></div></div><span>Company 2</span></div>
+                            <div class="tpl-card" data-value="company3" onclick="pickTemplate('company3')"><div class="tpl-thumb" style="background:#fff;border-top:5px solid #f59e0b"><div class="tpl-lines"></div></div><span>Company 3</span></div>
+                            <div class="tpl-card" data-value="company4" onclick="pickTemplate('company4')"><div class="tpl-thumb" style="background:#fff;border-top:5px solid #2d8653"><div class="tpl-lines"></div></div><span>Company 4</span></div>
+                            <div class="tpl-card" data-value="company5" onclick="pickTemplate('company5')"><div class="tpl-thumb" style="background:#fff;border-top:5px solid #8b5cf6"><div class="tpl-lines"></div></div><span>Company 5</span></div>
+                            <div class="tpl-card" data-value="company6" onclick="pickTemplate('company6')"><div class="tpl-thumb" style="background:#fff;border-top:5px solid #ec4899"><div class="tpl-lines"></div></div><span>Company 6</span></div>
+                            <div class="tpl-card" data-value="company7" onclick="pickTemplate('company7')"><div class="tpl-thumb" style="background:#1e3a5f"><div class="tpl-lines"></div></div><span>Company 7</span></div>
+                            <div class="tpl-card" data-value="company8" onclick="pickTemplate('company8')"><div class="tpl-thumb" style="background:#0d1710"><div class="tpl-lines"></div></div><span>Company 8</span></div>
+                        </div>
+
+                        <div class="tpl-cat-row"><span class="tpl-cat-lbl">Corporate</span></div>
+                        <div class="tpl-grid">
+                            <div class="tpl-card" data-value="corporate1" onclick="pickTemplate('corporate1')"><div class="tpl-thumb" style="background:#fff;border-left:4px solid #1e3a5f"><div class="tpl-lines"></div></div><span>Corp 1</span></div>
+                            <div class="tpl-card" data-value="corporate2" onclick="pickTemplate('corporate2')"><div class="tpl-thumb" style="background:linear-gradient(to right,#1e3a5f 35%,#fff 35%)"><div class="tpl-lines"></div></div><span>Corp 2</span></div>
+                            <div class="tpl-card" data-value="corporate3" onclick="pickTemplate('corporate3')"><div class="tpl-thumb" style="background:#fff;border-top:3px solid #1e3a5f"><div class="tpl-lines"></div></div><span>Corp 3</span></div>
+                            <div class="tpl-card" data-value="corporateSidebar" onclick="pickTemplate('corporateSidebar')"><div class="tpl-thumb" style="background:linear-gradient(to right,#1a2e20 35%,#fff 35%)"><div class="tpl-lines"></div></div><span>Sidebar</span></div>
+                            <div class="tpl-card" data-value="corporateTimeline" onclick="pickTemplate('corporateTimeline')"><div class="tpl-thumb" style="background:#fff;border-left:3px solid #1e3a5f"><div class="tpl-lines"></div></div><span>Timeline</span></div>
+                        </div>
+
+                        <div class="tpl-cat-row"><span class="tpl-cat-lbl">International</span></div>
+                        <div class="tpl-grid">
+                            <div class="tpl-card" data-value="international1" onclick="pickTemplate('international1')"><div class="tpl-thumb" style="background:#fff;border-top:3px solid #3b82f6"><div class="tpl-lines"></div></div><span>Intl 1</span></div>
+                            <div class="tpl-card" data-value="international2" onclick="pickTemplate('international2')"><div class="tpl-thumb" style="background:#1e3a5f"><div class="tpl-lines"></div></div><span>Intl 2</span></div>
+                            <div class="tpl-card" data-value="international3" onclick="pickTemplate('international3')"><div class="tpl-thumb" style="background:linear-gradient(to right,#1e3a5f 35%,#fff 35%)"><div class="tpl-lines"></div></div><span>Intl 3</span></div>
+                            <div class="tpl-card" data-value="international4" onclick="pickTemplate('international4')"><div class="tpl-thumb" style="background:#fff;border-top:3px solid #ef4444"><div class="tpl-lines"></div></div><span>Intl 4</span></div>
+                            <div class="tpl-card" data-value="international5" onclick="pickTemplate('international5')"><div class="tpl-thumb" style="background:#fff;border-left:3px solid #3b82f6"><div class="tpl-lines"></div></div><span>Intl 5</span></div>
+                            <div class="tpl-card" data-value="international6" onclick="pickTemplate('international6')"><div class="tpl-thumb" style="background:#0d1710"><div class="tpl-lines"></div></div><span>Intl 6</span></div>
+                            <div class="tpl-card" data-value="international7" onclick="pickTemplate('international7')"><div class="tpl-thumb" style="background:linear-gradient(135deg,#1e3a5f,#3b82f6)"><div class="tpl-lines"></div></div><span>Intl 7</span></div>
+                            <div class="tpl-card" data-value="international8" onclick="pickTemplate('international8')"><div class="tpl-thumb" style="background:#fff;border-top:4px double #1e3a5f"><div class="tpl-lines"></div></div><span>Intl 8</span></div>
+                            <div class="tpl-card" data-value="internationalStandard" onclick="pickTemplate('internationalStandard')"><div class="tpl-thumb" style="background:#fff"><div class="tpl-lines"></div></div><span>Intl Std</span></div>
+                            <div class="tpl-card" data-value="globalProfessional" onclick="pickTemplate('globalProfessional')"><div class="tpl-thumb" style="background:linear-gradient(to right,#1a2e20 30%,#fff 30%)"><div class="tpl-lines"></div></div><span>Global Pro</span></div>
+                        </div>
+
+                        <div class="tpl-cat-row"><span class="tpl-cat-lbl">Industry Specific</span></div>
+                        <div class="tpl-grid">
+                            <div class="tpl-card" data-value="healthcareMedical" onclick="pickTemplate('healthcareMedical')"><div class="tpl-thumb" style="background:#fff;border-top:4px solid #22c55e"><div class="tpl-lines"></div></div><span>Medical</span></div>
+                            <div class="tpl-card" data-value="businessFinance" onclick="pickTemplate('businessFinance')"><div class="tpl-thumb" style="background:#fff;border-top:4px solid #b45309"><div class="tpl-lines"></div></div><span>Finance</span></div>
+                            <div class="tpl-card" data-value="education" onclick="pickTemplate('education')"><div class="tpl-thumb" style="background:#fff;border-left:4px solid #3b82f6"><div class="tpl-lines"></div></div><span>Education</span></div>
+                            <div class="tpl-card" data-value="foodBeverage" onclick="pickTemplate('foodBeverage')"><div class="tpl-thumb" style="background:linear-gradient(135deg,#fdcb6e,#e17055)"><div class="tpl-lines"></div></div><span>Food & Bev</span></div>
+                            <div class="tpl-card" data-value="officeAdmin" onclick="pickTemplate('officeAdmin')"><div class="tpl-thumb" style="background:#fff;border-top:3px solid #475569"><div class="tpl-lines"></div></div><span>Office</span></div>
+                            <div class="tpl-card" data-value="retailSales" onclick="pickTemplate('retailSales')"><div class="tpl-thumb" style="background:#fff;border-top:3px solid #ec4899"><div class="tpl-lines"></div></div><span>Retail</span></div>
+                            <div class="tpl-card" data-value="freshGraduateLayout" onclick="pickTemplate('freshGraduateLayout')"><div class="tpl-thumb" style="background:#e8f5e3;border-top:3px solid #2d8653"><div class="tpl-lines"></div></div><span>Graduate</span></div>
+                            <div class="tpl-card" data-value="academicCV" onclick="pickTemplate('academicCV')"><div class="tpl-thumb" style="background:#fff;border-top:2px double #1a2e20"><div class="tpl-lines"></div></div><span>Academic CV</span></div>
+                        </div>
+
+                        <div class="tpl-cat-row"><span class="tpl-cat-lbl">Specialized</span></div>
+                        <div class="tpl-grid">
+                            <div class="tpl-card" data-value="infographicResume" onclick="pickTemplate('infographicResume')"><div class="tpl-thumb" style="background:linear-gradient(135deg,#2d8653,#06b6d4)"><div class="tpl-lines"></div></div><span>Infographic</span></div>
+                            <div class="tpl-card" data-value="infographicStyle" onclick="pickTemplate('infographicStyle')"><div class="tpl-thumb" style="background:linear-gradient(135deg,#6c5ce7,#fd79a8)"><div class="tpl-lines"></div></div><span>Info Style</span></div>
+                            <div class="tpl-card" data-value="projectPortfolioResume" onclick="pickTemplate('projectPortfolioResume')"><div class="tpl-thumb" style="background:#0d1710;border-top:3px solid #52c27a"><div class="tpl-lines"></div></div><span>Portfolio</span></div>
+                            <div class="tpl-card" data-value="seniorLeadershipResume" onclick="pickTemplate('seniorLeadershipResume')"><div class="tpl-thumb" style="background:#1a2e20"><div class="tpl-lines"></div></div><span>Leadership</span></div>
+                            <div class="tpl-card" data-value="functionalResume" onclick="pickTemplate('functionalResume')"><div class="tpl-thumb" style="background:#fff;border-top:4px solid #8b5cf6"><div class="tpl-lines"></div></div><span>Functional</span></div>
+                            <div class="tpl-card" data-value="skillFocused" onclick="pickTemplate('skillFocused')"><div class="tpl-thumb" style="background:#e8f5e3;border-left:4px solid #2d8653"><div class="tpl-lines"></div></div><span>Skill Focus</span></div>
+                            <div class="tpl-card" data-value="twoColumnProfessional" onclick="pickTemplate('twoColumnProfessional')"><div class="tpl-thumb" style="background:linear-gradient(to right,#e8f5e3 35%,#fff 35%)"><div class="tpl-lines"></div></div><span>2 Column</span></div>
+                            <div class="tpl-card" data-value="oneColumnFocus" onclick="pickTemplate('oneColumnFocus')"><div class="tpl-thumb" style="background:#fff"><div class="tpl-lines"></div></div><span>1 Column</span></div>
+                        </div>
+
+                        <div class="tpl-cat-row"><span class="tpl-cat-lbl">Classic Variants</span></div>
+                        <div class="tpl-grid">
+                            <div class="tpl-card" data-value="classicSerif" onclick="pickTemplate('classicSerif')"><div class="tpl-thumb" style="background:#fffdf5;border-top:2px solid #1a2e20"><div class="tpl-lines"></div></div><span>Serif</span></div>
+                            <div class="tpl-card" data-value="compactProfessional" onclick="pickTemplate('compactProfessional')"><div class="tpl-thumb" style="background:#fff"><div class="tpl-lines"></div></div><span>Compact</span></div>
+                            <div class="tpl-card" data-value="contemporaryMinimal" onclick="pickTemplate('contemporaryMinimal')"><div class="tpl-thumb" style="background:#fafafa;border-left:3px solid #2d8653"><div class="tpl-lines"></div></div><span>Contemporary</span></div>
+                            <div class="tpl-card" data-value="blueLineExecutive" onclick="pickTemplate('blueLineExecutive')"><div class="tpl-thumb" style="background:#fff;border-left:4px solid #1e3a5f"><div class="tpl-lines"></div></div><span>Blue Line</span></div>
+                            <div class="tpl-card" data-value="boldSidebar" onclick="pickTemplate('boldSidebar')"><div class="tpl-thumb" style="background:linear-gradient(to right,#1a2e20 30%,#fff 30%)"><div class="tpl-lines"></div></div><span>Bold Side</span></div>
+                            <div class="tpl-card" data-value="darkHeaderMinimal" onclick="pickTemplate('darkHeaderMinimal')"><div class="tpl-thumb" style="background:#1a2e20"><div class="tpl-lines"></div></div><span>Dark Header</span></div>
+                            <div class="tpl-card" data-value="executiveMinimal" onclick="pickTemplate('executiveMinimal')"><div class="tpl-thumb" style="background:#fff;border-top:2px solid #1a2e20"><div class="tpl-lines"></div></div><span>Exec Min</span></div>
+                            <div class="tpl-card" data-value="executiveProfile" onclick="pickTemplate('executiveProfile')"><div class="tpl-thumb" style="background:#1a2e20;border-top:3px solid #c8a85a"><div class="tpl-lines"></div></div><span>Exec Profile</span></div>
+                            <div class="tpl-card" data-value="formalCenterline" onclick="pickTemplate('formalCenterline')"><div class="tpl-thumb" style="background:#fff"><div class="tpl-lines"></div></div><span>Formal</span></div>
+                            <div class="tpl-card" data-value="lightGreyMinimal" onclick="pickTemplate('lightGreyMinimal')"><div class="tpl-thumb" style="background:#f8f8f8"><div class="tpl-lines"></div></div><span>Light Grey</span></div>
+                            <div class="tpl-card" data-value="managementExecutive" onclick="pickTemplate('managementExecutive')"><div class="tpl-thumb" style="background:#1a2e20"><div class="tpl-lines"></div></div><span>Management</span></div>
+                            <div class="tpl-card" data-value="minimalLuxe" onclick="pickTemplate('minimalLuxe')"><div class="tpl-thumb" style="background:#fffdf5;border-top:1px solid #c8a85a"><div class="tpl-lines"></div></div><span>Luxe</span></div>
+                            <div class="tpl-card" data-value="minimalist1" onclick="pickTemplate('minimalist1')"><div class="tpl-thumb" style="background:#fff"><div class="tpl-lines"></div></div><span>Minimalist 1</span></div>
+                            <div class="tpl-card" data-value="minimalist2" onclick="pickTemplate('minimalist2')"><div class="tpl-thumb" style="background:#fafafa;border-left:2px solid #2d8653"><div class="tpl-lines"></div></div><span>Minimalist 2</span></div>
+                            <div class="tpl-card" data-value="minimalist3" onclick="pickTemplate('minimalist3')"><div class="tpl-thumb" style="background:#fff;border-top:1px solid #1a2e20"><div class="tpl-lines"></div></div><span>Minimalist 3</span></div>
+                            <div class="tpl-card" data-value="softPinkCreative" onclick="pickTemplate('softPinkCreative')"><div class="tpl-thumb" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0)"><div class="tpl-lines"></div></div><span>Soft Pink</span></div>
+                            <div class="tpl-card" data-value="timelineStyle" onclick="pickTemplate('timelineStyle')"><div class="tpl-thumb" style="background:#fff;border-left:3px solid #2d8653"><div class="tpl-lines"></div></div><span>Timeline</span></div>
+                            <div class="tpl-card" data-value="traditionalClassic" onclick="pickTemplate('traditionalClassic')"><div class="tpl-thumb" style="background:#fffdf5;border-top:3px double #1a2e20"><div class="tpl-lines"></div></div><span>Traditional</span></div>
+                            <div class="tpl-card" data-value="yellowIconHighlights" onclick="pickTemplate('yellowIconHighlights')"><div class="tpl-thumb" style="background:#fff;border-top:4px solid #f59e0b"><div class="tpl-lines"></div></div><span>Yellow Icons</span></div>
+                            <div class="tpl-card" data-value="greenAccentProfessional" onclick="pickTemplate('greenAccentProfessional')"><div class="tpl-thumb" style="background:#fff;border-top:4px solid #2d8653"><div class="tpl-lines"></div></div><span>Green Accent</span></div>
+                        </div>
+
+                    <!-- Visual Card Picker — CV Mode -->
+                    <div class="tpl-picker-wrap" id="cvPickerWrap" style="display:none">
+                        <div class="tpl-cat-row"><span class="tpl-cat-lbl">Professional CV Formats</span></div>
+                        <div class="tpl-cv-grid">
+                            <div class="tpl-cv-card" data-value="cv-academic" onclick="pickTemplate('cv-academic')">
+                                <div class="tpl-cv-thumb" style="background:#fff;border-top:4px solid #1a2e20">
+                                    <div class="tpl-cv-header">
+                                        <div class="tpl-cv-name"></div>
+                                        <div class="tpl-cv-title"></div>
+                                    </div>
+                                    <div class="tpl-cv-body"><div class="tpl-cv-line"></div><div class="tpl-cv-line sm"></div><div class="tpl-cv-line"></div></div>
+                                </div>
+                                <div class="tpl-cv-info">
+                                    <strong>Academic CV</strong>
+                                    <span>Research · Publications · Education history</span>
+                                </div>
+                            </div>
+                            <div class="tpl-cv-card" data-value="cv-professional" onclick="pickTemplate('cv-professional')">
+                                <div class="tpl-cv-thumb" style="background:#fff;border-left:5px solid #2d8653">
+                                    <div class="tpl-cv-header">
+                                        <div class="tpl-cv-name"></div>
+                                        <div class="tpl-cv-title" style="background:#a3cfb8"></div>
+                                    </div>
+                                    <div class="tpl-cv-body"><div class="tpl-cv-line"></div><div class="tpl-cv-line sm"></div><div class="tpl-cv-line"></div></div>
+                                </div>
+                                <div class="tpl-cv-info">
+                                    <strong>Professional CV</strong>
+                                    <span>Full career history · Detailed experience</span>
+                                </div>
+                            </div>
+                            <div class="tpl-cv-card" data-value="cv-executive" onclick="pickTemplate('cv-executive')">
+                                <div class="tpl-cv-thumb" style="background:#1a2e20">
+                                    <div class="tpl-cv-header">
+                                        <div class="tpl-cv-name" style="background:rgba(255,255,255,0.8)"></div>
+                                        <div class="tpl-cv-title" style="background:rgba(163,207,184,0.6)"></div>
+                                    </div>
+                                    <div class="tpl-cv-body"><div class="tpl-cv-line" style="background:rgba(255,255,255,0.2)"></div><div class="tpl-cv-line sm" style="background:rgba(255,255,255,0.15)"></div></div>
+                                </div>
+                                <div class="tpl-cv-info">
+                                    <strong>Executive CV</strong>
+                                    <span>Senior leadership · Board positions · Achievements</span>
+                                </div>
+                            </div>
+                            <div class="tpl-cv-card" data-value="cv-creative" onclick="pickTemplate('cv-creative')">
+                                <div class="tpl-cv-thumb" style="background:linear-gradient(135deg,#f59e0b 35%,#fff 35%)">
+                                    <div class="tpl-cv-header">
+                                        <div class="tpl-cv-name"></div>
+                                        <div class="tpl-cv-title" style="background:#f59e0b;opacity:0.5"></div>
+                                    </div>
+                                    <div class="tpl-cv-body"><div class="tpl-cv-line"></div><div class="tpl-cv-line sm"></div></div>
+                                </div>
+                                <div class="tpl-cv-info">
+                                    <strong>Creative CV</strong>
+                                    <span>Designers · Artists · Creative professionals</span>
+                                </div>
+                            </div>
+                            <div class="tpl-cv-card" data-value="cv-technical" onclick="pickTemplate('cv-technical')">
+                                <div class="tpl-cv-thumb" style="background:#0d1710">
+                                    <div class="tpl-cv-header">
+                                        <div class="tpl-cv-name" style="background:rgba(82,194,122,0.7)"></div>
+                                        <div class="tpl-cv-title" style="background:rgba(82,194,122,0.4)"></div>
+                                    </div>
+                                    <div class="tpl-cv-body"><div class="tpl-cv-line" style="background:rgba(82,194,122,0.25)"></div><div class="tpl-cv-line sm" style="background:rgba(82,194,122,0.15)"></div></div>
+                                </div>
+                                <div class="tpl-cv-info">
+                                    <strong>Technical CV</strong>
+                                    <span>Engineers · Developers · IT professionals</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-top:12px;padding:10px 12px;background:var(--bg-tertiary);border-radius:8px;font-size:0.78rem;color:var(--text-secondary)">
+                            💡 CV format is longer than a resume — ideal for academic, research, medical or senior roles.
+                        </div>
+                    </div>
+
+                    <button onclick="toggleATSMode()" class="ats-toggle-btn" id="atsToggle">
+                        <span class="ats-icon">🤖</span>
+                        <span>ATS Optimize</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- TAB 2: Design -->
+            <div class="sidebar-pane" id="stab-design">
+                <div class="sidebar-content-inner">
+                    <div class="sidebar-section-inner">
+                        <div class="sb-label">Accent Color</div>
+                        <div class="color-options">
+                            <button class="color-btn active" data-color="#2d8653" style="background:#2d8653" title="Forest Green"></button>
+                            <button class="color-btn" data-color="#000000" style="background:#000000" title="Black"></button>
+                            <button class="color-btn color-white" data-color="#1a1a1a" style="background:#ffffff" title="White / Black Text"></button>
+                            <button class="color-btn" data-color="#1f6b42" style="background:#1f6b42" title="Deep Green"></button>
+                            <button class="color-btn" data-color="#52c27a" style="background:#52c27a" title="Emerald"></button>
+                            <button class="color-btn" data-color="#3b82f6" style="background:#3b82f6" title="Blue"></button>
+                            <button class="color-btn" data-color="#2563eb" style="background:#2563eb" title="Royal Blue"></button>
+                            <button class="color-btn" data-color="#0ea5e9" style="background:#0ea5e9" title="Sky Blue"></button>
+                            <button class="color-btn" data-color="#06b6d4" style="background:#06b6d4" title="Cyan"></button>
+                            <button class="color-btn" data-color="#14b8a6" style="background:#14b8a6" title="Teal"></button>
+                            <button class="color-btn" data-color="#0d9488" style="background:#0d9488" title="Dark Teal"></button>
+                            <button class="color-btn" data-color="#f59e0b" style="background:#f59e0b" title="Amber"></button>
+                            <button class="color-btn" data-color="#f97316" style="background:#f97316" title="Orange"></button>
+                            <button class="color-btn" data-color="#ef4444" style="background:#ef4444" title="Red"></button>
+                            <button class="color-btn" data-color="#dc2626" style="background:#dc2626" title="Crimson"></button>
+                            <button class="color-btn" data-color="#e11d48" style="background:#e11d48" title="Rose"></button>
+                            <button class="color-btn" data-color="#ec4899" style="background:#ec4899" title="Pink"></button>
+                            <button class="color-btn" data-color="#8b5cf6" style="background:#8b5cf6" title="Violet"></button>
+                            <button class="color-btn" data-color="#7c3aed" style="background:#7c3aed" title="Purple"></button>
+                            <button class="color-btn" data-color="#6366f1" style="background:#6366f1" title="Indigo"></button>
+                            <button class="color-btn" data-color="#1e3a5f" style="background:#1e3a5f" title="Navy"></button>
+                            <button class="color-btn" data-color="#0f172a" style="background:#0f172a" title="Midnight"></button>
+                            <button class="color-btn" data-color="#7f1d1d" style="background:#7f1d1d" title="Maroon"></button>
+                            <button class="color-btn" data-color="#b45309" style="background:#b45309" title="Burgundy"></button>
+                            <button class="color-btn" data-color="#b8860b" style="background:#b8860b" title="Gold"></button>
+                            <button class="color-btn" data-color="#475569" style="background:#475569" title="Slate"></button>
+                            <button class="color-btn" data-color="#374151" style="background:#374151" title="Graphite"></button>
+                            <button class="color-btn" data-color="#1f2937" style="background:#1f2937" title="Charcoal"></button>
+                        </div>
+                    </div>
+                    <div class="sidebar-section-inner">
+                        <div class="sb-label">Font Style</div>
+                        <select id="fontSelect" onchange="changeFont()" class="select-input">
+                            <option value="inter">Inter (Modern)</option>
+                            <option value="playfair">Playfair (Elegant)</option>
+                            <option value="system">System (Clean)</option>
+                            <option value="serif">Times (Classic)</option>
+                        </select>
+                    </div>
+                    <div class="sidebar-section-inner">
+                        <div class="sb-label">Resume Completeness</div>
+                        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+                        <span class="progress-text" id="progressText">0% Complete</span>
+                    </div>
+                    <div class="sidebar-section-inner">
+                        <button onclick="toggleATSMode()" class="ats-toggle-btn" id="atsToggle">
+                            <span class="ats-icon">🤖</span>
+                            <span>Toggle ATS Mode</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: Tools -->
+            <div class="sidebar-pane" id="stab-tools">
+                <div class="sidebar-content-inner">
+                    <!-- ATS Score — BIG and visible -->
+                    <div class="ats-score-big">
+                        <div class="ats-score-ring">
+                            <svg class="ats-ring-svg" viewBox="0 0 80 80">
+                                <circle cx="40" cy="40" r="34" fill="none" stroke="var(--border-color)" stroke-width="7"/>
+                                <circle cx="40" cy="40" r="34" fill="none" stroke="var(--primary-color)" stroke-width="7"
+                                    stroke-dasharray="213.6" stroke-dashoffset="213.6"
+                                    id="atsRingFill" stroke-linecap="round" transform="rotate(-90 40 40)"/>
+                            </svg>
+                            <div class="ats-ring-inner">
+                                <div class="ats-score-value" id="atsScore">0</div>
+                                <div class="ats-ring-label">ATS</div>
+                            </div>
+                        </div>
+                        <button onclick="analyzeResume()" class="ats-analyze-btn">
+                            📊 Full ATS Report
+                        </button>
+                        <div class="ats-tips" id="atsTips">
+                            <div class="ats-tip">Fill your resume to see your ATS score</div>
+                        </div>
+                    </div>
+
+                    <div class="tools-divider"></div>
+
+                    <!-- Section Reorder — direct preview drag -->
+                    <div class="tools-group">
+                        <div class="sb-label">Reorder Sections</div>
+                        <button id="toggleReorderBtn" onclick="togglePreviewReorder()" class="btn btn-secondary btn-full" style="display:flex;align-items:center;justify-content:center;gap:8px;">
+                            <span>⠿</span> <span id="reorderBtnLabel">Enable Section Drag</span>
+                        </button>
+                        <p style="font-size:0.72rem;color:var(--text-muted);margin:6px 0 0;line-height:1.5;" id="reorderHint">Click above, then drag the green ⠿ handles in the live preview to reorder sections</p>
+                    </div>
+
+                    <div class="tools-divider"></div>
+
+                    <!-- ATS File Check -->
+                    <div class="tools-group">
+                        <div class="sb-label">Check Existing Resume</div>
+                        <label id="atsUploadLabel" style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 10px;background:var(--bg-secondary);border:2px dashed var(--border-color);border-radius:10px;cursor:pointer;font-size:0.8rem;color:var(--text-muted);transition:all .2s;" onmouseover="this.style.borderColor='var(--primary-color)'" onmouseout="this.style.borderColor='var(--border-color)'">
+                            <span style="font-size:1.6rem;">📎</span>
+                            <span style="font-weight:600;color:var(--text-primary);">Upload PDF or DOCX</span>
+                            <span>Click to select your resume file</span>
+                            <input type="file" id="atsFileInput" accept=".pdf,.doc,.docx,.txt" style="display:none" onchange="runFileATS(this)">
+                        </label>
+                        <div id="atsFileProgress" style="display:none;margin-top:10px;">
+                            <div style="background:var(--bg-secondary);border-radius:8px;overflow:hidden;height:6px;margin-bottom:8px;">
+                                <div id="atsFileBar" style="background:var(--primary-color);height:6px;width:0%;border-radius:8px;transition:width .3s;"></div>
+                            </div>
+                            <p id="atsFileStatus" style="font-size:0.78rem;color:var(--text-muted);text-align:center;">Reading file...</p>
+                        </div>
+                        <div id="atsFileResult" style="display:none;margin-top:10px;"></div>
+                    </div>
+
+                    <div class="tools-divider"></div>
+
+                    <!-- Download actions -->
+                    <div class="tools-group">
+                        <div class="sb-label">Download</div>
+                        <button onclick="downloadPDF()" class="btn btn-primary btn-full">
+                            📥 Download PDF
+                        </button>
+                        <button onclick="exportToWord()" class="btn btn-secondary btn-full" style="margin-top:6px">
+                            📝 Export as Word (.doc)
+                        </button>
+                    </div>
+
+                    <div class="tools-divider"></div>
+
+                    <!-- Data actions -->
+                    <div class="tools-group">
+                        <div class="sb-label">Data</div>
+                        <div class="tools-row">
+                            <button onclick="exportData()" class="btn btn-outline btn-half">
+                                💾 Export JSON
+                            </button>
+                            <button onclick="importData()" class="btn btn-outline btn-half">
+                                📂 Import
+                            </button>
+                        </div>
+                        <input type="file" id="importFileInput" accept=".json" style="display:none" onchange="handleImportFile(event)">
+                        <button onclick="loadSampleData()" class="btn btn-outline btn-full" style="margin-top:6px">
+                            ⚡ Load Sample Resume
+                        </button>
+                    </div>
+
+                    <div class="tools-divider"></div>
+
+                    <!-- Cover Letter -->
+                    <div class="tools-group">
+                        <div class="sb-label">Cover Letter</div>
+                        <button onclick="toggleCoverLetter()" class="btn btn-outline btn-full" id="coverLetterToggle">
+                            ✍️ Generate Cover Letter
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="builder-main">
+            <div class="form-container">
+                <!-- Progress Bar -->
+                <div class="form-progress-bar">
+                    <div class="fpb-label">
+                        <span>Resume Completeness</span>
+                        <span id="fpbPercent">0%</span>
+                    </div>
+                    <div class="fpb-track">
+                        <div class="fpb-fill" id="fpbFill" style="width:0%"></div>
+                    </div>
+                    <div class="fpb-sections">
+                        <span class="fpb-dot" id="fpb-personal" title="Personal Info">●</span>
+                        <span class="fpb-dot" id="fpb-experience" title="Experience">●</span>
+                        <span class="fpb-dot" id="fpb-education" title="Education">●</span>
+                        <span class="fpb-dot" id="fpb-skills" title="Skills">●</span>
+                        <span class="fpb-dot" id="fpb-additional" title="Additional">●</span>
+                    </div>
+                </div>
+                <div class="form-header">
+                    <h2 class="form-title">Build Your Resume</h2>
+                    <div class="form-tabs">
+                        <button class="tab-btn active" onclick="showTab('personal')" data-tab="personal">
+                            <span class="tab-icon">👤</span>
+                            Personal
+                        </button>
+                        <button class="tab-btn" onclick="showTab('experience')" data-tab="experience">
+                            <span class="tab-icon">💼</span>
+                            Experience
+                        </button>
+                        <button class="tab-btn" onclick="showTab('education')" data-tab="education">
+                            <span class="tab-icon">🎓</span>
+                            Education
+                        </button>
+                        <button class="tab-btn" onclick="showTab('skills')" data-tab="skills">
+                            <span class="tab-icon">⚡</span>
+                            Skills
+                        </button>
+                        <button class="tab-btn" onclick="showTab('additional')" data-tab="additional">
+                            <span class="tab-icon">➕</span>
+                            Additional
+                        </button>
+                        <button class="tab-btn" onclick="showTab('coverletter')" data-tab="coverletter">
+                          <span class="tab-icon">📄</span>
+                          Cover Letter
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Personal Info Tab -->
+                <div id="personal" class="tab-content active">
+                    <div class="tab-header">
+                        <h3>Personal Information</h3>
+                        <p>Add your contact details and professional summary</p>
+                    </div>
+                    <div class="tab-hint">
+                      <span class="tab-hint-icon">💡</span>
+                      <span>Start here — fill in your full name, email, phone and write a 2–3 sentence professional summary. Your resume preview updates live on the right as you type!</span>
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="input-label">Full Name *</label>
+                            <input type="text" id="fullName" class="form-input" placeholder="e.g., John Smith" oninput="updatePreview()">
+                            <small class="input-help">Use your full legal name</small>
+                        </div>
+                        <div class="form-group">
+                            <label class="input-label">Professional Title</label>
+                            <input type="text" id="jobTitle" class="form-input" placeholder="e.g., Senior Software Engineer" oninput="updatePreview()">
+                            <small class="input-help">Your current or desired job title</small>
+                        </div>
+                        <div class="form-group">
+                            <label class="input-label">Email Address *</label>
+                            <input type="email" id="email" class="form-input" placeholder="e.g., john.smith@email.com" oninput="updatePreview()">
+                        </div>
+                        <div class="form-group">
+                            <label class="input-label">Phone Number *</label>
+                            <input type="tel" id="phone" class="form-input" placeholder="e.g., +1 (555) 123-4567" oninput="updatePreview()">
+                        </div>
+                        <div class="form-group">
+                            <label class="input-label">Location</label>
+                            <input type="text" id="location" class="form-input" placeholder="e.g., New York, NY" oninput="updatePreview()">
+                            <small class="input-help">City, State or City, Country</small>
+                        </div>
+                        <div class="form-group">
+                            <label class="input-label">LinkedIn Profile</label>
+                            <input type="url" id="linkedin" class="form-input" placeholder="e.g., linkedin.com/in/johnsmith" oninput="updatePreview()">
+                        </div>
+                        <div class="form-group full-width">
+                            <label class="input-label">Professional Summary *</label>
+                            <textarea id="summary" class="form-textarea" placeholder="Write a compelling 2-3 sentence summary highlighting your key strengths and career objectives..." oninput="updatePreview()"></textarea>
+                            <small class="input-help">Keep it concise and impactful (2-3 sentences)</small>
+                        </div>
+                        <div class="form-group">
+                            <label class="input-label">Profile Photo</label>
+                            <div class="photo-upload">
+                                <input type="file" id="photo" accept="image/*" onchange="handlePhotoUpload(event)" class="photo-input">
+                                <div class="photo-preview" id="photoPreview">
+                                    <span class="photo-placeholder">📷</span>
+                                    <span class="photo-text">Click to upload photo</span>
+                                </div>
+                            </div>
+                            <small class="input-help">Optional: Professional headshot (recommended for some industries)</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience Tab -->
+                <div id="experience" class="tab-content">
+                    <div class="tab-header">
+                        <h3>Work Experience</h3>
+                        <p>Add your professional work history</p>
+                    </div>
+                    <div class="tab-hint">
+                      <span class="tab-hint-icon">💡</span>
+                      <span>Add each job separately. Include your job title, company name, start/end dates and 2–3 bullet points about what you achieved. Use numbers where possible — e.g. "Increased sales by 30%".</span>
+                    </div>
+                    <div id="experienceList">
+                      <div class="empty-state" id="experienceEmpty">
+                        <span class="empty-state-icon">💼</span>
+                        <h4>No work experience added yet</h4>
+                        <p>Click "Add Work Experience" below to add your first job. Include company name, role and key achievements.</p>
+                      </div>
+                    </div>
+                    <button onclick="addExperience()" class="btn btn-outline btn-add">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="12" y1="8" x2="12" y2="16"/>
+                            <line x1="8" y1="12" x2="16" y2="12"/>
+                        </svg>
+                        Add Work Experience
+                    </button>
+                </div>
+
+                <!-- Education Tab -->
+                <div id="education" class="tab-content">
+                    <div class="tab-header">
+                        <h3>Education</h3>
+                        <p>Add your educational background</p>
+                    </div>
+                    <div class="tab-hint">
+                      <span class="tab-hint-icon">💡</span>
+                      <span>Add your college or university degree first. Include institution name, degree/course, year of graduation and any notable grades or achievements like GPA or honors.</span>
+                    </div>
+                    <div id="educationList">
+                      <div class="empty-state" id="educationEmpty">
+                        <span class="empty-state-icon">🎓</span>
+                        <h4>No education added yet</h4>
+                        <p>Click "Add Education" below to add your degree, college name and graduation year.</p>
+                      </div>
+                    </div>
+                    <button onclick="addEducation()" class="btn btn-outline btn-add">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="12" y1="8" x2="12" y2="16"/>
+                            <line x1="8" y1="12" x2="16" y2="12"/>
+                        </svg>
+                        Add Education
+                    </button>
+                </div>
+
+                <!-- Skills Tab -->
+                <div id="skills" class="tab-content">
+                    <div class="tab-header">
+                        <h3>Skills & Competencies</h3>
+                        <p>Highlight your key skills and abilities</p>
+                    </div>
+                    <div class="tab-hint">
+                      <span class="tab-hint-icon">💡</span>
+                      <span>List skills separated by commas. For Technical Skills add tools, languages, frameworks (e.g. Python, React, SQL). For Soft Skills add traits like Leadership, Communication. More skills = higher ATS score!</span>
+                    </div>
+                    <div class="skills-grid">
+                        <div class="form-group full-width">
+                            <label class="input-label">Technical Skills</label>
+                            <textarea id="technicalSkills" class="form-textarea" placeholder="e.g., JavaScript, Python, React, Node.js, AWS, Docker..." oninput="updatePreview()"></textarea>
+                            <small class="input-help">Separate skills with commas</small>
+                        </div>
+                        <div class="form-group full-width">
+                            <label class="input-label">Soft Skills</label>
+                            <textarea id="softSkills" class="form-textarea" placeholder="e.g., Leadership, Communication, Problem Solving, Team Collaboration..." oninput="updatePreview()"></textarea>
+                            <small class="input-help">Separate skills with commas</small>
+                        </div>
+                        <div class="form-group full-width">
+                            <label class="input-label">Languages</label>
+                            <textarea id="languages" class="form-textarea" placeholder="e.g., English (Native), Spanish (Fluent), French (Conversational)..." oninput="updatePreview()"></textarea>
+                            <small class="input-help">Include proficiency levels</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Tab -->
+                <div id="additional" class="tab-content">
+                    <div class="tab-header">
+                        <h3>Additional Information</h3>
+                        <p>Add certifications, projects, and other relevant information</p>
+                    </div>
+                    <div class="tab-hint">
+                      <span class="tab-hint-icon">💡</span>
+                      <span>This section boosts your resume significantly. Add any certifications (with year), personal/college projects with tech stack, awards you've won and any volunteer work. All of these improve your ATS score.</span>
+                    </div>
+                    <div class="additional-sections">
+                        <div class="form-group full-width">
+                            <label class="input-label">Certifications</label>
+                            <textarea id="certifications" class="form-textarea" placeholder="e.g., AWS Certified Solutions Architect (2023), PMP Certification (2022)..." oninput="updatePreview()"></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <label class="input-label">Projects</label>
+                            <textarea id="projects" class="form-textarea" placeholder="e.g., E-commerce Platform - Built a full-stack web application using React and Node.js..." oninput="updatePreview()"></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <label class="input-label">Awards & Achievements</label>
+                            <textarea id="awards" class="form-textarea" placeholder="e.g., Employee of the Year 2023, Dean's List (2019-2021)..." oninput="updatePreview()"></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <label class="input-label">Volunteer Experience</label>
+                            <textarea id="volunteer" class="form-textarea" placeholder="e.g., Volunteer Web Developer at Local Non-profit (2022-Present)..." oninput="updatePreview()"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cover Letter Tab -->
+                <div id="coverletter" class="tab-content">
+                  <div class="tab-header">
+                    <h3>Cover Letter Generator</h3>
+                    <p>Create a personalized cover letter to accompany your resume</p>
+                  </div>
+                  <div class="cover-letter-form">
+                    <div class="form-group">
+                      <label class="input-label">Job Title *</label>
+                      <input type="text" id="coverJobTitle" class="form-input" placeholder="e.g., Senior Software Engineer" oninput="updateCoverPreview()">
+                    </div>
+                    <div class="form-group">
+                      <label class="input-label">Company Name *</label>
+                      <input type="text" id="coverCompany" class="form-input" placeholder="e.g., Google Inc." oninput="updateCoverPreview()">
+                    </div>
+                    <div class="form-group">
+                      <label class="input-label">Hiring Manager (Optional)</label>
+                      <input type="text" id="coverManager" class="form-input" placeholder="e.g., John Smith" oninput="updateCoverPreview()">
+                    </div>
+                    <div class="form-group full-width">
+                      <label class="input-label">Why are you a perfect fit? *</label>
+                      <textarea id="coverFit" class="form-textarea" placeholder="Explain why you're the ideal candidate for this position..." oninput="updateCoverPreview()"></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                      <label class="input-label">Additional Information (Optional)</label>
+                      <textarea id="coverAdditional" class="form-textarea" placeholder="Any additional information you'd like to include..." oninput="updateCoverPreview()"></textarea>
+                    </div>
+                    <div class="cover-letter-actions">
+                      <button onclick="downloadCoverLetterPDF()" class="btn btn-primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                          <polyline points="7,10 12,15 17,10"/>
+                          <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Download Cover Letter PDF
+                      </button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Preview Panel -->
+        <aside class="preview-panel">
+            <div class="preview-header">
+                <div class="preview-title-group">
+                    <h3 class="preview-title">Live Preview</h3>
+                    <span id="previewStatus" class="preview-status"></span>
+                </div>
+                <div class="preview-actions">
+                    <button id="editPreviewBtn" onclick="toggleEditablePreview()" class="btn-icon btn-edit-preview" title="Edit preview directly">
+                        ✏️
+                    </button>
+                    <button onclick="togglePreviewSize()" class="btn-icon" title="Toggle size">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+                        </svg>
+                    </button>
+                    <button onclick="togglePreview()" class="btn-icon" title="Hide/Show preview">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="preview-content" id="previewContent">
+                <!-- Resume preview will be rendered here -->
+            </div>
+        </aside>
+    </div>
+
+    <!-- Resume Analyzer Modal -->
+    <div id="analyzerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Resume Analysis</h2>
+                <button class="modal-close" onclick="closeAnalyzer()">&times;</button>
+            </div>
+            <div class="analyzer-content">
+                <div class="score-display">
+                    <div class="score-circle">
+                        <div class="score-value" id="scoreValue">85</div>
+                        <div class="score-label">Score</div>
+                    </div>
+                    <div class="score-details">
+                        <div class="score-breakdown">
+                            <div class="breakdown-item">
+                                <span class="breakdown-label">Content Quality</span>
+                                <div class="breakdown-bar">
+                                    <div class="breakdown-fill" style="width: 85%"></div>
+                                </div>
+                                <span class="breakdown-score">85%</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span class="breakdown-label">ATS Compatibility</span>
+                                <div class="breakdown-bar">
+                                    <div class="breakdown-fill" style="width: 92%"></div>
+                                </div>
+                                <span class="breakdown-score">92%</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span class="breakdown-label">Completeness</span>
+                                <div class="breakdown-bar">
+                                    <div class="breakdown-fill" style="width: 78%"></div>
+                                </div>
+                                <span class="breakdown-score">78%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="suggestions-section">
+                    <h3>💡 25-Point ATS Checklist</h3>
+                    <ul id="suggestionsList" class="suggestions-list"></ul>
+                </div>
+                <div class="ai-ats-section" id="aiAtsSection">
+                    <div class="ai-ats-header">
+                        <span>🤖 AI Analysis</span>
+                        <button class="btn btn-sm" id="aiAtsBtn" onclick="runAIAtsAnalysis()" style="background:#6366f1;color:#fff;border:none;cursor:pointer;">Analyze with AI</button>
+                    </div>
+                    <div id="aiAtsFeedback" class="ai-ats-feedback">
+                        <p class="ai-ats-placeholder">Click "Analyze with AI" to get personalized feedback powered by local AI (requires Ollama).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add this modal before the closing </body> tag -->
+
+    <!-- Quit Bot Modal -->
+    <div id="quitBotModal" class="quit-bot-modal">
+      <div class="quit-bot-content">
+        <div class="quit-bot-header">
+          <div class="bot-avatar">🤖</div>
+          <h3>Wait! Let me help you finish your resume</h3>
+          <button class="quit-bot-close" onclick="closeQuitBot()">&times;</button>
+        </div>
+        
+        <div class="quit-bot-body">
+          <div class="quit-bot-tips" id="quitBotTips">
+            <!-- Dynamic tips will be inserted here -->
+          </div>
+          
+          <div class="quit-bot-actions">
+            <button onclick="continueBuilding()" class="btn btn-primary">Continue Building</button>
+            <button onclick="generateCoverLetter()" class="btn btn-accent">Add Cover Letter</button>
+            <button onclick="loadQuickTips()" class="btn btn-outline">Get More Tips</button>
+          </div>
+          
+          <div class="quit-bot-footer">
+            <p>💡 <strong>Pro Tip:</strong> Resumes with cover letters get 40% more interviews!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resume Preview Modal -->
+    <div id="resumePreviewModal" class="modal">
+      <div class="modal-content resume-preview-modal-content">
+        <div class="modal-header">
+          <h2>Resume Preview</h2>
+          <button class="modal-close" onclick="closeResumePreview()">&times;</button>
+        </div>
+        <div class="resume-preview-content" id="resumePreviewContent">
+          <!-- Preview content will be loaded here -->
+        </div>
+        <div class="modal-footer">
+          <button onclick="usePreviewedResume()" class="btn btn-primary">Use This Template</button>
+          <button onclick="closeResumePreview()" class="btn btn-secondary">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI Assistant Panel -->
+    <div id="aiPanel" class="ai-panel">
+      <div class="ai-panel-header">
+        <div>
+          <div class="ai-panel-title">
+            <span class="ai-panel-emoji">🤖</span>
+            <span>AI Resume Assistant</span>
+          </div>
+          <div class="ai-status-row">
+            <span class="ai-status-dot" id="aiStatusDot"></span>
+            <span id="aiStatusLabel">Ready</span>
+          </div>
+        </div>
+        <button class="ai-panel-close" onclick="toggleAIPanel()" aria-label="Close AI panel">✕</button>
+      </div>
+
+      <div class="ai-quick-actions">
+        <button class="ai-quick-btn" onclick="aiQuickAction('fill')">✨ Fill Resume</button>
+        <button class="ai-quick-btn" onclick="aiQuickAction('cover')">📄 Cover Letter</button>
+        <button class="ai-quick-btn" onclick="aiQuickAction('analyze')">🔍 Analyze</button>
+        <button class="ai-quick-btn" onclick="aiQuickAction('improve')">📝 Improve Summary</button>
+      </div>
+
+      <div class="ai-messages" id="aiMessages">
+        <div class="ai-welcome">
+          <span class="ai-welcome-icon">🤖</span>
+          <strong>Hi! I'm your AI Resume Assistant</strong>
+          Tell me about yourself and I'll fill your entire resume, or use the quick actions above.
+          <br><br>
+          <em>Example: "I'm a software engineer with 5 years at TCS in Java and React, B.Tech from VIT 2020"</em>
+        </div>
+      </div>
+
+      <div class="ai-input-area">
+        <textarea
+          id="aiInput"
+          class="ai-input"
+          placeholder="Describe yourself or ask anything… (Ctrl+Enter to send)"
+          rows="2"
+          onkeydown="if((event.ctrlKey||event.metaKey)&&event.key==='Enter'){event.preventDefault();sendAIMessage();}"
+        ></textarea>
+        <button id="aiSendBtn" class="ai-send-btn" onclick="sendAIMessage()" title="Send (Ctrl+Enter)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Floating AI Button -->
+    <button id="aiFab" class="ai-fab" onclick="toggleAIPanel()" title="AI Resume Assistant (Ctrl+J)">
+      <span class="ai-fab-icon">🤖</span>
+      <span>AI Assist</span>
+      <span class="ai-fab-kbd">⌘J</span>
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="script.js"></script>
+    <script src="ai.js"></script>
+    <script>
+    // ── Form Completion Progress Bar ──────────────────────────────
+    function updateFormProgress() {
+      if (typeof resumeData === 'undefined') return;
+      const rd = resumeData;
+      const checks = {
+        personal: !!(rd.personal?.fullName?.trim() && rd.personal?.email?.trim() && rd.personal?.phone?.trim() && rd.personal?.summary?.trim()),
+        experience: rd.experience?.length > 0,
+        education: rd.education?.length > 0,
+        skills: !!(rd.skills?.technical?.trim()),
+        additional: !!(rd.additional?.certifications?.trim() || rd.additional?.projects?.trim())
+      };
+      const done = Object.values(checks).filter(Boolean).length;
+      const pct = Math.round((done / 5) * 100);
+
+      const fill = document.getElementById('fpbFill');
+      const label = document.getElementById('fpbPercent');
+      if (fill) fill.style.width = pct + '%';
+      if (label) label.textContent = pct + '%';
+
+      // Update dot colors
+      Object.entries(checks).forEach(([key, ok]) => {
+        const dot = document.getElementById('fpb-' + key);
+        if (dot) dot.style.color = ok ? '#10b981' : 'rgba(255,255,255,0.25)';
+      });
+
+      // Change bar color by completion
+      if (fill) {
+        fill.style.background = pct < 40 ? '#ef4444' : pct < 80 ? '#f59e0b' : '#10b981';
+      }
+    }
+
+    // Hook into existing debounce updates
+    const _origUpdate = typeof updatePreview === 'function' ? updatePreview : null;
+    if (typeof window !== 'undefined') {
+      const debounceOrig = setInterval(() => {
+        if (typeof updatePreview === 'function') {
+          clearInterval(debounceOrig);
+          const original = updatePreview;
+          window.updatePreview = function() {
+            original.apply(this, arguments);
+            updateFormProgress();
+            hideEmptySections();
+          };
+          updateFormProgress();
+        }
+      }, 200);
+    }
+
+    // Also run on tab clicks
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => setTimeout(updateFormProgress, 100));
+    });
+
+    // Initial run after page load
+    setTimeout(updateFormProgress, 800);
+
+
+    // ── Sidebar 3-Tab Navigation ──────────────────────────────────
+    function showSidebarTab(tab) {
+      document.querySelectorAll('.stab').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.sidebar-pane').forEach(p => p.classList.remove('active'));
+      const btn = document.getElementById('stab-btn-' + tab);
+      const pane = document.getElementById('stab-' + tab);
+      if (btn) btn.classList.add('active');
+      if (pane) pane.classList.add('active');
+    }
+
+    // ── Word Export ───────────────────────────────────────────────
+    function exportToWord() {
+      const previewEl = document.getElementById('previewContent');
+      if (!previewEl || !previewEl.innerHTML.trim()) {
+        alert('Fill in your resume first, then export to Word.');
+        return;
+      }
+      const html = `<!DOCTYPE html>
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:w="urn:schemas-microsoft-com:office:word"
+      xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+  <meta charset="utf-8">
+  <title>Resume</title>
+  <!--[if gte mso 9]><xml><w:WordDocument><w:View>Print</w:View><w:Zoom>100</w:Zoom></w:WordDocument></xml><![endif]-->
+  <style>
+    body { font-family: Calibri, sans-serif; font-size: 11pt; margin: 1in; }
+    h1 { font-size: 18pt; } h2 { font-size: 13pt; } h3 { font-size: 11pt; }
+    p, li { line-height: 1.4; }
+  </style>
+</head>
+<body>${previewEl.innerHTML}</body>
+</html>`;
+      const blob = new Blob([html], { type: 'application/msword' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'resume.doc';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    // ── ATS Ring Animation ────────────────────────────────────────
+    function updateATSRing(score) {
+      const ring = document.getElementById('atsRingFill');
+      if (!ring) return;
+      const circumference = 213.6;
+      const offset = circumference - (score / 100) * circumference;
+      ring.style.strokeDashoffset = offset;
+      ring.style.stroke = score >= 80 ? '#22a06b' : score >= 60 ? '#f0a500' : '#ef4444';
+    }
+    // Hook into ATS score updates
+    const _origGetScoreClass = typeof getScoreClass === 'function' ? getScoreClass : null;
+    const _atsRingInterval = setInterval(() => {
+      if (typeof updateATSScore === 'function') {
+        clearInterval(_atsRingInterval);
+        const orig = updateATSScore;
+        window.updateATSScore = function() {
+          orig.apply(this, arguments);
+          const scoreEl = document.getElementById('atsScore');
+          if (scoreEl) updateATSRing(parseInt(scoreEl.textContent) || 0);
+        };
+      }
+    }, 300);
+
+    // ── Template Visual Card Picker ───────────────────────────────
+    function pickTemplate(val) {
+      document.querySelectorAll('.tpl-card, .tpl-cv-card').forEach(c => c.classList.remove('active'));
+      const picked = document.querySelector(`[data-value="${val}"]`);
+      if (picked) {
+        picked.classList.add('active');
+        picked.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+      const sel = document.getElementById('templateSelect');
+      if (sel) {
+        // Ensure an <option> exists for this value, else select.value won't stick
+        if (!Array.from(sel.options).some(o => o.value === val)) {
+          const opt = document.createElement('option');
+          opt.value = val; opt.textContent = val;
+          sel.appendChild(opt);
+        }
+        sel.value = val;
+        changeTemplate();
+      }
+    }
+
+    function switchBuilderMode(mode) {
+      const resumeBtn = document.getElementById('resumeModeBtn');
+      const cvBtn = document.getElementById('cvModeBtn');
+      const resumeWrap = document.getElementById('resumePickerWrap');
+      const cvWrap = document.getElementById('cvPickerWrap');
+      if (mode === 'cv') {
+        cvBtn.classList.add('active'); resumeBtn.classList.remove('active');
+        cvWrap.style.display = 'block'; resumeWrap.style.display = 'none';
+        // Auto-select first CV template if none selected
+        const activeCv = document.querySelector('.tpl-cv-card.active');
+        if (!activeCv) pickTemplate('cv-professional');
+      } else {
+        resumeBtn.classList.add('active'); cvBtn.classList.remove('active');
+        resumeWrap.style.display = 'block'; cvWrap.style.display = 'none';
+        const activeResume = document.querySelector('.tpl-card.active');
+        if (!activeResume) pickTemplate('modern');
+      }
+    }
+
+    // ── Auto-hide empty sections in any template ──────────────────
+    function hideEmptySections() {
+      const ids = ['previewSummary','previewExperience','previewEducation','previewSkills',
+                   'previewLanguages','previewCertifications','previewProjects',
+                   'previewAwards','previewVolunteer'];
+      const pc = document.getElementById('previewContent');
+      if (!pc) return;
+      // section wrapper class names used across templates
+      const wrapSel = '.r-block, .ps-block, .pb-block, .pb-side-block, .pt-block, .pm-block, .section, .c-main > div, .c-side > div, .cv-section, .x-body > .r-block';
+      ids.forEach(id => {
+        const el = pc.querySelector('#' + id);
+        if (!el) return;
+        const empty = el.textContent.trim() === '' && el.children.length === 0;
+        // find nearest section wrapper that contains this element
+        let wrap = el.closest(wrapSel);
+        if (wrap) wrap.style.display = empty ? 'none' : '';
+      });
+    }
+
+    // ── Preview Expand to half-page (override script.js version) ──
+    window.togglePreviewSize = function() {
+      const container = document.querySelector('.builder-container');
+      const panel = document.querySelector('.preview-panel');
+      if (!container) return;
+      container.classList.toggle('preview-big');
+      // clear any inline width a previous version may have set
+      if (panel) { panel.style.width = ''; panel.style.minWidth = ''; }
+      // update the button icon hint
+      const isBig = container.classList.contains('preview-big');
+      const btn = document.querySelector('.preview-actions button[title="Toggle size"]');
+      if (btn) btn.style.background = isBig ? 'var(--primary-color)' : '';
+    };
+
+    // ── Welcome Guide — show ONCE ever ───────────────────────────
+    (function() {
+      // Use a single key shared across all pages — set it immediately on show
+      const KEY = 'cmr_seen_v3';
+      if (!localStorage.getItem(KEY)) {
+        localStorage.setItem(KEY, '1'); // set immediately so nav away still counts
+        const guide = document.getElementById('welcomeGuide');
+        if (guide) guide.style.display = 'flex';
+      }
+    })();
+    function closeWelcomeGuide() {
+      const guide = document.getElementById('welcomeGuide');
+      if (guide) guide.style.display = 'none';
+    }
+
+    // ── Empty State Hide on Add ───────────────────────────────────
+    (function() {
+      function watchList(listId, emptyId) {
+        const list = document.getElementById(listId);
+        const empty = document.getElementById(emptyId);
+        if (!list || !empty) return;
+        const obs = new MutationObserver(() => {
+          const hasItems = list.querySelectorAll('.experience-item, .education-item').length > 0;
+          empty.style.display = hasItems ? 'none' : 'block';
+        });
+        obs.observe(list, { childList: true, subtree: true });
+      }
+      document.addEventListener('DOMContentLoaded', () => {
+        watchList('experienceList', 'experienceEmpty');
+        watchList('educationList', 'educationEmpty');
+      });
+      if (document.readyState !== 'loading') {
+        watchList('experienceList', 'experienceEmpty');
+        watchList('educationList', 'educationEmpty');
+      }
+    })();
+    // ── Force light theme on builder (override script.js updateTheme) ──
+    (function() {
+      // Override updateTheme so dark mode never applies on the builder page
+      window.updateTheme = function() {
+        document.documentElement.removeAttribute('data-theme');
+        document.querySelectorAll('.theme-icon').forEach(i => i.textContent = '🌙');
+      };
+      // Also patch uiSettings immediately
+      if (typeof uiSettings !== 'undefined') uiSettings.theme = 'light';
+      document.documentElement.removeAttribute('data-theme');
+      // Re-apply after every animation frame (catches DOMContentLoaded call)
+      requestAnimationFrame(function fix() {
+        document.documentElement.removeAttribute('data-theme');
+        if (document.documentElement.dataset.theme) requestAnimationFrame(fix);
+      });
+    })();
+
+    // ── Preview drag-to-reorder (bulletproof v2) ─────────────────
+    (function(){
+      var on = false, src = null;
+      var styled = false;
+      function injectStyle(){
+        if(styled) return; styled = true;
+        var s = document.createElement('style');
+        s.textContent =
+          '.pvw-wrap{position:relative;}'+
+          '.pvw-wrap.on{outline:2px dashed #8fd0a8;border-radius:6px;margin-bottom:5px;cursor:grab;}'+
+          '.pvw-wrap.on:hover{outline:2px solid #2d8653;background:rgba(45,134,83,.04);}'+
+          '.pvw-wrap.over{border-top:3px solid #2d8653 !important;}'+
+          '.pvw-wrap.drag{opacity:.35;}'+
+          '.pvw-h{display:none;position:absolute;top:4px;right:4px;background:#2d8653;color:#fff;'+
+          'border-radius:6px;padding:4px 9px;font-size:11px;font-weight:700;cursor:grab;z-index:9999;'+
+          'box-shadow:0 2px 8px rgba(0,0,0,.3);white-space:nowrap;}'+
+          '.pvw-wrap.on .pvw-h{display:block;}';
+        document.head.appendChild(s);
+      }
+
+      function findBlocks(root){
+        // Direct, recursive query — works on every template
+        var nodes = root.querySelectorAll('.r-block,.pb-block,.section,.summary-section');
+        var out = [];
+        nodes.forEach(function(n){
+          // skip if it's nested inside another already-collected block
+          for(var i=0;i<out.length;i++){ if(out[i].contains(n)||n.contains(out[i])) return; }
+          out.push(n);
+        });
+        // Fallback: wrap parents of preview-id elements
+        if(out.length===0){
+          ['previewSummary','previewExperience','previewEducation','previewSkills','previewProjects','previewCertifications','previewAwards'].forEach(function(id){
+            var el = root.querySelector('#'+id);
+            if(el && el.parentElement && el.parentElement!==root) out.push(el.parentElement);
+          });
+        }
+        return out;
+      }
+
+      function wrap(root){
+        // unwrap old
+        root.querySelectorAll('.pvw-wrap').forEach(function(w){
+          var h = w.querySelector('.pvw-h'); if(h) h.remove();
+          while(w.firstChild) w.parentNode.insertBefore(w.firstChild,w);
+          w.remove();
+        });
+        var blocks = findBlocks(root);
+        blocks.forEach(function(b){
+          if(b.parentElement && b.parentElement.classList.contains('pvw-wrap')) return;
+          var w = document.createElement('div');
+          w.className = 'pvw-wrap on';
+          w.setAttribute('draggable','true');
+          b.parentNode.insertBefore(w,b);
+          w.appendChild(b);
+          var h = document.createElement('div');
+          h.className = 'pvw-h'; h.textContent = '⠿ drag';
+          w.appendChild(h);
+          w.addEventListener('dragstart',function(e){ src=w; w.classList.add('drag'); e.dataTransfer.effectAllowed='move'; });
+          w.addEventListener('dragend',function(){ src=null; root.querySelectorAll('.pvw-wrap').forEach(function(x){x.classList.remove('drag','over');}); });
+          w.addEventListener('dragover',function(e){ e.preventDefault(); if(!src||src===w)return; root.querySelectorAll('.pvw-wrap').forEach(function(x){x.classList.remove('over');}); w.classList.add('over'); });
+          w.addEventListener('drop',function(e){ e.preventDefault(); if(!src||src===w)return; w.classList.remove('over'); var r=w.getBoundingClientRect(); if(e.clientY<r.top+r.height/2) w.parentNode.insertBefore(src,w); else w.parentNode.insertBefore(src,w.nextSibling); });
+        });
+        return blocks.length;
+      }
+
+      function unwrap(root){
+        root.querySelectorAll('.pvw-wrap').forEach(function(w){
+          w.classList.remove('on');
+          w.removeAttribute('draggable');
+        });
+      }
+
+      window.togglePreviewReorder = function(){
+        injectStyle();
+        var root = document.querySelector('.preview-content') || document.getElementById('previewContent');
+        var btn = document.getElementById('toggleReorderBtn');
+        var label = document.getElementById('reorderBtnLabel');
+        var hint = document.getElementById('reorderHint');
+        if(!root){ alert('Preview not found — fill your resume first.'); return; }
+        on = !on;
+        if(on){
+          var count = wrap(root);
+          document.body.classList.add('reorder-mode');
+          if(btn){ btn.style.background='#2d8653'; btn.style.color='#fff'; btn.style.borderColor='#2d8653'; }
+          if(label) label.textContent = '✅ Drag ON ('+count+' sections)';
+          if(hint) hint.textContent = count>0 ? 'Drag the green ⠿ handles to reorder sections.' : 'No sections found — fill your resume first.';
+        } else {
+          unwrap(root);
+          document.body.classList.remove('reorder-mode');
+          if(btn){ btn.style.background=''; btn.style.color=''; btn.style.borderColor=''; }
+          if(label) label.textContent = 'Enable Section Drag';
+          if(hint) hint.textContent = 'Click to turn on drag mode — then drag sections directly in the preview';
+        }
+      };
+
+      // Keep wraps fresh when template/preview re-renders while ON
+      document.addEventListener('DOMContentLoaded',function(){
+        var pc = document.querySelector('.preview-content');
+        if(pc){ new MutationObserver(function(){ if(on) setTimeout(function(){ wrap(pc); },150); }).observe(pc,{childList:true}); }
+      });
+    })();
+    // ── ATS File Checker ─────────────────────────────────────────
+    window.runFileATS = async function(input) {
+      const file = input.files[0];
+      if (!file) return;
+      const prog = document.getElementById('atsFileProgress');
+      const bar = document.getElementById('atsFileBar');
+      const status = document.getElementById('atsFileStatus');
+      const result = document.getElementById('atsFileResult');
+      const label = document.getElementById('atsUploadLabel');
+
+      prog.style.display = 'block';
+      result.style.display = 'none';
+      label.style.display = 'none';
+      bar.style.width = '0%';
+      status.textContent = 'Reading file...';
+
+      function setProgress(pct, msg) { bar.style.width = pct + '%'; status.textContent = msg; }
+
+      try {
+        let text = '';
+
+        if (file.type === 'application/pdf' || file.name.endsWith('.pdf')) {
+          setProgress(20, 'Parsing PDF...');
+          const arrayBuf = await file.arrayBuffer();
+          if (typeof pdfjsLib !== 'undefined') {
+            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+            const pdf = await pdfjsLib.getDocument({ data: arrayBuf }).promise;
+            for (let i = 1; i <= Math.min(pdf.numPages, 5); i++) {
+              const page = await pdf.getPage(i);
+              const tc = await page.getTextContent();
+              text += tc.items.map(t => t.str).join(' ') + '\n';
+            }
+          } else {
+            text = await file.text().catch(() => '');
+          }
+        } else if (file.name.match(/\.docx?$/i)) {
+          setProgress(20, 'Parsing document...');
+          text = await file.text().catch(() => '');
+          text = text.replace(/<[^>]+>/g, ' ').replace(/[^\x20-\x7E\n]/g, ' ');
+        } else {
+          text = await file.text();
+        }
+
+        if (!text || text.trim().length < 50) throw new Error('Could not extract text. Try a text-based PDF.');
+
+        setProgress(45, 'Running ATS analysis...');
+        await new Promise(r => setTimeout(r, 800));
+        setProgress(65, 'AI scoring your resume...');
+
+        // Groq ATS analysis
+        const _k2 = (p=>atob(p.join('')))(['Z3NrX','3BuOFh','tVVl5VF','M2VldrW','EF1QUpx','V0dkeWI','zRllKOT','B3MXc2M','2lFd3BY','d3J5cmV','Yb3dtblA=']);
+        const prompt = `You are a senior ATS expert. Analyze this resume and provide a detailed ATS report.
+
+Resume text:
+${text.slice(0, 3500)}
+
+Provide your analysis in EXACTLY this JSON format (no extra text):
+{
+  "overall": 78,
+  "grade": "B+",
+  "categories": {
+    "contact": {"score": 18, "max": 20, "issues": ["Missing LinkedIn URL"]},
+    "format": {"score": 17, "max": 20, "issues": ["Good clean structure"]},
+    "content": {"score": 19, "max": 25, "issues": ["Add more quantifiable achievements"]},
+    "keywords": {"score": 14, "max": 20, "issues": ["Add more industry keywords"]},
+    "structure": {"score": 10, "max": 15, "issues": ["All standard sections present"]}
+  },
+  "strengths": ["Strong action verbs used", "Clear contact information"],
+  "critical_fixes": ["Add LinkedIn URL", "Quantify at least 3 more achievements", "Add skills section keywords"],
+  "missing_sections": ["Certifications", "LinkedIn"],
+  "keyword_suggestions": ["Python", "SQL", "Project Management", "Agile", "Data Analysis"],
+  "verdict": "Good resume with minor improvements needed. ATS will likely pass it."
+}`;
+
+        const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${_k2}` },
+          body: JSON.stringify({ model: 'llama-3.1-8b-instant', messages: [{ role: 'user', content: prompt }], max_tokens: 1200, temperature: 0.3 })
+        });
+
+        setProgress(90, 'Building report...');
+        const data = await res.json();
+        const raw = data.choices?.[0]?.message?.content || '';
+        const jsonMatch = raw.match(/\{[\s\S]*\}/);
+        if (!jsonMatch) throw new Error('Could not parse AI response');
+        const r = JSON.parse(jsonMatch[0]);
+
+        setProgress(100, 'Done!');
+        await new Promise(x => setTimeout(x, 400));
+        prog.style.display = 'none';
+
+        const scoreColor = r.overall >= 80 ? '#22a06b' : r.overall >= 60 ? '#f0a500' : '#ef4444';
+        const catIcons = { contact:'📞', format:'📄', content:'✍️', keywords:'🔍', structure:'🏗️' };
+
+        result.innerHTML = `
+          <div style="background:#f8fafb;border:1px solid #e5e7eb;border-radius:12px;padding:16px;font-size:0.8rem;">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+              <div style="width:56px;height:56px;border-radius:50%;background:${scoreColor}15;border:3px solid ${scoreColor};display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;">
+                <span style="font-size:1.1rem;font-weight:800;color:${scoreColor};line-height:1">${r.overall}</span>
+                <span style="font-size:0.55rem;color:${scoreColor};font-weight:700">${r.grade||''}</span>
+              </div>
+              <div>
+                <div style="font-weight:700;color:#111;font-size:0.85rem;">ATS Score: ${r.overall}/100</div>
+                <div style="color:#555;line-height:1.4;margin-top:2px;">${r.verdict||''}</div>
+              </div>
+            </div>
+            ${Object.entries(r.categories||{}).map(([k,v])=>`
+              <div style="display:flex;align-items:center;gap:6px;margin-bottom:5px;">
+                <span>${catIcons[k]||'•'}</span>
+                <span style="min-width:70px;color:#444;">${k.charAt(0).toUpperCase()+k.slice(1)}</span>
+                <div style="flex:1;background:#e5e7eb;border-radius:4px;height:6px;">
+                  <div style="background:${v.score/v.max>=.8?'#22a06b':v.score/v.max>=.6?'#f0a500':'#ef4444'};width:${Math.round(v.score/v.max*100)}%;height:6px;border-radius:4px;"></div>
+                </div>
+                <span style="min-width:32px;text-align:right;font-weight:700;color:#333">${v.score}/${v.max}</span>
+              </div>`).join('')}
+            <div style="margin-top:10px;padding-top:10px;border-top:1px solid #e5e7eb;">
+              <div style="font-weight:700;color:#ef4444;margin-bottom:4px;">🔧 Fix These First:</div>
+              ${(r.critical_fixes||[]).slice(0,3).map(f=>`<div style="color:#555;margin-bottom:3px;">• ${f}</div>`).join('')}
+            </div>
+            ${(r.keyword_suggestions||[]).length?`<div style="margin-top:8px;"><span style="font-weight:600;color:#2d8653;">Add keywords: </span>${r.keyword_suggestions.slice(0,5).map(k=>`<span style="background:#e8f5e3;color:#166534;padding:1px 7px;border-radius:20px;margin:2px;display:inline-block;">${k}</span>`).join('')}</div>`:''}
+            <button onclick="document.getElementById('atsFileResult').style.display='none';document.getElementById('atsUploadLabel').style.display='flex';document.getElementById('atsFileInput').value='';" style="margin-top:10px;width:100%;padding:7px;background:none;border:1px solid #d1d5db;border-radius:6px;cursor:pointer;font-size:0.78rem;color:#555;">↑ Check another resume</button>
+          </div>`;
+        result.style.display = 'block';
+        label.style.display = 'none';
+
+      } catch(err) {
+        prog.style.display = 'none';
+        label.style.display = 'flex';
+        result.innerHTML = `<div style="color:#ef4444;font-size:0.78rem;padding:8px;background:#fef2f2;border-radius:6px;">❌ ${err.message}</div>`;
+        result.style.display = 'block';
+      }
+      input.value = '';
+    };
+    </script>
+</body>
+</html>

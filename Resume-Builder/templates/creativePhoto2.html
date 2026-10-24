@@ -1,0 +1,226 @@
+<div class="resume-template creative-magazine">
+  <div class="cmag-wrapper">
+    <div class="cmag-header">
+      <div id="profilePhoto" class="cmag-photo"></div>
+      <div class="cmag-overlay">
+        <h1 id="previewName" class="cmag-name">Your Name</h1>
+        <p id="previewJobTitle" class="cmag-title">Job Title</p>
+      </div>
+      <div class="cmag-contact-strip">
+        <span id="previewEmail" class="cmag-contact">email@example.com</span>
+        <span id="previewPhone" class="cmag-contact">+1 234 567 890</span>
+        <span id="previewLocation" class="cmag-contact">City, Country</span>
+        <div id="previewLinkedIn" class="cmag-contact">linkedin.com/in/you</div>
+      </div>
+    </div>
+
+    <div class="cmag-summary-section">
+      <p id="previewSummary">Professional summary goes here.</p>
+    </div>
+
+    <div class="cmag-body">
+      <div class="cmag-col-left">
+        <div class="cmag-section">
+          <h2 class="cmag-section-title">Experience</h2>
+          <div id="previewExperience"></div>
+        </div>
+        <div class="cmag-section">
+          <h2 class="cmag-section-title">Education</h2>
+          <div id="previewEducation"></div>
+        </div>
+        <div class="cmag-section">
+          <h2 class="cmag-section-title">Projects</h2>
+          <ul id="previewProjects" class="cmag-list"></ul>
+        </div>
+      </div>
+      <div class="cmag-col-right">
+        <div class="cmag-section">
+          <h2 class="cmag-section-title">Skills</h2>
+          <div id="previewSkills" class="skills-list cmag-tags"></div>
+        </div>
+        <div class="cmag-section">
+          <h2 class="cmag-section-title">Languages</h2>
+          <div id="previewLanguages" class="skills-list cmag-tags"></div>
+        </div>
+        <div class="cmag-section">
+          <h2 class="cmag-section-title">Certifications</h2>
+          <ul id="previewCertifications" class="cmag-list"></ul>
+        </div>
+        <div class="cmag-section">
+          <h2 class="cmag-section-title">Awards</h2>
+          <ul id="previewAwards" class="cmag-list"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.creative-magazine {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  --primary: var(--primary-color, #6366f1);
+}
+.creative-magazine .cmag-wrapper {
+  background: #fff;
+  min-height: 297mm;
+}
+.creative-magazine .cmag-header {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  display: flex;
+}
+.creative-magazine .cmag-photo {
+  width: 40%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-color: #ccc;
+  flex-shrink: 0;
+}
+.creative-magazine .cmag-overlay {
+  flex: 1;
+  background: linear-gradient(135deg, var(--primary) 0%, color-mix(in srgb, var(--primary) 60%, #000) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px 28px;
+}
+.creative-magazine .cmag-name {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #fff;
+  margin: 0 0 6px;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.creative-magazine .cmag-title {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.85);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+  font-weight: 600;
+}
+.creative-magazine .cmag-contact-strip {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  gap: 16px;
+  padding: 6px 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.creative-magazine .cmag-contact {
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.8);
+}
+.creative-magazine .cmag-summary-section {
+  background: #f8f7ff;
+  border-left: 5px solid var(--primary);
+  padding: 12px 28px;
+  font-size: 0.81rem;
+  color: #444;
+  line-height: 1.65;
+}
+.creative-magazine .cmag-summary-section p {
+  margin: 0;
+}
+.creative-magazine .cmag-body {
+  display: flex;
+  gap: 0;
+  padding: 18px 22px;
+  gap: 18px;
+}
+.creative-magazine .cmag-col-left {
+  flex: 1.8;
+  border-right: 1px solid #eee;
+  padding-right: 18px;
+}
+.creative-magazine .cmag-col-right {
+  flex: 1;
+}
+.creative-magazine .cmag-section {
+  margin-bottom: 16px;
+}
+.creative-magazine .cmag-section-title {
+  font-size: 0.63rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: var(--primary);
+  margin: 0 0 8px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid color-mix(in srgb, var(--primary) 15%, transparent);
+}
+.creative-magazine .cmag-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.creative-magazine .cmag-tags span {
+  background: color-mix(in srgb, var(--primary) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--primary) 25%, transparent);
+  color: color-mix(in srgb, var(--primary) 80%, #000);
+  padding: 2px 9px;
+  border-radius: 20px;
+  font-size: 0.68rem;
+}
+.creative-magazine .cmag-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.75rem;
+  color: #555;
+}
+.creative-magazine .cmag-list li {
+  padding: 2px 0 2px 12px;
+  position: relative;
+}
+.creative-magazine .cmag-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+.creative-magazine #previewExperience .experience-entry,
+.creative-magazine #previewEducation .education-entry {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0ebff;
+}
+.creative-magazine #previewExperience .experience-entry:last-child,
+.creative-magazine #previewEducation .education-entry:last-child {
+  border-bottom: none;
+}
+.creative-magazine #previewExperience .entry-title,
+.creative-magazine #previewEducation .entry-title {
+  font-weight: 700;
+  font-size: 0.87rem;
+  color: #111;
+}
+.creative-magazine #previewExperience .entry-company,
+.creative-magazine #previewEducation .entry-school {
+  font-size: 0.77rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+.creative-magazine #previewExperience .entry-dates,
+.creative-magazine #previewEducation .entry-dates {
+  font-size: 0.68rem;
+  color: #aaa;
+}
+.creative-magazine #previewExperience .entry-description,
+.creative-magazine #previewEducation .entry-description {
+  font-size: 0.75rem;
+  color: #555;
+  margin-top: 4px;
+  line-height: 1.55;
+}
+</style>

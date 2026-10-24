@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Template 3</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template company3-template">
+        <div class="header-section">
+            <div class="header-content">
+                <h1 class="name" id="previewName">Your Name</h1>
+                <div class="header-line"></div>
+                <h2 class="title" id="previewJobTitle">Professional Title</h2>
+                <div class="contact-grid">
+                    <div class="contact-item" id="previewEmail"></div>
+                    <div class="contact-item" id="previewPhone"></div>
+                    <div class="contact-item" id="previewLocation"></div>
+                    <div class="contact-item" id="previewLinkedIn"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="summary-section">
+                <h3>Executive Summary</h3>
+                <p id="previewSummary"></p>
+            </div>
+            
+            <div class="main-content">
+                <div class="left-column">
+                    <div class="section">
+                        <h3>Professional Experience</h3>
+                        <div id="previewExperience"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Education</h3>
+                        <div id="previewEducation"></div>
+                    </div>
+                </div>
+                
+                <div class="right-column">
+                    <div class="section">
+                        <h3>Technical Skills</h3>
+                        <div id="previewSkills" class="skills-list"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Key Projects</h3>
+                        <ul id="previewProjects"></ul>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Languages</h3>
+                        <div id="previewLanguages" class="skills-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .company3-template { 
+            font-family: 'Times New Roman', serif; 
+            background: #ffffff; 
+            color: #1a1a1a; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+        }
+        .company3-template .header-section { 
+            background: #f8f9fa; 
+            padding: 2.5rem 2rem; 
+            text-align: center; 
+            border-bottom: 4px solid #495057; 
+        }
+        .company3-template .name { 
+            font-size: 3rem; 
+            margin: 0; 
+            font-weight: 700; 
+            color: #495057; 
+            letter-spacing: 3px; 
+        }
+        .company3-template .header-line { 
+            width: 100px; 
+            height: 3px; 
+            background: #495057; 
+            margin: 1rem auto; 
+        }
+        .company3-template .title { 
+            font-size: 1.3rem; 
+            margin: 1rem 0; 
+            font-weight: 400; 
+            color: #6c757d; 
+            font-style: italic; 
+        }
+        .company3-template .contact-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 0.5rem; 
+            margin-top: 1.5rem; 
+            font-size: 1rem; 
+        }
+        .company3-template .contact-item { 
+            color: #495057; 
+        }
+        .company3-template .content-wrapper { 
+            padding: 2rem; 
+        }
+        .company3-template .summary-section { 
+            margin-bottom: 2rem; 
+            padding: 1.5rem; 
+            background: #f8f9fa; 
+            border-left: 5px solid #495057; 
+        }
+        .company3-template .summary-section h3 { 
+            margin: 0 0 1rem 0; 
+            color: #495057; 
+            font-size: 1.4rem; 
+            font-weight: 600; 
+        }
+        .company3-template .main-content { 
+            display: grid; 
+            grid-template-columns: 2fr 1fr; 
+            gap: 2rem; 
+        }
+        .company3-template .section { 
+            margin-bottom: 2rem; 
+        }
+        .company3-template h3 { 
+            color: #495057; 
+            font-size: 1.3rem; 
+            margin-bottom: 1rem; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            border-bottom: 2px solid #dee2e6; 
+            padding-bottom: 0.5rem; 
+        }
+        .company3-template .experience-entry, .company3-template .education-entry { 
+            margin-bottom: 1.8rem; 
+            padding-bottom: 1rem; 
+            border-bottom: 1px dotted #dee2e6; 
+        }
+        .company3-template .entry-title { 
+            font-weight: bold; 
+            font-size: 1.2rem; 
+            color: #495057; 
+        }
+        .company3-template .entry-company { 
+            color: #6c757d; 
+            font-weight: 500; 
+            font-style: italic; 
+        }
+        .company3-template .entry-dates { 
+            color: #6c757d; 
+            font-size: 0.9rem; 
+        }
+        .company3-template .skills-list { 
+            display: block; 
+        }
+        .company3-template .skill-tag { 
+            display: inline-block; 
+            background: #495057; 
+            color: white; 
+            padding: 0.4rem 0.8rem; 
+            margin: 0.2rem; 
+            border-radius: 0; 
+            font-size: 0.85rem; 
+            font-weight: 500; 
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

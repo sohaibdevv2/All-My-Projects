@@ -1,0 +1,79 @@
+<div class="resume-template nordic-minimal">
+  <div class="nm-top-bar"></div>
+  <div class="nm-header">
+    <div id="profilePhoto" class="nm-photo"></div>
+    <div class="nm-header-info">
+      <h1 id="previewName" class="nm-name">Your Name</h1>
+      <p id="previewJobTitle" class="nm-role">Job Title</p>
+      <div class="nm-meta">
+        <span id="previewEmail">email@example.com</span>
+        <span id="previewPhone">+1 234 567 890</span>
+        <span id="previewLocation">City, Country</span>
+        <span id="previewLinkedIn">LinkedIn</span>
+      </div>
+    </div>
+  </div>
+  <div class="nm-body">
+    <div class="nm-col-left">
+      <div class="nm-section">
+        <h2 class="nm-heading">Summary</h2>
+        <p id="previewSummary" class="nm-summary">Professional summary here.</p>
+      </div>
+      <div class="nm-section">
+        <h2 class="nm-heading">Experience</h2>
+        <div id="previewExperience"></div>
+      </div>
+      <div class="nm-section">
+        <h2 class="nm-heading">Education</h2>
+        <div id="previewEducation"></div>
+      </div>
+    </div>
+    <div class="nm-col-right">
+      <div class="nm-section">
+        <h2 class="nm-heading">Skills</h2>
+        <div id="previewSkills" class="skills-list nm-skills"></div>
+      </div>
+      <div class="nm-section">
+        <h2 class="nm-heading">Languages</h2>
+        <div id="previewLanguages" class="skills-list nm-skills"></div>
+      </div>
+      <div class="nm-section">
+        <h2 class="nm-heading">Projects</h2>
+        <ul id="previewProjects" class="nm-list"></ul>
+      </div>
+      <div class="nm-section">
+        <h2 class="nm-heading">Certifications</h2>
+        <ul id="previewCertifications" class="nm-list"></ul>
+      </div>
+      <div class="nm-section">
+        <h2 class="nm-heading">Awards</h2>
+        <ul id="previewAwards" class="nm-list"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+.nordic-minimal { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; width: 210mm; min-height: 297mm; margin: 0 auto; background: #fff; --primary: var(--primary-color, #2d6a4f); color: #222; }
+.nm-top-bar { height: 5px; background: var(--primary); }
+.nm-header { padding: 28px 36px 22px; display: flex; align-items: center; gap: 22px; border-bottom: 1px solid #eee; }
+.nm-photo { width: 90px; height: 90px; border-radius: 8px; background-size: cover; background-position: center; background-color: #e8f5e9; border: 1px solid #d0e8d6; flex-shrink: 0; }
+.nm-name { font-size: 1.8rem; font-weight: 700; margin: 0 0 3px; letter-spacing: -0.5px; color: #111; }
+.nm-role { font-size: 0.82rem; color: var(--primary); margin: 0 0 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 1.5px; }
+.nm-meta { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 0.7rem; color: #777; }
+.nm-body { display: flex; gap: 0; padding: 24px 36px; }
+.nm-col-left { flex: 2; padding-right: 28px; }
+.nm-col-right { flex: 1; padding-left: 22px; border-left: 1px solid #eee; }
+.nm-section { margin-bottom: 20px; }
+.nm-heading { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: var(--primary); margin: 0 0 9px; }
+.nm-summary { font-size: 0.8rem; line-height: 1.7; color: #444; margin: 0; }
+.nordic-minimal .experience-entry, .nordic-minimal .education-entry { margin-bottom: 14px; padding-left: 10px; border-left: 2px solid var(--primary); }
+.nordic-minimal .entry-header { margin-bottom: 3px; }
+.nordic-minimal .entry-title { font-weight: 700; font-size: 0.86rem; color: #111; display: block; }
+.nordic-minimal .entry-company, .nordic-minimal .entry-school { font-size: 0.76rem; color: var(--primary); font-weight: 500; }
+.nordic-minimal .entry-dates { font-size: 0.68rem; color: #999; margin-left: 8px; }
+.nordic-minimal .entry-description { font-size: 0.74rem; color: #555; line-height: 1.55; margin-top: 4px; }
+.nm-skills { display: flex; flex-direction: column; gap: 4px; }
+.nm-skills .skill-tag { background: none; color: #333; border: none; font-size: 0.74rem; padding: 0; border-radius: 0; display: flex; align-items: center; gap: 6px; }
+.nm-skills .skill-tag::before { content: '—'; color: var(--primary); font-weight: 700; }
+.nm-list { margin: 0; padding-left: 14px; font-size: 0.72rem; color: #555; line-height: 1.7; }
+</style>

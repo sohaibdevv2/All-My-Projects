@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food & Beverage Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template food-beverage-template">
+        <div class="header-section">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <h2 class="title" id="previewJobTitle">Culinary Professional</h2>
+            <div class="contact-info">
+                <span id="previewEmail"></span> • <span id="previewPhone"></span> • <span id="previewLocation"></span> • <span id="previewLinkedIn"></span>
+            </div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="section">
+                <h3>Professional Summary</h3>
+                <p id="previewSummary"></p>
+            </div>
+            
+            <div class="section">
+                <h3>Culinary Experience</h3>
+                <div id="previewExperience"></div>
+            </div>
+            
+            <div class="dual-section">
+                <div class="left-column">
+                    <div class="section">
+                        <h3>Education & Training</h3>
+                        <div id="previewEducation"></div>
+                    </div>
+                </div>
+                
+                <div class="right-column">
+                    <div class="section">
+                        <h3>Culinary Skills</h3>
+                        <div id="previewSkills" class="skills-list"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Languages</h3>
+                        <div id="previewLanguages" class="skills-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .food-beverage-template { 
+            font-family: 'Trebuchet MS', 'Arial', sans-serif; 
+            background: #ffffff; 
+            color: #4a4a4a; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+        }
+        .food-beverage-template .header-section { 
+            text-align: center; 
+            padding: 2.5rem 2rem 2rem; 
+            background: linear-gradient(135deg, #ff9a56 0%, #ff6b35 100%);
+            color: white;
+            border-radius: 0 0 20px 20px;
+        }
+        .food-beverage-template .name { 
+            font-size: 2.5rem; 
+            margin: 0; 
+            font-weight: 600; 
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .food-beverage-template .title { 
+            font-size: 1.3rem; 
+            margin: 1rem 0 1.5rem 0; 
+            font-weight: 300; 
+            opacity: 0.95;
+        }
+        .food-beverage-template .contact-info { 
+            font-size: 1rem; 
+            opacity: 0.9;
+        }
+        .food-beverage-template .content-wrapper { 
+            padding: 2rem 3rem; 
+        }
+        .food-beverage-template .section { 
+            margin-bottom: 2.5rem; 
+        }
+        .food-beverage-template h3 { 
+            color: #ff6b35; 
+            font-size: 1.3rem; 
+            margin-bottom: 1.5rem; 
+            font-weight: 600; 
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        .food-beverage-template h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #ff9a56 0%, #ff6b35 100%);
+            border-radius: 2px;
+        }
+        .food-beverage-template .dual-section { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 3rem; 
+        }
+        .food-beverage-template .experience-entry, .food-beverage-template .education-entry { 
+            margin-bottom: 2rem; 
+            padding: 1.5rem;
+            background: #fef9f6;
+            border-radius: 12px;
+            border-left: 4px solid #ff9a56;
+        }
+        .food-beverage-template .entry-title { 
+            font-weight: 600; 
+            font-size: 1.1rem; 
+            color: #4a4a4a; 
+            margin-bottom: 0.5rem;
+        }
+        .food-beverage-template .entry-company { 
+            color: #ff6b35; 
+            font-weight: 500; 
+            font-size: 1rem;
+        }
+        .food-beverage-template .entry-dates { 
+            color: #888; 
+            font-size: 0.95rem; 
+            margin-top: 0.5rem;
+        }
+        .food-beverage-template .skills-list { 
+            display: flex; 
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+        .food-beverage-template .skill-tag { 
+            background: #fff2ed; 
+            color: #ff6b35; 
+            padding: 0.6rem 1rem; 
+            font-size: 0.9rem; 
+            border-radius: 20px;
+            border: 2px solid #ff9a56;
+            font-weight: 500;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

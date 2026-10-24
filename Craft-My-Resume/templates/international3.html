@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Resume Template 3</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template international3-template">
+        <div class="header-section">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <h2 class="title" id="previewJobTitle">Professional Title</h2>
+            <div class="contact-bar">
+                <span class="contact-item" id="previewEmail"></span>
+                <span class="separator">|</span>
+                <span class="contact-item" id="previewPhone"></span>
+                <span class="separator">|</span>
+                <span class="contact-item" id="previewLocation"></span>
+                <span class="separator">|</span>
+                <span class="contact-item" id="previewLinkedIn"></span>
+            </div>
+        </div>
+        <div class="summary-section">
+            <h3>Executive Summary</h3>
+            <p id="previewSummary"></p>
+        </div>
+        <div class="main-grid">
+            <div class="left-column">
+                <div class="section">
+                    <h3>Professional Experience</h3>
+                    <div id="previewExperience"></div>
+                </div>
+                <div class="section">
+                    <h3>Education & Qualifications</h3>
+                    <div id="previewEducation"></div>
+                </div>
+            </div>
+            <div class="right-column">
+                <div class="section">
+                    <h3>Core Skills</h3>
+                    <div id="previewSkills" class="skills-list"></div>
+                </div>
+                <div class="section">
+                    <h3>Languages</h3>
+                    <div id="previewLanguages" class="skills-list"></div>
+                </div>
+                <div class="section">
+                    <h3>Notable Projects</h3>
+                    <ul id="previewProjects"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .international3-template { font-family: 'Helvetica', sans-serif; background: #fff; color: #333; }
+        .international3-template .header-section { text-align: center; padding: 2rem; background: #f8f9fa; border-bottom: 4px solid #28a745; }
+        .international3-template .name { font-size: 3rem; margin: 0; font-weight: 300; color: #212529; letter-spacing: 2px; }
+        .international3-template .title { font-size: 1.3rem; margin: 0.5rem 0 1.5rem 0; color: #28a745; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+        .international3-template .contact-bar { font-size: 0.95rem; color: #6c757d; }
+        .international3-template .separator { margin: 0 1rem; color: #28a745; }
+        .international3-template .summary-section { padding: 2rem; background: #e9f7ef; }
+        .international3-template .summary-section h3 { margin: 0 0 1rem 0; color: #28a745; font-size: 1.3rem; font-weight: 600; text-transform: uppercase; }
+        .international3-template .main-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; padding: 2rem; }
+        .international3-template .section { margin-bottom: 2rem; }
+        .international3-template h3 { color: #28a745; font-size: 1.2rem; margin-bottom: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; position: relative; }
+        .international3-template h3:after { content: ''; position: absolute; bottom: -5px; left: 0; width: 50px; height: 3px; background: #28a745; }
+        .international3-template .experience-entry, .international3-template .education-entry { margin-bottom: 1.8rem; }
+        .international3-template .entry-title { font-weight: bold; font-size: 1.1rem; color: #212529; }
+        .international3-template .entry-company { color: #28a745; font-weight: 600; margin: 0.3rem 0; }
+        .international3-template .entry-dates { color: #6c757d; font-size: 0.9rem; }
+        .international3-template .skills-list { display: block; }
+        .international3-template .skill-tag { display: inline-block; background: #28a745; color: white; padding: 0.4rem 1rem; margin: 0.3rem; border-radius: 25px; font-size: 0.85rem; font-weight: 500; }
+    </style>
+    <script src="../script.js"></script>
+</body>
+</html>

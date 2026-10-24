@@ -1,0 +1,86 @@
+<div class="resume-template magazine-bold">
+  <div class="mb-header">
+    <div class="mb-name-block">
+      <h1 id="previewName" class="mb-name">Your Name</h1>
+      <div class="mb-title-row">
+        <span class="mb-line"></span>
+        <p id="previewJobTitle" class="mb-title">Job Title</p>
+        <span class="mb-line"></span>
+      </div>
+    </div>
+    <div id="profilePhoto" class="mb-photo"></div>
+  </div>
+  <div class="mb-contact-bar">
+    <span id="previewEmail">email@example.com</span>
+    <span id="previewPhone">+1 234 567 890</span>
+    <span id="previewLocation">City, Country</span>
+    <span id="previewLinkedIn">LinkedIn</span>
+  </div>
+  <div class="mb-body">
+    <div class="mb-main">
+      <div class="mb-section">
+        <h2 class="mb-heading">Who I Am</h2>
+        <p id="previewSummary" class="mb-summary">Professional summary here.</p>
+      </div>
+      <div class="mb-section">
+        <h2 class="mb-heading">Experience</h2>
+        <div id="previewExperience"></div>
+      </div>
+      <div class="mb-section">
+        <h2 class="mb-heading">Education</h2>
+        <div id="previewEducation"></div>
+      </div>
+    </div>
+    <div class="mb-side">
+      <div class="mb-section">
+        <h2 class="mb-heading">Skills</h2>
+        <div id="previewSkills" class="skills-list mb-skills"></div>
+      </div>
+      <div class="mb-section">
+        <h2 class="mb-heading">Languages</h2>
+        <div id="previewLanguages" class="skills-list mb-skills"></div>
+      </div>
+      <div class="mb-section">
+        <h2 class="mb-heading">Projects</h2>
+        <ul id="previewProjects" class="mb-list"></ul>
+      </div>
+      <div class="mb-section">
+        <h2 class="mb-heading">Certifications</h2>
+        <ul id="previewCertifications" class="mb-list"></ul>
+      </div>
+      <div class="mb-section">
+        <h2 class="mb-heading">Awards</h2>
+        <ul id="previewAwards" class="mb-list"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+.magazine-bold { font-family: 'Segoe UI', system-ui, sans-serif; width: 210mm; min-height: 297mm; margin: 0 auto; background: #fff; --primary: var(--primary-color, #e11d48); color: #111; }
+.mb-header { display: flex; justify-content: space-between; align-items: center; padding: 30px 36px; background: #111; }
+.mb-name { font-size: 2.5rem; font-weight: 900; color: #fff; margin: 0; line-height: 1; letter-spacing: -1px; text-transform: uppercase; }
+.mb-title-row { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
+.mb-line { flex: 1; height: 2px; background: var(--primary); }
+.mb-title { font-size: 0.75rem; color: var(--primary); text-transform: uppercase; letter-spacing: 3px; margin: 0; white-space: nowrap; font-weight: 600; }
+.mb-photo { width: 100px; height: 100px; border-radius: 50%; background-size: cover; background-position: center; background-color: #333; border: 3px solid var(--primary); flex-shrink: 0; }
+.mb-contact-bar { display: flex; flex-wrap: wrap; gap: 0; background: var(--primary); padding: 8px 36px; }
+.mb-contact-bar span { font-size: 0.68rem; color: rgba(255,255,255,0.9); padding: 0 14px; border-right: 1px solid rgba(255,255,255,0.3); }
+.mb-contact-bar span:first-child { padding-left: 0; }
+.mb-contact-bar span:last-child { border-right: none; }
+.mb-body { display: flex; padding: 24px 36px; gap: 28px; }
+.mb-main { flex: 2; }
+.mb-side { flex: 1; padding-left: 22px; border-left: 3px solid #f1f1f1; }
+.mb-section { margin-bottom: 20px; }
+.mb-heading { font-size: 0.7rem; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; color: var(--primary); margin: 0 0 10px; padding-bottom: 6px; border-bottom: 2px solid #111; }
+.mb-summary { font-size: 0.82rem; line-height: 1.65; color: #444; margin: 0; }
+.magazine-bold .experience-entry, .magazine-bold .education-entry { margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid #f0f0f0; }
+.magazine-bold .experience-entry:last-child, .magazine-bold .education-entry:last-child { border-bottom: none; }
+.magazine-bold .entry-header { display: flex; flex-wrap: wrap; gap: 2px 10px; margin-bottom: 4px; }
+.magazine-bold .entry-title { font-weight: 800; font-size: 0.9rem; color: #111; flex: 100%; }
+.magazine-bold .entry-company, .magazine-bold .entry-school { font-size: 0.76rem; color: var(--primary); font-weight: 700; }
+.magazine-bold .entry-dates { font-size: 0.68rem; color: #999; background: #f5f5f5; padding: 1px 7px; border-radius: 3px; }
+.magazine-bold .entry-description { font-size: 0.75rem; color: #555; line-height: 1.55; margin-top: 5px; }
+.mb-skills { display: flex; flex-wrap: wrap; gap: 5px; }
+.mb-skills .skill-tag { background: #111; color: #fff; padding: 3px 10px; border-radius: 3px; font-size: 0.68rem; font-weight: 600; }
+.mb-list { margin: 0; padding-left: 14px; font-size: 0.72rem; color: #555; line-height: 1.7; }
+</style>

@@ -1,0 +1,89 @@
+<div class="resume-template creativePhoto3-template">
+  <div class="cp3-header">
+    <div class="cp3-neon-grid"></div>
+    <div class="cp3-header-content">
+      <div class="cp3-photo-wrap">
+        <div class="cp3-photo" id="profilePhoto"></div>
+        <div class="cp3-photo-ring"></div>
+      </div>
+      <div class="cp3-header-text">
+        <h1 id="previewName" class="cp3-name">Your Name</h1>
+        <div id="previewJobTitle" class="cp3-title">Professional Title</div>
+        <div class="cp3-contact">
+          <span class="cp3-contact-item">⚡ <span id="previewEmail">email@example.com</span></span>
+          <span class="cp3-contact-item">📡 <span id="previewPhone">+1 555 0000</span></span>
+          <span class="cp3-contact-item">📍 <span id="previewLocation">Location</span></span>
+          <div id="previewLinkedIn" class="cp3-contact-item"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cp3-summary-bar">
+    <span class="cp3-bar-label">&gt;_</span>
+    <p id="previewSummary" class="cp3-summary">Professional summary...</p>
+  </div>
+  <div class="cp3-body">
+    <div class="cp3-main">
+      <div class="cp3-section">
+        <h2 class="cp3-section-title"><span class="cp3-bracket">[</span>Experience<span class="cp3-bracket">]</span></h2>
+        <div id="previewExperience"></div>
+      </div>
+      <div class="cp3-section">
+        <h2 class="cp3-section-title"><span class="cp3-bracket">[</span>Education<span class="cp3-bracket">]</span></h2>
+        <div id="previewEducation"></div>
+      </div>
+    </div>
+    <div class="cp3-side">
+      <div class="cp3-section">
+        <h2 class="cp3-section-title"><span class="cp3-bracket">[</span>Skills<span class="cp3-bracket">]</span></h2>
+        <div id="previewSkills" class="skills-list"></div>
+      </div>
+      <div class="cp3-section">
+        <h2 class="cp3-section-title"><span class="cp3-bracket">[</span>Lang<span class="cp3-bracket">]</span></h2>
+        <div id="previewLanguages" class="skills-list"></div>
+      </div>
+      <div class="cp3-section">
+        <h2 class="cp3-section-title"><span class="cp3-bracket">[</span>Certs<span class="cp3-bracket">]</span></h2>
+        <ul id="previewCertifications"></ul>
+      </div>
+      <div class="cp3-section">
+        <h2 class="cp3-section-title"><span class="cp3-bracket">[</span>Projects<span class="cp3-bracket">]</span></h2>
+        <ul id="previewProjects"></ul>
+      </div>
+      <div class="cp3-section">
+        <h2 class="cp3-section-title"><span class="cp3-bracket">[</span>Awards<span class="cp3-bracket">]</span></h2>
+        <ul id="previewAwards"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+.creativePhoto3-template{font-family:'Courier New',monospace;background:#0d0d0d;color:#e0e0e0;min-height:100%;--accent:var(--primary-color,#00ffff)}
+.cp3-header{background:linear-gradient(135deg,#0d0d0d,#1a1a2e,#0d0d0d);padding:2rem;position:relative;overflow:hidden;border-bottom:1px solid var(--accent)}
+.cp3-neon-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,255,.05) 1px,transparent 1px);background-size:30px 30px;pointer-events:none}
+.cp3-header-content{display:flex;align-items:center;gap:2rem;position:relative}
+.cp3-photo-wrap{position:relative;flex-shrink:0}
+.cp3-photo{width:110px;height:110px;border-radius:50%;background:#1a1a2e;background-size:cover;background-position:center}
+.cp3-photo-ring{position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--accent);box-shadow:0 0 15px var(--accent),inset 0 0 15px rgba(0,255,255,.1);animation:cpRingPulse 2s ease-in-out infinite}
+@keyframes cpRingPulse{0%,100%{box-shadow:0 0 10px var(--accent)}50%{box-shadow:0 0 25px var(--accent),0 0 50px var(--accent)}}
+.cp3-name{font-size:2rem;font-weight:700;color:#fff;margin:0 0 .3rem;text-shadow:0 0 20px var(--accent);letter-spacing:.05em}
+.cp3-title{color:var(--accent);font-size:1rem;margin-bottom:.8rem;letter-spacing:.1em}
+.cp3-contact{display:flex;flex-wrap:wrap;gap:.5rem}
+.cp3-contact-item{font-size:.75rem;color:#aaa;display:flex;align-items:center;gap:.3rem}
+.cp3-summary-bar{display:flex;gap:1rem;padding:1rem 2rem;background:#111;border-bottom:1px solid #222;align-items:flex-start}
+.cp3-bar-label{color:var(--accent);font-weight:700;font-size:1.2rem;flex-shrink:0;margin-top:.1rem}
+.cp3-summary{margin:0;color:#ccc;font-size:.85rem;line-height:1.6}
+.cp3-body{display:grid;grid-template-columns:1fr 280px;gap:0}
+.cp3-main{padding:1.5rem 2rem;border-right:1px solid #222}
+.cp3-side{padding:1.5rem;background:#111}
+.cp3-section{margin-bottom:1.5rem}
+.cp3-section-title{font-size:.9rem;letter-spacing:.15em;margin-bottom:.8rem;color:var(--accent);border-bottom:1px solid #222;padding-bottom:.4rem}
+.cp3-bracket{opacity:.5}
+.creativePhoto3-template .experience-entry,.creativePhoto3-template .education-entry{background:#141414;border:1px solid #222;border-left:3px solid var(--accent);padding:.8rem;margin-bottom:.8rem;border-radius:0 4px 4px 0}
+.creativePhoto3-template .entry-title{font-weight:700;color:#fff;font-size:.95rem}
+.creativePhoto3-template .entry-company{color:var(--accent);font-size:.85rem}
+.creativePhoto3-template .entry-dates{color:#666;font-size:.75rem}
+.creativePhoto3-template .entry-description{color:#bbb;font-size:.82rem;line-height:1.5;margin-top:.5rem}
+.creativePhoto3-template .skill-tag{background:#1a1a1a;border:1px solid var(--accent);color:var(--accent);padding:.25rem .6rem;border-radius:3px;font-size:.75rem;display:inline-block;margin:.2rem}
+.creativePhoto3-template ul{padding-left:1rem;color:#bbb;font-size:.82rem;line-height:1.6}
+</style>

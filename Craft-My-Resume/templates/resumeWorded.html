@@ -1,0 +1,47 @@
+<div class="resume-template rw-tpl">
+<style>
+.rw-tpl { background:#fff; color:#1a1a1a; font-family:'Georgia','Times New Roman',serif; font-size:9.4pt; line-height:1.45; padding:40px 46px; max-width:794px; margin:0 auto; }
+.rw-tpl .r-name { font-size:23pt; font-weight:700; color:#111; margin:0 0 4px; letter-spacing:-0.3px; }
+.rw-tpl .r-title { display:none; }
+.rw-tpl .r-contact { font-size:9.5pt; color:#333; margin-bottom:14px; }
+.rw-tpl .r-contact span:not(:last-child)::after { content:' | '; color:#666; }
+.rw-tpl .r-sec { font-size:10.5pt; font-weight:700; text-transform:uppercase; letter-spacing:0.8px; color:#111; border-bottom:1.5px solid #111; padding-bottom:2px; margin:14px 0 8px; }
+.rw-tpl .r-block { margin-bottom:6px; }
+.rw-tpl .r-sum { font-size:9.4pt; color:#222; line-height:1.5; margin:0 0 4px; }
+.rw-tpl .experience-entry,.rw-tpl .education-entry { margin-bottom:11px; }
+.rw-tpl .entry-header { display:flex; flex-wrap:wrap; align-items:baseline; }
+.rw-tpl .entry-title { font-size:10pt; font-weight:700; color:#111; margin:0; order:1; }
+.rw-tpl .entry-dates { font-size:9.4pt; font-weight:700; color:#111; margin-left:auto; order:2; }
+.rw-tpl .entry-company,.rw-tpl .entry-school { font-size:9.4pt; color:#333; font-style:italic; order:3; flex-basis:100%; margin-top:1px; }
+.rw-tpl .entry-description { font-size:9.3pt; color:#222; line-height:1.5; margin-top:3px; }
+.rw-tpl .entry-description ul { margin:2px 0; padding-left:18px; }
+.rw-tpl .entry-description li { margin-bottom:2px; }
+.rw-tpl .skill-tag { display:inline; background:none !important; color:inherit !important; padding:0 !important; border-radius:0 !important; font-size:9.3pt; font-weight:400; }
+.rw-tpl .skill-tag:not(:last-child)::after { content:', '; }
+.rw-tpl #previewLanguages .skill-tag:not(:last-child)::after { content:', '; }
+.rw-tpl .r-other-row { font-size:9.3pt; color:#222; margin-bottom:4px; line-height:1.5; }
+.rw-tpl .r-other-row b { font-weight:700; }
+.rw-tpl ul.r-list { margin:2px 0 6px; padding-left:18px; }
+.rw-tpl ul.r-list li { margin-bottom:2px; font-size:9.3pt; color:#222; }
+</style>
+  <div class="r-name" id="previewName">First Last</div>
+  <div class="r-title" id="previewJobTitle"></div>
+  <div class="r-contact">
+    <span id="previewEmail">first.last@email.com</span>
+    <span id="previewPhone">+1 (123) 456789</span>
+    <span id="previewLocation">San Francisco, CA</span>
+    <span id="previewLinkedIn"></span>
+  </div>
+  <div class="r-block"><div class="r-sec">Summary</div><p class="r-sum" id="previewSummary"></p></div>
+  <div class="r-block"><div class="r-sec">Experience</div><div id="previewExperience"></div></div>
+  <div class="r-block"><div class="r-sec">Education</div><div id="previewEducation"></div></div>
+  <div class="r-block"><div class="r-sec">Other</div>
+    <div class="r-other-row"><b>Skills:</b> <span id="previewSkills"></span></div>
+    <div class="r-other-row"><b>Certifications &amp; Training:</b></div>
+    <ul class="r-list" id="previewCertifications"></ul>
+    <div class="r-other-row"><b>Projects:</b></div>
+    <ul class="r-list" id="previewProjects"></ul>
+    <div class="r-other-row"><b>Languages:</b> <span id="previewLanguages"></span></div>
+    <ul class="r-list" id="previewAwards"></ul>
+  </div>
+</div>

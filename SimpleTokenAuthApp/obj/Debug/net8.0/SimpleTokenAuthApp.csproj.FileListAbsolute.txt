@@ -1,0 +1,14 @@
+C:\Users\dell\SimpleTokenAuthApp\obj\Debug\net8.0\SimpleTokenAuthApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dell\SimpleTokenAuthApp\obj\Debug\net8.0\SimpleTokenAuthApp.AssemblyInfoInputs.cache
+C:\Users\dell\SimpleTokenAuthApp\obj\Debug\net8.0\SimpleTokenAuthApp.AssemblyInfo.cs
+C:\Users\dell\SimpleTokenAuthApp\obj\Debug\net8.0\SimpleTokenAuthApp.csproj.CoreCompileInputs.cache
+C:\Users\dell\SimpleTokenAuthApp\bin\Debug\net8.0\SimpleTokenAuthApp.exe
+C:\Users\dell\SimpleTokenAuthApp\bin\Debug\net8.0\SimpleTokenAuthApp.deps.json
+C:\Users\dell\SimpleTokenAuthApp\bin\Debug\net8.0\SimpleTokenAuthApp.runtimeconfig.json
+C:\Users\dell\SimpleTokenAuthApp\bin\Debug\net8.0\SimpleTokenAuthApp.dll
+C:\Users\dell\SimpleTokenAuthApp\bin\Debug\net8.0\SimpleTokenAuthApp.pdb
+C:\Users\dell\SimpleTokenAuthApp\obj\Debug\net8.0\SimpleTokenAuthApp.dll
+C:\Users\dell\SimpleTokenAuthApp\obj\Debug\net8.0\refint\SimpleTokenAuthApp.dll
+C:\Users\dell\SimpleTokenAuthApp\obj\Debug\net8.0\SimpleTokenAuthApp.pdb
+C:\Users\dell\SimpleTokenAuthApp\obj\Debug\net8.0\SimpleTokenAuthApp.genruntimeconfig.cache
+C:\Users\dell\SimpleTokenAuthApp\obj\Debug\net8.0\ref\SimpleTokenAuthApp.dll

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Template 4</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template tech4-template">
+        <div class="header-section">
+            <div class="name-title">
+                <h1 class="name" id="previewName">Your Name</h1>
+                <h2 class="title" id="previewJobTitle">DevOps Engineer</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-item" id="previewEmail"></div>
+                <div class="contact-item" id="previewPhone"></div>
+                <div class="contact-item" id="previewLocation"></div>
+                <div class="contact-item" id="previewLinkedIn"></div>
+            </div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="summary-section">
+                <h3>DevOps & Cloud Engineering Profile</h3>
+                <p id="previewSummary"></p>
+            </div>
+            
+            <div class="main-grid">
+                <div class="primary-column">
+                    <div class="section">
+                        <h3>Professional Experience</h3>
+                        <div id="previewExperience"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Infrastructure Projects</h3>
+                        <ul id="previewProjects"></ul>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Education & Certifications</h3>
+                        <div id="previewEducation"></div>
+                    </div>
+                </div>
+                
+                <div class="secondary-column">
+                    <div class="section">
+                        <h3>Technical Skills</h3>
+                        <div id="previewSkills" class="skills-list"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Code & Portfolio</h3>
+                        <div class="portfolio-links">
+                            <div class="portfolio-item">GitHub: github.com/username</div>
+                            <div class="portfolio-item">Docker Hub: hub.docker.com/u/username</div>
+                            <div class="portfolio-item">Blog: devops-blog.com</div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Languages</h3>
+                        <div id="previewLanguages" class="skills-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .tech4-template { 
+            font-family: 'JetBrains Mono', 'Fira Code', monospace; 
+            background: #0d1117; 
+            color: #c9d1d9; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+            border: 1px solid #30363d;
+        }
+        .tech4-template .header-section { 
+            background: linear-gradient(135deg, #21262d 0%, #161b22 100%); 
+            color: #58a6ff; 
+            padding: 2.5rem 2rem; 
+            position: relative;
+            border-bottom: 2px solid #30363d;
+        }
+        .tech4-template .header-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="10" y="20" font-family="monospace" font-size="8" fill="rgba(88,166,255,0.1)">&lt;/&gt;</text><text x="70" y="40" font-family="monospace" font-size="6" fill="rgba(88,166,255,0.08)">{ }</text><text x="30" y="70" font-family="monospace" font-size="7" fill="rgba(88,166,255,0.09)">[ ]</text><text x="80" y="80" font-family="monospace" font-size="5" fill="rgba(88,166,255,0.07)">( )</text></svg>');
+        }
+        .tech4-template .name { 
+            font-size: 2.5rem; 
+            margin: 0; 
+            font-weight: 700; 
+            letter-spacing: 2px; 
+            color: #58a6ff;
+            position: relative;
+            z-index: 1;
+        }
+        .tech4-template .title { 
+            font-size: 1.3rem; 
+            margin: 0.5rem 0 2rem 0; 
+            font-weight: 400; 
+            color: #7c3aed; 
+            position: relative;
+            z-index: 1;
+        }
+        .tech4-template .contact-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 1rem; 
+            font-size: 0.95rem; 
+            position: relative;
+            z-index: 1;
+        }
+        .tech4-template .content-wrapper { 
+            padding: 2.5rem 2rem; 
+        }
+        .tech4-template .summary-section { 
+            margin-bottom: 2.5rem; 
+            padding: 2rem; 
+            background: #161b22; 
+            border: 1px solid #30363d; 
+            border-left: 5px solid #58a6ff; 
+            border-radius: 8px;
+        }
+        .tech4-template .summary-section h3 { 
+            margin: 0 0 1rem 0; 
+            color: #58a6ff; 
+            font-size: 1.3rem; 
+            font-weight: 600; 
+        }
+        .tech4-template .main-grid { 
+            display: grid; 
+            grid-template-columns: 2fr 1fr; 
+            gap: 2.5rem; 
+        }
+        .tech4-template .section { 
+            margin-bottom: 2rem; 
+        }
+        .tech4-template h3 { 
+            color: #58a6ff; 
+            font-size: 1.2rem; 
+            margin-bottom: 1.2rem; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .tech4-template h3::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #7c3aed;
+            font-weight: bold;
+        }
+        .tech4-template .experience-entry, .tech4-template .education-entry { 
+            margin-bottom: 1.8rem; 
+            padding: 1.5rem; 
+            background: #161b22; 
+            border-radius: 8px;
+            border: 1px solid #30363d;
+            border-left: 4px solid #7c3aed;
+        }
+        .tech4-template .entry-title { 
+            font-weight: 700; 
+            font-size: 1.1rem; 
+            color: #c9d1d9; 
+            margin-bottom: 0.3rem;
+        }
+        .tech4-template .entry-company { 
+            color: #58a6ff; 
+            font-weight: 600; 
+            font-size: 1rem;
+        }
+        .tech4-template .entry-dates { 
+            color: #8b949e; 
+            font-size: 0.9rem; 
+            font-weight: 500;
+        }
+        .tech4-template .skills-list { 
+            display: block; 
+        }
+        .tech4-template .skill-tag { 
+            display: inline-block; 
+            background: linear-gradient(135deg, #7c3aed, #58a6ff); 
+            color: white; 
+            padding: 0.5rem 1rem; 
+            margin: 0.3rem; 
+            border-radius: 4px; 
+            font-size: 0.85rem; 
+            font-weight: 500; 
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .tech4-template .secondary-column {
+            background: #161b22;
+            padding: 1.5rem;
+            border-radius: 8px;
+            height: fit-content;
+            border: 1px solid #30363d;
+        }
+        .tech4-template .portfolio-links {
+            font-size: 0.9rem;
+        }
+        .tech4-template .portfolio-item {
+            margin-bottom: 0.8rem;
+            padding: 0.8rem;
+            background: #0d1117;
+            border-radius: 6px;
+            border-left: 3px solid #58a6ff;
+            font-family: 'JetBrains Mono', monospace;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

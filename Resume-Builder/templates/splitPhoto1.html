@@ -1,0 +1,239 @@
+<div class="resume-template split-indigo">
+  <div class="si-wrapper">
+    <div class="si-sidebar">
+      <div id="profilePhoto" class="si-photo"></div>
+      <h1 id="previewName" class="si-name">Your Name</h1>
+      <p id="previewJobTitle" class="si-title">Job Title</p>
+      <div class="si-divider"></div>
+      <div class="si-section">
+        <h3 class="si-sid-label">Contact</h3>
+        <p id="previewEmail" class="si-citem">email@example.com</p>
+        <p id="previewPhone" class="si-citem">+1 234 567 890</p>
+        <p id="previewLocation" class="si-citem">City, Country</p>
+        <div id="previewLinkedIn" class="si-citem">linkedin.com/in/you</div>
+      </div>
+      <div class="si-divider"></div>
+      <div class="si-section">
+        <h3 class="si-sid-label">Skills</h3>
+        <div id="previewSkills" class="skills-list si-tags"></div>
+      </div>
+      <div class="si-divider"></div>
+      <div class="si-section">
+        <h3 class="si-sid-label">Languages</h3>
+        <div id="previewLanguages" class="skills-list si-tags"></div>
+      </div>
+      <div class="si-divider"></div>
+      <div class="si-section">
+        <h3 class="si-sid-label">Awards</h3>
+        <ul id="previewAwards" class="si-ul"></ul>
+      </div>
+    </div>
+
+    <div class="si-main">
+      <div class="si-main-header">
+        <p id="previewSummary" class="si-summary">Professional summary goes here.</p>
+      </div>
+      <div class="si-section-main">
+        <h2 class="si-section-title">Experience</h2>
+        <div id="previewExperience"></div>
+      </div>
+      <div class="si-section-main">
+        <h2 class="si-section-title">Education</h2>
+        <div id="previewEducation"></div>
+      </div>
+      <div class="si-section-main">
+        <h2 class="si-section-title">Certifications</h2>
+        <ul id="previewCertifications" class="si-list"></ul>
+      </div>
+      <div class="si-section-main">
+        <h2 class="si-section-title">Projects</h2>
+        <ul id="previewProjects" class="si-list"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.split-indigo {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  --primary: var(--primary-color, #6366f1);
+}
+.split-indigo .si-wrapper {
+  display: flex;
+  min-height: 297mm;
+}
+.split-indigo .si-sidebar {
+  width: 35%;
+  background: var(--primary);
+  padding: 28px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+.split-indigo .si-photo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(255,255,255,0.15);
+  border: 4px solid rgba(255,255,255,0.8);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  margin-bottom: 14px;
+}
+.split-indigo .si-name {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+  margin: 0 0 4px;
+  line-height: 1.2;
+}
+.split-indigo .si-title {
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.8);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 0;
+}
+.split-indigo .si-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255,255,255,0.2);
+  margin: 14px 0;
+}
+.split-indigo .si-section {
+  width: 100%;
+}
+.split-indigo .si-sid-label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.7);
+  margin: 0 0 8px;
+}
+.split-indigo .si-citem {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.85);
+  margin: 3px 0;
+  word-break: break-all;
+}
+.split-indigo .si-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.split-indigo .si-tags span {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  padding: 2px 9px;
+  border-radius: 20px;
+  font-size: 0.66rem;
+}
+.split-indigo .si-ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.75);
+}
+.split-indigo .si-ul li {
+  padding: 2px 0 2px 12px;
+  position: relative;
+}
+.split-indigo .si-ul li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: rgba(255,255,255,0.5);
+}
+.split-indigo .si-main {
+  flex: 1;
+  background: #fff;
+  padding: 26px 26px;
+}
+.split-indigo .si-main-header {
+  background: #f5f3ff;
+  border-left: 3px solid var(--primary);
+  border-radius: 0 6px 6px 0;
+  padding: 10px 14px;
+  margin-bottom: 18px;
+}
+.split-indigo .si-summary {
+  font-size: 0.81rem;
+  line-height: 1.65;
+  color: #444;
+  margin: 0;
+}
+.split-indigo .si-section-main {
+  margin-bottom: 16px;
+}
+.split-indigo .si-section-title {
+  font-size: 0.63rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: var(--primary);
+  margin: 0 0 8px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #ede9fe;
+}
+.split-indigo .si-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.76rem;
+  color: #555;
+}
+.split-indigo .si-list li {
+  padding: 2px 0 2px 13px;
+  position: relative;
+}
+.split-indigo .si-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+.split-indigo #previewExperience .experience-entry,
+.split-indigo #previewEducation .education-entry {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0ebff;
+}
+.split-indigo #previewExperience .experience-entry:last-child,
+.split-indigo #previewEducation .education-entry:last-child {
+  border-bottom: none;
+}
+.split-indigo #previewExperience .entry-title,
+.split-indigo #previewEducation .entry-title {
+  font-weight: 700;
+  font-size: 0.87rem;
+  color: #1e1b4b;
+}
+.split-indigo #previewExperience .entry-company,
+.split-indigo #previewEducation .entry-school {
+  font-size: 0.77rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+.split-indigo #previewExperience .entry-dates,
+.split-indigo #previewEducation .entry-dates {
+  font-size: 0.68rem;
+  color: #aaa;
+}
+.split-indigo #previewExperience .entry-description,
+.split-indigo #previewEducation .entry-description {
+  font-size: 0.75rem;
+  color: #555;
+  margin-top: 4px;
+  line-height: 1.55;
+}
+</style>

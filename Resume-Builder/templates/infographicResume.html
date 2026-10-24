@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infographic Resume Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template infographic-resume-template">
+        <div class="header-section">
+            <div class="profile-area">
+                <div class="profile-circle">
+                    <div class="initials">YN</div>
+                </div>
+                <div class="header-info">
+                    <h1 class="name" id="previewName">Your Name</h1>
+                    <h2 class="title" id="previewJobTitle">Data Professional</h2>
+                    <div class="contact-info">
+                        <span id="previewEmail"></span> • <span id="previewPhone"></span> • <span id="previewLocation"></span> • <span id="previewLinkedIn"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="section">
+                <h3>Professional Summary</h3>
+                <p id="previewSummary"></p>
+            </div>
+            
+            <div class="infographic-grid">
+                <div class="left-panel">
+                    <div class="section">
+                        <h3>Technical Skills</h3>
+                        <div class="skills-with-bars">
+                            <div id="previewSkills" class="skill-bars"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Languages</h3>
+                        <div class="language-proficiency">
+                            <div id="previewLanguages" class="language-bars"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Key Metrics</h3>
+                        <div class="metrics-grid">
+                            <div class="metric-card">
+                                <div class="metric-icon">📊</div>
+                                <div class="metric-value">95%</div>
+                                <div class="metric-label">Project Success</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-icon">👥</div>
+                                <div class="metric-value">50+</div>
+                                <div class="metric-label">Team Members</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-icon">🎯</div>
+                                <div class="metric-value">8+</div>
+                                <div class="metric-label">Years Experience</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-icon">🏆</div>
+                                <div class="metric-value">15</div>
+                                <div class="metric-label">Awards Won</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="right-panel">
+                    <div class="section">
+                        <h3>Professional Experience</h3>
+                        <div id="previewExperience"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Education</h3>
+                        <div id="previewEducation"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Certifications</h3>
+                        <div class="certifications-visual">
+                            <div class="cert-badge">
+                                <div class="cert-icon">🎓</div>
+                                <div class="cert-name">Professional Certification</div>
+                            </div>
+                            <div class="cert-badge">
+                                <div class="cert-icon">🏅</div>
+                                <div class="cert-name">Industry Recognition</div>
+                            </div>
+                            <div class="cert-badge">
+                                <div class="cert-icon">📜</div>
+                                <div class="cert-name">Advanced Training</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .infographic-resume-template { 
+            font-family: 'Roboto', 'Arial', sans-serif; 
+            background: #ffffff; 
+            color: #2c3e50; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+        }
+        .infographic-resume-template .header-section { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            color: white; 
+            padding: 2.5rem 2rem; 
+        }
+        .infographic-resume-template .profile-area {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        .infographic-resume-template .profile-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            border: 4px solid rgba(255,255,255,0.3);
+        }
+        .infographic-resume-template .name { 
+            font-size: 2.8rem; 
+            margin: 0; 
+            font-weight: 700; 
+            letter-spacing: 1px; 
+        }
+        .infographic-resume-template .title { 
+            font-size: 1.3rem; 
+            margin: 0.5rem 0 1.5rem 0; 
+            font-weight: 300; 
+            opacity: 0.9; 
+        }
+        .infographic-resume-template .contact-info { 
+            font-size: 0.95rem; 
+            opacity: 0.95;
+        }
+        .infographic-resume-template .content-wrapper { 
+            padding: 2.5rem 2rem; 
+        }
+        .infographic-resume-template .section { 
+            margin-bottom: 3rem; 
+        }
+        .infographic-resume-template h3 { 
+            color: #667eea; 
+            font-size: 1.3rem; 
+            margin-bottom: 1.5rem; 
+            font-weight: 600; 
+            position: relative;
+            padding-left: 2rem;
+        }
+        .infographic-resume-template h3::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1rem;
+            height: 1rem;
+            background: #667eea;
+            border-radius: 50%;
+        }
+        .infographic-resume-template .infographic-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1.5fr; 
+            gap: 3rem; 
+        }
+        .infographic-resume-template .skill-bars { 
+            display: block; 
+        }
+        .infographic-resume-template .skill-tag { 
+            display: block; 
+            background: #f8f9fa; 
+            color: #2c3e50; 
+            padding: 1rem; 
+            margin: 0.8rem 0; 
+            border-radius: 8px; 
+            font-size: 0.9rem; 
+            font-weight: 500; 
+            position: relative;
+            border-left: 4px solid #667eea;
+        }
+        .infographic-resume-template .skill-tag::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 1rem;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 6px;
+            background: #ecf0f1;
+            border-radius: 3px;
+        }
+        .infographic-resume-template .skill-tag::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 1rem;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 6px;
+            background: #667eea;
+            border-radius: 3px;
+            z-index: 1;
+        }
+        .infographic-resume-template .language-bars { 
+            display: block; 
+        }
+        .infographic-resume-template .language-bars .skill-tag::before {
+            width: 54px;
+            background: #27ae60;
+        }
+        .infographic-resume-template .language-bars .skill-tag {
+            border-left-color: #27ae60;
+        }
+        .infographic-resume-template .metrics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .infographic-resume-template .metric-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #ecf0f1;
+            transition: transform 0.2s ease;
+        }
+        .infographic-resume-template .metric-card:hover {
+            transform: translateY(-2px);
+            border-color: #667eea;
+        }
+        .infographic-resume-template .metric-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .infographic-resume-template .metric-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 0.3rem;
+        }
+        .infographic-resume-template .metric-label {
+            font-size: 0.85rem;
+            color: #7f8c8d;
+            font-weight: 500;
+        }
+        .infographic-resume-template .experience-entry, .infographic-resume-template .education-entry { 
+            margin-bottom: 2.5rem; 
+            padding: 2rem; 
+            background: #f8f9fa; 
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            position: relative;
+        }
+        .infographic-resume-template .experience-entry::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 2rem;
+            width: 16px;
+            height: 16px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+        .infographic-resume-template .entry-title { 
+            font-weight: 600; 
+            font-size: 1.2rem; 
+            color: #2c3e50; 
+            margin-bottom: 0.5rem;
+        }
+        .infographic-resume-template .entry-company { 
+            color: #667eea; 
+            font-weight: 500; 
+            font-size: 1rem;
+        }
+        .infographic-resume-template .entry-dates { 
+            color: #7f8c8d; 
+            font-size: 0.9rem; 
+            float: right;
+            background: #667eea;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+        }
+        .infographic-resume-template .certifications-visual {
+            display: grid;
+            gap: 1rem;
+        }
+        .infographic-resume-template .cert-badge {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border-left: 4px solid #e74c3c;
+        }
+        .infographic-resume-template .cert-icon {
+            font-size: 2rem;
+            width: 50px;
+            text-align: center;
+        }
+        .infographic-resume-template .cert-name {
+            font-weight: 500;
+            color: #2c3e50;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MNC Template 1</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template mnc1-template">
+        <div class="header-section">
+            <div class="name-title">
+                <h1 class="name" id="previewName">Your Name</h1>
+                <h2 class="title" id="previewJobTitle">Executive Professional</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-item" id="previewEmail"></div>
+                <div class="contact-item" id="previewPhone"></div>
+                <div class="contact-item" id="previewLocation"></div>
+                <div class="contact-item" id="previewLinkedIn"></div>
+            </div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="summary-section">
+                <h3>Executive Summary</h3>
+                <p id="previewSummary"></p>
+            </div>
+            
+            <div class="main-grid">
+                <div class="primary-column">
+                    <div class="section">
+                        <h3>Professional Experience</h3>
+                        <div id="previewExperience"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Education & Certifications</h3>
+                        <div id="previewEducation"></div>
+                    </div>
+                </div>
+                
+                <div class="secondary-column">
+                    <div class="section">
+                        <h3>Core Competencies</h3>
+                        <div id="previewSkills" class="skills-list"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Strategic Projects</h3>
+                        <ul id="previewProjects"></ul>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Languages</h3>
+                        <div id="previewLanguages" class="skills-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .mnc1-template { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #ffffff; 
+            color: #1a1a1a; 
+            line-height: 1.7; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+            border: 1px solid #e0e0e0;
+        }
+        .mnc1-template .header-section { 
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%); 
+            color: white; 
+            padding: 3rem 2rem; 
+            position: relative;
+        }
+        .mnc1-template .header-section::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: linear-gradient(135deg, transparent 50%, #ffffff 50%);
+        }
+        .mnc1-template .name { 
+            font-size: 3.2rem; 
+            margin: 0; 
+            font-weight: 300; 
+            letter-spacing: 3px; 
+            text-transform: uppercase;
+        }
+        .mnc1-template .title { 
+            font-size: 1.6rem; 
+            margin: 0.5rem 0 2rem 0; 
+            font-weight: 400; 
+            opacity: 0.9; 
+            font-style: italic;
+        }
+        .mnc1-template .contact-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 1rem; 
+            font-size: 1rem; 
+        }
+        .mnc1-template .content-wrapper { 
+            padding: 3rem 2rem 2rem; 
+        }
+        .mnc1-template .summary-section { 
+            margin-bottom: 3rem; 
+            padding: 2rem; 
+            background: #f8f9fa; 
+            border-left: 6px solid #2c5364; 
+            border-radius: 0 8px 8px 0;
+        }
+        .mnc1-template .summary-section h3 { 
+            margin: 0 0 1rem 0; 
+            color: #2c5364; 
+            font-size: 1.4rem; 
+            font-weight: 600; 
+        }
+        .mnc1-template .main-grid { 
+            display: grid; 
+            grid-template-columns: 2.2fr 1fr; 
+            gap: 3rem; 
+        }
+        .mnc1-template .section { 
+            margin-bottom: 2.5rem; 
+        }
+        .mnc1-template h3 { 
+            color: #2c5364; 
+            font-size: 1.3rem; 
+            margin-bottom: 1.5rem; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        .mnc1-template h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #2c5364, #0f2027);
+        }
+        .mnc1-template .experience-entry, .mnc1-template .education-entry { 
+            margin-bottom: 2rem; 
+            padding: 1.5rem; 
+            background: #fafafa; 
+            border-radius: 8px;
+            border-left: 4px solid #2c5364;
+        }
+        .mnc1-template .entry-title { 
+            font-weight: 700; 
+            font-size: 1.2rem; 
+            color: #1a1a1a; 
+            margin-bottom: 0.3rem;
+        }
+        .mnc1-template .entry-company { 
+            color: #2c5364; 
+            font-weight: 600; 
+            font-size: 1.1rem;
+        }
+        .mnc1-template .entry-dates { 
+            color: #666; 
+            font-size: 0.95rem; 
+            font-weight: 500;
+        }
+        .mnc1-template .skills-list { 
+            display: block; 
+        }
+        .mnc1-template .skill-tag { 
+            display: inline-block; 
+            background: linear-gradient(135deg, #2c5364, #0f2027); 
+            color: white; 
+            padding: 0.6rem 1.2rem; 
+            margin: 0.4rem; 
+            border-radius: 25px; 
+            font-size: 0.9rem; 
+            font-weight: 500; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .mnc1-template .secondary-column {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 12px;
+            height: fit-content;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

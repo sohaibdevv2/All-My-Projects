@@ -1,0 +1,83 @@
+<div class="resume-template rose-gold-luxury">
+  <div class="rgl-header">
+    <div id="profilePhoto" class="rgl-photo"></div>
+    <div class="rgl-header-text">
+      <h1 id="previewName" class="rgl-name">Your Name</h1>
+      <p id="previewJobTitle" class="rgl-title">Job Title</p>
+      <div class="rgl-contacts">
+        <span id="previewEmail">email@example.com</span>
+        <span class="rgl-dot">·</span>
+        <span id="previewPhone">+1 234 567 890</span>
+        <span class="rgl-dot">·</span>
+        <span id="previewLocation">City, Country</span>
+        <span class="rgl-dot">·</span>
+        <span id="previewLinkedIn">LinkedIn</span>
+      </div>
+    </div>
+  </div>
+  <div class="rgl-body">
+    <div class="rgl-main">
+      <div class="rgl-section">
+        <h2 class="rgl-heading">About</h2>
+        <p id="previewSummary" class="rgl-summary">Professional summary here.</p>
+      </div>
+      <div class="rgl-section">
+        <h2 class="rgl-heading">Experience</h2>
+        <div id="previewExperience"></div>
+      </div>
+      <div class="rgl-section">
+        <h2 class="rgl-heading">Projects</h2>
+        <ul id="previewProjects" class="rgl-list"></ul>
+      </div>
+    </div>
+    <div class="rgl-side">
+      <div class="rgl-section">
+        <h2 class="rgl-heading">Education</h2>
+        <div id="previewEducation"></div>
+      </div>
+      <div class="rgl-section">
+        <h2 class="rgl-heading">Skills</h2>
+        <div id="previewSkills" class="skills-list rgl-skills"></div>
+      </div>
+      <div class="rgl-section">
+        <h2 class="rgl-heading">Languages</h2>
+        <div id="previewLanguages" class="skills-list rgl-skills"></div>
+      </div>
+      <div class="rgl-section">
+        <h2 class="rgl-heading">Certifications</h2>
+        <ul id="previewCertifications" class="rgl-list"></ul>
+      </div>
+      <div class="rgl-section">
+        <h2 class="rgl-heading">Awards</h2>
+        <ul id="previewAwards" class="rgl-list"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+.rose-gold-luxury { font-family: 'Segoe UI', system-ui, sans-serif; width: 210mm; min-height: 297mm; margin: 0 auto; background: #fdf8f5; --primary: var(--primary-color, #b87333); color: #2d1a0e; }
+.rgl-header { background: linear-gradient(135deg, #2d1a0e 0%, #5c3317 60%, #7a4520 100%); padding: 28px 36px; display: flex; align-items: center; gap: 24px; position: relative; overflow: hidden; }
+.rgl-header::after { content: ''; position: absolute; right: -40px; top: -40px; width: 180px; height: 180px; border-radius: 50%; background: rgba(184,115,51,0.25); }
+.rgl-photo { width: 105px; height: 105px; border-radius: 50%; background-size: cover; background-position: center; background-color: rgba(255,255,255,0.15); border: 3px solid var(--primary); flex-shrink: 0; z-index: 1; }
+.rgl-header-text { z-index: 1; }
+.rgl-name { font-size: 2rem; font-weight: 800; color: #fff; margin: 0 0 4px; letter-spacing: -0.5px; }
+.rgl-title { font-size: 0.88rem; color: var(--primary); text-transform: uppercase; letter-spacing: 2.5px; margin: 0 0 10px; font-weight: 600; }
+.rgl-contacts { display: flex; flex-wrap: wrap; gap: 4px 0; font-size: 0.72rem; color: rgba(255,255,255,0.65); }
+.rgl-dot { margin: 0 6px; }
+.rgl-body { display: flex; gap: 0; min-height: calc(297mm - 133px); }
+.rgl-main { flex: 2; padding: 24px 28px; }
+.rgl-side { flex: 1; padding: 24px 20px; background: #f5ede6; border-left: 1px solid #e8d5c4; }
+.rgl-section { margin-bottom: 20px; }
+.rgl-heading { font-size: 0.62rem; font-weight: 800; text-transform: uppercase; letter-spacing: 3.5px; color: var(--primary); margin: 0 0 10px; padding-bottom: 5px; border-bottom: 1.5px solid var(--primary); }
+.rgl-summary { font-size: 0.82rem; line-height: 1.65; color: #4a3020; margin: 0; }
+.rose-gold-luxury .experience-entry, .rose-gold-luxury .education-entry { margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid #e8d5c4; }
+.rose-gold-luxury .experience-entry:last-child, .rose-gold-luxury .education-entry:last-child { border-bottom: none; }
+.rose-gold-luxury .entry-header { display: flex; flex-wrap: wrap; gap: 2px 10px; margin-bottom: 4px; align-items: baseline; }
+.rose-gold-luxury .entry-title { font-weight: 700; font-size: 0.88rem; color: #2d1a0e; flex: 100%; }
+.rose-gold-luxury .entry-company, .rose-gold-luxury .entry-school { font-size: 0.76rem; color: var(--primary); font-weight: 600; }
+.rose-gold-luxury .entry-dates { font-size: 0.68rem; color: #9b7d6b; }
+.rose-gold-luxury .entry-description { font-size: 0.75rem; color: #5a4030; line-height: 1.55; margin-top: 4px; }
+.rgl-skills { display: flex; flex-wrap: wrap; gap: 5px; }
+.rgl-skills .skill-tag { background: rgba(184,115,51,0.12); border: 1px solid rgba(184,115,51,0.35); color: #5c3317; padding: 3px 9px; border-radius: 12px; font-size: 0.68rem; font-weight: 500; }
+.rgl-list { margin: 0; padding-left: 14px; font-size: 0.72rem; color: #5a4030; line-height: 1.7; }
+</style>

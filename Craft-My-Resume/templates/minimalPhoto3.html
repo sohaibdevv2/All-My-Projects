@@ -1,0 +1,229 @@
+<div class="resume-template minimal-centered">
+  <div class="mc-wrapper">
+    <div class="mc-header">
+      <div id="profilePhoto" class="mc-photo"></div>
+      <h1 id="previewName" class="mc-name">Your Name</h1>
+      <p id="previewJobTitle" class="mc-title">Job Title</p>
+      <div class="mc-contacts">
+        <span id="previewEmail" class="mc-contact">email@example.com</span>
+        <span class="mc-dot">·</span>
+        <span id="previewPhone" class="mc-contact">+1 234 567 890</span>
+        <span class="mc-dot">·</span>
+        <span id="previewLocation" class="mc-contact">City, Country</span>
+        <span class="mc-dot">·</span>
+        <div id="previewLinkedIn" class="mc-contact mc-contact-inline">linkedin.com/in/you</div>
+      </div>
+      <div class="mc-header-line"></div>
+    </div>
+
+    <div class="mc-body">
+      <div class="mc-section">
+        <h2 class="mc-section-title">Summary</h2>
+        <p id="previewSummary" class="mc-text">Professional summary goes here.</p>
+      </div>
+
+      <div class="mc-section">
+        <h2 class="mc-section-title">Experience</h2>
+        <div id="previewExperience"></div>
+      </div>
+
+      <div class="mc-section">
+        <h2 class="mc-section-title">Education</h2>
+        <div id="previewEducation"></div>
+      </div>
+
+      <div class="mc-section">
+        <h2 class="mc-section-title">Skills</h2>
+        <div id="previewSkills" class="skills-list mc-tags"></div>
+      </div>
+
+      <div class="mc-section">
+        <h2 class="mc-section-title">Languages</h2>
+        <div id="previewLanguages" class="skills-list mc-tags"></div>
+      </div>
+
+      <div class="mc-row">
+        <div class="mc-col">
+          <div class="mc-section">
+            <h2 class="mc-section-title">Certifications</h2>
+            <ul id="previewCertifications" class="mc-list"></ul>
+          </div>
+        </div>
+        <div class="mc-col">
+          <div class="mc-section">
+            <h2 class="mc-section-title">Projects</h2>
+            <ul id="previewProjects" class="mc-list"></ul>
+          </div>
+        </div>
+        <div class="mc-col">
+          <div class="mc-section">
+            <h2 class="mc-section-title">Awards</h2>
+            <ul id="previewAwards" class="mc-list"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.minimal-centered {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  --primary: var(--primary-color, #6366f1);
+}
+.minimal-centered .mc-wrapper {
+  background: #fff;
+  min-height: 297mm;
+  padding: 36px 40px;
+  box-sizing: border-box;
+}
+.minimal-centered .mc-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.minimal-centered .mc-photo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-color: #f0f0f0;
+  border: 2px solid var(--primary);
+  margin: 0 auto 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+.minimal-centered .mc-name {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0 0 4px;
+  letter-spacing: -0.5px;
+}
+.minimal-centered .mc-title {
+  font-size: 0.78rem;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  margin: 0 0 10px;
+  font-weight: 600;
+}
+.minimal-centered .mc-contacts {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2px;
+  align-items: center;
+  font-size: 0.72rem;
+  color: #888;
+}
+.minimal-centered .mc-contact {
+  color: #888;
+}
+.minimal-centered .mc-contact-inline {
+  display: inline;
+}
+.minimal-centered .mc-dot {
+  color: #ccc;
+  margin: 0 4px;
+}
+.minimal-centered .mc-header-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  margin: 14px 0 0;
+}
+.minimal-centered .mc-body {
+  text-align: left;
+}
+.minimal-centered .mc-section {
+  margin-bottom: 16px;
+}
+.minimal-centered .mc-section-title {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--primary);
+  margin: 0 0 8px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #eee;
+}
+.minimal-centered .mc-text {
+  font-size: 0.81rem;
+  line-height: 1.7;
+  color: #555;
+  margin: 0;
+}
+.minimal-centered .mc-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.minimal-centered .mc-tags span {
+  background: #faf9ff;
+  border: 1px solid #e0dcf5;
+  color: #444;
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+}
+.minimal-centered .mc-row {
+  display: flex;
+  gap: 20px;
+}
+.minimal-centered .mc-col {
+  flex: 1;
+}
+.minimal-centered .mc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.75rem;
+  color: #555;
+}
+.minimal-centered .mc-list li {
+  padding: 2px 0 2px 12px;
+  position: relative;
+}
+.minimal-centered .mc-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+.minimal-centered #previewExperience .experience-entry,
+.minimal-centered #previewEducation .education-entry {
+  margin-bottom: 13px;
+  padding-bottom: 13px;
+  border-bottom: 1px solid #f5f5f5;
+}
+.minimal-centered #previewExperience .experience-entry:last-child,
+.minimal-centered #previewEducation .education-entry:last-child {
+  border-bottom: none;
+}
+.minimal-centered #previewExperience .entry-title,
+.minimal-centered #previewEducation .entry-title {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #1a1a1a;
+}
+.minimal-centered #previewExperience .entry-company,
+.minimal-centered #previewEducation .entry-school {
+  font-size: 0.78rem;
+  color: var(--primary);
+}
+.minimal-centered #previewExperience .entry-dates,
+.minimal-centered #previewEducation .entry-dates {
+  font-size: 0.68rem;
+  color: #bbb;
+}
+.minimal-centered #previewExperience .entry-description,
+.minimal-centered #previewEducation .entry-description {
+  font-size: 0.76rem;
+  color: #666;
+  margin-top: 4px;
+  line-height: 1.6;
+}
+</style>

@@ -1,0 +1,90 @@
+* {
+  scrollbar-color: #8e8e8e #fff;
+  scrollbar-width: thin;
+}
+
+* {
+    font-family: 'Poppins',sans-serif;
+  }
+
+* {
+    background-color: #f9f9f9;
+}
+
+h1{
+  margin-top: 50px;
+  font-weight: 500;
+}
+
+.center-container {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  min-height: 100vh; 
+}
+
+.calculator {
+  text-align: center; 
+}
+
+.input-button-container {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+}
+
+.button-container {
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: center; 
+}
+
+input, button {
+    font-size: 30px;
+    font-weight: 700;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+input {
+    display: block;
+    margin-bottom: 20px;
+}
+
+button {
+  text-align: center;
+    border: 1px solid gray;
+    background: whitesmoke;
+    margin-right: 5px;
+    cursor: pointer;
+  }
+
+button:nth-last-child(2), button:nth-last-child(1) {
+    background: tomato;
+    color: white;
+ }
+
+ .cute-button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.cute-button:hover {
+  background-color: #3e8e41; /* Darker Green on hover */
+}
+
+.the-end-button {
+  background-color: yellow;
+}
+
+.the-end-button:hover {
+  background-color: #ffd700; /*  darker yellow on hover */
+}

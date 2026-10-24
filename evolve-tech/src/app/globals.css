@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #2196F3  #fff;
+  }
+
+.dark {
+    background-color: #1a202c;
+    color: white;
+}
+
+.inputBox {
+    border-radius: 29px;
+    background: linear-gradient(145deg, #f0f0f0);
+    box-shadow: 5px 5px 18px #afafaf, -5px -5px 18px #ffffff;
+}
+
+.inputField {
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: inset 5px 5px 10px #d1d1d1, inset -5px -5px 10px #ffffff;
+}
+
+/* Dark Mode Styles */
+.dark .inputBox {
+    background: linear-gradient(145deg, #1a202c);
+    box-shadow: 5px 5px 18px #111, -5px -5px 18px #1a202c;
+}
+
+.dark .inputField {
+    background: #1a202c;
+    box-shadow: inset 5px 5px 10px #111, inset -5px -5px 10px #1a202c;
+}

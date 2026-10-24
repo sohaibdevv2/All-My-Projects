@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Template 2</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template elite2-template">
+        <div class="sidebar">
+            <div class="profile-section">
+                <div class="profile-image">
+                    <div class="initials">YN</div>
+                </div>
+                <h1 class="name" id="previewName">Your Name</h1>
+                <h2 class="title" id="previewJobTitle">Strategic Consultant</h2>
+            </div>
+            
+            <div class="contact-section">
+                <h3>Contact</h3>
+                <div class="contact-item" id="previewEmail"></div>
+                <div class="contact-item" id="previewPhone"></div>
+                <div class="contact-item" id="previewLocation"></div>
+                <div class="contact-item" id="previewLinkedIn"></div>
+            </div>
+            
+            <div class="skills-section">
+                <h3>Expertise</h3>
+                <div id="previewSkills" class="skills-list"></div>
+            </div>
+            
+            <div class="languages-section">
+                <h3>Languages</h3>
+                <div id="previewLanguages" class="skills-list"></div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="summary-section">
+                <h3>Professional Profile</h3>
+                <p id="previewSummary"></p>
+            </div>
+            
+            <div class="experience-section">
+                <h3>Career Timeline</h3>
+                <div id="previewExperience" class="timeline"></div>
+            </div>
+            
+            <div class="education-section">
+                <h3>Academic Background</h3>
+                <div id="previewEducation"></div>
+            </div>
+            
+            <div class="achievements-section">
+                <h3>Key Achievements</h3>
+                <div class="achievement-grid">
+                    <div class="achievement-item">Led $50M+ strategic initiatives</div>
+                    <div class="achievement-item">Managed teams of 100+ professionals</div>
+                    <div class="achievement-item">Delivered 25% efficiency improvements</div>
+                    <div class="achievement-item">Recognized industry thought leader</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .elite2-template { 
+            font-family: 'Helvetica Neue', 'Arial', sans-serif; 
+            background: #ffffff; 
+            color: #333333; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            min-height: 11in;
+        }
+        .elite2-template .sidebar { 
+            background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%); 
+            color: white; 
+            padding: 2.5rem 2rem; 
+            position: relative;
+        }
+        .elite2-template .sidebar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -15px;
+            width: 0;
+            height: 0;
+            border-top: 50px solid #1a1a2e;
+            border-right: 15px solid transparent;
+        }
+        .elite2-template .profile-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .elite2-template .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+        }
+        .elite2-template .name { 
+            font-size: 1.8rem; 
+            margin: 0 0 0.5rem 0; 
+            font-weight: 300; 
+            letter-spacing: 1px; 
+        }
+        .elite2-template .title { 
+            font-size: 1rem; 
+            margin: 0 0 2rem 0; 
+            font-weight: 400; 
+            opacity: 0.9; 
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .elite2-template .sidebar h3 {
+            color: #ff6b6b;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        .elite2-template .sidebar h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: #ff6b6b;
+        }
+        .elite2-template .contact-item {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.95;
+        }
+        .elite2-template .sidebar .skill-tag { 
+            display: block; 
+            background: rgba(255, 107, 107, 0.2); 
+            color: white; 
+            padding: 0.8rem 1rem; 
+            margin: 0.5rem 0; 
+            border-radius: 8px; 
+            font-size: 0.85rem; 
+            font-weight: 500; 
+            border-left: 3px solid #ff6b6b;
+        }
+        .elite2-template .main-content { 
+            padding: 2.5rem; 
+            background: #fafafa;
+        }
+        .elite2-template .main-content h3 { 
+            color: #1a1a2e; 
+            font-size: 1.4rem; 
+            margin-bottom: 1.5rem; 
+            font-weight: 600; 
+            position: relative;
+            padding-left: 2rem;
+        }
+        .elite2-template .main-content h3::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            border-radius: 3px;
+        }
+        .elite2-template .summary-section { 
+            margin-bottom: 3rem; 
+            padding: 2rem; 
+            background: white; 
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-top: 5px solid #ff6b6b;
+        }
+        .elite2-template .timeline .experience-entry { 
+            margin-bottom: 2.5rem; 
+            padding: 2rem; 
+            background: white; 
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            position: relative;
+            margin-left: 2rem;
+        }
+        .elite2-template .timeline .experience-entry::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 2rem;
+            width: 20px;
+            height: 20px;
+            background: #ff6b6b;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 2px #ff6b6b;
+        }
+        .elite2-template .timeline .experience-entry::after {
+            content: '';
+            position: absolute;
+            left: -2.1rem;
+            top: 3.5rem;
+            width: 2px;
+            height: calc(100% + 1rem);
+            background: linear-gradient(180deg, #ff6b6b, transparent);
+        }
+        .elite2-template .entry-title { 
+            font-weight: 700; 
+            font-size: 1.2rem; 
+            color: #1a1a2e; 
+            margin-bottom: 0.5rem;
+        }
+        .elite2-template .entry-company { 
+            color: #ff6b6b; 
+            font-weight: 600; 
+            font-size: 1rem;
+        }
+        .elite2-template .entry-dates { 
+            color: #666; 
+            font-size: 0.9rem; 
+            font-weight: 500;
+            float: right;
+            background: #f0f0f0;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+        }
+        .elite2-template .education-entry { 
+            margin-bottom: 1.5rem; 
+            padding: 1.5rem; 
+            background: white; 
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-left: 4px solid #ff6b6b;
+        }
+        .elite2-template .achievement-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .elite2-template .achievement-item {
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            border-top: 3px solid #ff6b6b;
+            font-weight: 500;
+            text-align: center;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold text-dark">Your Data, Safely Secured</h1>
+        <p class="lead text-muted">
+            SafeVault is your trusted solution for managing credentials and financial records securely.
+        </p>
+
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="mt-4">
+                <p class="text-success">Welcome back, @User.Identity.Name!</p>
+            </div>
+        }
+        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center mt-4">
+            
+            @if (User.IsInRole("Admin"))
+            {
+                <a href="/Dashboard_Admin" class="btn btn-success btn-lg px-4">Admin Dashboard</a>
+            }
+            else if (User.IsInRole("User"))
+            {
+                <a href="/Dashboard" class="btn btn-success btn-lg px-4">Dashboard</a>
+            }
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a href="/Logout" class="btn btn-secondary btn-lg px-4">Logout</a>
+            }
+
+            else
+            {
+                <a href="/Login" class="btn btn-primary btn-lg px-4">Login</a>
+                <a href="/Register" class="btn btn-outline-secondary btn-lg px-4">Register</a>
+            }
+        </div>
+
+    </div>

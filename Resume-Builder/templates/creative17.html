@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative 17 Resume Template</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="resume-template creative17-template">
+    <div class="crystal-header">
+        <div class="crystal-bg"></div>
+        <div class="header-info">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <h2 class="title" id="previewJobTitle">Professional Title</h2>
+            <div class="contact-crystal">
+                <span id="previewEmail">email@example.com</span>
+                <span id="previewPhone">+1 (555) 123-4567</span>
+                <span id="previewLocation">Location</span>
+                <div id="previewLinkedIn"></div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="summary-crystal">
+            <h3>Creative Summary</h3>
+            <p id="previewSummary"></p>
+        </div>
+        <div class="content-grid">
+            <div class="left-content">
+                <div class="section">
+                    <h3>Experience</h3>
+                    <div id="previewExperience"></div>
+                </div>
+                <div class="section">
+                    <h3>Education</h3>
+                    <div id="previewEducation"></div>
+                </div>
+            </div>
+            <div class="right-content">
+                <div class="section">
+                    <h3>Skills</h3>
+                    <div id="previewSkills" class="skills-list"></div>
+                </div>
+                <div class="section">
+                    <h3>Projects</h3>
+                    <ul id="previewProjects"></ul>
+                </div>
+                <div class="section">
+                    <h3>Languages</h3>
+                    <div id="previewLanguages" class="skills-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+.creative17-template { font-family: 'Open Sans', sans-serif; background: #fff; color: #333; }
+.creative17-template .crystal-header { background: linear-gradient(135deg, #00cec9 0%, #6c5ce7 100%); color: white; padding: 2rem; text-align: center; position: relative; overflow: hidden; }
+.creative17-template .crystal-bg { position: absolute; top: -30px; right: -30px; width: 140px; height: 140px; background: rgba(255,255,255,0.1); clip-path: polygon(50% 0%, 80% 10%, 100% 35%, 100% 70%, 80% 90%, 50% 100%, 20% 90%, 0% 70%, 0% 35%, 20% 10%); }
+.creative17-template .header-info { position: relative; z-index: 2; }
+.creative17-template .name { font-size: 2.5rem; margin: 0; font-weight: 700; }
+.creative17-template .title { font-size: 1.2rem; margin: 0.5rem 0 1rem 0; opacity: 0.9; font-weight: 300; }
+.creative17-template .contact-crystal { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; font-size: 0.9rem; }
+.creative17-template .main-content { padding: 2rem; }
+.creative17-template .summary-crystal { background: #f8f9fa; padding: 1.5rem; border-radius: 15px; margin-bottom: 2rem; border: 2px solid #00cec9; }
+.creative17-template .summary-crystal h3 { margin: 0 0 1rem 0; color: #00cec9; font-size: 1.2rem; }
+.creative17-template .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; }
+.creative17-template .section { margin-bottom: 2rem; }
+.creative17-template h3 { color: #00cec9; font-size: 1.2rem; margin-bottom: 1rem; font-weight: 600; }
+.creative17-template .experience-entry, .creative17-template .education-entry { margin-bottom: 1.5rem; padding: 1rem; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,206,201,0.1); }
+.creative17-template .entry-title { font-weight: bold; font-size: 1.1rem; color: #333; }
+.creative17-template .entry-company { color: #00cec9; font-weight: 500; }
+.creative17-template .entry-dates { color: #666; font-size: 0.9rem; }
+.creative17-template .skills-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.creative17-template .skill-tag { background: linear-gradient(135deg, #00cec9 0%, #6c5ce7 100%); color: white; padding: 0.4rem 1rem; border-radius: 25px; font-size: 0.85rem; }
+</style>
+</body>
+</html>

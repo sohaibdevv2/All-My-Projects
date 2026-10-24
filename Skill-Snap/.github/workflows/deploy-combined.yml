@@ -1,0 +1,32 @@
+name: Build, bundle Blazor client into API, and deploy combined App Service
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Restore
+        run: dotnet restore "SkillSnap/SkillSnap.sln"
+
+      - name: Publish combined API (includes Blazor client files)
+        run: |
+          # Publish the API project which will (via msbuild target) publish the Blazor client and copy its wwwroot into the API publish output
+          dotnet publish "SkillSnap/SkillSnap.Api/SkillSnap.Api.csproj" -c Release -o publish
+
+      - name: Deploy to Azure Web App (combined)
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: ${{ secrets.COMBINED_APP_NAME }}
+          publish-profile: ${{ secrets.COMBINED_PUBLISH_PROFILE }}
+          package: publish

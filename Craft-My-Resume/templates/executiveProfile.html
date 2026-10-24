@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Profile Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template executive-profile-template">
+        <div class="executive-header">
+            <div class="header-content">
+                <h1 class="name" id="previewName">Your Name</h1>
+                <h2 class="executive-title" id="previewJobTitle">Chief Executive Officer</h2>
+                <div class="header-line"></div>
+                <div class="contact-info">
+                    <span id="previewEmail"></span> • <span id="previewPhone"></span> • <span id="previewLocation"></span> • <span id="previewLinkedIn"></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="executive-summary-section">
+                <h3>Executive Profile</h3>
+                <div class="summary-content">
+                    <p id="previewSummary"></p>
+                </div>
+            </div>
+            
+            <div class="leadership-section">
+                <h3>Leadership Experience</h3>
+                <div id="previewExperience"></div>
+            </div>
+            
+            <div class="executive-grid">
+                <div class="left-executive-column">
+                    <div class="section">
+                        <h3>Education & Credentials</h3>
+                        <div id="previewEducation"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Board Positions</h3>
+                        <div class="board-list">
+                            <div class="board-item">
+                                <strong>Board of Directors</strong>
+                                <span>Technology Innovation Council</span>
+                            </div>
+                            <div class="board-item">
+                                <strong>Advisory Board Member</strong>
+                                <span>Startup Accelerator Program</span>
+                            </div>
+                            <div class="board-item">
+                                <strong>Industry Committee Chair</strong>
+                                <span>Professional Association</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="right-executive-column">
+                    <div class="section">
+                        <h3>Core Competencies</h3>
+                        <div id="previewSkills" class="executive-skills"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Key Achievements</h3>
+                        <div class="achievements-grid">
+                            <div class="achievement-card">
+                                <div class="achievement-number">$50M+</div>
+                                <div class="achievement-desc">Revenue Growth</div>
+                            </div>
+                            <div class="achievement-card">
+                                <div class="achievement-number">500+</div>
+                                <div class="achievement-desc">Team Members Led</div>
+                            </div>
+                            <div class="achievement-card">
+                                <div class="achievement-number">15+</div>
+                                <div class="achievement-desc">Years Leadership</div>
+                            </div>
+                            <div class="achievement-card">
+                                <div class="achievement-number">3</div>
+                                <div class="achievement-desc">Successful Exits</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Languages</h3>
+                        <div id="previewLanguages" class="executive-skills"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .executive-profile-template { 
+            font-family: 'Playfair Display', 'Georgia', serif; 
+            background: #ffffff; 
+            color: #2c3e50; 
+            line-height: 1.7; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+        }
+        .executive-profile-template .executive-header { 
+            background: linear-gradient(135deg, #1a365d 0%, #2d5a87 100%); 
+            color: white; 
+            padding: 4rem 3rem 3rem; 
+            text-align: center;
+            position: relative;
+        }
+        .executive-profile-template .executive-header::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid #2d5a87;
+        }
+        .executive-profile-template .name { 
+            font-size: 4rem; 
+            margin: 0; 
+            font-weight: 400; 
+            letter-spacing: 3px; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .executive-profile-template .executive-title { 
+            font-size: 1.6rem; 
+            margin: 1rem 0 2rem 0; 
+            font-weight: 300; 
+            opacity: 0.95; 
+            color: #f39c12;
+            font-style: italic;
+            letter-spacing: 2px;
+        }
+        .executive-profile-template .header-line {
+            width: 100px;
+            height: 3px;
+            background: #f39c12;
+            margin: 0 auto 2rem;
+            border-radius: 2px;
+        }
+        .executive-profile-template .contact-info { 
+            font-size: 1.1rem; 
+            opacity: 0.95;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .executive-profile-template .content-wrapper { 
+            padding: 4rem 3rem 3rem; 
+        }
+        .executive-profile-template .executive-summary-section {
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+        .executive-profile-template .executive-summary-section h3 {
+            font-size: 2rem;
+            color: #1a365d;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            position: relative;
+        }
+        .executive-profile-template .executive-summary-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background: #f39c12;
+        }
+        .executive-profile-template .summary-content {
+            background: #f8f9fa;
+            padding: 3rem;
+            border-radius: 15px;
+            border: 1px solid #e9ecef;
+            font-size: 1.1rem;
+            font-style: italic;
+            position: relative;
+        }
+        .executive-profile-template .summary-content::before {
+            content: '"';
+            position: absolute;
+            top: 1rem;
+            left: 2rem;
+            font-size: 4rem;
+            color: #f39c12;
+            opacity: 0.3;
+        }
+        .executive-profile-template .leadership-section {
+            margin-bottom: 4rem;
+        }
+        .executive-profile-template .section { 
+            margin-bottom: 3rem; 
+        }
+        .executive-profile-template h3 { 
+            color: #1a365d; 
+            font-size: 1.6rem; 
+            margin-bottom: 2rem; 
+            font-weight: 400; 
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        .executive-profile-template h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: #f39c12;
+        }
+        .executive-profile-template .executive-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 4rem; 
+        }
+        .executive-profile-template .experience-entry, .executive-profile-template .education-entry { 
+            margin-bottom: 3rem; 
+            padding: 2.5rem; 
+            background: #f8f9fa; 
+            border-radius: 15px;
+            border-left: 6px solid #1a365d;
+            position: relative;
+        }
+        .executive-profile-template .experience-entry::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 2.5rem;
+            width: 18px;
+            height: 18px;
+            background: #f39c12;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+        .executive-profile-template .entry-title { 
+            font-weight: 600; 
+            font-size: 1.3rem; 
+            color: #1a365d; 
+            margin-bottom: 0.5rem;
+        }
+        .executive-profile-template .entry-company { 
+            color: #f39c12; 
+            font-weight: 500; 
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+        .executive-profile-template .entry-dates { 
+            color: #7f8c8d; 
+            font-size: 1rem; 
+            font-weight: 500;
+            float: right;
+            background: #1a365d;
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+        }
+        .executive-profile-template .board-list {
+            display: grid;
+            gap: 1.5rem;
+        }
+        .executive-profile-template .board-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #e74c3c;
+        }
+        .executive-profile-template .board-item strong {
+            display: block;
+            color: #1a365d;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .executive-profile-template .board-item span {
+            color: #666;
+            font-style: italic;
+        }
+        .executive-profile-template .executive-skills { 
+            display: block; 
+        }
+        .executive-profile-template .skill-tag { 
+            display: inline-block; 
+            background: #1a365d; 
+            color: white; 
+            padding: 0.8rem 1.5rem; 
+            margin: 0.5rem; 
+            border-radius: 25px; 
+            font-size: 0.95rem; 
+            font-weight: 500; 
+            font-family: 'Open Sans', sans-serif;
+        }
+        .executive-profile-template .achievements-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .executive-profile-template .achievement-card {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(243, 156, 18, 0.3);
+        }
+        .executive-profile-template .achievement-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .executive-profile-template .achievement-desc {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-family: 'Open Sans', sans-serif;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<div class="resume-template creative-hexagon">
+  <div class="chex-wrapper">
+    <div class="chex-header">
+      <div class="chex-photo-wrap">
+        <div id="profilePhoto" class="chex-photo"></div>
+      </div>
+      <div class="chex-header-text">
+        <h1 id="previewName" class="chex-name">Your Name</h1>
+        <p id="previewJobTitle" class="chex-title">Job Title</p>
+        <div class="chex-contacts">
+          <span id="previewEmail" class="chex-contact">email@example.com</span>
+          <span id="previewPhone" class="chex-contact">+1 234 567 890</span>
+          <span id="previewLocation" class="chex-contact">City, Country</span>
+          <div id="previewLinkedIn" class="chex-contact">linkedin.com/in/you</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chex-summary-band">
+      <p id="previewSummary">Professional summary goes here.</p>
+    </div>
+
+    <div class="chex-body">
+      <div class="chex-col-main">
+        <div class="chex-card">
+          <h2 class="chex-section-title">Experience</h2>
+          <div id="previewExperience"></div>
+        </div>
+        <div class="chex-card">
+          <h2 class="chex-section-title">Education</h2>
+          <div id="previewEducation"></div>
+        </div>
+        <div class="chex-card">
+          <h2 class="chex-section-title">Projects</h2>
+          <ul id="previewProjects" class="chex-list"></ul>
+        </div>
+      </div>
+      <div class="chex-col-side">
+        <div class="chex-card">
+          <h2 class="chex-section-title">Skills</h2>
+          <div id="previewSkills" class="skills-list chex-tags"></div>
+        </div>
+        <div class="chex-card">
+          <h2 class="chex-section-title">Languages</h2>
+          <div id="previewLanguages" class="skills-list chex-tags"></div>
+        </div>
+        <div class="chex-card">
+          <h2 class="chex-section-title">Certifications</h2>
+          <ul id="previewCertifications" class="chex-list"></ul>
+        </div>
+        <div class="chex-card">
+          <h2 class="chex-section-title">Awards</h2>
+          <ul id="previewAwards" class="chex-list"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.creative-hexagon {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  --primary: var(--primary-color, #6366f1);
+}
+.creative-hexagon .chex-wrapper {
+  background: #f8f9ff;
+  min-height: 297mm;
+}
+.creative-hexagon .chex-header {
+  background: linear-gradient(135deg, var(--primary) 0%, color-mix(in srgb, var(--primary) 70%, #ec4899) 100%);
+  padding: 28px 34px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  color: #fff;
+}
+.creative-hexagon .chex-photo-wrap {
+  flex-shrink: 0;
+}
+.creative-hexagon .chex-photo {
+  width: 110px;
+  height: 110px;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(255,255,255,0.2);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+.creative-hexagon .chex-name {
+  font-size: 2.1rem;
+  font-weight: 900;
+  margin: 0 0 4px;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+.creative-hexagon .chex-title {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.85);
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  margin: 0 0 10px;
+  font-weight: 600;
+}
+.creative-hexagon .chex-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.creative-hexagon .chex-contact {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 2px 10px;
+}
+.creative-hexagon .chex-summary-band {
+  background: #fff;
+  border-left: 5px solid var(--primary);
+  margin: 0;
+  padding: 14px 30px;
+  font-size: 0.82rem;
+  color: #444;
+  line-height: 1.65;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.creative-hexagon .chex-summary-band p {
+  margin: 0;
+}
+.creative-hexagon .chex-body {
+  display: flex;
+  gap: 14px;
+  padding: 18px 24px;
+}
+.creative-hexagon .chex-col-main {
+  flex: 1.9;
+}
+.creative-hexagon .chex-col-side {
+  flex: 1;
+}
+.creative-hexagon .chex-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  border: 1px solid #ede9fe;
+}
+.creative-hexagon .chex-section-title {
+  font-size: 0.63rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: var(--primary);
+  margin: 0 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid color-mix(in srgb, var(--primary) 20%, transparent);
+}
+.creative-hexagon .chex-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.creative-hexagon .chex-tags span {
+  background: color-mix(in srgb, var(--primary) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--primary) 30%, transparent);
+  color: var(--primary);
+  padding: 2px 9px;
+  border-radius: 20px;
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+.creative-hexagon .chex-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.75rem;
+  color: #555;
+}
+.creative-hexagon .chex-list li {
+  padding: 2px 0 2px 13px;
+  position: relative;
+}
+.creative-hexagon .chex-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+.creative-hexagon #previewExperience .experience-entry,
+.creative-hexagon #previewEducation .education-entry {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0ebff;
+}
+.creative-hexagon #previewExperience .experience-entry:last-child,
+.creative-hexagon #previewEducation .education-entry:last-child {
+  border-bottom: none;
+}
+.creative-hexagon #previewExperience .entry-title,
+.creative-hexagon #previewEducation .entry-title {
+  font-weight: 700;
+  font-size: 0.87rem;
+  color: #1a1a2e;
+}
+.creative-hexagon #previewExperience .entry-company,
+.creative-hexagon #previewEducation .entry-school {
+  font-size: 0.77rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+.creative-hexagon #previewExperience .entry-dates,
+.creative-hexagon #previewEducation .entry-dates {
+  font-size: 0.68rem;
+  color: #aaa;
+}
+.creative-hexagon #previewExperience .entry-description,
+.creative-hexagon #previewEducation .entry-description {
+  font-size: 0.75rem;
+  color: #555;
+  margin-top: 4px;
+  line-height: 1.55;
+}
+</style>

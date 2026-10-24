@@ -1,0 +1,65 @@
+<div class="resume-template modern4-template">
+    <div class="split-header">
+        <div class="left-header">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <h2 class="title" id="previewJobTitle">Professional Title</h2>
+            <p class="summary" id="previewSummary"></p>
+        </div>
+        <div class="right-header">
+            <div class="profile-photo" id="profilePhoto"></div>
+            <div class="contact-info">
+                <div class="contact-item" id="previewEmail"></div>
+                <div class="contact-item" id="previewPhone"></div>
+                <div class="contact-item" id="previewLocation"></div>
+                <div class="contact-item" id="previewLinkedIn"></div>
+            </div>
+        </div>
+    </div>
+    <div class="content-area">
+        <div class="main-column">
+            <div class="section">
+                <h3>Experience</h3>
+                <div id="previewExperience"></div>
+            </div>
+            <div class="section">
+                <h3>Education</h3>
+                <div id="previewEducation"></div>
+            </div>
+        </div>
+        <div class="side-column">
+            <div class="section">
+                <h3>Skills</h3>
+                <div id="previewSkills" class="skills-list"></div>
+            </div>
+            <div class="section">
+                <h3>Projects</h3>
+                <ul id="previewProjects"></ul>
+            </div>
+            <div class="section">
+                <h3>Languages</h3>
+                <div id="previewLanguages" class="skills-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+.modern4-template { font-family: 'Inter', sans-serif; background: #fff; color: #333; }
+.modern4-template .split-header { display: flex; min-height: 250px; }
+.modern4-template .left-header { flex: 2; background: #2d3748; color: white; padding: 2rem; }
+.modern4-template .right-header { flex: 1; background: #4a5568; color: white; padding: 2rem; text-align: center; }
+.modern4-template .name { font-size: 2.5rem; margin: 0 0 0.5rem 0; font-weight: 700; }
+.modern4-template .title { font-size: 1.2rem; margin: 0 0 1rem 0; opacity: 0.9; font-weight: 300; }
+.modern4-template .summary { font-size: 1rem; line-height: 1.6; opacity: 0.9; }
+.modern4-template .profile-photo { width: 100px; height: 100px; border-radius: 50%; background: rgba(255,255,255,0.2); background-size: cover; background-position: center; margin: 0 auto 1rem; }
+.modern4-template .contact-info { font-size: 0.9rem; }
+.modern4-template .contact-item { margin-bottom: 0.5rem; }
+.modern4-template .content-area { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; padding: 2rem; }
+.modern4-template .section { margin-bottom: 2rem; }
+.modern4-template h3 { color: #2d3748; font-size: 1.2rem; margin-bottom: 1rem; font-weight: 600; }
+.modern4-template .experience-entry, .modern4-template .education-entry { margin-bottom: 1.5rem; }
+.modern4-template .entry-title { font-weight: bold; font-size: 1.1rem; color: #2d3748; }
+.modern4-template .entry-company { color: #4a5568; font-weight: 500; }
+.modern4-template .entry-dates { color: #718096; font-size: 0.9rem; }
+.modern4-template .skills-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.modern4-template .skill-tag { background: #2d3748; color: white; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; }
+</style>

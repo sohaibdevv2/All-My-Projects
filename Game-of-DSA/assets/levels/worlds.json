@@ -1,0 +1,264 @@
+{
+  "version": "1.0.0",
+  "game": "Game of DSA",
+  "worlds": [
+    {
+      "id": "array",
+      "name": "Array Forest",
+      "theme": "forest",
+      "concept": "Arrays & Searching",
+      "description": "Navigate the living forest of elements. Master array operations in the ancient grove.",
+      "color": "#00c864",
+      "unlocked_by_default": true,
+      "difficulty": 1,
+      "levels": [
+        { "id": 1, "name": "First Steps",       "objective": "Insert 5 elements into the array",   "xp": 50,  "stars": 3 },
+        { "id": 2, "name": "The Search",         "objective": "Find element 42 using linear search","xp": 75,  "stars": 3 },
+        { "id": 3, "name": "Order Restored",     "objective": "Sort the array in ascending order",  "xp": 100, "stars": 3 },
+        { "id": 4, "name": "Binary Hunt",        "objective": "Use binary search on sorted array",  "xp": 150, "stars": 3 },
+        { "id": 5, "name": "Array Architect",    "objective": "Complete all operations under 30s",  "xp": 200, "stars": 3 }
+      ],
+      "concepts": ["Insert", "Delete", "Search (Linear)", "Search (Binary)", "Sort", "Traverse"],
+      "boss": {
+        "name": "The Unsorted Colossus",
+        "objective": "Sort a 50-element array as fast as possible",
+        "xp": 500
+      }
+    },
+    {
+      "id": "stack",
+      "name": "Stack Volcano",
+      "theme": "volcano",
+      "concept": "Stacks & LIFO",
+      "description": "Master the ancient volcano of stack operations. Push and pop your way to victory.",
+      "color": "#ff5014",
+      "unlocked_by_default": true,
+      "difficulty": 1,
+      "levels": [
+        { "id": 1, "name": "First Eruption",    "objective": "PUSH 3 elements onto the stack",     "xp": 50,  "stars": 3 },
+        { "id": 2, "name": "The Pop",            "objective": "POP elements until stack is empty",  "xp": 75,  "stars": 3 },
+        { "id": 3, "name": "Balance Check",      "objective": "Use stack to check balanced brackets","xp": 150, "stars": 3 },
+        { "id": 4, "name": "Reverse Sequence",   "objective": "Reverse a string using stack",        "xp": 150, "stars": 3 },
+        { "id": 5, "name": "Volcano Master",     "objective": "Evaluate postfix expression",          "xp": 250, "stars": 3 }
+      ],
+      "concepts": ["PUSH", "POP", "PEEK", "Overflow", "Underflow", "LIFO", "Balanced Brackets"],
+      "boss": {
+        "name": "The Stack Overflow Dragon",
+        "objective": "Process a complex expression evaluation",
+        "xp": 500
+      }
+    },
+    {
+      "id": "queue",
+      "name": "Queue Railway",
+      "theme": "railway",
+      "concept": "Queues & FIFO",
+      "description": "Operate the great algorithm railway. Manage passenger queues with precision.",
+      "color": "#3296ff",
+      "unlocked_by_default": true,
+      "difficulty": 1,
+      "levels": [
+        { "id": 1, "name": "All Aboard",         "objective": "ENQUEUE 4 passengers",                "xp": 50,  "stars": 3 },
+        { "id": 2, "name": "First Out",          "objective": "DEQUEUE all in FIFO order",           "xp": 75,  "stars": 3 },
+        { "id": 3, "name": "Circular Track",     "objective": "Implement circular queue",             "xp": 150, "stars": 3 },
+        { "id": 4, "name": "Priority Express",   "objective": "Use priority queue to board VIPs",    "xp": 200, "stars": 3 },
+        { "id": 5, "name": "Station Master",     "objective": "BFS using queue on railway graph",    "xp": 300, "stars": 3 }
+      ],
+      "concepts": ["ENQUEUE", "DEQUEUE", "PEEK", "Circular Queue", "Priority Queue", "FIFO", "BFS"],
+      "boss": {
+        "name": "The Deadlock Train",
+        "objective": "Solve a complex scheduling problem",
+        "xp": 500
+      }
+    },
+    {
+      "id": "tree",
+      "name": "Tree Kingdom",
+      "theme": "medieval",
+      "concept": "BST & Tree Traversal",
+      "description": "Rule the binary search tree kingdom. Insert, search, and traverse the royal hierarchy.",
+      "color": "#b464ff",
+      "unlocked_by_default": false,
+      "unlock_requires": "queue",
+      "difficulty": 2,
+      "levels": [
+        { "id": 1, "name": "Planting the Seed",  "objective": "Insert 7 nodes into empty BST",      "xp": 100, "stars": 3 },
+        { "id": 2, "name": "Royal Search",       "objective": "Find a node in BST efficiently",     "xp": 100, "stars": 3 },
+        { "id": 3, "name": "Inorder Parade",     "objective": "Perform inorder traversal",           "xp": 150, "stars": 3 },
+        { "id": 4, "name": "Pre and Post",       "objective": "Master preorder and postorder",       "xp": 200, "stars": 3 },
+        { "id": 5, "name": "The Great Balance",  "objective": "Balance an unbalanced tree",          "xp": 300, "stars": 3 }
+      ],
+      "concepts": ["Insert", "Search", "Delete", "Inorder", "Preorder", "Postorder", "Level Order", "Height", "Balance"],
+      "boss": {
+        "name": "The Unbalanced Tyrant",
+        "objective": "Convert degenerate BST to AVL tree",
+        "xp": 600
+      }
+    },
+    {
+      "id": "graph",
+      "name": "Graph City",
+      "theme": "city",
+      "concept": "Graphs & Pathfinding",
+      "description": "Explore the connected metropolitan graph. Traverse the city using BFS and DFS.",
+      "color": "#ffc800",
+      "unlocked_by_default": false,
+      "unlock_requires": "tree",
+      "difficulty": 3,
+      "levels": [
+        { "id": 1, "name": "City Map",           "objective": "Build a graph with 6 nodes",          "xp": 100, "stars": 3 },
+        { "id": 2, "name": "Breadth Explorer",   "objective": "BFS traverse entire city",            "xp": 150, "stars": 3 },
+        { "id": 3, "name": "Depth Diver",        "objective": "DFS traverse all districts",          "xp": 150, "stars": 3 },
+        { "id": 4, "name": "Shortest Route",     "objective": "Find shortest path via Dijkstra",    "xp": 250, "stars": 3 },
+        { "id": 5, "name": "City Planner",       "objective": "Find MST using Kruskal/Prim",        "xp": 350, "stars": 3 }
+      ],
+      "concepts": ["BFS", "DFS", "Dijkstra", "Bellman-Ford", "MST", "Topological Sort", "Cycle Detection"],
+      "boss": {
+        "name": "The Traffic Overlord",
+        "objective": "Optimize all city routes simultaneously",
+        "xp": 700
+      }
+    },
+    {
+      "id": "sort",
+      "name": "Sorting Arena",
+      "theme": "colosseum",
+      "concept": "Sorting Algorithms",
+      "description": "Battle in the legendary sorting colosseum. Race against algorithms to prove your mastery.",
+      "color": "#00dcdc",
+      "unlocked_by_default": false,
+      "unlock_requires": "graph",
+      "difficulty": 2,
+      "levels": [
+        { "id": 1, "name": "Bubble Brawl",       "objective": "Sort 20 elements with Bubble Sort",  "xp": 100, "stars": 3 },
+        { "id": 2, "name": "Selection Showdown", "objective": "Complete Selection Sort challenge",  "xp": 100, "stars": 3 },
+        { "id": 3, "name": "Insertion Invitational","objective":"Beat Insertion Sort time trial",   "xp": 150, "stars": 3 },
+        { "id": 4, "name": "Merge Masters",      "objective": "Watch & understand Merge Sort",      "xp": 200, "stars": 3 },
+        { "id": 5, "name": "Quick Champion",     "objective": "Quick Sort on 50 elements < 5s",    "xp": 300, "stars": 3 }
+      ],
+      "concepts": ["Bubble Sort", "Selection Sort", "Insertion Sort", "Merge Sort", "Quick Sort", "Heap Sort", "Radix Sort"],
+      "boss": {
+        "name": "The Algorithm Titan",
+        "objective": "Identify which sort algorithm is being shown",
+        "xp": 650
+      }
+    },
+    {
+      "id": "recursion",
+      "name": "Recursion Temple",
+      "theme": "temple",
+      "concept": "Recursion & Backtracking",
+      "description": "Unravel the infinite recursion mysteries. Master base cases and recursive calls.",
+      "color": "#ff32c8",
+      "unlocked_by_default": false,
+      "unlock_requires": "sort",
+      "difficulty": 3,
+      "levels": [
+        { "id": 1, "name": "Base Case",          "objective": "Understand factorial recursion",      "xp": 100, "stars": 3 },
+        { "id": 2, "name": "Fibonacci Sequence", "objective": "Compute fib(10) step by step",       "xp": 150, "stars": 3 },
+        { "id": 3, "name": "Tower Trial",        "objective": "Solve Tower of Hanoi n=4",           "xp": 200, "stars": 3 },
+        { "id": 4, "name": "Backtrack Maze",     "objective": "Solve a maze using backtracking",    "xp": 250, "stars": 3 },
+        { "id": 5, "name": "N-Queens",           "objective": "Place 8 queens on chessboard",       "xp": 350, "stars": 3 }
+      ],
+      "concepts": ["Base Case", "Recursive Case", "Call Stack", "Fibonacci", "Factorial", "Tower of Hanoi", "Backtracking", "N-Queens"],
+      "boss": {
+        "name": "The Infinite Regress",
+        "objective": "Optimize recursive solution with memoization",
+        "xp": 700
+      }
+    },
+    {
+      "id": "hash",
+      "name": "Hash Cyber Arena",
+      "theme": "cyber",
+      "concept": "Hash Maps & Collision",
+      "description": "Compete in the cyber hashing tournament. Master keys, values, and collision resolution.",
+      "color": "#64ff32",
+      "unlocked_by_default": false,
+      "unlock_requires": "recursion",
+      "difficulty": 2,
+      "levels": [
+        { "id": 1, "name": "First Hash",         "objective": "Insert 5 key-value pairs",           "xp": 100, "stars": 3 },
+        { "id": 2, "name": "Collision Course",   "objective": "Handle 3 hash collisions",           "xp": 150, "stars": 3 },
+        { "id": 3, "name": "Open Addressing",    "objective": "Use linear probing",                 "xp": 200, "stars": 3 },
+        { "id": 4, "name": "Chaining Champion",  "objective": "Implement chaining resolution",      "xp": 200, "stars": 3 },
+        { "id": 5, "name": "Load Factor Control","objective": "Keep load factor under 0.7",         "xp": 300, "stars": 3 }
+      ],
+      "concepts": ["Hash Function", "Collision", "Chaining", "Open Addressing", "Load Factor", "Rehashing"],
+      "boss": {
+        "name": "The Hash Collision Storm",
+        "objective": "Design a perfect hash for given keys",
+        "xp": 650
+      }
+    },
+    {
+      "id": "heap",
+      "name": "Heap Mountain",
+      "theme": "mountain",
+      "concept": "Heaps & Priority Queues",
+      "description": "Conquer the priority queue summit. Master min-heap and max-heap operations.",
+      "color": "#ff9600",
+      "unlocked_by_default": false,
+      "unlock_requires": "hash",
+      "difficulty": 3,
+      "levels": [
+        { "id": 1, "name": "Base Camp",          "objective": "Build a max-heap from array",        "xp": 100, "stars": 3 },
+        { "id": 2, "name": "Heapify Climb",      "objective": "Perform heapify on 10 elements",    "xp": 150, "stars": 3 },
+        { "id": 3, "name": "Priority Push",      "objective": "Insert & extract min 5 times",      "xp": 200, "stars": 3 },
+        { "id": 4, "name": "Heap Sort Summit",   "objective": "Sort using heap sort",               "xp": 250, "stars": 3 },
+        { "id": 5, "name": "Peak Performance",   "objective": "K-largest elements challenge",      "xp": 350, "stars": 3 }
+      ],
+      "concepts": ["Max-Heap", "Min-Heap", "Heapify", "Extract", "Insert", "Heap Sort", "Priority Queue"],
+      "boss": {
+        "name": "The Avalanche Engine",
+        "objective": "Real-time priority scheduling simulation",
+        "xp": 700
+      }
+    },
+    {
+      "id": "dp",
+      "name": "DP Time Realm",
+      "theme": "time",
+      "concept": "Dynamic Programming",
+      "description": "Master optimal substructure and memoization in the time dimension.",
+      "color": "#50c8ff",
+      "unlocked_by_default": false,
+      "unlock_requires": "heap",
+      "difficulty": 4,
+      "levels": [
+        { "id": 1, "name": "Coin Change",        "objective": "Solve coin change with DP",          "xp": 150, "stars": 3 },
+        { "id": 2, "name": "Longest Path",       "objective": "Find LCS of two sequences",         "xp": 200, "stars": 3 },
+        { "id": 3, "name": "Knapsack",           "objective": "Solve 0/1 knapsack problem",        "xp": 250, "stars": 3 },
+        { "id": 4, "name": "Matrix Chain",       "objective": "Optimize matrix multiplication",    "xp": 300, "stars": 3 },
+        { "id": 5, "name": "Edit Distance",      "objective": "Compute minimum edit distance",     "xp": 400, "stars": 3 }
+      ],
+      "concepts": ["Memoization", "Tabulation", "Optimal Substructure", "Overlapping Subproblems", "LCS", "LIS", "Knapsack"],
+      "boss": {
+        "name": "The Temporal Optimizer",
+        "objective": "Optimize overlapping recursive solution to O(n)",
+        "xp": 800
+      }
+    }
+  ],
+
+  "achievements": [
+    { "id": "first_insert",    "name": "First Element",       "desc": "Insert your first element",          "xp": 25  },
+    { "id": "first_sort",      "name": "Sorter",              "desc": "Complete your first sort",           "xp": 50  },
+    { "id": "bfs_master",      "name": "BFS Navigator",       "desc": "Complete BFS on graph with 8+ nodes","xp": 100 },
+    { "id": "stack_overflow",  "name": "Overflow Survivor",   "desc": "Trigger and recover from overflow",  "xp": 75  },
+    { "id": "hanoi_solver",    "name": "Ancient Architect",   "desc": "Solve Tower of Hanoi n=5",          "xp": 150 },
+    { "id": "speed_demon",     "name": "Speed Demon",         "desc": "Complete any level in under 30s",   "xp": 200 },
+    { "id": "perfect_hash",    "name": "Hash Master",         "desc": "0 collisions with 8 insertions",    "xp": 200 },
+    { "id": "tree_balanced",   "name": "Balance Keeper",      "desc": "Keep BST balanced after 10 inserts","xp": 150 },
+    { "id": "dp_legend",       "name": "DP Legend",           "desc": "Complete all DP world levels",      "xp": 500 },
+    { "id": "all_worlds",      "name": "World Conqueror",     "desc": "Complete all 10 DSA worlds",        "xp": 1000}
+  ],
+
+  "daily_challenges": [
+    { "type": "array",     "prompt": "Find all duplicates in array [1,2,3,2,4,3,5]",     "xp": 75  },
+    { "type": "stack",     "prompt": "Check if '{[()]}' is balanced",                     "xp": 75  },
+    { "type": "graph",     "prompt": "Find shortest path from A to H in city graph",      "xp": 100 },
+    { "type": "sort",      "prompt": "Identify the sort algorithm from the animation",    "xp": 80  },
+    { "type": "recursion", "prompt": "Compute fib(15) without memoization",               "xp": 90  }
+  ]
+}

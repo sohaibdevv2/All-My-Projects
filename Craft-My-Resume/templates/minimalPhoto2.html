@@ -1,0 +1,218 @@
+<div class="resume-template minimal-accent-line">
+  <div class="mal-wrapper">
+    <div class="mal-accent-bar"></div>
+    <div class="mal-header">
+      <div class="mal-header-left">
+        <h1 id="previewName" class="mal-name">Your Name</h1>
+        <p id="previewJobTitle" class="mal-title">Job Title</p>
+        <div class="mal-contacts">
+          <span id="previewEmail" class="mal-contact">email@example.com</span>
+          <span id="previewPhone" class="mal-contact">+1 234 567 890</span>
+          <span id="previewLocation" class="mal-contact">City, Country</span>
+          <div id="previewLinkedIn" class="mal-contact">linkedin.com/in/you</div>
+        </div>
+      </div>
+      <div id="profilePhoto" class="mal-photo"></div>
+    </div>
+
+    <div class="mal-body">
+      <div class="mal-section">
+        <h2 class="mal-section-title">Summary</h2>
+        <p id="previewSummary" class="mal-text">Professional summary goes here.</p>
+      </div>
+
+      <div class="mal-section">
+        <h2 class="mal-section-title">Experience</h2>
+        <div id="previewExperience"></div>
+      </div>
+
+      <div class="mal-section">
+        <h2 class="mal-section-title">Education</h2>
+        <div id="previewEducation"></div>
+      </div>
+
+      <div class="mal-row">
+        <div class="mal-col">
+          <div class="mal-section">
+            <h2 class="mal-section-title">Skills</h2>
+            <div id="previewSkills" class="skills-list mal-tags"></div>
+          </div>
+          <div class="mal-section">
+            <h2 class="mal-section-title">Languages</h2>
+            <div id="previewLanguages" class="skills-list mal-tags"></div>
+          </div>
+        </div>
+        <div class="mal-col">
+          <div class="mal-section">
+            <h2 class="mal-section-title">Certifications</h2>
+            <ul id="previewCertifications" class="mal-list"></ul>
+          </div>
+          <div class="mal-section">
+            <h2 class="mal-section-title">Projects</h2>
+            <ul id="previewProjects" class="mal-list"></ul>
+          </div>
+          <div class="mal-section">
+            <h2 class="mal-section-title">Awards</h2>
+            <ul id="previewAwards" class="mal-list"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.minimal-accent-line {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  --primary: var(--primary-color, #6366f1);
+}
+.minimal-accent-line .mal-wrapper {
+  background: #fff;
+  min-height: 297mm;
+  padding: 0;
+  border-left: 4px solid var(--primary);
+  box-sizing: border-box;
+}
+.minimal-accent-line .mal-accent-bar {
+  height: 4px;
+  background: var(--primary);
+  display: none;
+}
+.minimal-accent-line .mal-header {
+  padding: 28px 36px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid #f0f0f0;
+}
+.minimal-accent-line .mal-photo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-color: #f0f0f0;
+  border: 2px solid var(--primary);
+  flex-shrink: 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.minimal-accent-line .mal-name {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0 0 4px;
+  letter-spacing: -0.5px;
+}
+.minimal-accent-line .mal-title {
+  font-size: 0.76rem;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  margin: 0 0 10px;
+  font-weight: 600;
+}
+.minimal-accent-line .mal-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.minimal-accent-line .mal-contact {
+  font-size: 0.72rem;
+  color: #777;
+}
+.minimal-accent-line .mal-body {
+  padding: 20px 36px;
+}
+.minimal-accent-line .mal-section {
+  margin-bottom: 16px;
+}
+.minimal-accent-line .mal-section-title {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--primary);
+  margin: 0 0 8px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #eee;
+}
+.minimal-accent-line .mal-text {
+  font-size: 0.81rem;
+  line-height: 1.7;
+  color: #555;
+  margin: 0;
+}
+.minimal-accent-line .mal-row {
+  display: flex;
+  gap: 28px;
+}
+.minimal-accent-line .mal-col {
+  flex: 1;
+}
+.minimal-accent-line .mal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.minimal-accent-line .mal-tags span {
+  background: #faf9ff;
+  border: 1px solid #e5e0f0;
+  color: #444;
+  padding: 2px 9px;
+  border-radius: 3px;
+  font-size: 0.68rem;
+}
+.minimal-accent-line .mal-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.75rem;
+  color: #555;
+}
+.minimal-accent-line .mal-list li {
+  padding: 2px 0 2px 12px;
+  position: relative;
+}
+.minimal-accent-line .mal-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+.minimal-accent-line #previewExperience .experience-entry,
+.minimal-accent-line #previewEducation .education-entry {
+  margin-bottom: 13px;
+  padding-bottom: 13px;
+  border-bottom: 1px solid #f5f5f5;
+}
+.minimal-accent-line #previewExperience .experience-entry:last-child,
+.minimal-accent-line #previewEducation .education-entry:last-child {
+  border-bottom: none;
+}
+.minimal-accent-line #previewExperience .entry-title,
+.minimal-accent-line #previewEducation .entry-title {
+  font-weight: 700;
+  font-size: 0.87rem;
+  color: #1a1a1a;
+}
+.minimal-accent-line #previewExperience .entry-company,
+.minimal-accent-line #previewEducation .entry-school {
+  font-size: 0.77rem;
+  color: var(--primary);
+}
+.minimal-accent-line #previewExperience .entry-dates,
+.minimal-accent-line #previewEducation .entry-dates {
+  font-size: 0.68rem;
+  color: #bbb;
+}
+.minimal-accent-line #previewExperience .entry-description,
+.minimal-accent-line #previewEducation .entry-description {
+  font-size: 0.75rem;
+  color: #666;
+  margin-top: 4px;
+  line-height: 1.6;
+}
+</style>

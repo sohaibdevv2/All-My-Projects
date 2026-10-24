@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MNC Template 4</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template mnc4-template">
+        <div class="top-section">
+            <div class="name-title-block">
+                <h1 class="name" id="previewName">Your Name</h1>
+                <h2 class="title" id="previewJobTitle">Corporate Leader</h2>
+            </div>
+            <div class="contact-block">
+                <div class="contact-grid">
+                    <div class="contact-item" id="previewEmail"></div>
+                    <div class="contact-item" id="previewPhone"></div>
+                    <div class="contact-item" id="previewLocation"></div>
+                    <div class="contact-item" id="previewLinkedIn"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="summary-strip">
+            <h3>Professional Summary</h3>
+            <p id="previewSummary"></p>
+        </div>
+        
+        <div class="main-layout">
+            <div class="primary-content">
+                <div class="section">
+                    <h3>Professional Experience</h3>
+                    <div id="previewExperience"></div>
+                </div>
+                
+                <div class="section">
+                    <h3>Education</h3>
+                    <div id="previewEducation"></div>
+                </div>
+            </div>
+            
+            <div class="sidebar-content">
+                <div class="section">
+                    <h3>Skills</h3>
+                    <div id="previewSkills" class="skills-list"></div>
+                </div>
+                
+                <div class="section">
+                    <h3>Projects</h3>
+                    <ul id="previewProjects"></ul>
+                </div>
+                
+                <div class="section">
+                    <h3>Languages</h3>
+                    <div id="previewLanguages" class="skills-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .mnc4-template { 
+            font-family: 'Helvetica Neue', 'Arial', sans-serif; 
+            background: #ffffff; 
+            color: #2d3748; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+            border: 2px solid #e2e8f0;
+        }
+        .mnc4-template .top-section { 
+            background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%); 
+            color: white; 
+            padding: 2.5rem; 
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 3rem;
+            align-items: center;
+        }
+        .mnc4-template .name { 
+            font-size: 3rem; 
+            margin: 0; 
+            font-weight: 300; 
+            letter-spacing: 3px; 
+            text-transform: uppercase;
+        }
+        .mnc4-template .title { 
+            font-size: 1.3rem; 
+            margin: 0.8rem 0 0 0; 
+            font-weight: 400; 
+            opacity: 0.9; 
+            letter-spacing: 1px;
+        }
+        .mnc4-template .contact-grid { 
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.8rem;
+            text-align: right;
+        }
+        .mnc4-template .contact-item { 
+            font-size: 1rem; 
+            opacity: 0.95;
+        }
+        .mnc4-template .summary-strip { 
+            background: #f7fafc; 
+            padding: 2.5rem; 
+            border-bottom: 3px solid #2d3748;
+        }
+        .mnc4-template .summary-strip h3 { 
+            margin: 0 0 1.5rem 0; 
+            color: #2d3748; 
+            font-size: 1.4rem; 
+            font-weight: 600; 
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .mnc4-template .main-layout { 
+            display: grid; 
+            grid-template-columns: 2fr 1fr; 
+            min-height: 600px;
+        }
+        .mnc4-template .primary-content {
+            padding: 2.5rem;
+            background: #ffffff;
+        }
+        .mnc4-template .sidebar-content {
+            background: #f8f9fa;
+            padding: 2.5rem;
+            border-left: 1px solid #e2e8f0;
+        }
+        .mnc4-template .section { 
+            margin-bottom: 2.5rem; 
+        }
+        .mnc4-template h3 { 
+            color: #2d3748; 
+            font-size: 1.2rem; 
+            margin-bottom: 1.5rem; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        .mnc4-template h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: #2d3748;
+        }
+        .mnc4-template .experience-entry, .mnc4-template .education-entry { 
+            margin-bottom: 2rem; 
+            padding: 1.5rem 0; 
+            border-bottom: 2px solid #e2e8f0; 
+        }
+        .mnc4-template .experience-entry:last-child, .mnc4-template .education-entry:last-child {
+            border-bottom: none;
+        }
+        .mnc4-template .entry-title { 
+            font-weight: 700; 
+            font-size: 1.2rem; 
+            color: #2d3748; 
+            margin-bottom: 0.3rem;
+        }
+        .mnc4-template .entry-company { 
+            color: #4a5568; 
+            font-weight: 600; 
+            font-size: 1.1rem;
+        }
+        .mnc4-template .entry-dates { 
+            color: #718096; 
+            font-size: 0.95rem; 
+            font-weight: 500;
+        }
+        .mnc4-template .skills-list { 
+            display: block; 
+        }
+        .mnc4-template .skill-tag { 
+            display: inline-block; 
+            background: #2d3748; 
+            color: white; 
+            padding: 0.5rem 1rem; 
+            margin: 0.3rem; 
+            border-radius: 4px; 
+            font-size: 0.85rem; 
+            font-weight: 600; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

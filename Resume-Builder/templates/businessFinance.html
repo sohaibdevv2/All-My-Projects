@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business & Finance Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template business-finance-template">
+        <div class="header-section">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <h2 class="title" id="previewJobTitle">Finance Professional</h2>
+            <div class="contact-info">
+                <span id="previewEmail"></span> • <span id="previewPhone"></span> • <span id="previewLocation"></span> • <span id="previewLinkedIn"></span>
+            </div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="section">
+                <h3>Professional Profile</h3>
+                <p id="previewSummary"></p>
+            </div>
+            
+            <div class="section">
+                <h3>Professional Experience</h3>
+                <div id="previewExperience"></div>
+            </div>
+            
+            <div class="dual-section">
+                <div class="left-column">
+                    <div class="section">
+                        <h3>Education & Certifications</h3>
+                        <div id="previewEducation"></div>
+                    </div>
+                </div>
+                
+                <div class="right-column">
+                    <div class="section">
+                        <h3>Technical Skills</h3>
+                        <div id="previewSkills" class="skills-list"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Languages</h3>
+                        <div id="previewLanguages" class="skills-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .business-finance-template { 
+            font-family: 'Georgia', serif; 
+            background: #ffffff; 
+            color: #2c2c2c; 
+            line-height: 1.7; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+        }
+        .business-finance-template .header-section { 
+            text-align: left; 
+            padding: 2.5rem 3rem 2rem; 
+            background: #f8f9fa;
+            border-left: 6px solid #5d6d7e;
+        }
+        .business-finance-template .name { 
+            font-size: 2.8rem; 
+            margin: 0; 
+            font-weight: normal; 
+            color: #2c3e50;
+            font-family: 'Georgia', serif;
+        }
+        .business-finance-template .title { 
+            font-size: 1.3rem; 
+            margin: 0.8rem 0 1.5rem 0; 
+            font-weight: normal; 
+            color: #5d6d7e; 
+            font-style: italic;
+        }
+        .business-finance-template .contact-info { 
+            font-size: 1rem; 
+            color: #666; 
+        }
+        .business-finance-template .content-wrapper { 
+            padding: 2rem 3rem; 
+        }
+        .business-finance-template .section { 
+            margin-bottom: 2.5rem; 
+        }
+        .business-finance-template h3 { 
+            color: #2c3e50; 
+            font-size: 1.2rem; 
+            margin-bottom: 1.5rem; 
+            font-weight: bold; 
+            font-family: 'Georgia', serif;
+            position: relative;
+            padding-left: 1rem;
+        }
+        .business-finance-template h3::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #5d6d7e;
+        }
+        .business-finance-template .dual-section { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 3rem; 
+        }
+        .business-finance-template .experience-entry, .business-finance-template .education-entry { 
+            margin-bottom: 2rem; 
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e8e8e8;
+        }
+        .business-finance-template .entry-title { 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            color: #2c3e50; 
+            margin-bottom: 0.5rem;
+        }
+        .business-finance-template .entry-company { 
+            color: #5d6d7e; 
+            font-weight: normal; 
+            font-size: 1rem;
+            font-style: italic;
+        }
+        .business-finance-template .entry-dates { 
+            color: #777; 
+            font-size: 0.95rem; 
+            margin-top: 0.5rem;
+        }
+        .business-finance-template .skills-list { 
+            display: block; 
+        }
+        .business-finance-template .skill-tag { 
+            display: inline-block; 
+            background: transparent; 
+            color: #2c3e50; 
+            padding: 0.3rem 0; 
+            margin: 0.3rem 1rem 0.3rem 0; 
+            font-size: 0.95rem; 
+            border-bottom: 1px solid #5d6d7e;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

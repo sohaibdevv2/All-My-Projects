@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATS Simple Timeline Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template ats-simple-timeline-template">
+        <div class="header">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <div class="contact-info">
+                <div id="previewEmail"></div>
+                <div id="previewPhone"></div>
+                <div id="previewLocation"></div>
+                <div id="previewLinkedIn"></div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Professional Summary</h2>
+            <p id="previewSummary"></p>
+        </div>
+        
+        <div class="section">
+            <h2>Work Experience</h2>
+            <div id="previewExperience"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Education</h2>
+            <div id="previewEducation"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Skills</h2>
+            <div id="previewSkills"></div>
+        </div>
+    </div>
+
+    <style>
+        .ats-simple-timeline-template { 
+            font-family: 'Arial', sans-serif; 
+            background: #ffffff; 
+            color: #000000; 
+            line-height: 1.5; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+            padding: 1in;
+        }
+        .ats-simple-timeline-template .header { 
+            margin-bottom: 1.5rem; 
+        }
+        .ats-simple-timeline-template .name { 
+            font-size: 2.2rem; 
+            margin: 0 0 0.5rem 0; 
+            font-weight: bold; 
+            color: #000000;
+        }
+        .ats-simple-timeline-template .contact-info div { 
+            font-size: 1rem; 
+            color: #000000;
+            margin: 0.1rem 0;
+        }
+        .ats-simple-timeline-template .section { 
+            margin-bottom: 1.5rem; 
+        }
+        .ats-simple-timeline-template h2 { 
+            color: #000000; 
+            font-size: 1.3rem; 
+            margin-bottom: 1rem; 
+            font-weight: bold; 
+        }
+        .ats-simple-timeline-template .experience-entry, .ats-simple-timeline-template .education-entry { 
+            margin-bottom: 1.3rem; 
+            border-left: 3px solid #000000;
+            padding-left: 1rem;
+        }
+        .ats-simple-timeline-template .entry-title { 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            color: #000000; 
+            margin-bottom: 0.2rem;
+        }
+        .ats-simple-timeline-template .entry-company { 
+            color: #000000; 
+            font-weight: normal; 
+            font-size: 1rem;
+        }
+        .ats-simple-timeline-template .entry-dates { 
+            color: #000000; 
+            font-size: 1rem; 
+            margin-top: 0.2rem;
+            font-weight: bold;
+        }
+        .ats-simple-timeline-template .skills-list { 
+            display: block; 
+        }
+        .ats-simple-timeline-template .skill-tag { 
+            display: inline; 
+            color: #000000; 
+            font-size: 1rem; 
+        }
+        .ats-simple-timeline-template .skill-tag:after {
+            content: " / ";
+        }
+        .ats-simple-timeline-template .skill-tag:last-child:after {
+            content: "";
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

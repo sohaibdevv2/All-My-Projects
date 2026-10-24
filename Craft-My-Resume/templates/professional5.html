@@ -1,0 +1,81 @@
+<div class="resume-template professional5-template">
+    <div class="corporate-header">
+        <div class="header-bg"></div>
+        <div class="header-content">
+            <div class="profile-section">
+                <div class="profile-photo" id="profilePhoto"></div>
+                <div class="profile-text">
+                    <h1 class="name" id="previewName">Your Name</h1>
+                    <h2 class="title" id="previewJobTitle">Professional Title</h2>
+                </div>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <strong>Email:</strong> <span id="previewEmail">email@example.com</span>
+                </div>
+                <div class="contact-item">
+                    <strong>Phone:</strong> <span id="previewPhone">+1 (555) 123-4567</span>
+                </div>
+                <div class="contact-item">
+                    <strong>Location:</strong> <span id="previewLocation">Location</span>
+                </div>
+                <div class="contact-item" id="previewLinkedIn"></div>
+            </div>
+        </div>
+    </div>
+    <div class="corporate-body">
+        <div class="summary-panel">
+            <h3>Professional Overview</h3>
+            <p id="previewSummary"></p>
+        </div>
+        <div class="main-sections">
+            <div class="primary-sections">
+                <div class="section">
+                    <h3>Career History</h3>
+                    <div id="previewExperience"></div>
+                </div>
+                <div class="section">
+                    <h3>Academic Background</h3>
+                    <div id="previewEducation"></div>
+                </div>
+            </div>
+            <div class="sidebar-sections">
+                <div class="section">
+                    <h3>Professional Skills</h3>
+                    <div id="previewSkills" class="skills-list"></div>
+                </div>
+                <div class="section">
+                    <h3>Key Projects</h3>
+                    <ul id="previewProjects"></ul>
+                </div>
+                <div class="section">
+                    <h3>Languages</h3>
+                    <div id="previewLanguages" class="skills-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+.professional5-template { font-family: 'Times New Roman', serif; background: #fff; color: #333; }
+.professional5-template .corporate-header { background: #1a365d; color: white; padding: 2.5rem 2rem; position: relative; }
+.professional5-template .header-bg { position: absolute; top: 0; right: 0; width: 200px; height: 100%; background: linear-gradient(45deg, rgba(255,255,255,0.05), rgba(255,255,255,0.1)); }
+.professional5-template .header-content { position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; }
+.professional5-template .profile-section { display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem; }
+.professional5-template .profile-photo { width: 110px; height: 110px; border-radius: 8px; background: #2d4a6b; background-size: cover; background-position: center; border: 3px solid white; }
+.professional5-template .name { font-size: 2.4rem; margin: 0; font-weight: bold; }
+.professional5-template .title { font-size: 1.2rem; margin: 0.5rem 0; color: #e2e8f0; font-style: italic; }
+.professional5-template .contact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; font-size: 0.95rem; }
+.professional5-template .contact-item strong { color: #e2e8f0; }
+.professional5-template .corporate-body { padding: 2rem; max-width: 1000px; margin: 0 auto; }
+.professional5-template .summary-panel { background: #f7fafc; padding: 2rem; border-radius: 8px; margin-bottom: 2rem; border-left: 5px solid #1a365d; }
+.professional5-template .main-sections { display: grid; grid-template-columns: 2fr 1fr; gap: 2.5rem; }
+.professional5-template .section { margin-bottom: 2rem; }
+.professional5-template h3 { color: #1a365d; font-size: 1.3rem; margin-bottom: 1.2rem; font-weight: bold; border-bottom: 2px solid #1a365d; padding-bottom: 0.5rem; }
+.professional5-template .experience-entry, .professional5-template .education-entry { margin-bottom: 1.8rem; padding: 1.2rem; background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+.professional5-template .entry-title { font-weight: bold; font-size: 1.1rem; color: #1a365d; }
+.professional5-template .entry-company { color: #2d4a6b; font-weight: 500; font-style: italic; }
+.professional5-template .entry-dates { color: #718096; font-size: 0.9rem; }
+.professional5-template .skills-list { display: flex; flex-direction: column; gap: 0.6rem; }
+.professional5-template .skill-tag { background: #1a365d; color: white; padding: 0.5rem 1rem; border-radius: 4px; font-size: 0.9rem; text-align: center; font-weight: 500; }
+</style>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Portfolio Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template creative-portfolio-template">
+        <div class="header-section">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <h2 class="title" id="previewJobTitle">Creative Professional</h2>
+            <div class="contact-info">
+                <span id="previewEmail"></span> • <span id="previewPhone"></span> • <span id="previewLocation"></span> • <span id="previewLinkedIn"></span>
+            </div>
+        </div>
+        
+        <div class="split-layout">
+            <div class="left-panel">
+                <div class="section">
+                    <h3>Portfolio & Projects</h3>
+                    <div class="project-grid">
+                        <div class="project-item">
+                            <h4>Brand Identity Design</h4>
+                            <p>Complete visual identity for tech startup</p>
+                        </div>
+                        <div class="project-item">
+                            <h4>Web Application UI</h4>
+                            <p>User interface design for SaaS platform</p>
+                        </div>
+                        <div class="project-item">
+                            <h4>Marketing Campaign</h4>
+                            <p>Multi-channel creative campaign</p>
+                        </div>
+                        <div class="project-item">
+                            <h4>Mobile App Design</h4>
+                            <p>iOS/Android app interface design</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3>Skills</h3>
+                    <div id="previewSkills" class="skills-list"></div>
+                </div>
+                
+                <div class="section">
+                    <h3>Tools & Software</h3>
+                    <div class="tools-list">
+                        <span class="tool-tag">Adobe Creative Suite</span>
+                        <span class="tool-tag">Figma</span>
+                        <span class="tool-tag">Sketch</span>
+                        <span class="tool-tag">InVision</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-panel">
+                <div class="section">
+                    <h3>Professional Summary</h3>
+                    <p id="previewSummary"></p>
+                </div>
+                
+                <div class="section">
+                    <h3>Work Experience</h3>
+                    <div id="previewExperience"></div>
+                </div>
+                
+                <div class="section">
+                    <h3>Education</h3>
+                    <div id="previewEducation"></div>
+                </div>
+                
+                <div class="section">
+                    <h3>Languages</h3>
+                    <div id="previewLanguages" class="skills-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .creative-portfolio-template { 
+            font-family: 'Montserrat', 'Arial', sans-serif; 
+            background: #ffffff; 
+            color: #333; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+        }
+        .creative-portfolio-template .header-section { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            color: white; 
+            padding: 2.5rem 2rem; 
+            text-align: center;
+        }
+        .creative-portfolio-template .name { 
+            font-size: 2.8rem; 
+            margin: 0; 
+            font-weight: 700; 
+            letter-spacing: 2px; 
+        }
+        .creative-portfolio-template .title { 
+            font-size: 1.3rem; 
+            margin: 0.8rem 0 1.5rem 0; 
+            font-weight: 300; 
+            opacity: 0.9; 
+        }
+        .creative-portfolio-template .contact-info { 
+            font-size: 0.95rem; 
+            opacity: 0.95;
+        }
+        .creative-portfolio-template .split-layout { 
+            display: grid; 
+            grid-template-columns: 1fr 1.2fr; 
+            min-height: 100vh;
+        }
+        .creative-portfolio-template .left-panel { 
+            background: #f8f9fa; 
+            padding: 2.5rem 2rem; 
+            border-right: 3px solid #667eea;
+        }
+        .creative-portfolio-template .right-panel { 
+            padding: 2.5rem 2rem; 
+        }
+        .creative-portfolio-template .section { 
+            margin-bottom: 2.5rem; 
+        }
+        .creative-portfolio-template h3 { 
+            color: #667eea; 
+            font-size: 1.2rem; 
+            margin-bottom: 1.5rem; 
+            font-weight: 600; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .creative-portfolio-template .project-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+        .creative-portfolio-template .project-item { 
+            background: white; 
+            padding: 1.5rem; 
+            border-radius: 10px; 
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .creative-portfolio-template .project-item h4 { 
+            margin: 0 0 0.5rem 0; 
+            color: #333; 
+            font-weight: 600;
+        }
+        .creative-portfolio-template .project-item p { 
+            margin: 0; 
+            color: #666; 
+            font-size: 0.9rem;
+        }
+        .creative-portfolio-template .experience-entry, .creative-portfolio-template .education-entry { 
+            margin-bottom: 2rem; 
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        .creative-portfolio-template .entry-title { 
+            font-weight: 600; 
+            font-size: 1.1rem; 
+            color: #333; 
+            margin-bottom: 0.5rem;
+        }
+        .creative-portfolio-template .entry-company { 
+            color: #667eea; 
+            font-weight: 500; 
+            font-size: 1rem;
+        }
+        .creative-portfolio-template .entry-dates { 
+            color: #888; 
+            font-size: 0.9rem; 
+        }
+        .creative-portfolio-template .skills-list { 
+            display: block; 
+        }
+        .creative-portfolio-template .skill-tag, .creative-portfolio-template .tool-tag { 
+            display: inline-block; 
+            background: #667eea; 
+            color: white; 
+            padding: 0.5rem 1rem; 
+            margin: 0.3rem; 
+            border-radius: 20px; 
+            font-size: 0.85rem; 
+            font-weight: 500; 
+        }
+        .creative-portfolio-template .tool-tag {
+            background: #764ba2;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

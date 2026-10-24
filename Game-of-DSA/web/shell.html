@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GAME OF DSA — Algorithm Adventure Engine</title>
+  <meta name="description" content="Immersive C++ Raylib educational game — learn DSA through interactive gameplay" />
+  <meta property="og:title" content="GAME OF DSA" />
+  <meta property="og:description" content="Interactive Algorithm Adventure Engine" />
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-dark:    #080a14;
+      --neon-cyan:  #00ffff;
+      --neon-pink:  #ff0080;
+      --neon-green: #00ff80;
+      --text-dim:   #505878;
+    }
+
+    body {
+      background: var(--bg-dark);
+      color: #dce6ff;
+      font-family: 'Courier New', Courier, monospace;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    #loading-screen {
+      position: fixed;
+      inset: 0;
+      background: var(--bg-dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      transition: opacity 0.6s ease;
+    }
+
+    #loading-screen.hidden { opacity: 0; pointer-events: none; }
+
+    .logo-container {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .logo-title {
+      font-size: 56px;
+      font-weight: bold;
+      letter-spacing: 8px;
+      background: linear-gradient(135deg, var(--neon-cyan), var(--neon-pink), var(--neon-green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: none;
+      animation: titlePulse 3s ease-in-out infinite;
+    }
+
+    @keyframes titlePulse {
+      0%, 100% { filter: brightness(1); }
+      50%       { filter: brightness(1.3); }
+    }
+
+    .logo-sub {
+      font-size: 14px;
+      letter-spacing: 4px;
+      color: var(--text-dim);
+      margin-top: 8px;
+    }
+
+    .progress-container {
+      width: 360px;
+      margin: 30px auto 16px;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-bottom: 6px;
+      letter-spacing: 2px;
+    }
+
+    .progress-bar-bg {
+      height: 4px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
+      border-radius: 2px;
+      transition: width 0.3s ease;
+      box-shadow: 0 0 8px var(--neon-cyan);
+      width: 0%;
+    }
+
+    .status-text {
+      font-size: 12px;
+      color: var(--text-dim);
+      letter-spacing: 1px;
+      text-align: center;
+      min-height: 18px;
+    }
+
+    .tech-badges {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .badge {
+      padding: 4px 12px;
+      border: 1px solid var(--text-dim);
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--text-dim);
+      border-radius: 2px;
+    }
+
+    .badge.active {
+      border-color: var(--neon-cyan);
+      color: var(--neon-cyan);
+      box-shadow: 0 0 6px rgba(0, 255, 255, 0.2);
+    }
+
+    #canvas-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    canvas {
+      display: block;
+      border: 1px solid rgba(0, 255, 255, 0.1);
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.05);
+    }
+
+    .corner-accent {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-color: var(--neon-cyan);
+      border-style: solid;
+      opacity: 0.4;
+    }
+    .corner-accent.tl { top: -2px; left: -2px; border-width: 2px 0 0 2px; }
+    .corner-accent.tr { top: -2px; right: -2px; border-width: 2px 2px 0 0; }
+    .corner-accent.bl { bottom: -2px; left: -2px; border-width: 0 0 2px 2px; }
+    .corner-accent.br { bottom: -2px; right: -2px; border-width: 0 2px 2px 0; }
+
+    #output {
+      display: none; /* hide emscripten debug output */
+    }
+  </style>
+
+  <!-- Firebase SDK (optional — enable if you have a Firebase project) -->
+  <!--
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+    import { getAuth }       from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+    import { getFirestore }  from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+    import { getDatabase }   from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js';
+
+    const firebaseConfig = {
+      apiKey:            "YOUR_API_KEY",
+      authDomain:        "game-of-dsa.firebaseapp.com",
+      projectId:         "game-of-dsa",
+      storageBucket:     "game-of-dsa.appspot.com",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId:             "YOUR_APP_ID",
+      databaseURL:       "https://game-of-dsa-default-rtdb.firebaseio.com"
+    };
+
+    const app       = initializeApp(firebaseConfig);
+    window.fbAuth   = getAuth(app);
+    window.fbDB     = getFirestore(app);
+    window.fbRTDB   = getDatabase(app);
+  </script>
+  -->
+</head>
+
+<body>
+  <!-- Loading screen -->
+  <div id="loading-screen">
+    <div class="logo-container">
+      <div class="logo-title">GAME OF DSA</div>
+      <div class="logo-sub">— ALGORITHM ADVENTURE ENGINE —</div>
+    </div>
+
+    <div class="progress-container">
+      <div class="progress-label">
+        <span>LOADING</span>
+        <span id="pct-label">0%</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progress-fill"></div>
+      </div>
+    </div>
+
+    <div class="status-text" id="status-text">Initializing engine...</div>
+
+    <div class="tech-badges">
+      <div class="badge active">C++17</div>
+      <div class="badge active">RAYLIB 5.0</div>
+      <div class="badge active">WASM</div>
+      <div class="badge">FIREBASE</div>
+    </div>
+  </div>
+
+  <!-- Game canvas -->
+  <div id="canvas-container" style="display:none">
+    <canvas id="canvas" oncontextmenu="event.preventDefault()"></canvas>
+    <div class="corner-accent tl"></div>
+    <div class="corner-accent tr"></div>
+    <div class="corner-accent bl"></div>
+    <div class="corner-accent br"></div>
+  </div>
+
+  <textarea id="output" rows="8" cols="80"></textarea>
+
+  <script type="text/javascript">
+    var statusEl  = document.getElementById('status-text');
+    var fillEl    = document.getElementById('progress-fill');
+    var pctEl     = document.getElementById('pct-label');
+    var loadingEl = document.getElementById('loading-screen');
+    var canvasEl  = document.getElementById('canvas-container');
+
+    function setProgress(pct, msg) {
+      fillEl.style.width = pct + '%';
+      pctEl.textContent  = Math.round(pct) + '%';
+      if (msg) statusEl.textContent = msg;
+    }
+
+    var Module = {
+      canvas: (function() {
+        var canvas = document.getElementById('canvas');
+
+        // Resize canvas to fill viewport
+        function resizeCanvas() {
+          var maxW = window.innerWidth;
+          var maxH = window.innerHeight;
+          var aspect = 16 / 9;
+
+          if (maxW / maxH > aspect) {
+            canvas.style.height = maxH + 'px';
+            canvas.style.width  = (maxH * aspect) + 'px';
+          } else {
+            canvas.style.width  = maxW + 'px';
+            canvas.style.height = (maxW / aspect) + 'px';
+          }
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+        return canvas;
+      })(),
+
+      print: function(text) {
+        console.log(text);
+      },
+
+      printErr: function(text) {
+        console.warn(text);
+      },
+
+      setStatus: function(text) {
+        if (text === '') {
+          setProgress(100, 'Launching...');
+          setTimeout(function() {
+            loadingEl.classList.add('hidden');
+            canvasEl.style.display = 'flex';
+            setTimeout(function() { loadingEl.style.display = 'none'; }, 700);
+          }, 400);
+        } else {
+          var match = text.match(/([^(]+)\((\d+(\.\d+)?)\/(\d+)\)/);
+          if (match) {
+            var pct = parseInt(match[2]) / parseInt(match[4]) * 100;
+            setProgress(pct, match[1]);
+          } else {
+            setProgress(50, text);
+          }
+        }
+      },
+
+      monitorRunDependencies: function(left) {
+        if (left === 0) setProgress(90, 'Finalizing...');
+      },
+
+      onRuntimeInitialized: function() {
+        setProgress(95, 'Starting game...');
+      },
+
+      preRun: [function() {
+        setProgress(20, 'Loading WebAssembly...');
+      }],
+
+      postRun: [function() {
+        setProgress(100, 'Ready!');
+      }]
+    };
+
+    // Download progress
+    setProgress(5, 'Fetching game data...');
+
+    // Handle fullscreen toggle
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'F11') {
+        e.preventDefault();
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen();
+        } else {
+          document.exitFullscreen();
+        }
+      }
+    });
+  </script>
+
+  {{{ SCRIPT }}}
+</body>
+</html>

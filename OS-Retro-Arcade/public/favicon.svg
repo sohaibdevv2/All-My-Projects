@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <defs>
+    <linearGradient id="win-blue-tl" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+    <linearGradient id="win-blue-tr" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0ea5e9" />
+      <stop offset="100%" stop-color="#0369a1" />
+    </linearGradient>
+    <linearGradient id="win-blue-bl" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#075985" />
+    </linearGradient>
+    <linearGradient id="win-blue-br" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0369a1" />
+      <stop offset="100%" stop-color="#0c4a6e" />
+    </linearGradient>
+  </defs>
+  <!-- Windows 11 Four Tiles -->
+  <rect x="4" y="4" width="18" height="18" rx="2.5" fill="url(#win-blue-tl)" />
+  <rect x="26" y="4" width="18" height="18" rx="2.5" fill="url(#win-blue-tr)" />
+  <rect x="4" y="26" width="18" height="18" rx="2.5" fill="url(#win-blue-bl)" />
+  <rect x="26" y="26" width="18" height="18" rx="2.5" fill="url(#win-blue-br)" />
+</svg>

@@ -1,0 +1,223 @@
+<div class="resume-template gradient-flame-leader">
+  <div class="gfl-wrapper">
+    <div class="gfl-header">
+      <div id="profilePhoto" class="gfl-photo"></div>
+      <div class="gfl-header-text">
+        <h1 id="previewName" class="gfl-name">Your Name</h1>
+        <p id="previewJobTitle" class="gfl-title">Job Title</p>
+        <div class="gfl-contacts">
+          <span id="previewEmail" class="gfl-contact">email@example.com</span>
+          <span id="previewPhone" class="gfl-contact">+1 234 567 890</span>
+          <span id="previewLocation" class="gfl-contact">City, Country</span>
+          <div id="previewLinkedIn" class="gfl-contact">linkedin.com/in/you</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gfl-body">
+      <div class="gfl-summary">
+        <p id="previewSummary">Professional summary goes here.</p>
+      </div>
+
+      <div class="gfl-columns">
+        <div class="gfl-main">
+          <div class="gfl-section">
+            <h2 class="gfl-section-title">Experience</h2>
+            <div id="previewExperience"></div>
+          </div>
+          <div class="gfl-section">
+            <h2 class="gfl-section-title">Education</h2>
+            <div id="previewEducation"></div>
+          </div>
+          <div class="gfl-section">
+            <h2 class="gfl-section-title">Projects</h2>
+            <ul id="previewProjects" class="gfl-list"></ul>
+          </div>
+        </div>
+        <div class="gfl-side">
+          <div class="gfl-section">
+            <h2 class="gfl-section-title">Skills</h2>
+            <div id="previewSkills" class="skills-list gfl-tags"></div>
+          </div>
+          <div class="gfl-section">
+            <h2 class="gfl-section-title">Languages</h2>
+            <div id="previewLanguages" class="skills-list gfl-tags"></div>
+          </div>
+          <div class="gfl-section">
+            <h2 class="gfl-section-title">Certifications</h2>
+            <ul id="previewCertifications" class="gfl-list"></ul>
+          </div>
+          <div class="gfl-section">
+            <h2 class="gfl-section-title">Awards</h2>
+            <ul id="previewAwards" class="gfl-list"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.gradient-flame-leader {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  --primary: var(--primary-color, #6366f1);
+  --amber: #f7971e;
+}
+.gradient-flame-leader .gfl-wrapper {
+  background: #fffbf5;
+  min-height: 297mm;
+}
+.gradient-flame-leader .gfl-header {
+  background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
+  padding: 28px 34px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.gradient-flame-leader .gfl-photo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(255,255,255,0.2);
+  border: 4px solid #fff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  flex-shrink: 0;
+}
+.gradient-flame-leader .gfl-name {
+  font-size: 2rem;
+  font-weight: 900;
+  margin: 0 0 4px;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.gradient-flame-leader .gfl-title {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.9);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+.gradient-flame-leader .gfl-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.gradient-flame-leader .gfl-contact {
+  font-size: 0.7rem;
+  color: rgba(100,50,0,0.8);
+  background: rgba(255,255,255,0.4);
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-weight: 600;
+}
+.gradient-flame-leader .gfl-body {
+  padding: 20px 30px;
+}
+.gradient-flame-leader .gfl-summary {
+  background: #fff8e8;
+  border-left: 4px solid var(--amber);
+  border-radius: 0 6px 6px 0;
+  padding: 12px 16px;
+  margin-bottom: 18px;
+  font-size: 0.81rem;
+  color: #333;
+  line-height: 1.65;
+}
+.gradient-flame-leader .gfl-summary p {
+  margin: 0;
+}
+.gradient-flame-leader .gfl-columns {
+  display: flex;
+  gap: 18px;
+}
+.gradient-flame-leader .gfl-main {
+  flex: 2;
+}
+.gradient-flame-leader .gfl-side {
+  flex: 1;
+}
+.gradient-flame-leader .gfl-section {
+  margin-bottom: 16px;
+}
+.gradient-flame-leader .gfl-section-title {
+  font-size: 0.63rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: #b05a00;
+  margin: 0 0 8px;
+  padding-bottom: 5px;
+  border-bottom: 3px solid #ffd200;
+}
+.gradient-flame-leader .gfl-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.gradient-flame-leader .gfl-tags span {
+  background: #fff3d6;
+  border: 1px solid #ffd200;
+  color: #7a4100;
+  padding: 2px 9px;
+  border-radius: 20px;
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+.gradient-flame-leader .gfl-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.75rem;
+  color: #444;
+}
+.gradient-flame-leader .gfl-list li {
+  padding: 2px 0 2px 12px;
+  position: relative;
+}
+.gradient-flame-leader .gfl-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--amber);
+}
+.gradient-flame-leader #previewExperience .experience-entry,
+.gradient-flame-leader #previewEducation .education-entry {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #ffe8bc;
+}
+.gradient-flame-leader #previewExperience .experience-entry:last-child,
+.gradient-flame-leader #previewEducation .education-entry:last-child {
+  border-bottom: none;
+}
+.gradient-flame-leader #previewExperience .entry-title,
+.gradient-flame-leader #previewEducation .entry-title {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #1a1008;
+}
+.gradient-flame-leader #previewExperience .entry-company,
+.gradient-flame-leader #previewEducation .entry-school {
+  font-size: 0.78rem;
+  color: #c47000;
+  font-weight: 600;
+}
+.gradient-flame-leader #previewExperience .entry-dates,
+.gradient-flame-leader #previewEducation .entry-dates {
+  font-size: 0.68rem;
+  color: #aaa;
+}
+.gradient-flame-leader #previewExperience .entry-description,
+.gradient-flame-leader #previewEducation .entry-description {
+  font-size: 0.76rem;
+  color: #555;
+  margin-top: 4px;
+  line-height: 1.55;
+}
+</style>

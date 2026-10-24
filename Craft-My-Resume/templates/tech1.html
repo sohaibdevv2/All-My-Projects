@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Template 1</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template tech1-template">
+        <div class="header-section">
+            <div class="name-title">
+                <h1 class="name" id="previewName">Your Name</h1>
+                <h2 class="title" id="previewJobTitle">Software Engineer</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-item" id="previewEmail"></div>
+                <div class="contact-item" id="previewPhone"></div>
+                <div class="contact-item" id="previewLocation"></div>
+                <div class="contact-item" id="previewLinkedIn"></div>
+            </div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="summary-section">
+                <h3>Technical Summary</h3>
+                <p id="previewSummary"></p>
+            </div>
+            
+            <div class="main-grid">
+                <div class="primary-column">
+                    <div class="section">
+                        <h3>Professional Experience</h3>
+                        <div id="previewExperience"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Key Projects</h3>
+                        <ul id="previewProjects"></ul>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Education & Certifications</h3>
+                        <div id="previewEducation"></div>
+                    </div>
+                </div>
+                
+                <div class="secondary-column">
+                    <div class="section">
+                        <h3>Technical Skills</h3>
+                        <div id="previewSkills" class="skills-list"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Portfolio Links</h3>
+                        <div class="portfolio-links">
+                            <div class="portfolio-item">GitHub: github.com/username</div>
+                            <div class="portfolio-item">Portfolio: yourportfolio.com</div>
+                            <div class="portfolio-item">LinkedIn: linkedin.com/in/username</div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Languages</h3>
+                        <div id="previewLanguages" class="skills-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .tech1-template { 
+            font-family: 'Roboto', 'Segoe UI', sans-serif; 
+            background: #ffffff; 
+            color: #2d3748; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+            border: 1px solid #e2e8f0;
+        }
+        .tech1-template .header-section { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            color: white; 
+            padding: 2.5rem 2rem; 
+            position: relative;
+        }
+        .tech1-template .header-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+        .tech1-template .name { 
+            font-size: 2.8rem; 
+            margin: 0; 
+            font-weight: 700; 
+            letter-spacing: 1px; 
+            position: relative;
+            z-index: 1;
+        }
+        .tech1-template .title { 
+            font-size: 1.4rem; 
+            margin: 0.5rem 0 2rem 0; 
+            font-weight: 400; 
+            opacity: 0.95; 
+            position: relative;
+            z-index: 1;
+        }
+        .tech1-template .contact-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 1rem; 
+            font-size: 0.95rem; 
+            position: relative;
+            z-index: 1;
+        }
+        .tech1-template .content-wrapper { 
+            padding: 2.5rem 2rem; 
+        }
+        .tech1-template .summary-section { 
+            margin-bottom: 2.5rem; 
+            padding: 2rem; 
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%); 
+            border-left: 5px solid #667eea; 
+            border-radius: 8px;
+        }
+        .tech1-template .summary-section h3 { 
+            margin: 0 0 1rem 0; 
+            color: #667eea; 
+            font-size: 1.3rem; 
+            font-weight: 600; 
+        }
+        .tech1-template .main-grid { 
+            display: grid; 
+            grid-template-columns: 2fr 1fr; 
+            gap: 2.5rem; 
+        }
+        .tech1-template .section { 
+            margin-bottom: 2rem; 
+        }
+        .tech1-template h3 { 
+            color: #4a5568; 
+            font-size: 1.2rem; 
+            margin-bottom: 1.2rem; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px; 
+            position: relative;
+            padding-left: 1rem;
+        }
+        .tech1-template h3::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+        .tech1-template .experience-entry, .tech1-template .education-entry { 
+            margin-bottom: 1.8rem; 
+            padding: 1.5rem; 
+            background: #f7fafc; 
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+        .tech1-template .entry-title { 
+            font-weight: 700; 
+            font-size: 1.1rem; 
+            color: #2d3748; 
+            margin-bottom: 0.3rem;
+        }
+        .tech1-template .entry-company { 
+            color: #667eea; 
+            font-weight: 600; 
+            font-size: 1rem;
+        }
+        .tech1-template .entry-dates { 
+            color: #718096; 
+            font-size: 0.9rem; 
+            font-weight: 500;
+        }
+        .tech1-template .skills-list { 
+            display: block; 
+        }
+        .tech1-template .skill-tag { 
+            display: inline-block; 
+            background: linear-gradient(135deg, #667eea, #764ba2); 
+            color: white; 
+            padding: 0.5rem 1rem; 
+            margin: 0.3rem; 
+            border-radius: 20px; 
+            font-size: 0.85rem; 
+            font-weight: 500; 
+            box-shadow: 0 2px 4px rgba(102, 126, 234, 0.2);
+        }
+        .tech1-template .secondary-column {
+            background: #f7fafc;
+            padding: 1.5rem;
+            border-radius: 8px;
+            height: fit-content;
+            border: 1px solid #e2e8f0;
+        }
+        .tech1-template .portfolio-links {
+            font-size: 0.9rem;
+        }
+        .tech1-template .portfolio-item {
+            margin-bottom: 0.8rem;
+            padding: 0.8rem;
+            background: white;
+            border-radius: 6px;
+            border-left: 3px solid #667eea;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

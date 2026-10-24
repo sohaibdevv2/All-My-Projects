@@ -1,0 +1,9 @@
+{
+  "name": "craftez-my-resume",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "echo 'static site - no build needed'",
+    "start": "python3 server.py 8080"
+  }
+}

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Professional Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template global-professional-template">
+        <div class="header-section">
+            <div class="header-content">
+                <h1 class="name" id="previewName">Your Name</h1>
+                <h2 class="title" id="previewJobTitle">Global Professional</h2>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <span class="contact-icon">✉</span>
+                        <span id="previewEmail"></span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <span id="previewPhone"></span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <span id="previewLocation"></span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">🔗</span>
+                        <span id="previewLinkedIn"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="section">
+                <h3>Professional Profile</h3>
+                <p id="previewSummary"></p>
+            </div>
+            
+            <div class="main-grid">
+                <div class="left-column">
+                    <div class="section">
+                        <h3>Professional Experience</h3>
+                        <div id="previewExperience"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Education</h3>
+                        <div id="previewEducation"></div>
+                    </div>
+                </div>
+                
+                <div class="right-column">
+                    <div class="section">
+                        <h3>Core Skills</h3>
+                        <div id="previewSkills" class="skills-list"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Languages</h3>
+                        <div id="previewLanguages" class="language-skills"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>International Experience</h3>
+                        <div class="international-list">
+                            <div class="international-item">
+                                <strong>North America</strong>
+                                <span>5 years experience</span>
+                            </div>
+                            <div class="international-item">
+                                <strong>Europe</strong>
+                                <span>3 years experience</span>
+                            </div>
+                            <div class="international-item">
+                                <strong>Asia-Pacific</strong>
+                                <span>2 years experience</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Certifications</h3>
+                        <div class="certifications-list">
+                            <div class="cert-item">Global Project Management</div>
+                            <div class="cert-item">International Business</div>
+                            <div class="cert-item">Cross-Cultural Communication</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .global-professional-template { 
+            font-family: 'Segoe UI', 'Arial', sans-serif; 
+            background: #ffffff; 
+            color: #2c3e50; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+        }
+        .global-professional-template .header-section { 
+            background: #f8f9fa; 
+            padding: 3rem 2.5rem; 
+            border-bottom: 3px solid #3498db;
+        }
+        .global-professional-template .name { 
+            font-size: 3rem; 
+            margin: 0; 
+            font-weight: 600; 
+            letter-spacing: 1px; 
+            color: #2c3e50;
+        }
+        .global-professional-template .title { 
+            font-size: 1.3rem; 
+            margin: 0.8rem 0 2rem 0; 
+            font-weight: 400; 
+            color: #3498db; 
+        }
+        .global-professional-template .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .global-professional-template .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 0.95rem;
+        }
+        .global-professional-template .contact-icon {
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
+        }
+        .global-professional-template .content-wrapper { 
+            padding: 3rem 2.5rem; 
+        }
+        .global-professional-template .section { 
+            margin-bottom: 3rem; 
+        }
+        .global-professional-template h3 { 
+            color: #2c3e50; 
+            font-size: 1.3rem; 
+            margin-bottom: 1.5rem; 
+            font-weight: 600; 
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        .global-professional-template h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, #3498db, transparent);
+        }
+        .global-professional-template .main-grid { 
+            display: grid; 
+            grid-template-columns: 2fr 1fr; 
+            gap: 3rem; 
+        }
+        .global-professional-template .experience-entry, .global-professional-template .education-entry { 
+            margin-bottom: 2.5rem; 
+            padding: 2rem; 
+            background: #f8f9fa; 
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        .global-professional-template .entry-title { 
+            font-weight: 600; 
+            font-size: 1.2rem; 
+            color: #2c3e50; 
+            margin-bottom: 0.5rem;
+        }
+        .global-professional-template .entry-company { 
+            color: #3498db; 
+            font-weight: 500; 
+            font-size: 1rem;
+        }
+        .global-professional-template .entry-dates { 
+            color: #7f8c8d; 
+            font-size: 0.9rem; 
+            float: right;
+        }
+        .global-professional-template .skills-list { 
+            display: block; 
+        }
+        .global-professional-template .skill-tag { 
+            display: inline-block; 
+            background: #ecf0f1; 
+            color: #2c3e50; 
+            padding: 0.6rem 1.2rem; 
+            margin: 0.3rem; 
+            border-radius: 20px; 
+            font-size: 0.9rem; 
+            font-weight: 500; 
+            border: 1px solid #bdc3c7;
+        }
+        .global-professional-template .language-skills { 
+            display: block; 
+        }
+        .global-professional-template .language-skills .skill-tag { 
+            background: #3498db; 
+            color: white; 
+            border: none;
+        }
+        .global-professional-template .international-list {
+            display: grid;
+            gap: 1rem;
+        }
+        .global-professional-template .international-item {
+            background: #f8f9fa;
+            padding: 1.2rem;
+            border-radius: 8px;
+            border-left: 4px solid #27ae60;
+        }
+        .global-professional-template .international-item strong {
+            display: block;
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+        .global-professional-template .international-item span {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        .global-professional-template .certifications-list {
+            display: grid;
+            gap: 0.8rem;
+        }
+        .global-professional-template .cert-item {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+            border-left: 3px solid #e74c3c;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

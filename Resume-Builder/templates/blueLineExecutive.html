@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue Line Executive Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template blue-line-executive-template">
+        <div class="header-section">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <div class="contact-info">
+                <span id="previewEmail"></span> • <span id="previewPhone"></span> • <span id="previewLocation"></span> • <span id="previewLinkedIn"></span>
+            </div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="section">
+                <h3>Professional Summary</h3>
+                <p id="previewSummary"></p>
+            </div>
+            
+            <div class="section">
+                <h3>Professional Experience</h3>
+                <div id="previewExperience"></div>
+            </div>
+            
+            <div class="section">
+                <h3>Education</h3>
+                <div id="previewEducation"></div>
+            </div>
+            
+            <div class="section">
+                <h3>Skills</h3>
+                <div id="previewSkills" class="skills-list"></div>
+            </div>
+            
+            <div class="section">
+                <h3>Languages</h3>
+                <div id="previewLanguages" class="skills-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .blue-line-executive-template { 
+            font-family: 'Arial', sans-serif; 
+            background: #ffffff; 
+            color: #1f2937; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+            padding: 1in;
+        }
+        .blue-line-executive-template .header-section { 
+            margin-bottom: 2rem; 
+            padding-bottom: 1rem;
+            position: relative;
+        }
+        .blue-line-executive-template .header-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #2563eb, #3b82f6);
+        }
+        .blue-line-executive-template .name { 
+            font-size: 2.5rem; 
+            margin: 0 0 0.5rem 0; 
+            font-weight: bold; 
+            color: #1f2937;
+        }
+        .blue-line-executive-template .contact-info { 
+            font-size: 1rem; 
+            color: #6b7280; 
+        }
+        .blue-line-executive-template .content-wrapper { 
+            max-width: 100%; 
+        }
+        .blue-line-executive-template .section { 
+            margin-bottom: 2rem; 
+            position: relative;
+        }
+        .blue-line-executive-template h3 { 
+            color: #1f2937; 
+            font-size: 1.3rem; 
+            margin-bottom: 1rem; 
+            font-weight: bold; 
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        .blue-line-executive-template h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: #2563eb;
+        }
+        .blue-line-executive-template .experience-entry, .blue-line-executive-template .education-entry { 
+            margin-bottom: 1.5rem; 
+            position: relative;
+            padding-left: 1rem;
+        }
+        .blue-line-executive-template .experience-entry::before, .blue-line-executive-template .education-entry::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 6px;
+            height: 6px;
+            background: #2563eb;
+            border-radius: 50%;
+        }
+        .blue-line-executive-template .entry-title { 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            color: #1f2937; 
+            margin-bottom: 0.3rem;
+        }
+        .blue-line-executive-template .entry-company { 
+            color: #2563eb; 
+            font-weight: 600; 
+            font-size: 1rem;
+        }
+        .blue-line-executive-template .entry-dates { 
+            color: #6b7280; 
+            font-size: 0.9rem; 
+            margin-top: 0.3rem;
+        }
+        .blue-line-executive-template .skills-list { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 0.5rem;
+        }
+        .blue-line-executive-template .skill-tag { 
+            display: inline-block; 
+            background: #eff6ff; 
+            color: #2563eb; 
+            padding: 0.3rem 0.8rem; 
+            border-radius: 4px; 
+            font-size: 0.9rem; 
+            font-weight: 500; 
+            border-left: 3px solid #2563eb;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

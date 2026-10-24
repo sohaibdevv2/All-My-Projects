@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template education-template">
+        <div class="header-section">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <h2 class="title" id="previewJobTitle">Educator</h2>
+            <div class="contact-info">
+                <span id="previewEmail"></span> • <span id="previewPhone"></span> • <span id="previewLocation"></span> • <span id="previewLinkedIn"></span>
+            </div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="section">
+                <h3>Teaching Philosophy</h3>
+                <p id="previewSummary"></p>
+            </div>
+            
+            <div class="section">
+                <h3>Teaching Experience</h3>
+                <div id="previewExperience"></div>
+            </div>
+            
+            <div class="dual-section">
+                <div class="left-column">
+                    <div class="section">
+                        <h3>Education & Credentials</h3>
+                        <div id="previewEducation"></div>
+                    </div>
+                </div>
+                
+                <div class="right-column">
+                    <div class="section">
+                        <h3>Teaching Skills</h3>
+                        <div id="previewSkills" class="skills-list"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Languages</h3>
+                        <div id="previewLanguages" class="skills-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .education-template { 
+            font-family: 'Book Antiqua', 'Palatino', serif; 
+            background: #ffffff; 
+            color: #2c3e50; 
+            line-height: 1.7; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+        }
+        .education-template .header-section { 
+            text-align: center; 
+            padding: 3rem 2rem 2.5rem; 
+            background: #f8f9fa;
+            border-bottom: 4px solid #8e44ad;
+            position: relative;
+        }
+        .education-template .header-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #8e44ad 0%, #3498db 50%, #e74c3c 100%);
+        }
+        .education-template .name { 
+            font-size: 3rem; 
+            margin: 0; 
+            font-weight: normal; 
+            color: #2c3e50;
+            font-family: 'Book Antiqua', serif;
+        }
+        .education-template .title { 
+            font-size: 1.4rem; 
+            margin: 1rem 0 1.5rem 0; 
+            font-weight: normal; 
+            color: #8e44ad; 
+            font-style: italic;
+        }
+        .education-template .contact-info { 
+            font-size: 1rem; 
+            color: #7f8c8d; 
+        }
+        .education-template .content-wrapper { 
+            padding: 2.5rem 3rem; 
+        }
+        .education-template .section { 
+            margin-bottom: 3rem; 
+        }
+        .education-template h3 { 
+            color: #2c3e50; 
+            font-size: 1.4rem; 
+            margin-bottom: 1.5rem; 
+            font-weight: bold; 
+            text-align: center;
+            position: relative;
+            padding: 1rem 0;
+        }
+        .education-template h3::before,
+        .education-template h3::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 60px;
+            height: 2px;
+            background: #8e44ad;
+        }
+        .education-template h3::before {
+            left: calc(50% - 120px);
+        }
+        .education-template h3::after {
+            right: calc(50% - 120px);
+        }
+        .education-template .dual-section { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 3rem; 
+        }
+        .education-template .experience-entry, .education-template .education-entry { 
+            margin-bottom: 2.5rem; 
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 5px solid #8e44ad;
+        }
+        .education-template .entry-title { 
+            font-weight: bold; 
+            font-size: 1.2rem; 
+            color: #2c3e50; 
+            margin-bottom: 0.5rem;
+        }
+        .education-template .entry-company { 
+            color: #8e44ad; 
+            font-weight: normal; 
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+        .education-template .entry-dates { 
+            color: #7f8c8d; 
+            font-size: 1rem; 
+            margin-top: 0.5rem;
+        }
+        .education-template .skills-list { 
+            display: block; 
+        }
+        .education-template .skill-tag { 
+            display: block; 
+            background: transparent; 
+            color: #2c3e50; 
+            padding: 0.8rem 0; 
+            margin: 0.5rem 0; 
+            font-size: 1rem; 
+            border-bottom: 2px dotted #8e44ad;
+            text-align: center;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

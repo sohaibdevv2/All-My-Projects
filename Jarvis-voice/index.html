@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>J.A.R.V.I.S — Just A Rather Very Intelligent System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Scanning line -->
+  <div class="scan-line"></div>
+
+  <!-- Canvas for particles -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- HUD corners -->
+  <div class="hud-corner hud-tl"></div>
+  <div class="hud-corner hud-tr"></div>
+  <div class="hud-corner hud-bl"></div>
+  <div class="hud-corner hud-br"></div>
+
+  <!-- Top HUD bar -->
+  <div class="hud-top">
+    <div class="hud-label">J.A.R.V.I.S v3.0</div>
+    <div class="hud-status" id="hudStatus">STANDBY</div>
+    <div class="hud-label">MARK VII</div>
+  </div>
+
+  <!-- Bottom HUD bar -->
+  <div class="hud-bottom">
+    <div class="hud-stat" id="fpsCounter">FPS: --</div>
+    <div class="hud-sim-name" id="simName">VORTEX</div>
+    <div class="hud-stat" id="particleCount">PARTICLES: --</div>
+  </div>
+
+  <!-- Center ring system -->
+  <div class="center-rings" id="centerRings">
+    <div class="ring ring-1"></div>
+    <div class="ring ring-2"></div>
+    <div class="ring ring-3"></div>
+    <div class="ring ring-4"></div>
+    <div class="ring-core">
+      <div class="ring-core-inner">J</div>
+    </div>
+  </div>
+
+  <!-- Mic button -->
+  <button class="mic-btn" id="micBtn" title="Click or press SPACE to talk">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+      <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+      <line x1="12" y1="19" x2="12" y2="23"/>
+      <line x1="8" y1="23" x2="16" y2="23"/>
+    </svg>
+    <span class="mic-label">SPEAK</span>
+  </button>
+
+  <!-- Response box -->
+  <div class="response-box" id="responseBox">
+    <div class="response-header">
+      <span class="response-label">J.A.R.V.I.S RESPONSE</span>
+      <span class="response-tag" id="responseTag">READY</span>
+    </div>
+    <div class="response-text" id="responseText">
+      Good day, boss. All systems are operational. Voice recognition armed. Awaiting your command — or a witty remark, whichever comes first.
+    </div>
+  </div>
+
+  <!-- Transcript box -->
+  <div class="transcript-box" id="transcriptBox">
+    <span class="transcript-label">INPUT: </span>
+    <span class="transcript-text" id="transcriptText">—</span>
+  </div>
+
+  <!-- Particle simulation selector -->
+  <div class="sim-panel" id="simPanel">
+    <div class="sim-panel-header">SIMULATION MATRIX</div>
+    <div class="sim-grid" id="simGrid"></div>
+  </div>
+
+  <!-- Toggle panel button -->
+  <button class="panel-toggle" id="panelToggle">SIM PANEL</button>
+
+  <!-- Scripts -->
+  <script src="config.js"></script>
+  <script src="particles.js"></script>
+  <script src="jarvis.js"></script>
+</body>
+</html>

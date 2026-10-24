@@ -1,0 +1,23 @@
+<div class="card">
+    <div class="card-body text-center">
+        <div class="mb-3">
+            <img src="@ProfileImageUrl" class="rounded-circle" alt="Profile Picture" style="width: 100px; height: 100px; object-fit: cover;">
+        </div>
+        <h5 class="card-title">@Name</h5>
+        <p class="card-text text-muted">@Bio</p>
+        <div class="d-flex justify-content-center gap-2">
+            <a href="/projects" class="btn btn-primary btn-sm">
+                <i class="fas fa-eye"></i> View Projects
+            </a>
+            <a href="/skills" class="btn btn-outline-primary btn-sm">
+                <i class="fas fa-cogs"></i> View Skills
+            </a>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public string Name { get; set; } = "Jordan Developer";
+    [Parameter] public string Bio { get; set; } = "Full Stack Developer with passion for creating innovative solutions. Experienced in C#, Blazor, and modern web technologies.";
+    [Parameter] public string ProfileImageUrl { get; set; } = "https://via.placeholder.com/150/4a90e2/ffffff?text=JD";
+}

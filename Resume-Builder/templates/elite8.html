@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Template 8</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template elite8-template">
+        <div class="header-container">
+            <div class="profile-section">
+                <div class="profile-avatar">
+                    <div class="avatar-initials">YN</div>
+                    <div class="avatar-ring"></div>
+                </div>
+                <div class="profile-info">
+                    <h1 class="name" id="previewName">Your Name</h1>
+                    <h2 class="title" id="previewJobTitle">Chief Executive Officer</h2>
+                    <div class="contact-links">
+                        <div class="contact-link" id="previewEmail"></div>
+                        <div class="contact-link" id="previewPhone"></div>
+                        <div class="contact-link" id="previewLocation"></div>
+                        <div class="contact-link" id="previewLinkedIn"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-area">
+            <div class="summary-panel">
+                <div class="panel-header">
+                    <div class="header-icon">💼</div>
+                    <h3>Executive Profile</h3>
+                </div>
+                <div class="panel-body">
+                    <p id="previewSummary"></p>
+                </div>
+            </div>
+            
+            <div class="main-layout">
+                <div class="primary-content">
+                    <div class="experience-panel">
+                        <div class="panel-header">
+                            <div class="header-icon">🏆</div>
+                            <h3>Leadership Experience</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="previewExperience" class="experience-timeline"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="education-panel">
+                        <div class="panel-header">
+                            <div class="header-icon">🎓</div>
+                            <h3>Academic Excellence</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="previewEducation"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sidebar-content">
+                    <div class="skills-panel">
+                        <div class="panel-header">
+                            <div class="header-icon">⚡</div>
+                            <h3>Executive Skills</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="previewSkills" class="skills-list"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="languages-panel">
+                        <div class="panel-header">
+                            <div class="header-icon">🌐</div>
+                            <h3>Languages</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="previewLanguages" class="skills-list"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="achievements-panel">
+                        <div class="panel-header">
+                            <div class="header-icon">🏅</div>
+                            <h3>Key Achievements</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="achievement-stats">
+                                <div class="stat-item">
+                                    <div class="stat-number">$500M+</div>
+                                    <div class="stat-label">Revenue Generated</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">200+</div>
+                                    <div class="stat-label">Team Members</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">15</div>
+                                    <div class="stat-label">Years Leadership</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .elite8-template { 
+            font-family: 'SF Pro Display', 'Segoe UI', sans-serif; 
+            background: #f5f7fa; 
+            color: #2d3748; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+        }
+        .elite8-template .header-container { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            color: white; 
+            padding: 3rem; 
+            border-radius: 25px 25px 0 0;
+        }
+        .elite8-template .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        .elite8-template .profile-avatar {
+            position: relative;
+        }
+        .elite8-template .avatar-initials {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: white;
+            backdrop-filter: blur(10px);
+        }
+        .elite8-template .avatar-ring {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 3s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .elite8-template .profile-info {
+            flex: 1;
+        }
+        .elite8-template .name { 
+            font-size: 3rem; 
+            margin: 0; 
+            font-weight: 700; 
+            letter-spacing: 1px; 
+            margin-bottom: 0.5rem;
+        }
+        .elite8-template .title { 
+            font-size: 1.5rem; 
+            margin: 0 0 2rem 0; 
+            font-weight: 300; 
+            opacity: 0.95; 
+        }
+        .elite8-template .contact-links {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            font-size: 1rem;
+            opacity: 0.95;
+        }
+        .elite8-template .content-area { 
+            padding: 3rem; 
+            background: white;
+            border-radius: 0 0 25px 25px;
+        }
+        .elite8-template .summary-panel { 
+            margin-bottom: 3rem; 
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 20px;
+            color: white;
+            overflow: hidden;
+        }
+        .elite8-template .panel-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem 2rem;
+            background: rgba(0, 0, 0, 0.1);
+        }
+        .elite8-template .header-icon {
+            font-size: 1.5rem;
+        }
+        .elite8-template .panel-header h3 { 
+            margin: 0; 
+            font-size: 1.3rem; 
+            font-weight: 600; 
+        }
+        .elite8-template .panel-body {
+            padding: 2rem;
+        }
+        .elite8-template .main-layout { 
+            display: grid; 
+            grid-template-columns: 2fr 1fr; 
+            gap: 3rem; 
+        }
+        .elite8-template .primary-content > div, .elite8-template .sidebar-content > div {
+            margin-bottom: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        .elite8-template .experience-panel .panel-header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+        .elite8-template .education-panel .panel-header {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+        }
+        .elite8-template .skills-panel .panel-header {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+        }
+        .elite8-template .languages-panel .panel-header {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            color: #2d3748;
+        }
+        .elite8-template .achievements-panel .panel-header {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            color: #2d3748;
+        }
+        .elite8-template .experience-entry, .elite8-template .education-entry { 
+            margin-bottom: 2rem; 
+            padding: 2rem; 
+            background: #f8fafc; 
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            position: relative;
+        }
+        .elite8-template .experience-timeline .experience-entry::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 2rem;
+            width: 16px;
+            height: 16px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+        .elite8-template .entry-title { 
+            font-weight: 700; 
+            font-size: 1.2rem; 
+            color: #2d3748; 
+            margin-bottom: 0.5rem;
+        }
+        .elite8-template .entry-company { 
+            color: #667eea; 
+            font-weight: 600; 
+            font-size: 1rem;
+        }
+        .elite8-template .entry-dates { 
+            color: #718096; 
+            font-size: 0.9rem; 
+            font-weight: 500;
+            float: right;
+            background: #edf2f7;
+            padding: 0.3rem 0.8rem;
+            border-radius: 12px;
+        }
+        .elite8-template .skill-tag { 
+            display: inline-block; 
+            background: linear-gradient(135deg, #667eea, #764ba2); 
+            color: white; 
+            padding: 0.6rem 1.2rem; 
+            margin: 0.3rem; 
+            border-radius: 20px; 
+            font-size: 0.85rem; 
+            font-weight: 500; 
+            box-shadow: 0 3px 10px rgba(102, 126, 234, 0.2);
+        }
+        .elite8-template .achievement-stats {
+            display: grid;
+            gap: 1.5rem;
+        }
+        .elite8-template .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f8fafc;
+            border-radius: 15px;
+            border-top: 4px solid #667eea;
+        }
+        .elite8-template .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        .elite8-template .stat-label {
+            font-size: 0.9rem;
+            color: #718096;
+            font-weight: 500;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

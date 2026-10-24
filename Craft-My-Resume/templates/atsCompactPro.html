@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATS Compact Pro Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template ats-compact-pro-template">
+        <div class="header">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <div class="contact-info">
+                <span id="previewEmail"></span> • 
+                <span id="previewPhone"></span> • 
+                <span id="previewLocation"></span> • 
+                <span id="previewLinkedIn"></span>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Summary</h2>
+            <p id="previewSummary"></p>
+        </div>
+        
+        <div class="section">
+            <h2>Experience</h2>
+            <div id="previewExperience"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Education</h2>
+            <div id="previewEducation"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Skills</h2>
+            <div id="previewSkills"></div>
+        </div>
+    </div>
+
+    <style>
+        .ats-compact-pro-template { 
+            font-family: 'Arial', sans-serif; 
+            background: #ffffff; 
+            color: #000000; 
+            line-height: 1.3; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+            padding: 0.75in;
+        }
+        .ats-compact-pro-template .header { 
+            text-align: center; 
+            margin-bottom: 1rem; 
+        }
+        .ats-compact-pro-template .name { 
+            font-size: 1.8rem; 
+            margin: 0 0 0.3rem 0; 
+            font-weight: bold; 
+            color: #000000;
+        }
+        .ats-compact-pro-template .contact-info { 
+            font-size: 0.9rem; 
+            color: #000000;
+        }
+        .ats-compact-pro-template .section { 
+            margin-bottom: 1.2rem; 
+        }
+        .ats-compact-pro-template h2 { 
+            color: #000000; 
+            font-size: 1.1rem; 
+            margin-bottom: 0.6rem; 
+            font-weight: bold; 
+            text-transform: uppercase;
+        }
+        .ats-compact-pro-template .experience-entry, .ats-compact-pro-template .education-entry { 
+            margin-bottom: 1rem; 
+        }
+        .ats-compact-pro-template .entry-title { 
+            font-weight: bold; 
+            font-size: 1rem; 
+            color: #000000; 
+            margin-bottom: 0.1rem;
+        }
+        .ats-compact-pro-template .entry-company { 
+            color: #000000; 
+            font-weight: normal; 
+            font-size: 0.95rem;
+        }
+        .ats-compact-pro-template .entry-dates { 
+            color: #666666; 
+            font-size: 0.9rem; 
+            margin-top: 0.1rem;
+        }
+        .ats-compact-pro-template .skills-list { 
+            display: block; 
+        }
+        .ats-compact-pro-template .skill-tag { 
+            display: inline; 
+            color: #000000; 
+            font-size: 0.95rem; 
+        }
+        .ats-compact-pro-template .skill-tag:after {
+            content: " | ";
+        }
+        .ats-compact-pro-template .skill-tag:last-child:after {
+            content: "";
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

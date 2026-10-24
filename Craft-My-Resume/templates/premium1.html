@@ -1,0 +1,72 @@
+<div class="resume-template onyx-exec">
+  <div class="oe-wrap">
+    <aside class="oe-sidebar">
+      <div id="profilePhoto" class="oe-photo"></div>
+      <h1 id="previewName" class="oe-name">Your Name</h1>
+      <p id="previewJobTitle" class="oe-jobtitle">Job Title</p>
+      <div class="oe-divider"></div>
+      <div class="oe-contact-block">
+        <div class="oe-contact-item"><span class="oe-ci-icon">✉</span><span id="previewEmail">email@example.com</span></div>
+        <div class="oe-contact-item"><span class="oe-ci-icon">📱</span><span id="previewPhone">+1 234 567 890</span></div>
+        <div class="oe-contact-item"><span class="oe-ci-icon">📍</span><span id="previewLocation">City, Country</span></div>
+        <div class="oe-contact-item"><span class="oe-ci-icon">🔗</span><span id="previewLinkedIn">linkedin.com/in/you</span></div>
+      </div>
+      <div class="oe-divider"></div>
+      <h2 class="oe-side-heading">Skills</h2>
+      <div id="previewSkills" class="skills-list oe-skills"></div>
+      <div class="oe-divider"></div>
+      <h2 class="oe-side-heading">Languages</h2>
+      <div id="previewLanguages" class="skills-list oe-skills"></div>
+      <div class="oe-divider"></div>
+      <h2 class="oe-side-heading">Certifications</h2>
+      <ul id="previewCertifications" class="oe-list"></ul>
+      <h2 class="oe-side-heading">Awards</h2>
+      <ul id="previewAwards" class="oe-list"></ul>
+    </aside>
+    <main class="oe-main">
+      <section class="oe-section">
+        <h2 class="oe-heading">Profile</h2>
+        <p id="previewSummary" class="oe-summary">Your professional summary here.</p>
+      </section>
+      <section class="oe-section">
+        <h2 class="oe-heading">Experience</h2>
+        <div id="previewExperience"></div>
+      </section>
+      <section class="oe-section">
+        <h2 class="oe-heading">Education</h2>
+        <div id="previewEducation"></div>
+      </section>
+      <section class="oe-section">
+        <h2 class="oe-heading">Projects</h2>
+        <ul id="previewProjects" class="oe-proj-list"></ul>
+      </section>
+    </main>
+  </div>
+</div>
+<style>
+.onyx-exec { font-family: 'Segoe UI', system-ui, sans-serif; width: 210mm; min-height: 297mm; margin: 0 auto; --primary: var(--primary-color, #1e3a5f); color: #1a1a1a; }
+.oe-wrap { display: flex; min-height: 297mm; }
+.oe-sidebar { width: 220px; background: var(--primary); color: #fff; padding: 28px 20px; flex-shrink: 0; }
+.oe-photo { width: 100px; height: 100px; border-radius: 50%; background-size: cover; background-position: center; background-color: rgba(255,255,255,0.15); border: 3px solid rgba(255,255,255,0.4); margin: 0 auto 14px; }
+.oe-name { font-size: 1.2rem; font-weight: 800; color: #fff; text-align: center; margin: 0 0 4px; letter-spacing: -0.3px; }
+.oe-jobtitle { font-size: 0.72rem; color: rgba(255,255,255,0.7); text-align: center; text-transform: uppercase; letter-spacing: 2px; margin: 0; }
+.oe-divider { border: none; border-top: 1px solid rgba(255,255,255,0.2); margin: 14px 0; }
+.oe-contact-block { display: flex; flex-direction: column; gap: 6px; }
+.oe-contact-item { display: flex; align-items: center; gap: 8px; font-size: 0.7rem; color: rgba(255,255,255,0.8); word-break: break-all; }
+.oe-ci-icon { font-size: 0.7rem; flex-shrink: 0; }
+.oe-side-heading { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: rgba(255,255,255,0.5); margin: 0 0 8px; }
+.oe-skills { display: flex; flex-wrap: wrap; gap: 4px; }
+.oe-skills .skill-tag { background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.25); padding: 2px 8px; border-radius: 10px; font-size: 0.65rem; }
+.oe-list { margin: 0; padding-left: 14px; font-size: 0.68rem; color: rgba(255,255,255,0.8); line-height: 1.7; }
+.oe-main { flex: 1; padding: 32px 28px; background: #fff; }
+.oe-section { margin-bottom: 22px; }
+.oe-heading { font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; color: var(--primary); margin: 0 0 12px; padding-bottom: 6px; border-bottom: 2px solid var(--primary); }
+.oe-summary { font-size: 0.82rem; line-height: 1.65; color: #444; margin: 0; }
+.onyx-exec .experience-entry, .onyx-exec .education-entry { margin-bottom: 14px; }
+.onyx-exec .entry-header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin-bottom: 4px; }
+.onyx-exec .entry-title { font-weight: 700; font-size: 0.88rem; color: #111; }
+.onyx-exec .entry-company, .onyx-exec .entry-school { font-size: 0.78rem; color: var(--primary); font-weight: 600; }
+.onyx-exec .entry-dates { font-size: 0.7rem; color: #888; margin-left: auto; }
+.onyx-exec .entry-description { font-size: 0.75rem; color: #555; line-height: 1.55; }
+.oe-proj-list { margin: 0; padding-left: 16px; font-size: 0.78rem; color: #555; line-height: 1.7; }
+</style>

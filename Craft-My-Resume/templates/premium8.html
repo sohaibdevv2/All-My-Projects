@@ -1,0 +1,82 @@
+<div class="resume-template coral-modern">
+  <div class="cm2-stripe"></div>
+  <div class="cm2-header">
+    <div class="cm2-photo-ring">
+      <div id="profilePhoto" class="cm2-photo"></div>
+    </div>
+    <div class="cm2-header-text">
+      <h1 id="previewName" class="cm2-name">Your Name</h1>
+      <p id="previewJobTitle" class="cm2-title">Job Title</p>
+      <div class="cm2-contacts">
+        <span id="previewEmail">email@example.com</span>
+        <span id="previewPhone">+1 234 567 890</span>
+        <span id="previewLocation">City, Country</span>
+        <span id="previewLinkedIn">LinkedIn</span>
+      </div>
+    </div>
+  </div>
+  <div class="cm2-body">
+    <div class="cm2-main">
+      <div class="cm2-section">
+        <h2 class="cm2-heading">Summary</h2>
+        <p id="previewSummary" class="cm2-summary">Professional summary here.</p>
+      </div>
+      <div class="cm2-section">
+        <h2 class="cm2-heading">Experience</h2>
+        <div id="previewExperience"></div>
+      </div>
+      <div class="cm2-section">
+        <h2 class="cm2-heading">Education</h2>
+        <div id="previewEducation"></div>
+      </div>
+    </div>
+    <div class="cm2-side">
+      <div class="cm2-section">
+        <h2 class="cm2-heading">Skills</h2>
+        <div id="previewSkills" class="skills-list cm2-skills"></div>
+      </div>
+      <div class="cm2-section">
+        <h2 class="cm2-heading">Languages</h2>
+        <div id="previewLanguages" class="skills-list cm2-skills"></div>
+      </div>
+      <div class="cm2-section">
+        <h2 class="cm2-heading">Projects</h2>
+        <ul id="previewProjects" class="cm2-list"></ul>
+      </div>
+      <div class="cm2-section">
+        <h2 class="cm2-heading">Certifications</h2>
+        <ul id="previewCertifications" class="cm2-list"></ul>
+      </div>
+      <div class="cm2-section">
+        <h2 class="cm2-heading">Awards</h2>
+        <ul id="previewAwards" class="cm2-list"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+.coral-modern { font-family: 'Segoe UI', system-ui, sans-serif; width: 210mm; min-height: 297mm; margin: 0 auto; background: #fff; --primary: var(--primary-color, #f97316); color: #1a1a1a; }
+.cm2-stripe { height: 6px; background: linear-gradient(90deg, var(--primary), #fbbf24); }
+.cm2-header { display: flex; align-items: center; gap: 22px; padding: 24px 36px; background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 100%); border-bottom: 1px solid #fed7aa; }
+.cm2-photo-ring { padding: 3px; background: linear-gradient(135deg, var(--primary), #fbbf24); border-radius: 50%; flex-shrink: 0; }
+.cm2-photo { width: 96px; height: 96px; border-radius: 50%; background-size: cover; background-position: center; background-color: #fff7ed; border: 3px solid #fff; }
+.cm2-name { font-size: 1.9rem; font-weight: 800; color: #1a1a1a; margin: 0 0 3px; letter-spacing: -0.5px; }
+.cm2-title { font-size: 0.8rem; color: var(--primary); margin: 0 0 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; }
+.cm2-contacts { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 0.7rem; color: #777; }
+.cm2-body { display: flex; padding: 24px 36px; gap: 28px; }
+.cm2-main { flex: 2; }
+.cm2-side { flex: 1; padding-left: 22px; border-left: 2px solid #fff7ed; }
+.cm2-section { margin-bottom: 20px; }
+.cm2-heading { font-size: 0.62rem; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; color: var(--primary); margin: 0 0 10px; padding-bottom: 5px; border-bottom: 2px solid var(--primary); }
+.cm2-summary { font-size: 0.82rem; line-height: 1.65; color: #444; margin: 0; }
+.coral-modern .experience-entry, .coral-modern .education-entry { margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid #fef0e6; }
+.coral-modern .experience-entry:last-child, .coral-modern .education-entry:last-child { border-bottom: none; }
+.coral-modern .entry-header { display: flex; flex-wrap: wrap; gap: 2px 10px; margin-bottom: 4px; align-items: baseline; }
+.coral-modern .entry-title { font-weight: 700; font-size: 0.88rem; color: #111; flex: 100%; }
+.coral-modern .entry-company, .coral-modern .entry-school { font-size: 0.76rem; color: var(--primary); font-weight: 600; }
+.coral-modern .entry-dates { font-size: 0.68rem; color: #aaa; background: #fff7ed; padding: 1px 7px; border-radius: 8px; }
+.coral-modern .entry-description { font-size: 0.75rem; color: #555; line-height: 1.55; margin-top: 4px; }
+.cm2-skills { display: flex; flex-wrap: wrap; gap: 5px; }
+.cm2-skills .skill-tag { background: #fff7ed; border: 1px solid #fed7aa; color: #9a3412; padding: 3px 10px; border-radius: 12px; font-size: 0.68rem; font-weight: 500; }
+.cm2-list { margin: 0; padding-left: 14px; font-size: 0.72rem; color: #555; line-height: 1.7; }
+</style>

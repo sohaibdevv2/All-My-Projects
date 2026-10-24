@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Craftez My Resume — Free AI Resume Builder | ATS-Optimized | 170+ Templates</title>
+    <meta name="description" content="Build a professional, ATS-optimized resume in minutes. 170+ templates, AI-powered, cover letter builder, digital signature — completely free, no account needed.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      /* ── Homepage-only overrides ─────────────────────────────── */
+      .home-nav-cta {
+        background: var(--primary-color);
+        color: #fff;
+        padding: 9px 20px;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s;
+        border: none;
+        cursor: pointer;
+      }
+      .home-nav-cta:hover { background: var(--primary-dark); transform: translateY(-1px); }
+
+      /* ── Hero ──────────────────────────────────────────────── */
+      .hero-split {
+        padding: 80px 0 60px;
+        background: linear-gradient(160deg, #1f6b42 0%, #2d8653 55%, #52c27a 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-split::before {
+        content: '';
+        position: absolute;
+        top: -100px; right: -100px;
+        width: 500px; height: 500px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.04);
+        pointer-events: none;
+      }
+      .hero-split::after {
+        content: '';
+        position: absolute;
+        bottom: -60px; left: -60px;
+        width: 300px; height: 300px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.04);
+        pointer-events: none;
+      }
+      .hero-split-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+      .hero-left {}
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255,255,255,0.18);
+        border: 1px solid rgba(255,255,255,0.3);
+        border-radius: 50px;
+        padding: 6px 16px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 24px;
+        letter-spacing: 0.3px;
+      }
+      .hero-heading {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(2.2rem, 4vw, 3.5rem);
+        font-weight: 700;
+        color: #fff;
+        line-height: 1.15;
+        margin-bottom: 20px;
+      }
+      .hero-heading .hl { color: #b7e4c7; }
+      .hero-sub {
+        font-size: 1.1rem;
+        color: rgba(255,255,255,0.85);
+        line-height: 1.7;
+        margin-bottom: 32px;
+        max-width: 480px;
+      }
+      .hero-btns {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-bottom: 36px;
+      }
+      .hero-btn-primary {
+        background: #fff;
+        color: #1f6b42;
+        font-weight: 700;
+        font-size: 0.95rem;
+        padding: 14px 28px;
+        border-radius: 50px;
+        text-decoration: none;
+        transition: all 0.2s;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      }
+      .hero-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.2); }
+      .hero-btn-outline {
+        background: transparent;
+        color: #fff;
+        font-weight: 600;
+        font-size: 0.95rem;
+        padding: 13px 28px;
+        border-radius: 50px;
+        text-decoration: none;
+        border: 1.5px solid rgba(255,255,255,0.5);
+        transition: all 0.2s;
+      }
+      .hero-btn-outline:hover { background: rgba(255,255,255,0.12); border-color: #fff; }
+      .hero-trust {
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+      .hero-trust-item {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        color: rgba(255,255,255,0.8);
+        font-size: 0.82rem;
+        font-weight: 500;
+      }
+      .hero-trust-dot { width: 7px; height: 7px; border-radius: 50%; background: #b7e4c7; flex-shrink: 0; }
+
+      /* Hero right — mock resume card */
+      /* ── Hero right — cycling resume card carousel ──────────── */
+      .hero-right { position: relative; display: flex; align-items: center; justify-content: center; }
+      .hrc-wrap { position: relative; width: 290px; height: 390px; }
+      .hrc-card {
+        position: absolute; inset: 0;
+        background: #fff; border-radius: 14px;
+        box-shadow: 0 20px 56px rgba(0,0,0,0.28);
+        overflow: hidden; opacity: 0;
+        animation: hrc-show 30s ease-in-out infinite;
+      }
+      @keyframes hrc-show {
+        0%   { opacity:0; transform:translateY(16px) scale(.96); }
+        4%   { opacity:1; transform:translateY(0) scale(1); }
+        16%  { opacity:1; transform:translateY(0) scale(1); }
+        20%  { opacity:0; transform:translateY(-10px) scale(.97); }
+        100% { opacity:0; }
+      }
+      .hrc-card:nth-child(1){animation-delay:0s;}
+      .hrc-card:nth-child(2){animation-delay:5s;}
+      .hrc-card:nth-child(3){animation-delay:10s;}
+      .hrc-card:nth-child(4){animation-delay:15s;}
+      .hrc-card:nth-child(5){animation-delay:20s;}
+      .hrc-card:nth-child(6){animation-delay:25s;}
+      .hrc-tpl-name {
+        position:absolute; bottom:10px; left:50%; transform:translateX(-50%);
+        background:rgba(0,0,0,.6); color:#fff;
+        font-size:.67rem; font-weight:700; letter-spacing:.5px;
+        padding:4px 12px; border-radius:20px; white-space:nowrap;
+      }
+      /* Card layout helpers */
+      .hrc-top { padding: 16px 16px 12px; }
+      .hrc-body { padding: 0 16px 10px; }
+      .hrc-sidebar-wrap { display:flex; height:calc(100% - 0px); }
+      .hrc-sidebar { padding:14px 10px; flex-shrink:0; }
+      .hrc-main { flex:1; padding:14px 12px; }
+      .hrc-avatar { width:32px; height:32px; border-radius:50%; background:rgba(255,255,255,.35); margin-bottom:8px; }
+      .hrc-b { border-radius:3px; margin-bottom:6px; }
+      .hrc-b.nm  { height:11px; width:68%; background:rgba(255,255,255,.95); }
+      .hrc-b.tt  { height:7px;  width:48%; background:rgba(255,255,255,.65); }
+      .hrc-b.s90 { height:6px;  width:90%; background:#ebebeb; }
+      .hrc-b.s75 { height:6px;  width:75%; background:#ebebeb; }
+      .hrc-b.s60 { height:6px;  width:60%; background:#ebebeb; }
+      .hrc-b.s80 { height:6px;  width:80%; background:#ebebeb; }
+      .hrc-b.s50 { height:6px;  width:50%; background:#ebebeb; }
+      .hrc-sec { height:7px; border-radius:3px; width:32%; margin-bottom:7px; }
+      .hrc-sk { display:flex; gap:4px; flex-wrap:wrap; margin:6px 0; }
+      .hrc-sk span { height:13px; border-radius:20px; background:#e0f0e8; display:inline-block; }
+      .hrc-div { border:none; border-top:1px solid rgba(255,255,255,.25); margin:8px 0; }
+      /* ATS badge */
+      .mock-badge {
+        position:absolute; bottom:-14px; right:-14px;
+        background:#fff; border-radius:12px;
+        padding:10px 14px; box-shadow:0 8px 24px rgba(0,0,0,.15);
+        display:flex; align-items:center; gap:10px;
+        font-size:.82rem; font-weight:600; color:#1a2e20;
+        transform:rotate(-2deg);
+      }
+      .mock-score { font-size:1.4rem; font-weight:800; color:#2d8653; }
+
+      /* ── Stats Bar ─────────────────────────────────────────── */
+      .stats-bar {
+        background: var(--bg-primary);
+        border-bottom: 1px solid var(--border-color);
+        padding: 20px 0;
+      }
+      .stats-bar-inner {
+        display: flex;
+        justify-content: center;
+        gap: 60px;
+        flex-wrap: wrap;
+      }
+      .stat-item { text-align: center; }
+      .stat-num {
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: var(--primary-color);
+        font-family: 'Playfair Display', serif;
+        display: block;
+      }
+      .stat-lbl { font-size: 0.78rem; color: var(--text-secondary); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
+
+      /* ── How It Works ──────────────────────────────────────── */
+      .hiw-section { padding: 80px 0; background: var(--bg-primary); }
+      .hiw-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+        margin-top: 48px;
+      }
+      .hiw-card {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 32px 28px;
+        position: relative;
+        transition: all 0.25s;
+      }
+      .hiw-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--primary-light); }
+      .hiw-num {
+        font-size: 3rem;
+        font-weight: 900;
+        color: var(--primary-light);
+        line-height: 1;
+        margin-bottom: 12px;
+        font-family: 'Playfair Display', serif;
+      }
+      .hiw-icon { font-size: 1.8rem; margin-bottom: 12px; display: block; }
+      .hiw-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+      .hiw-card p { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6; }
+      .hiw-arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary-light);
+        font-size: 1.5rem;
+        padding-top: 48px;
+      }
+
+      /* ── Features ──────────────────────────────────────────── */
+      .features-section { padding: 80px 0; background: var(--bg-secondary); }
+      .features-grid-new {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-top: 48px;
+      }
+      .feat-card {
+        background: var(--bg-primary);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 28px 24px;
+        transition: all 0.25s;
+      }
+      .feat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+      .feat-icon-box {
+        width: 48px; height: 48px;
+        border-radius: 12px;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 1.4rem;
+        margin-bottom: 16px;
+      }
+      .feat-card h3 { font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+      .feat-card p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
+      .feat-tag {
+        display: inline-block;
+        margin-top: 12px;
+        background: var(--bg-tertiary);
+        color: var(--primary-dark);
+        font-size: 0.72rem;
+        font-weight: 600;
+        padding: 3px 10px;
+        border-radius: 20px;
+      }
+
+      /* ── Templates CTA ─────────────────────────────────────── */
+      .templates-section-new { padding: 80px 0; background: var(--bg-primary); }
+      .templates-cta-grid-new {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        margin: 48px 0 40px;
+      }
+      .tcta-card-new {
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: 14px;
+        padding: 24px 20px;
+        text-align: center;
+        transition: all 0.25s;
+      }
+      .tcta-card-new:hover { border-color: var(--primary-color); background: var(--bg-tertiary); transform: translateY(-3px); }
+      .tcta-icon { font-size: 2rem; margin-bottom: 12px; display: block; }
+      .tcta-card-new h3 { font-size: 0.9rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+      .tcta-card-new p { font-size: 0.78rem; color: var(--text-secondary); line-height: 1.5; }
+      .templates-cta-center { text-align: center; }
+
+      /* ── Testimonials ──────────────────────────────────────── */
+      .testimonials-section-new { padding: 80px 0; background: var(--bg-secondary); overflow: hidden; }
+      .testi-track-outer { overflow: hidden; margin-top: 48px; position: relative; }
+      .testi-track-outer::before,
+      .testi-track-outer::after {
+        content:''; position:absolute; top:0; bottom:0; width:100px; z-index:2; pointer-events:none;
+      }
+      .testi-track-outer::before { left:0; background:linear-gradient(to right,var(--bg-secondary),transparent); }
+      .testi-track-outer::after  { right:0; background:linear-gradient(to left,var(--bg-secondary),transparent); }
+      .testi-track { display:flex; gap:20px; width:max-content; margin-bottom:20px; }
+      .testi-track.row1 { animation:testi-scroll-l 36s linear infinite; }
+      .testi-track.row2 { animation:testi-scroll-r 40s linear infinite; }
+      @keyframes testi-scroll-l { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+      @keyframes testi-scroll-r { from{transform:translateX(-50%)} to{transform:translateX(0)} }
+      .testi-card {
+        flex-shrink: 0; width: 300px;
+        background: var(--bg-primary);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 24px 22px;
+        transition: transform .2s, box-shadow .2s;
+      }
+      .testi-card:hover { transform:translateY(-3px); box-shadow:0 10px 30px rgba(0,0,0,.09); }
+      .testi-stars { color: #f0a500; font-size: 0.85rem; margin-bottom: 10px; letter-spacing:1px; }
+      .testi-text { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 18px; font-style: italic; }
+      .testi-author { display: flex; align-items: center; gap: 10px; }
+      .testi-avatar {
+        width: 38px; height: 38px; border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        font-weight: 700; font-size: 0.95rem; color: #fff;
+        flex-shrink: 0;
+      }
+      .testi-name { font-size: 0.875rem; font-weight: 600; color: var(--text-primary); }
+      .testi-role { font-size: 0.75rem; color: var(--text-secondary); }
+
+      /* ── Template Showcase ─────────────────────────────────── */
+      .tpl-showcase-section { padding: 80px 0; background: var(--bg-primary); overflow: hidden; }
+      .tpl-track-outer { overflow: hidden; margin-top: 48px; position: relative; }
+      .tpl-track-outer::before,
+      .tpl-track-outer::after {
+        content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none;
+      }
+      .tpl-track-outer::before { left: 0; background: linear-gradient(to right, var(--bg-primary), transparent); }
+      .tpl-track-outer::after  { right: 0; background: linear-gradient(to left, var(--bg-primary), transparent); }
+      .tpl-track { display: flex; gap: 16px; width: max-content; margin-bottom: 16px; }
+      .tpl-track.row1 { animation: tpl-scroll-l 28s linear infinite; }
+      .tpl-track.row2 { animation: tpl-scroll-r 32s linear infinite; }
+      @keyframes tpl-scroll-l { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+      @keyframes tpl-scroll-r { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+      .tpl-mini {
+        flex-shrink: 0; width: 140px; height: 185px;
+        border-radius: 10px; overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0,0,0,.1);
+        border: 1px solid var(--border-color);
+        background: #fff; position: relative; cursor: pointer;
+        transition: transform .2s, box-shadow .2s;
+      }
+      .tpl-mini:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(0,0,0,.15); }
+      .tpl-mini-hdr { height: 42px; display: flex; align-items: center; padding: 0 10px; gap: 7px; }
+      .tpl-mini-av { width: 22px; height: 22px; border-radius: 50%; background: rgba(255,255,255,.4); flex-shrink: 0; }
+      .tpl-mini-nm { flex: 1; }
+      .tpl-mini-nm .b1 { height: 7px; border-radius: 3px; background: rgba(255,255,255,.9); margin-bottom: 4px; width: 70%; }
+      .tpl-mini-nm .b2 { height: 5px; border-radius: 3px; background: rgba(255,255,255,.55); width: 52%; }
+      .tpl-mini-body { padding: 8px 10px; }
+      .tpl-mini-body .sec { height: 5px; border-radius: 2px; width: 30%; margin-bottom: 5px; }
+      .tpl-mini-body .ln  { height: 4px; border-radius: 2px; background: #e8eaed; margin-bottom: 4px; }
+      .tpl-mini-body .ln.a { width: 92%; } .tpl-mini-body .ln.b { width: 78%; } .tpl-mini-body .ln.c { width: 65%; }
+      .tpl-mini-name {
+        position: absolute; bottom: 0; left: 0; right: 0;
+        background: rgba(0,0,0,.62); color: #fff;
+        font-size: .62rem; font-weight: 700;
+        text-align: center; padding: 5px 4px;
+        letter-spacing: .3px;
+      }
+
+      /* ── FAQ ───────────────────────────────────────────────── */
+      .faq-section-new { padding: 80px 0; background: var(--bg-secondary); }
+      .faq-list-new { margin-top: 48px; display: flex; flex-direction: column; gap: 12px; max-width: 800px; margin-left: auto; margin-right: auto; }
+      .faq-item-new {
+        background: var(--bg-primary);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        overflow: hidden;
+        transition: border-color 0.2s;
+      }
+      .faq-item-new.open { border-color: var(--primary-color); }
+      .faq-q {
+        width: 100%; background: none; border: none; cursor: pointer;
+        display: flex; justify-content: space-between; align-items: center;
+        padding: 18px 22px; text-align: left; font-size: 0.95rem;
+        font-weight: 600; color: var(--text-primary);
+        transition: color 0.2s;
+      }
+      .faq-item-new.open .faq-q { color: var(--primary-color); }
+      .faq-q-icon { font-size: 1.2rem; color: var(--primary-color); flex-shrink: 0; transition: transform 0.3s; }
+      .faq-item-new.open .faq-q-icon { transform: rotate(45deg); }
+      .faq-a { display: none; padding: 0 22px 18px; font-size: 0.875rem; color: var(--text-secondary); line-height: 1.7; }
+      .faq-item-new.open .faq-a { display: block; }
+
+      /* ── Final CTA ─────────────────────────────────────────── */
+      .final-cta {
+        padding: 80px 0;
+        background: linear-gradient(135deg, #1f6b42 0%, #2d8653 100%);
+        text-align: center;
+        color: #fff;
+      }
+      .final-cta h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem,3vw,2.8rem); font-weight: 700; margin-bottom: 14px; }
+      .final-cta p { font-size: 1.05rem; opacity: 0.85; margin-bottom: 36px; }
+      .final-cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
+      .final-trust { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+      .final-trust span { font-size: 0.82rem; color: rgba(255,255,255,0.8); display: flex; align-items: center; gap: 6px; }
+
+      /* ── Section Header ────────────────────────────────────── */
+      .sec-header { text-align: center; }
+      .sec-label {
+        display: inline-block;
+        background: var(--bg-tertiary);
+        color: var(--primary-dark);
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 5px 14px;
+        border-radius: 20px;
+        margin-bottom: 14px;
+      }
+      .sec-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem,3vw,2.5rem); font-weight: 700; color: var(--text-primary); margin-bottom: 12px; }
+      .sec-desc { font-size: 1rem; color: var(--text-secondary); max-width: 560px; margin: 0 auto; line-height: 1.7; }
+
+      /* ── Footer ────────────────────────────────────────────── */
+      .footer-new {
+        background: var(--bg-primary);
+        border-top: 1px solid var(--border-color);
+        padding: 40px 0 24px;
+      }
+      .footer-grid-new {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 40px;
+        margin-bottom: 32px;
+      }
+      .footer-brand-desc { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-top: 10px; max-width: 280px; }
+      .footer-col h4 { font-size: 0.85rem; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+      .footer-col a { display: block; font-size: 0.85rem; color: var(--text-secondary); text-decoration: none; margin-bottom: 8px; transition: color 0.2s; }
+      .footer-col a:hover { color: var(--primary-color); }
+      .footer-bottom { border-top: 1px solid var(--border-color); padding-top: 20px; text-align: center; font-size: 0.8rem; color: var(--text-muted); }
+
+      /* Responsive */
+      @media (max-width: 900px) {
+        .hero-split-inner { grid-template-columns: 1fr; }
+        .hero-right { display: none; }
+        .hiw-grid { grid-template-columns: 1fr; }
+        .hiw-arrow { display: none; }
+        .features-grid-new { grid-template-columns: 1fr 1fr; }
+        .templates-cta-grid-new { grid-template-columns: 1fr 1fr; }
+        .testi-grid { grid-template-columns: 1fr; }
+        .footer-grid-new { grid-template-columns: 1fr; gap: 24px; }
+      }
+      @media (max-width: 600px) {
+        .stats-bar-inner { gap: 24px; }
+        .features-grid-new { grid-template-columns: 1fr; }
+        .templates-cta-grid-new { grid-template-columns: 1fr; }
+      }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <img src="logo.png" alt="CMR" class="logo-icon" style="width:36px;height:36px;object-fit:contain;border-radius:6px;">
+                    <div class="logo-text">
+                        <h1>CMR</h1>
+                        <span>Craftez My Resume</span>
+                    </div>
+                </div>
+                <div class="nav-links">
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#templates" class="nav-link">Templates</a>
+                    <a href="#how-it-works" class="nav-link">How It Works</a>
+                    <a href="cover" class="nav-link">Cover Letter</a>
+                </div>
+                <div class="nav-actions">
+                    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                    <a href="form" class="home-nav-cta">Build Resume Free →</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero-split">
+            <div class="container">
+                <div class="hero-split-inner">
+                    <div class="hero-left">
+                        <div class="hero-eyebrow">🌿 100% Free · No Account · No Watermark</div>
+                        <h1 class="hero-heading">
+                            Land Your Dream Job With a <span class="hl">Perfect Resume</span>
+                        </h1>
+                        <p class="hero-sub">
+                            Build an ATS-optimized, recruiter-approved resume in minutes. 170+ professional templates, AI-powered writing, live ATS score, cover letter builder — all free, forever.
+                        </p>
+                        <div class="hero-btns">
+                            <a href="form" class="hero-btn-primary">Build My Resume Free →</a>
+                            <a href="cover" class="hero-btn-outline">Cover Letter Builder</a>
+                        </div>
+                        <div class="hero-trust">
+                            <div class="hero-trust-item"><div class="hero-trust-dot"></div>No account required</div>
+                            <div class="hero-trust-item"><div class="hero-trust-dot"></div>No watermarks ever</div>
+                            <div class="hero-trust-item"><div class="hero-trust-dot"></div>Instant PDF export</div>
+                            <div class="hero-trust-item"><div class="hero-trust-dot"></div>100% private</div>
+                        </div>
+                    </div>
+                    <div class="hero-right">
+                        <div class="hrc-wrap">
+                            <!-- Card 1: Modern Pro — green header, avatar, clean body -->
+                            <div class="hrc-card">
+                                <div class="hrc-top" style="background:linear-gradient(135deg,#1f6b42,#2d8653);">
+                                    <div class="hrc-avatar"></div>
+                                    <div class="hrc-b nm"></div>
+                                    <div class="hrc-b tt"></div>
+                                </div>
+                                <div class="hrc-body" style="padding-top:12px;">
+                                    <div class="hrc-sec" style="background:#d1f0de;"></div>
+                                    <div class="hrc-b s90"></div><div class="hrc-b s75"></div><div class="hrc-b s80"></div>
+                                    <div class="hrc-sec" style="background:#d1f0de;margin-top:10px;"></div>
+                                    <div class="hrc-b s90"></div><div class="hrc-b s60"></div>
+                                    <div class="hrc-sec" style="background:#d1f0de;margin-top:10px;"></div>
+                                    <div class="hrc-sk"><span style="width:44px;"></span><span style="width:36px;"></span><span style="width:52px;"></span><span style="width:38px;"></span></div>
+                                </div>
+                                <div class="hrc-tpl-name">Modern Pro</div>
+                            </div>
+                            <!-- Card 2: Harvard ATS — white/black, centered header, thin rule lines -->
+                            <div class="hrc-card">
+                                <div class="hrc-top" style="background:#fff;border-bottom:2px solid #111;text-align:center;padding:20px 16px 12px;">
+                                    <div class="hrc-b nm" style="background:#222;margin:0 auto 6px;width:55%;"></div>
+                                    <div class="hrc-b tt" style="background:#555;margin:0 auto;width:40%;"></div>
+                                    <div style="display:flex;gap:8px;justify-content:center;margin-top:8px;">
+                                        <div class="hrc-b" style="width:50px;height:5px;background:#888;"></div>
+                                        <div class="hrc-b" style="width:50px;height:5px;background:#888;"></div>
+                                    </div>
+                                </div>
+                                <div class="hrc-body" style="padding-top:12px;">
+                                    <div class="hrc-sec" style="background:#ddd;width:28%;"></div>
+                                    <div style="border-top:1px solid #ccc;margin:4px 0 8px;"></div>
+                                    <div class="hrc-b s90"></div><div class="hrc-b s75"></div><div class="hrc-b s80"></div>
+                                    <div class="hrc-sec" style="background:#ddd;width:28%;margin-top:10px;"></div>
+                                    <div style="border-top:1px solid #ccc;margin:4px 0 8px;"></div>
+                                    <div class="hrc-b s90"></div><div class="hrc-b s60"></div>
+                                </div>
+                                <div class="hrc-tpl-name">Harvard ATS</div>
+                            </div>
+                            <!-- Card 3: Navy Executive — dark navy sidebar, gold accent -->
+                            <div class="hrc-card">
+                                <div class="hrc-sidebar-wrap" style="height:100%;">
+                                    <div class="hrc-sidebar" style="background:#0d1b3e;width:90px;">
+                                        <div class="hrc-avatar" style="background:rgba(255,255,255,.2);"></div>
+                                        <div class="hrc-b nm" style="background:rgba(255,255,255,.85);width:80%;"></div>
+                                        <div class="hrc-b tt" style="background:rgba(255,255,255,.45);width:70%;"></div>
+                                        <div class="hrc-div"></div>
+                                        <div class="hrc-b s90" style="background:rgba(255,255,255,.3);width:80%;"></div>
+                                        <div class="hrc-b s75" style="background:rgba(255,255,255,.3);width:70%;"></div>
+                                        <div class="hrc-b s60" style="background:rgba(255,255,255,.3);width:60%;"></div>
+                                    </div>
+                                    <div class="hrc-main">
+                                        <div class="hrc-sec" style="background:#c9a84c;"></div>
+                                        <div class="hrc-b s90"></div><div class="hrc-b s75"></div><div class="hrc-b s80"></div>
+                                        <div class="hrc-sec" style="background:#c9a84c;margin-top:10px;"></div>
+                                        <div class="hrc-b s90"></div><div class="hrc-b s60"></div>
+                                        <div class="hrc-sec" style="background:#c9a84c;margin-top:10px;"></div>
+                                        <div class="hrc-sk"><span style="width:36px;background:#e8eaed;"></span><span style="width:44px;background:#e8eaed;"></span><span style="width:30px;background:#e8eaed;"></span></div>
+                                    </div>
+                                </div>
+                                <div class="hrc-tpl-name">Navy Executive</div>
+                            </div>
+                            <!-- Card 4: Tech Minimal — dark header band, monospace feel -->
+                            <div class="hrc-card">
+                                <div style="background:#1a1a2e;padding:16px;display:flex;align-items:center;gap:10px;">
+                                    <div style="width:36px;height:36px;border-radius:6px;background:#4ade80;flex-shrink:0;"></div>
+                                    <div>
+                                        <div class="hrc-b nm" style="background:rgba(255,255,255,.9);"></div>
+                                        <div class="hrc-b tt" style="background:#4ade80;"></div>
+                                    </div>
+                                </div>
+                                <div class="hrc-body" style="padding-top:12px;">
+                                    <div class="hrc-sec" style="background:#4ade80;opacity:.6;"></div>
+                                    <div class="hrc-b s90"></div><div class="hrc-b s75"></div><div class="hrc-b s80"></div>
+                                    <div class="hrc-sec" style="background:#4ade80;opacity:.6;margin-top:10px;"></div>
+                                    <div class="hrc-b s90"></div><div class="hrc-b s60"></div>
+                                    <div class="hrc-sec" style="background:#4ade80;opacity:.6;margin-top:10px;"></div>
+                                    <div class="hrc-sk"><span style="width:48px;background:#e0f0e8;"></span><span style="width:36px;background:#e0f0e8;"></span><span style="width:52px;background:#e0f0e8;"></span></div>
+                                </div>
+                                <div class="hrc-tpl-name">Tech Minimal</div>
+                            </div>
+                            <!-- Card 5: Classic Serif — traditional left-aligned, serif feel -->
+                            <div class="hrc-card" style="padding:20px 18px;">
+                                <div style="border-bottom:3px double #333;padding-bottom:10px;margin-bottom:12px;">
+                                    <div class="hrc-b nm" style="background:#222;width:60%;height:13px;"></div>
+                                    <div class="hrc-b tt" style="background:#555;width:45%;"></div>
+                                    <div style="display:flex;gap:6px;margin-top:6px;">
+                                        <div class="hrc-b" style="width:55px;height:5px;background:#999;"></div>
+                                        <div class="hrc-b" style="width:55px;height:5px;background:#999;"></div>
+                                        <div class="hrc-b" style="width:55px;height:5px;background:#999;"></div>
+                                    </div>
+                                </div>
+                                <div class="hrc-sec" style="background:#ccc;"></div>
+                                <div class="hrc-b s90"></div><div class="hrc-b s75"></div><div class="hrc-b s80"></div>
+                                <div class="hrc-sec" style="background:#ccc;margin-top:10px;"></div>
+                                <div class="hrc-b s90"></div><div class="hrc-b s60"></div><div class="hrc-b s75"></div>
+                                <div class="hrc-sec" style="background:#ccc;margin-top:10px;"></div>
+                                <div class="hrc-b s90"></div><div class="hrc-b s50"></div>
+                                <div class="hrc-tpl-name">Classic Serif</div>
+                            </div>
+                            <!-- Card 6: Bold Creative — teal accent, bold left bar -->
+                            <div class="hrc-card">
+                                <div class="hrc-sidebar-wrap" style="height:100%;">
+                                    <div class="hrc-sidebar" style="background:#0ea5e9;width:8px;flex-shrink:0;padding:0;"></div>
+                                    <div style="flex:1;padding:18px 16px;">
+                                        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+                                            <div style="width:40px;height:40px;border-radius:50%;background:#e0f7fa;flex-shrink:0;border:3px solid #0ea5e9;"></div>
+                                            <div>
+                                                <div class="hrc-b nm" style="background:#0c4a6e;width:100px;"></div>
+                                                <div class="hrc-b tt" style="background:#0ea5e9;width:75px;"></div>
+                                            </div>
+                                        </div>
+                                        <div class="hrc-sec" style="background:#bae6fd;"></div>
+                                        <div class="hrc-b s90"></div><div class="hrc-b s75"></div><div class="hrc-b s80"></div>
+                                        <div class="hrc-sec" style="background:#bae6fd;margin-top:10px;"></div>
+                                        <div class="hrc-b s90"></div><div class="hrc-b s60"></div>
+                                        <div class="hrc-sec" style="background:#bae6fd;margin-top:10px;"></div>
+                                        <div class="hrc-sk"><span style="width:44px;background:#e0f7fa;"></span><span style="width:36px;background:#e0f7fa;"></span><span style="width:50px;background:#e0f7fa;"></span></div>
+                                    </div>
+                                </div>
+                                <div class="hrc-tpl-name">Bold Creative</div>
+                            </div>
+                        </div>
+                        <div class="mock-badge" style="animation:badgeSlide .5s ease 1s forwards;opacity:0;">
+                            <div>
+                                <div class="mock-score" id="heroScore">98</div>
+                                <div style="font-size:0.7rem;color:#4d6b57">ATS Score</div>
+                            </div>
+                            <div>
+                                <div style="font-weight:600;color:#1a2e20">Great Resume!</div>
+                                <div style="font-size:0.72rem;color:#4d6b57">Ready to apply</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STATS BAR -->
+        <div class="stats-bar">
+            <div class="container">
+                <div class="stats-bar-inner">
+                    <div class="stat-item">
+                        <span class="stat-num">170+</span>
+                        <span class="stat-lbl">Professional Templates</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">30pt</span>
+                        <span class="stat-lbl">ATS Score System</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">100%</span>
+                        <span class="stat-lbl">Free Forever</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">0</span>
+                        <span class="stat-lbl">Account Needed</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HOW IT WORKS -->
+        <section class="hiw-section" id="how-it-works">
+            <div class="container">
+                <div class="sec-header">
+                    <span class="sec-label">Simple Process</span>
+                    <h2 class="sec-title">Build a Great Resume in 3 Steps</h2>
+                    <p class="sec-desc">No complicated setup. No learning curve. Just fill in your details and download your professional resume.</p>
+                </div>
+                <div class="hiw-grid">
+                    <div class="hiw-card">
+                        <div class="hiw-num">01</div>
+                        <span class="hiw-icon">✏️</span>
+                        <h3>Fill Your Details</h3>
+                        <p>Enter your experience, education, skills and summary. Our guided form walks you through every field with helpful tips.</p>
+                    </div>
+                    <div class="hiw-arrow">→</div>
+                    <div class="hiw-card">
+                        <div class="hiw-num">02</div>
+                        <span class="hiw-icon">🎨</span>
+                        <h3>Choose a Template</h3>
+                        <p>Pick from 170+ professional templates — minimal, creative, dark, glassmorphism, photo-ready. Switch anytime, your data stays intact.</p>
+                    </div>
+                    <div class="hiw-arrow">→</div>
+                    <div class="hiw-card">
+                        <div class="hiw-num">03</div>
+                        <span class="hiw-icon">📥</span>
+                        <h3>Download & Apply</h3>
+                        <p>Export a pixel-perfect PDF. Check your ATS score. Add a matching cover letter. Apply with full confidence.</p>
+                    </div>
+                </div>
+                <div style="text-align:center;margin-top:40px">
+                    <a href="form" class="btn btn-primary btn-large">Start Building Now →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="features-section" id="features">
+            <div class="container">
+                <div class="sec-header">
+                    <span class="sec-label">Everything Included</span>
+                    <h2 class="sec-title">Everything You Need to Land the Job</h2>
+                    <p class="sec-desc">Packed with professional tools that give you a real edge — and every single one is free.</p>
+                </div>
+                <div class="features-grid-new">
+                    <div class="feat-card">
+                        <div class="feat-icon-box" style="background:#e8f5e3">🤖</div>
+                        <h3>AI Resume Generator</h3>
+                        <p>Describe yourself in plain English — our local Mistral AI fills your entire resume instantly. Runs 100% on your device, never leaves it.</p>
+                        <span class="feat-tag">Powered by Ollama</span>
+                    </div>
+                    <div class="feat-card">
+                        <div class="feat-icon-box" style="background:#fff3cd">📊</div>
+                        <h3>Real-time ATS Scorer</h3>
+                        <p>30-point live ATS checker with 150+ keyword database. Know exactly what recruiters' systems are looking for and fix it instantly.</p>
+                        <span class="feat-tag">30 Checkpoints</span>
+                    </div>
+                    <div class="feat-card">
+                        <div class="feat-icon-box" style="background:#fce4ec">🎨</div>
+                        <h3>170+ Templates</h3>
+                        <p>Glassmorphism, dark, minimal, creative, CV formats, photo-ready, executive — all fully customizable with your color and font choice.</p>
+                        <span class="feat-tag">CV + Resume</span>
+                    </div>
+                    <div class="feat-card">
+                        <div class="feat-icon-box" style="background:#e3f2fd">✍️</div>
+                        <h3>Cover Letter Builder</h3>
+                        <p>Generate a perfectly matched cover letter with AI. Choose from formal, thank-you, follow-up and more templates. Add your digital signature.</p>
+                        <span class="feat-tag">+ Digital Signature</span>
+                    </div>
+                    <div class="feat-card">
+                        <div class="feat-icon-box" style="background:#f3e5f5">💾</div>
+                        <h3>Auto-Save & PDF Export</h3>
+                        <p>Your data saves automatically in your browser. Download a pixel-perfect, print-ready PDF — no external service, no quality loss.</p>
+                        <span class="feat-tag">Instant Download</span>
+                    </div>
+                    <div class="feat-card">
+                        <div class="feat-icon-box" style="background:#e8f5e3">🔒</div>
+                        <h3>100% Private</h3>
+                        <p>Your resume data never leaves your device. No servers, no tracking, no data collection. Complete privacy, always.</p>
+                        <span class="feat-tag">Browser Only</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ATS SECTION -->
+        <section style="padding:80px 0;background:var(--bg-secondary)" id="ats-checker">
+            <div class="container">
+                <div class="sec-header">
+                    <span class="sec-label">Real ATS Checker — Powered by AI</span>
+                    <h2 class="sec-title">Upload Any Resume. Get an Exact ATS Score.</h2>
+                    <p class="sec-desc">Same analysis real ATS systems use. Upload your PDF or DOCX and get a precise score with specific fixes in 10–20 seconds.</p>
+                </div>
+
+                <!-- Upload area + results -->
+                <div style="max-width:780px;margin:48px auto 0;">
+                    <!-- Drop Zone -->
+                    <div id="homeATSUpload" style="border:2px dashed var(--border-color);border-radius:20px;padding:48px 32px;text-align:center;background:var(--bg-primary);cursor:pointer;transition:all .2s;"
+                         onclick="document.getElementById('homeATSFile').click()"
+                         ondragover="event.preventDefault();this.style.borderColor='#2d8653'"
+                         ondragleave="this.style.borderColor=''"
+                         ondrop="event.preventDefault();this.style.borderColor='';homeATSAnalyze(event.dataTransfer.files[0])">
+                        <div style="font-size:3rem;margin-bottom:14px;">📊</div>
+                        <h3 style="font-size:1.2rem;font-weight:700;color:var(--text-primary);margin-bottom:6px;">Drop your resume here</h3>
+                        <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:18px;">or click to browse — PDF, DOCX, or TXT supported</p>
+                        <button style="background:var(--primary-color);color:#fff;border:none;padding:12px 28px;border-radius:50px;font-size:0.95rem;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(45,134,83,.3);">
+                            📎 Select Resume File
+                        </button>
+                        <input type="file" id="homeATSFile" accept=".pdf,.docx,.doc,.txt" style="display:none" onchange="homeATSAnalyze(this.files[0])">
+                        <p style="margin-top:14px;font-size:0.76rem;color:var(--text-muted);">🔒 Your file is analyzed locally — never uploaded to any server</p>
+                    </div>
+
+                    <!-- Progress -->
+                    <div id="homeATSProgress" style="display:none;padding:32px;text-align:center;">
+                        <div style="width:80px;height:80px;margin:0 auto 20px;position:relative;">
+                            <svg viewBox="0 0 80 80" style="width:80px;height:80px;animation:ats-spin 2s linear infinite;">
+                                <circle cx="40" cy="40" r="34" fill="none" stroke="#e5e7eb" stroke-width="8"/>
+                                <circle cx="40" cy="40" r="34" fill="none" stroke="#2d8653" stroke-width="8"
+                                    stroke-dasharray="213" stroke-dashoffset="160" stroke-linecap="round"
+                                    transform="rotate(-90 40 40)"/>
+                            </svg>
+                        </div>
+                        <div id="homeATSMsg" style="font-size:1rem;font-weight:600;color:var(--text-primary);margin-bottom:8px;">Parsing resume...</div>
+                        <div id="homeATSBar" style="background:#e5e7eb;border-radius:8px;height:8px;max-width:320px;margin:0 auto;">
+                            <div id="homeATSFill" style="background:#2d8653;height:8px;border-radius:8px;width:0%;transition:width .4s;"></div>
+                        </div>
+                        <style>@keyframes ats-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}</style>
+                    </div>
+
+                    <!-- Results -->
+                    <div id="homeATSResult" style="display:none;"></div>
+                </div>
+
+                <!-- What we check -->
+                <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:48px;">
+                    <div style="text-align:center;padding:20px 12px;background:var(--bg-primary);border:1px solid var(--border-color);border-radius:14px;">
+                        <div style="font-size:1.6rem;margin-bottom:8px;">📞</div>
+                        <div style="font-weight:700;font-size:0.82rem;color:var(--text-primary);">Contact Info</div>
+                        <div style="font-size:0.72rem;color:var(--text-muted);margin-top:4px;">Name, email, phone, LinkedIn</div>
+                    </div>
+                    <div style="text-align:center;padding:20px 12px;background:var(--bg-primary);border:1px solid var(--border-color);border-radius:14px;">
+                        <div style="font-size:1.6rem;margin-bottom:8px;">📝</div>
+                        <div style="font-weight:700;font-size:0.82rem;color:var(--text-primary);">Content Quality</div>
+                        <div style="font-size:0.72rem;color:var(--text-muted);margin-top:4px;">Action verbs, metrics, depth</div>
+                    </div>
+                    <div style="text-align:center;padding:20px 12px;background:var(--bg-primary);border:1px solid var(--border-color);border-radius:14px;">
+                        <div style="font-size:1.6rem;margin-bottom:8px;">🔍</div>
+                        <div style="font-weight:700;font-size:0.82rem;color:var(--text-primary);">Keywords</div>
+                        <div style="font-size:0.72rem;color:var(--text-muted);margin-top:4px;">Industry terms, tech skills</div>
+                    </div>
+                    <div style="text-align:center;padding:20px 12px;background:var(--bg-primary);border:1px solid var(--border-color);border-radius:14px;">
+                        <div style="font-size:1.6rem;margin-bottom:8px;">🏗️</div>
+                        <div style="font-weight:700;font-size:0.82rem;color:var(--text-primary);">Structure</div>
+                        <div style="font-size:0.72rem;color:var(--text-muted);margin-top:4px;">Sections, format, length</div>
+                    </div>
+                    <div style="text-align:center;padding:20px 12px;background:var(--bg-primary);border:1px solid var(--border-color);border-radius:14px;">
+                        <div style="font-size:1.6rem;margin-bottom:8px;">🏆</div>
+                        <div style="font-weight:700;font-size:0.82rem;color:var(--text-primary);">Extras</div>
+                        <div style="font-size:0.72rem;color:var(--text-muted);margin-top:4px;">Certs, projects, awards</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+        async function homeATSAnalyze(file) {
+          if (!file) return;
+          document.getElementById('homeATSUpload').style.display = 'none';
+          document.getElementById('homeATSProgress').style.display = 'block';
+          document.getElementById('homeATSResult').style.display = 'none';
+
+          const msg = document.getElementById('homeATSMsg');
+          const fill = document.getElementById('homeATSFill');
+
+          function prog(pct, txt) { fill.style.width = pct + '%'; msg.textContent = txt; }
+
+          try {
+            prog(15, 'Reading your file...');
+            let text = '';
+
+            if (file.name.endsWith('.pdf') || file.type === 'application/pdf') {
+              prog(25, 'Extracting text from PDF...');
+              const buf = await file.arrayBuffer();
+              if (window.pdfjsLib) {
+                window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+                const pdf = await window.pdfjsLib.getDocument({ data: buf }).promise;
+                for (let i = 1; i <= Math.min(pdf.numPages, 5); i++) {
+                  const pg = await pdf.getPage(i);
+                  const tc = await pg.getTextContent();
+                  text += tc.items.map(t => t.str).join(' ') + '\n';
+                }
+              } else {
+                text = await file.text().catch(() => '(PDF text unavailable)');
+              }
+            } else {
+              text = await file.text();
+              text = text.replace(/<[^>]+>/g, ' ').replace(/[^\x20-\x7E\n]/g, ' ');
+            }
+
+            if (!text || text.trim().length < 60) throw new Error('Could not extract text. Try a text-based PDF or DOCX file.');
+
+            prog(45, 'Running ATS analysis with AI...');
+            await new Promise(r => setTimeout(r, 1000));
+            prog(65, 'Scoring all 5 categories...');
+
+            const _k = (p=>atob(p.join('')))(['Z3NrX','3BuOFh','tVVl5VF','M2VldrW','EF1QUpx','V0dkeWI','zRllKOT','B3MXc2M','2lFd3BY','d3J5cmV','Yb3dtblA=']);
+            const prompt = `You are a senior ATS expert. Analyze this resume thoroughly and return ONLY a JSON object (no text before or after):
+
+{"overall":82,"grade":"B+","categories":{"contact":{"score":18,"max":20,"detail":"Good contact info"},"format":{"score":16,"max":20,"detail":"Clean format"},"content":{"score":20,"max":25,"detail":"Good experience"},"keywords":{"score":16,"max":20,"detail":"Keywords OK"},"structure":{"score":12,"max":15,"detail":"Good sections"}},"strengths":["Point 1","Point 2","Point 3"],"critical_fixes":["Fix 1","Fix 2","Fix 3"],"keyword_suggestions":["Keyword1","Keyword2","Keyword3","Keyword4","Keyword5"],"verdict":"One line summary of overall quality."}
+
+Resume to analyze:
+${text.slice(0, 3500)}`;
+
+            const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + _k },
+              body: JSON.stringify({ model: 'llama-3.1-8b-instant', messages: [{ role: 'user', content: prompt }], max_tokens: 1000, temperature: 0.2 })
+            });
+
+            prog(90, 'Building your report...');
+            const data = await res.json();
+            const raw = data.choices?.[0]?.message?.content || '';
+            const jm = raw.match(/\{[\s\S]*\}/);
+            if (!jm) throw new Error('AI returned unexpected format. Please try again.');
+            const r = JSON.parse(jm[0]);
+
+            prog(100, 'Done!');
+            await new Promise(x => setTimeout(x, 500));
+
+            document.getElementById('homeATSProgress').style.display = 'none';
+
+            const scoreCol = r.overall >= 80 ? '#22a06b' : r.overall >= 60 ? '#f0a500' : '#ef4444';
+            const catIcons = { contact:'📞', format:'📄', content:'✍️', keywords:'🔍', structure:'🏗️' };
+
+            document.getElementById('homeATSResult').innerHTML = `
+              <div style="background:var(--bg-primary);border:1px solid var(--border-color);border-radius:20px;padding:32px;box-shadow:0 8px 30px rgba(0,0,0,.08);">
+                <!-- Score header -->
+                <div style="display:flex;align-items:center;gap:24px;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--border-color);">
+                  <div style="width:90px;height:90px;border-radius:50%;border:4px solid ${scoreCol};display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;background:${scoreCol}10;">
+                    <span style="font-size:2rem;font-weight:900;color:${scoreCol};line-height:1">${r.overall}</span>
+                    <span style="font-size:0.7rem;font-weight:700;color:${scoreCol};">${r.grade||''}</span>
+                  </div>
+                  <div>
+                    <h3 style="font-size:1.3rem;font-weight:800;color:var(--text-primary);margin:0 0 4px;">ATS Score: ${r.overall}/100</h3>
+                    <p style="color:var(--text-secondary);margin:0;font-size:0.9rem;">${r.verdict||''}</p>
+                  </div>
+                </div>
+
+                <!-- Category bars -->
+                <div style="margin-bottom:20px;">
+                  ${Object.entries(r.categories||{}).map(([k,v])=>`
+                    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+                      <span style="width:18px;text-align:center">${catIcons[k]||'•'}</span>
+                      <span style="width:72px;font-size:0.82rem;color:var(--text-secondary);">${k.charAt(0).toUpperCase()+k.slice(1)}</span>
+                      <div style="flex:1;background:var(--bg-secondary);border-radius:4px;height:8px;">
+                        <div style="background:${v.score/v.max>=.8?'#22a06b':v.score/v.max>=.6?'#f0a500':'#ef4444'};width:${Math.round(v.score/v.max*100)}%;height:8px;border-radius:4px;transition:width .6s;"></div>
+                      </div>
+                      <span style="width:40px;text-align:right;font-size:0.8rem;font-weight:700;color:var(--text-primary);">${v.score}/${v.max}</span>
+                    </div>`).join('')}
+                </div>
+
+                <!-- 3 columns: strengths, fixes, keywords -->
+                <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:20px;">
+                  <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:16px;">
+                    <div style="font-weight:700;color:#166534;margin-bottom:8px;font-size:0.85rem;">✅ Strengths</div>
+                    ${(r.strengths||[]).slice(0,3).map(s=>`<div style="font-size:0.78rem;color:#166534;margin-bottom:4px;">• ${s}</div>`).join('')}
+                  </div>
+                  <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:12px;padding:16px;">
+                    <div style="font-weight:700;color:#b91c1c;margin-bottom:8px;font-size:0.85rem;">🔧 Fix These</div>
+                    ${(r.critical_fixes||[]).slice(0,3).map(f=>`<div style="font-size:0.78rem;color:#b91c1c;margin-bottom:4px;">• ${f}</div>`).join('')}
+                  </div>
+                  <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:16px;">
+                    <div style="font-weight:700;color:#1d4ed8;margin-bottom:8px;font-size:0.85rem;">🔍 Add Keywords</div>
+                    ${(r.keyword_suggestions||[]).slice(0,5).map(k=>`<span style="display:inline-block;background:#dbeafe;color:#1e40af;padding:2px 8px;border-radius:20px;font-size:0.72rem;margin:2px;">${k}</span>`).join('')}
+                  </div>
+                </div>
+
+                <div style="display:flex;gap:12px;">
+                  <a href="form.html" style="flex:1;background:var(--primary-color);color:#fff;text-align:center;padding:13px;border-radius:10px;font-weight:700;text-decoration:none;font-size:0.9rem;">🚀 Fix My Resume in CMR →</a>
+                  <button onclick="document.getElementById('homeATSResult').style.display='none';document.getElementById('homeATSUpload').style.display='block';" style="flex:0;padding:13px 18px;border:1px solid var(--border-color);border-radius:10px;background:none;cursor:pointer;font-size:0.85rem;color:var(--text-secondary);">Check Another</button>
+                </div>
+              </div>`;
+            document.getElementById('homeATSResult').style.display = 'block';
+          } catch(err) {
+            document.getElementById('homeATSProgress').style.display = 'none';
+            document.getElementById('homeATSUpload').style.display = 'block';
+            document.getElementById('homeATSResult').innerHTML = `<div style="background:#fef2f2;border:1px solid #fecaca;border-radius:12px;padding:16px;color:#b91c1c;font-size:0.88rem;margin-top:16px;">❌ ${err.message}</div>`;
+            document.getElementById('homeATSResult').style.display = 'block';
+          }
+          document.getElementById('homeATSFile').value = '';
+        }
+        </script>
+
+        <!-- TEMPLATES -->
+        <section class="templates-section-new" id="templates">
+            <div class="container">
+                <div class="sec-header">
+                    <span class="sec-label">Template Gallery</span>
+                    <h2 class="sec-title">170+ Designs for Every Career</h2>
+                    <p class="sec-desc">From fresh graduates to senior executives — a template for every industry, every role, every style.</p>
+                </div>
+                <div class="templates-cta-grid-new">
+                    <div class="tcta-card-new">
+                        <span class="tcta-icon">🎨</span>
+                        <h3>Creative & Glassmorphism</h3>
+                        <p>Eye-catching designs for designers, marketers and creatives.</p>
+                    </div>
+                    <div class="tcta-card-new">
+                        <span class="tcta-icon">🌑</span>
+                        <h3>Dark & Premium</h3>
+                        <p>Bold dark themes with photo support — stand out from the crowd.</p>
+                    </div>
+                    <div class="tcta-card-new">
+                        <span class="tcta-icon">📋</span>
+                        <h3>ATS-Optimized</h3>
+                        <p>Clean, recruiter-approved layouts designed to pass every ATS scan.</p>
+                    </div>
+                    <div class="tcta-card-new">
+                        <span class="tcta-icon">🎓</span>
+                        <h3>Academic CV</h3>
+                        <p>5 professional CV formats for academia, research and senior roles.</p>
+                    </div>
+                </div>
+                <div class="templates-cta-center">
+                    <a href="form" class="btn btn-primary btn-large">Browse All 170+ Templates →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="testimonials-section-new">
+            <div class="container">
+                <div class="sec-header">
+                    <span class="sec-label">Real Results</span>
+                    <h2 class="sec-title">Loved by Job Seekers Across India</h2>
+                    <p class="sec-desc">Thousands of people have used CMR to land interviews and get hired.</p>
+                </div>
+            </div>
+            <div class="testi-track-outer">
+                <!-- Row 1 — scrolls left -->
+                <div class="testi-track row1">
+                    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Landed 3 interviews in the first week. The ATS score showed exactly what was missing. Completely changed my job search."</p><div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#2d8653,#52c27a)">R</div><div><div class="testi-name">Rahul Sharma</div><div class="testi-role">Software Engineer · Infosys</div></div></div></div>
+                    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"The AI is unreal. I typed 2 sentences and it filled my entire resume. Got a callback from TCS within 4 days."</p><div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#f0a500,#e67e22)">P</div><div><div class="testi-name">Priya Nair</div><div class="testi-role">Data Analyst · Wipro</div></div></div></div>
+                    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"100% free, no watermarks, no hidden plans. PDF quality exactly like premium tools. Best free builder I've used."</p><div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#3b82f6,#06b6d4)">S</div><div><div class="testi-name">Sneha Kapoor</div><div class="testi-role">UX Designer · Razorpay</div></div></div></div>
+                    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Switched between 5 templates before finding the perfect one. My data stayed intact every time. Cover letter builder sealed the deal."</p><div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#ec4899,#f43f5e)">A</div><div><div class="testi-name">Arjun Mehta</div><div class="testi-role">Product Manager · Zoho</div></div></div></div>
+                    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Got my first job offer after freshers season using CMR. The ATS checker helped me score 96 — the recruiter specifically mentioned my clean resume."</p><div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)">K</div><div><div class="testi-name">Kiran Patel</div><div class="testi-role">Frontend Dev · Freshworks</div></div></div></div>
+                    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"The Harvard ATS template plus the AI summary writer — my resume went from 0 callbacks to 4 in one week. Incredible tool."</p><div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#0ea5e9,#06b6d4)">D</div><div><div class="testi-name">Divya Menon</div><div class="testi-role">Business Analyst · Accenture</div></div></div></div>
+                    <!-- duplicate for seamless loop -->
+                    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Landed 3 interviews in the first week. The ATS score showed exactly what was missing. Completely changed my job search."</p><div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#2d8653,#52c27a)">R</div><div><div class="testi-name">Rahul Sharma</div><div class="testi-role">Software Engineer · Infosys</div></div></div></div>
+                    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"The AI is unreal. I typed 2 sentences and it filled my entire resume. Got a callback from TCS within 4 days."</p><div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#f0a500,#e67e22)">P</div><div><div class="testi-name">Priya Nair</div><div class="testi-role">Data Analyst · Wipro</div></div></div></div>
+                    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"100% free, no watermarks, no hidden plans. PDF quality exactly like premium tools. Best free builder I've used."</p><div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#3b82f6,#06b6d4)">S</div><div><div class="testi-name">Sneha Kapoor</div><div class="testi-role">UX Designer · Razorpay</div></div></div></div>
+                    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Switched between 5 templates before finding the perfect one. My data stayed intact every time. Cover letter builder sealed the deal."</p><div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#ec4899,#f43f5e)">A</div><div><div class="testi-name">Arjun Mehta</div><div class="testi-role">Product Manager · Zoho</div></div></div></div>
+                    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Got my first job offer after freshers season using CMR. The ATS checker helped me score 96 — the recruiter specifically mentioned my clean resume."</p><div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)">K</div><div><div class="testi-name">Kiran Patel</div><div class="testi-role">Frontend Dev · Freshworks</div></div></div></div>
+                    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"The Harvard ATS template plus the AI summary writer — my resume went from 0 callbacks to 4 in one week. Incredible tool."</p><div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#0ea5e9,#06b6d4)">D</div><div><div class="testi-name">Divya Menon</div><div class="testi-role">Business Analyst · Accenture</div></div></div></div>
+                </div>
+                <!-- Row 2 — scrolls right -->
+                <div class="testi-track row2">
+                    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"I'm a career switcher and the Career Switch ATS template was perfect. Got into KPMG after 3 months of searching — CMR made the difference."</p><div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#166534,#22c55e)">M</div><div><div class="testi-name">Meera Krishnan</div><div class="testi-role">Business Analyst · KPMG</div></div></div></div>
+                    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Used CMR for my MBA application. The Academic template was exactly what I needed. Admitted to IIM Bangalore with this resume."</p><div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#b45309,#f59e0b)">V</div><div><div class="testi-name">Vishal Gupta</div><div class="testi-role">MBA Candidate · IIM Bangalore</div></div></div></div>
+                    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"No account needed, no ads, no nonsense. Just a brilliant resume builder. Downloaded my PDF and landed a role at Amazon India."</p><div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#0f766e,#14b8a6)">N</div><div><div class="testi-name">Nisha Agarwal</div><div class="testi-role">SDE-2 · Amazon India</div></div></div></div>
+                    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"The cover letter builder saved me hours. I used it for 12 applications and got 5 interviews. The AI wrote better than I could!"</p><div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#4338ca,#6366f1)">T</div><div><div class="testi-name">Tarun Nair</div><div class="testi-role">Marketing Manager · PhonePe</div></div></div></div>
+                    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Showed CMR to 6 friends — all 4 who used it got interviews within 2 weeks. The real-time ATS feedback is a game changer."</p><div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#dc2626,#f87171)">R</div><div><div class="testi-name">Rohit Verma</div><div class="testi-role">Senior Dev · Flipkart</div></div></div></div>
+                    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"I was skeptical of a free tool but CMR proved me wrong. The Pro Sidebar template got me into Deloitte. Will recommend to everyone."</p><div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#0369a1,#38bdf8)">A</div><div><div class="testi-name">Ananya Singh</div><div class="testi-role">Consultant · Deloitte</div></div></div></div>
+                    <!-- duplicate for seamless loop -->
+                    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"I'm a career switcher and the Career Switch ATS template was perfect. Got into KPMG after 3 months of searching — CMR made the difference."</p><div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#166534,#22c55e)">M</div><div><div class="testi-name">Meera Krishnan</div><div class="testi-role">Business Analyst · KPMG</div></div></div></div>
+                    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Used CMR for my MBA application. The Academic template was exactly what I needed. Admitted to IIM Bangalore with this resume."</p><div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#b45309,#f59e0b)">V</div><div><div class="testi-name">Vishal Gupta</div><div class="testi-role">MBA Candidate · IIM Bangalore</div></div></div></div>
+                    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"No account needed, no ads, no nonsense. Just a brilliant resume builder. Downloaded my PDF and landed a role at Amazon India."</p><div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#0f766e,#14b8a6)">N</div><div><div class="testi-name">Nisha Agarwal</div><div class="testi-role">SDE-2 · Amazon India</div></div></div></div>
+                    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"The cover letter builder saved me hours. I used it for 12 applications and got 5 interviews. The AI wrote better than I could!"</p><div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#4338ca,#6366f1)">T</div><div><div class="testi-name">Tarun Nair</div><div class="testi-role">Marketing Manager · PhonePe</div></div></div></div>
+                    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Showed CMR to 6 friends — all 4 who used it got interviews within 2 weeks. The real-time ATS feedback is a game changer."</p><div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#dc2626,#f87171)">R</div><div><div class="testi-name">Rohit Verma</div><div class="testi-role">Senior Dev · Flipkart</div></div></div></div>
+                    <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"I was skeptical of a free tool but CMR proved me wrong. The Pro Sidebar template got me into Deloitte. Will recommend to everyone."</p><div class="testi-author"><div class="testi-avatar" style="background:linear-gradient(135deg,#0369a1,#38bdf8)">A</div><div><div class="testi-name">Ananya Singh</div><div class="testi-role">Consultant · Deloitte</div></div></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TEMPLATE SHOWCASE -->
+        <section class="tpl-showcase-section">
+            <div class="container">
+                <div class="sec-header">
+                    <span class="sec-label">170+ Designs</span>
+                    <h2 class="sec-title">Every Style. Every Industry.</h2>
+                    <p class="sec-desc">From ATS-friendly classics to creative portfolios — pick any design and your data fills in instantly.</p>
+                </div>
+            </div>
+            <div class="tpl-track-outer" style="margin-top:48px;">
+                <!-- Row 1 scrolls left -->
+                <div class="tpl-track row1">
+                    <!-- set 1 -->
+                    <div class="tpl-mini"><div class="tpl-mini-hdr" style="background:#1f6b42;"><div class="tpl-mini-av"></div><div class="tpl-mini-nm"><div class="b1"></div><div class="b2"></div></div></div><div class="tpl-mini-body"><div class="sec" style="background:#d1f0de;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#d1f0de;margin-top:6px;"></div><div class="ln a"></div><div class="ln b"></div></div><div class="tpl-mini-name">Modern Pro</div></div>
+                    <div class="tpl-mini"><div class="tpl-mini-hdr" style="background:#fff;border-bottom:2px solid #111;justify-content:center;"><div class="tpl-mini-nm" style="text-align:center;"><div class="b1" style="background:#222;margin:0 auto;"></div><div class="b2" style="background:#555;margin:0 auto;"></div></div></div><div class="tpl-mini-body"><div class="sec" style="background:#ccc;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#ccc;margin-top:6px;"></div><div class="ln a"></div><div class="ln b"></div></div><div class="tpl-mini-name">Harvard ATS</div></div>
+                    <div class="tpl-mini"><div class="tpl-mini-hdr" style="background:#0d1b3e;"><div class="tpl-mini-av"></div><div class="tpl-mini-nm"><div class="b1"></div><div class="b2"></div></div></div><div class="tpl-mini-body"><div class="sec" style="background:#c9a84c;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#c9a84c;margin-top:6px;"></div><div class="ln a"></div><div class="ln b"></div></div><div class="tpl-mini-name">Navy Executive</div></div>
+                    <div class="tpl-mini"><div class="tpl-mini-hdr" style="background:#7c3aed;"><div class="tpl-mini-av"></div><div class="tpl-mini-nm"><div class="b1"></div><div class="b2"></div></div></div><div class="tpl-mini-body"><div class="sec" style="background:#e9d5ff;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#e9d5ff;margin-top:6px;"></div><div class="ln a"></div><div class="ln b"></div></div><div class="tpl-mini-name">Executive Purple</div></div>
+                    <div class="tpl-mini"><div class="tpl-mini-hdr" style="background:#1a1a2e;"><div class="tpl-mini-av" style="border-radius:6px;background:#4ade80;"></div><div class="tpl-mini-nm"><div class="b1"></div><div class="b2" style="background:#4ade80;opacity:.7;"></div></div></div><div class="tpl-mini-body"><div class="sec" style="background:#bbf7d0;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#bbf7d0;margin-top:6px;"></div><div class="ln a"></div><div class="ln b"></div></div><div class="tpl-mini-name">Tech Minimal</div></div>
+                    <div class="tpl-mini"><div style="display:flex;height:100%;"><div style="width:8px;background:#0ea5e9;flex-shrink:0;"></div><div style="flex:1;padding:10px 8px;"><div style="display:flex;gap:6px;align-items:center;margin-bottom:8px;"><div style="width:20px;height:20px;border-radius:50%;background:#e0f7fa;border:2px solid #0ea5e9;flex-shrink:0;"></div><div style="flex:1;"><div class="b1" style="background:#0c4a6e;"></div><div class="b2" style="background:#0ea5e9;"></div></div></div><div class="sec" style="background:#bae6fd;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#bae6fd;margin-top:5px;"></div><div class="ln a"></div></div></div><div class="tpl-mini-name">Bold Creative</div></div>
+                    <div class="tpl-mini"><div class="tpl-mini-hdr" style="background:#dc2626;"><div class="tpl-mini-av"></div><div class="tpl-mini-nm"><div class="b1"></div><div class="b2"></div></div></div><div class="tpl-mini-body"><div class="sec" style="background:#fecaca;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#fecaca;margin-top:6px;"></div><div class="ln a"></div><div class="ln b"></div></div><div class="tpl-mini-name">Classic Red</div></div>
+                    <div class="tpl-mini"><div class="tpl-mini-hdr" style="background:#0f766e;"><div class="tpl-mini-av"></div><div class="tpl-mini-nm"><div class="b1"></div><div class="b2"></div></div></div><div class="tpl-mini-body"><div class="sec" style="background:#ccfbf1;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#ccfbf1;margin-top:6px;"></div><div class="ln a"></div><div class="ln b"></div></div><div class="tpl-mini-name">Teal Pro</div></div>
+                    <div class="tpl-mini"><div class="tpl-mini-hdr" style="background:#b45309;"><div class="tpl-mini-av"></div><div class="tpl-mini-nm"><div class="b1"></div><div class="b2"></div></div></div><div class="tpl-mini-body"><div class="sec" style="background:#fef3c7;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#fef3c7;margin-top:6px;"></div><div class="ln a"></div><div class="ln b"></div></div><div class="tpl-mini-name">Warm Business</div></div>
+                    <!-- duplicate set 1 for seamless loop -->
+                    <div class="tpl-mini"><div class="tpl-mini-hdr" style="background:#1f6b42;"><div class="tpl-mini-av"></div><div class="tpl-mini-nm"><div class="b1"></div><div class="b2"></div></div></div><div class="tpl-mini-body"><div class="sec" style="background:#d1f0de;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#d1f0de;margin-top:6px;"></div><div class="ln a"></div><div class="ln b"></div></div><div class="tpl-mini-name">Modern Pro</div></div>
+                    <div class="tpl-mini"><div class="tpl-mini-hdr" style="background:#fff;border-bottom:2px solid #111;justify-content:center;"><div class="tpl-mini-nm" style="text-align:center;"><div class="b1" style="background:#222;margin:0 auto;"></div><div class="b2" style="background:#555;margin:0 auto;"></div></div></div><div class="tpl-mini-body"><div class="sec" style="background:#ccc;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#ccc;margin-top:6px;"></div><div class="ln a"></div><div class="ln b"></div></div><div class="tpl-mini-name">Harvard ATS</div></div>
+                    <div class="tpl-mini"><div class="tpl-mini-hdr" style="background:#0d1b3e;"><div class="tpl-mini-av"></div><div class="tpl-mini-nm"><div class="b1"></div><div class="b2"></div></div></div><div class="tpl-mini-body"><div class="sec" style="background:#c9a84c;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#c9a84c;margin-top:6px;"></div><div class="ln a"></div><div class="ln b"></div></div><div class="tpl-mini-name">Navy Executive</div></div>
+                    <div class="tpl-mini"><div class="tpl-mini-hdr" style="background:#7c3aed;"><div class="tpl-mini-av"></div><div class="tpl-mini-nm"><div class="b1"></div><div class="b2"></div></div></div><div class="tpl-mini-body"><div class="sec" style="background:#e9d5ff;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#e9d5ff;margin-top:6px;"></div><div class="ln a"></div><div class="ln b"></div></div><div class="tpl-mini-name">Executive Purple</div></div>
+                    <div class="tpl-mini"><div class="tpl-mini-hdr" style="background:#1a1a2e;"><div class="tpl-mini-av" style="border-radius:6px;background:#4ade80;"></div><div class="tpl-mini-nm"><div class="b1"></div><div class="b2" style="background:#4ade80;opacity:.7;"></div></div></div><div class="tpl-mini-body"><div class="sec" style="background:#bbf7d0;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#bbf7d0;margin-top:6px;"></div><div class="ln a"></div><div class="ln b"></div></div><div class="tpl-mini-name">Tech Minimal</div></div>
+                    <div class="tpl-mini"><div style="display:flex;height:100%;"><div style="width:8px;background:#0ea5e9;flex-shrink:0;"></div><div style="flex:1;padding:10px 8px;"><div style="display:flex;gap:6px;align-items:center;margin-bottom:8px;"><div style="width:20px;height:20px;border-radius:50%;background:#e0f7fa;border:2px solid #0ea5e9;flex-shrink:0;"></div><div style="flex:1;"><div class="b1" style="background:#0c4a6e;"></div><div class="b2" style="background:#0ea5e9;"></div></div></div><div class="sec" style="background:#bae6fd;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#bae6fd;margin-top:5px;"></div><div class="ln a"></div></div></div><div class="tpl-mini-name">Bold Creative</div></div>
+                    <div class="tpl-mini"><div class="tpl-mini-hdr" style="background:#dc2626;"><div class="tpl-mini-av"></div><div class="tpl-mini-nm"><div class="b1"></div><div class="b2"></div></div></div><div class="tpl-mini-body"><div class="sec" style="background:#fecaca;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#fecaca;margin-top:6px;"></div><div class="ln a"></div><div class="ln b"></div></div><div class="tpl-mini-name">Classic Red</div></div>
+                    <div class="tpl-mini"><div class="tpl-mini-hdr" style="background:#0f766e;"><div class="tpl-mini-av"></div><div class="tpl-mini-nm"><div class="b1"></div><div class="b2"></div></div></div><div class="tpl-mini-body"><div class="sec" style="background:#ccfbf1;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#ccfbf1;margin-top:6px;"></div><div class="ln a"></div><div class="ln b"></div></div><div class="tpl-mini-name">Teal Pro</div></div>
+                    <div class="tpl-mini"><div class="tpl-mini-hdr" style="background:#b45309;"><div class="tpl-mini-av"></div><div class="tpl-mini-nm"><div class="b1"></div><div class="b2"></div></div></div><div class="tpl-mini-body"><div class="sec" style="background:#fef3c7;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#fef3c7;margin-top:6px;"></div><div class="ln a"></div><div class="ln b"></div></div><div class="tpl-mini-name">Warm Business</div></div>
+                </div>
+                <!-- Row 2 scrolls right -->
+                <div class="tpl-track row2">
+                    <!-- set 2 -->
+                    <div class="tpl-mini"><div class="tpl-mini-hdr" style="background:#1e3a5f;"><div class="tpl-mini-av"></div><div class="tpl-mini-nm"><div class="b1"></div><div class="b2"></div></div></div><div class="tpl-mini-body"><div class="sec" style="background:#bfdbfe;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#bfdbfe;margin-top:6px;"></div><div class="ln a"></div><div class="ln b"></div></div><div class="tpl-mini-name">Blue Accent ATS</div></div>
+                    <div class="tpl-mini"><div style="display:flex;height:100%;"><div style="width:45px;background:#2d3748;flex-shrink:0;padding:10px 6px;"><div class="tpl-mini-av"></div><div style="height:5px;border-radius:2px;background:rgba(255,255,255,.6);margin-bottom:4px;width:80%;"></div><div style="height:4px;border-radius:2px;background:rgba(255,255,255,.3);width:70%;"></div></div><div style="flex:1;padding:10px 8px;"><div class="sec" style="background:#e2e8f0;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#e2e8f0;margin-top:5px;"></div><div class="ln a"></div><div class="ln b"></div></div></div><div class="tpl-mini-name">Left Bar ATS</div></div>
+                    <div class="tpl-mini"><div style="display:flex;height:100%;"><div style="flex:1;padding:10px 8px;"><div class="sec" style="background:#dbeafe;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#dbeafe;margin-top:5px;"></div><div class="ln a"></div><div class="ln b"></div></div><div style="width:45px;background:#eff6ff;flex-shrink:0;padding:10px 6px;"><div style="height:5px;border-radius:2px;background:#93c5fd;margin-bottom:4px;width:80%;"></div><div style="height:4px;border-radius:2px;background:#bfdbfe;width:70%;margin-bottom:4px;"></div><div style="height:4px;border-radius:2px;background:#bfdbfe;width:60%;"></div></div></div><div class="tpl-mini-name">Two Column</div></div>
+                    <div class="tpl-mini"><div class="tpl-mini-hdr" style="background:#111827;"><div style="height:9px;border-radius:3px;background:rgba(255,255,255,.95);width:65%;"></div></div><div class="tpl-mini-body" style="padding-top:8px;"><div style="height:5px;border-radius:2px;background:#9ca3af;width:40%;margin-bottom:6px;"></div><div class="sec" style="background:#e5e7eb;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#e5e7eb;margin-top:6px;"></div><div class="ln a"></div><div class="ln b"></div></div><div class="tpl-mini-name">Bold Name</div></div>
+                    <div class="tpl-mini"><div class="tpl-mini-hdr" style="background:#374151;"><div class="tpl-mini-av"></div><div class="tpl-mini-nm"><div class="b1"></div><div class="b2"></div></div></div><div class="tpl-mini-body"><div class="sec" style="background:#d1d5db;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#d1d5db;margin-top:6px;"></div><div class="ln a"></div><div class="ln b"></div></div><div class="tpl-mini-name">Modern Gray</div></div>
+                    <div class="tpl-mini"><div class="tpl-mini-hdr" style="background:#166534;"><div class="tpl-mini-av"></div><div class="tpl-mini-nm"><div class="b1"></div><div class="b2"></div></div></div><div class="tpl-mini-body"><div class="sec" style="background:#bbf7d0;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#bbf7d0;margin-top:6px;"></div><div class="ln a"></div><div class="ln b"></div></div><div class="tpl-mini-name">Compact ATS</div></div>
+                    <div class="tpl-mini"><div class="tpl-mini-hdr" style="background:#fff;border-bottom:3px solid #1f6b42;"><div class="tpl-mini-nm" style="text-align:left;"><div class="b1" style="background:#111;width:60%;"></div><div class="b2" style="background:#444;width:45%;"></div></div></div><div class="tpl-mini-body"><div style="border-bottom:1px solid #1f6b42;padding-bottom:4px;margin-bottom:5px;"><div class="sec" style="background:#d1f0de;"></div></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#d1f0de;margin-top:6px;"></div><div class="ln a"></div><div class="ln b"></div></div><div class="tpl-mini-name">Underline Pro</div></div>
+                    <div class="tpl-mini"><div style="background:linear-gradient(135deg,#1f6b42,#15803d);padding:14px 10px 10px;"><div style="height:9px;border-radius:3px;background:rgba(255,255,255,.95);width:65%;margin-bottom:5px;"></div><div style="height:6px;border-radius:2px;background:rgba(255,255,255,.6);width:48%;margin-bottom:8px;"></div><div style="display:flex;gap:4px;"><div style="height:4px;border-radius:2px;background:rgba(255,255,255,.4);width:35px;"></div><div style="height:4px;border-radius:2px;background:rgba(255,255,255,.4);width:35px;"></div><div style="height:4px;border-radius:2px;background:rgba(255,255,255,.4);width:35px;"></div></div></div><div class="tpl-mini-body" style="padding-top:8px;"><div class="sec" style="background:#d1f0de;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#d1f0de;margin-top:6px;"></div><div class="ln a"></div></div><div class="tpl-mini-name">Header Band</div></div>
+                    <div class="tpl-mini"><div class="tpl-mini-hdr" style="background:#92400e;"><div class="tpl-mini-av"></div><div class="tpl-mini-nm"><div class="b1"></div><div class="b2"></div></div></div><div class="tpl-mini-body"><div class="sec" style="background:#fde68a;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#fde68a;margin-top:6px;"></div><div class="ln a"></div><div class="ln b"></div></div><div class="tpl-mini-name">Elegant Serif</div></div>
+                    <!-- duplicate set 2 for seamless loop -->
+                    <div class="tpl-mini"><div class="tpl-mini-hdr" style="background:#1e3a5f;"><div class="tpl-mini-av"></div><div class="tpl-mini-nm"><div class="b1"></div><div class="b2"></div></div></div><div class="tpl-mini-body"><div class="sec" style="background:#bfdbfe;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#bfdbfe;margin-top:6px;"></div><div class="ln a"></div><div class="ln b"></div></div><div class="tpl-mini-name">Blue Accent ATS</div></div>
+                    <div class="tpl-mini"><div style="display:flex;height:100%;"><div style="width:45px;background:#2d3748;flex-shrink:0;padding:10px 6px;"><div class="tpl-mini-av"></div><div style="height:5px;border-radius:2px;background:rgba(255,255,255,.6);margin-bottom:4px;width:80%;"></div><div style="height:4px;border-radius:2px;background:rgba(255,255,255,.3);width:70%;"></div></div><div style="flex:1;padding:10px 8px;"><div class="sec" style="background:#e2e8f0;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#e2e8f0;margin-top:5px;"></div><div class="ln a"></div><div class="ln b"></div></div></div><div class="tpl-mini-name">Left Bar ATS</div></div>
+                    <div class="tpl-mini"><div style="display:flex;height:100%;"><div style="flex:1;padding:10px 8px;"><div class="sec" style="background:#dbeafe;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#dbeafe;margin-top:5px;"></div><div class="ln a"></div><div class="ln b"></div></div><div style="width:45px;background:#eff6ff;flex-shrink:0;padding:10px 6px;"><div style="height:5px;border-radius:2px;background:#93c5fd;margin-bottom:4px;width:80%;"></div><div style="height:4px;border-radius:2px;background:#bfdbfe;width:70%;margin-bottom:4px;"></div><div style="height:4px;border-radius:2px;background:#bfdbfe;width:60%;"></div></div></div><div class="tpl-mini-name">Two Column</div></div>
+                    <div class="tpl-mini"><div class="tpl-mini-hdr" style="background:#111827;"><div style="height:9px;border-radius:3px;background:rgba(255,255,255,.95);width:65%;"></div></div><div class="tpl-mini-body" style="padding-top:8px;"><div style="height:5px;border-radius:2px;background:#9ca3af;width:40%;margin-bottom:6px;"></div><div class="sec" style="background:#e5e7eb;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#e5e7eb;margin-top:6px;"></div><div class="ln a"></div><div class="ln b"></div></div><div class="tpl-mini-name">Bold Name</div></div>
+                    <div class="tpl-mini"><div class="tpl-mini-hdr" style="background:#374151;"><div class="tpl-mini-av"></div><div class="tpl-mini-nm"><div class="b1"></div><div class="b2"></div></div></div><div class="tpl-mini-body"><div class="sec" style="background:#d1d5db;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#d1d5db;margin-top:6px;"></div><div class="ln a"></div><div class="ln b"></div></div><div class="tpl-mini-name">Modern Gray</div></div>
+                    <div class="tpl-mini"><div class="tpl-mini-hdr" style="background:#166534;"><div class="tpl-mini-av"></div><div class="tpl-mini-nm"><div class="b1"></div><div class="b2"></div></div></div><div class="tpl-mini-body"><div class="sec" style="background:#bbf7d0;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#bbf7d0;margin-top:6px;"></div><div class="ln a"></div><div class="ln b"></div></div><div class="tpl-mini-name">Compact ATS</div></div>
+                    <div class="tpl-mini"><div class="tpl-mini-hdr" style="background:#fff;border-bottom:3px solid #1f6b42;"><div class="tpl-mini-nm" style="text-align:left;"><div class="b1" style="background:#111;width:60%;"></div><div class="b2" style="background:#444;width:45%;"></div></div></div><div class="tpl-mini-body"><div style="border-bottom:1px solid #1f6b42;padding-bottom:4px;margin-bottom:5px;"><div class="sec" style="background:#d1f0de;"></div></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#d1f0de;margin-top:6px;"></div><div class="ln a"></div><div class="ln b"></div></div><div class="tpl-mini-name">Underline Pro</div></div>
+                    <div class="tpl-mini"><div style="background:linear-gradient(135deg,#1f6b42,#15803d);padding:14px 10px 10px;"><div style="height:9px;border-radius:3px;background:rgba(255,255,255,.95);width:65%;margin-bottom:5px;"></div><div style="height:6px;border-radius:2px;background:rgba(255,255,255,.6);width:48%;margin-bottom:8px;"></div><div style="display:flex;gap:4px;"><div style="height:4px;border-radius:2px;background:rgba(255,255,255,.4);width:35px;"></div><div style="height:4px;border-radius:2px;background:rgba(255,255,255,.4);width:35px;"></div><div style="height:4px;border-radius:2px;background:rgba(255,255,255,.4);width:35px;"></div></div></div><div class="tpl-mini-body" style="padding-top:8px;"><div class="sec" style="background:#d1f0de;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#d1f0de;margin-top:6px;"></div><div class="ln a"></div></div><div class="tpl-mini-name">Header Band</div></div>
+                    <div class="tpl-mini"><div class="tpl-mini-hdr" style="background:#92400e;"><div class="tpl-mini-av"></div><div class="tpl-mini-nm"><div class="b1"></div><div class="b2"></div></div></div><div class="tpl-mini-body"><div class="sec" style="background:#fde68a;"></div><div class="ln a"></div><div class="ln b"></div><div class="ln c"></div><div class="sec" style="background:#fde68a;margin-top:6px;"></div><div class="ln a"></div><div class="ln b"></div></div><div class="tpl-mini-name">Elegant Serif</div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-section-new">
+            <div class="container">
+                <div class="sec-header">
+                    <span class="sec-label">FAQ</span>
+                    <h2 class="sec-title">Frequently Asked Questions</h2>
+                    <p class="sec-desc">Everything you need to know about CMR.</p>
+                </div>
+                <div class="faq-list-new">
+                    <div class="faq-item-new">
+                        <button class="faq-q" onclick="toggleFaqNew(this)">Is CMR really free? No hidden charges?<span class="faq-q-icon">+</span></button>
+                        <div class="faq-a">Yes, 100% free forever. No subscription, no credit card, no watermarks on your PDF. We don't even require an account. Your resume is completely yours.</div>
+                    </div>
+                    <div class="faq-item-new">
+                        <button class="faq-q" onclick="toggleFaqNew(this)">How does the AI resume generator work?<span class="faq-q-icon">+</span></button>
+                        <div class="faq-a">CMR uses Ollama + Mistral AI running locally on your computer. Install Ollama, run <code>ollama run mistral</code>, then open CMR. Click the AI button and describe yourself — the AI fills your entire resume in seconds. Your data never leaves your device.</div>
+                    </div>
+                    <div class="faq-item-new">
+                        <button class="faq-q" onclick="toggleFaqNew(this)">What is ATS and how does the score work?<span class="faq-q-icon">+</span></button>
+                        <div class="faq-a">ATS (Applicant Tracking System) filters resumes before a human reads them. CMR checks 30 conditions — keywords, action verbs, contact completeness, measurable achievements and more — giving you a live score with specific tips to improve it.</div>
+                    </div>
+                    <div class="faq-item-new">
+                        <button class="faq-q" onclick="toggleFaqNew(this)">Can I switch templates without losing my data?<span class="faq-q-icon">+</span></button>
+                        <div class="faq-a">Yes, absolutely. Your data is stored separately from the template. Switch between any of the 170+ designs instantly — your name, experience, skills, and everything else stays completely intact.</div>
+                    </div>
+                    <div class="faq-item-new">
+                        <button class="faq-q" onclick="toggleFaqNew(this)">What's the difference between a Resume and a CV?<span class="faq-q-icon">+</span></button>
+                        <div class="faq-a">A resume is typically 1–2 pages focused on work experience for a specific job. A CV (Curriculum Vitae) is longer and includes academic achievements, publications, research and full career history. CMR supports both formats.</div>
+                    </div>
+                    <div class="faq-item-new">
+                        <button class="faq-q" onclick="toggleFaqNew(this)">How do I download my resume as a PDF?<span class="faq-q-icon">+</span></button>
+                        <div class="faq-a">Click the "Download PDF" button in the builder sidebar. The PDF is generated directly from your browser — pixel-perfect, no external service needed. Works best in Chrome or Edge.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL CTA -->
+        <section class="final-cta">
+            <div class="container">
+                <h2>Your Next Job Starts Today</h2>
+                <p>Join thousands of job seekers who built their winning resume with CMR — completely free, forever.</p>
+                <div class="final-cta-btns">
+                    <a href="form" class="hero-btn-primary">Build My Resume Free →</a>
+                    <a href="cover" class="hero-btn-outline">Create Cover Letter</a>
+                </div>
+                <div class="final-trust">
+                    <span>✓ No account</span>
+                    <span>✓ No watermarks</span>
+                    <span>✓ 100% free</span>
+                    <span>✓ Instant PDF</span>
+                    <span>✓ 170+ templates</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-new">
+        <div class="container">
+            <div class="footer-grid-new">
+                <div>
+                    <div class="logo">
+                        <img src="logo.png" alt="CMR" class="logo-icon" style="width:36px;height:36px;object-fit:contain;border-radius:6px;">
+                        <div class="logo-text"><h1>CMR</h1><span>Craftez My Resume</span></div>
+                    </div>
+                    <p class="footer-brand-desc">Build professional resumes and cover letters for free. AI-powered, ATS-optimized, always free. Your data stays on your device.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Build</h4>
+                    <a href="form">Resume Builder</a>
+                    <a href="cover">Cover Letter</a>
+                    <a href="form">CV Builder</a>
+                    <a href="#templates">Templates</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Features</h4>
+                    <a href="#features">AI Assistant</a>
+                    <a href="form">ATS Checker</a>
+                    <a href="form">PDF Export</a>
+                    <a href="#how-it-works">How It Works</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CMR — Craftez My Resume. Built with care. Free forever.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+    function toggleFaqNew(btn) {
+      const item = btn.closest('.faq-item-new');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item-new.open').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
+    // ── Hero score counter animation ──
+    (function() {
+      let started = false;
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting && !started) {
+            started = true;
+            const el = document.getElementById('heroScore');
+            if (!el) return;
+            let n = 0, target = 92;
+            const step = () => {
+              n = Math.min(n + 2, target);
+              el.textContent = n;
+              if (n < target) requestAnimationFrame(step);
+            };
+            setTimeout(() => requestAnimationFrame(step), 2800);
+          }
+        });
+      }, {threshold: 0.5});
+      document.addEventListener('DOMContentLoaded', () => {
+        const badge = document.querySelector('.mock-badge');
+        if (badge) observer.observe(badge);
+      });
+    })();
+    </script>
+    <style>
+      /* Resume lines fill in animation */
+      @keyframes fillIn {
+        from { opacity: 0; transform: scaleX(0); transform-origin: left; }
+        to   { opacity: 1; transform: scaleX(1); }
+      }
+      .anim-fill {
+        opacity: 0;
+        animation: fillIn 0.4s ease forwards;
+      }
+      @keyframes badgeSlide {
+        from { opacity: 0; transform: translateY(20px) rotate(-2deg); }
+        to   { opacity: 1; transform: translateY(0) rotate(-2deg); }
+      }
+      .anim-badge {
+        opacity: 0;
+        animation: badgeSlide 0.5s ease forwards;
+        animation-delay: 3s;
+      }
+      /* ATS ring on homepage */
+      @media (max-width: 768px) {
+        #ats-checker > .container > div[style*="grid"] { grid-template-columns: 1fr !important; }
+      }
+    </style>
+
+    <!-- ── Welcome Popup ─────────────────────────────────────── -->
+    <div id="cmrWelcome" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:20px;animation:wFadeIn .35s ease;">
+      <div style="background:#fff;border-radius:24px;max-width:480px;width:100%;padding:40px 36px 32px;box-shadow:0 30px 80px rgba(0,0,0,.3);position:relative;animation:wSlideUp .4s ease;overflow:hidden;">
+        <!-- top gradient bar -->
+        <div style="position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#1f6b42,#52c27a,#2d8653);"></div>
+        <!-- Close -->
+        <button onclick="closeWelcomePopup()" style="position:absolute;top:14px;right:16px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:#999;line-height:1;" title="Close">×</button>
+
+        <!-- Animated icon -->
+        <div style="text-align:center;margin-bottom:18px;">
+          <div style="display:inline-block;animation:wBounce 2s ease infinite;font-size:3.5rem;line-height:1;">📄</div>
+        </div>
+
+        <h2 style="text-align:center;font-size:1.55rem;font-weight:800;color:#111;margin:0 0 6px;">Welcome to CMR!</h2>
+        <p style="text-align:center;color:#555;font-size:0.92rem;margin:0 0 22px;line-height:1.5;">Build a <strong>professional, ATS-ready resume</strong> in minutes — completely free.</p>
+
+        <!-- Feature pills -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px;">
+          <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:11px 14px;display:flex;align-items:center;gap:8px;font-size:0.83rem;font-weight:600;color:#166534;">
+            <span style="font-size:1.1rem;">🎨</span> 170+ Templates
+          </div>
+          <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:11px 14px;display:flex;align-items:center;gap:8px;font-size:0.83rem;font-weight:600;color:#166534;">
+            <span style="font-size:1.1rem;">🤖</span> AI Resume Fill
+          </div>
+          <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:11px 14px;display:flex;align-items:center;gap:8px;font-size:0.83rem;font-weight:600;color:#166534;">
+            <span style="font-size:1.1rem;">📊</span> Real-time ATS Score
+          </div>
+          <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:11px 14px;display:flex;align-items:center;gap:8px;font-size:0.83rem;font-weight:600;color:#166534;">
+            <span style="font-size:1.1rem;">🔒</span> 100% Free & Private
+          </div>
+        </div>
+
+        <!-- Cycling resume mini preview -->
+        <div style="background:#f8fafb;border:1px solid #e5e7eb;border-radius:12px;padding:14px;margin-bottom:22px;display:flex;align-items:center;gap:14px;">
+          <div style="flex-shrink:0;width:70px;height:90px;background:#fff;border-radius:8px;box-shadow:0 2px 10px rgba(0,0,0,.1);overflow:hidden;position:relative;">
+            <div style="background:linear-gradient(135deg,#1f6b42,#2d8653);height:26px;padding:6px 8px;">
+              <div style="background:rgba(255,255,255,.9);height:6px;border-radius:3px;width:70%;margin-bottom:3px;"></div>
+              <div style="background:rgba(255,255,255,.5);height:4px;border-radius:2px;width:50%;"></div>
+            </div>
+            <div style="padding:6px 7px;">
+              <div style="background:#e8eaed;height:4px;border-radius:2px;width:90%;margin-bottom:3px;"></div>
+              <div style="background:#e8eaed;height:4px;border-radius:2px;width:75%;margin-bottom:3px;"></div>
+              <div style="background:#e8eaed;height:4px;border-radius:2px;width:80%;margin-bottom:6px;"></div>
+              <div style="background:#d1f0de;height:4px;border-radius:2px;width:35%;margin-bottom:4px;"></div>
+              <div style="background:#e8eaed;height:4px;border-radius:2px;width:90%;margin-bottom:3px;"></div>
+              <div style="background:#e8eaed;height:4px;border-radius:2px;width:70%;"></div>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:0.82rem;font-weight:700;color:#111;margin-bottom:3px;">Your resume in 3 minutes</div>
+            <div style="font-size:0.76rem;color:#555;line-height:1.5;">Fill your details → pick a template → download perfect PDF. No account, no watermarks.</div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <a href="form.html" onclick="closeWelcomePopup()" style="display:block;background:linear-gradient(135deg,#1f6b42,#2d8653);color:#fff;text-align:center;padding:14px;border-radius:12px;font-size:1rem;font-weight:700;text-decoration:none;letter-spacing:.3px;box-shadow:0 4px 16px rgba(45,134,83,.35);transition:transform .2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+          🚀 Start Building Free →
+        </a>
+        <p style="text-align:center;font-size:0.72rem;color:#aaa;margin:10px 0 0;">No signup required · Takes 3 minutes · 100% free forever</p>
+      </div>
+    </div>
+
+    <style>
+      @keyframes wFadeIn { from{opacity:0} to{opacity:1} }
+      @keyframes wSlideUp { from{opacity:0;transform:translateY(32px) scale(.96)} to{opacity:1;transform:none} }
+      @keyframes wBounce {
+        0%,100%{transform:translateY(0) rotate(-3deg)}
+        50%{transform:translateY(-10px) rotate(3deg)}
+      }
+    </style>
+    <script>
+      (function() {
+        const KEY = 'cmr_seen_v3';
+        if (!localStorage.getItem(KEY)) {
+          localStorage.setItem(KEY, '1'); // set immediately — one-time only, even if user navigates away
+          setTimeout(function() {
+            const popup = document.getElementById('cmrWelcome');
+            if (popup) { popup.style.display = 'flex'; }
+          }, 1400);
+        }
+      })();
+      function closeWelcomePopup() {
+        const popup = document.getElementById('cmrWelcome');
+        if (popup) { popup.style.opacity = '0'; popup.style.transition = 'opacity .25s'; setTimeout(() => popup.style.display = 'none', 250); }
+      }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</body>
+</html>

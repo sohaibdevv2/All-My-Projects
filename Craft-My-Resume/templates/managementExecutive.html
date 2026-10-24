@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management & Executive Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template management-executive-template">
+        <div class="header-section">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <h2 class="title" id="previewJobTitle">Executive Title</h2>
+            <div class="contact-info">
+                <span id="previewEmail"></span> • <span id="previewPhone"></span> • <span id="previewLocation"></span> • <span id="previewLinkedIn"></span>
+            </div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="section">
+                <h3>Executive Summary</h3>
+                <p id="previewSummary"></p>
+            </div>
+            
+            <div class="section">
+                <h3>Professional Experience</h3>
+                <div id="previewExperience"></div>
+            </div>
+            
+            <div class="dual-section">
+                <div class="left-column">
+                    <div class="section">
+                        <h3>Education</h3>
+                        <div id="previewEducation"></div>
+                    </div>
+                </div>
+                
+                <div class="right-column">
+                    <div class="section">
+                        <h3>Core Competencies</h3>
+                        <div id="previewSkills" class="skills-list"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Languages</h3>
+                        <div id="previewLanguages" class="skills-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .management-executive-template { 
+            font-family: 'Times New Roman', serif; 
+            background: #ffffff; 
+            color: #1a1a1a; 
+            line-height: 1.7; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+        }
+        .management-executive-template .header-section { 
+            text-align: center; 
+            padding: 3rem 2rem 2rem; 
+            background: #f8f9fa;
+            border-bottom: 4px solid #2c3e50;
+        }
+        .management-executive-template .name { 
+            font-size: 3rem; 
+            margin: 0; 
+            font-weight: bold; 
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .management-executive-template .title { 
+            font-size: 1.4rem; 
+            margin: 1rem 0; 
+            font-weight: normal; 
+            color: #34495e; 
+            font-style: italic;
+        }
+        .management-executive-template .contact-info { 
+            font-size: 1rem; 
+            color: #555; 
+        }
+        .management-executive-template .content-wrapper { 
+            padding: 2rem 3rem; 
+        }
+        .management-executive-template .section { 
+            margin-bottom: 2.5rem; 
+        }
+        .management-executive-template h3 { 
+            color: #2c3e50; 
+            font-size: 1.3rem; 
+            margin-bottom: 1.5rem; 
+            font-weight: bold; 
+            text-transform: uppercase;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 0.5rem;
+        }
+        .management-executive-template .dual-section { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 3rem; 
+        }
+        .management-executive-template .experience-entry, .management-executive-template .education-entry { 
+            margin-bottom: 2rem; 
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        .management-executive-template .entry-title { 
+            font-weight: bold; 
+            font-size: 1.2rem; 
+            color: #2c3e50; 
+            margin-bottom: 0.5rem;
+        }
+        .management-executive-template .entry-company { 
+            color: #34495e; 
+            font-weight: normal; 
+            font-size: 1.1rem;
+        }
+        .management-executive-template .entry-dates { 
+            color: #666; 
+            font-size: 1rem; 
+            margin-top: 0.5rem;
+        }
+        .management-executive-template .skills-list { 
+            display: block; 
+        }
+        .management-executive-template .skill-tag { 
+            display: block; 
+            background: transparent; 
+            color: #2c3e50; 
+            padding: 0.5rem 0; 
+            margin: 0.5rem 0; 
+            font-size: 1rem; 
+            font-weight: normal; 
+            border-left: 3px solid #2c3e50;
+            padding-left: 1rem;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

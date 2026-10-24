@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Standard Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template international-standard-template">
+        <div class="header">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <div class="contact-info">
+                <div class="contact-line">
+                    <span id="previewEmail"></span>
+                    <span id="previewPhone"></span>
+                </div>
+                <div class="contact-line">
+                    <span id="previewLocation"></span>
+                    <span id="previewLinkedIn"></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>PROFESSIONAL SUMMARY</h2>
+            <p id="previewSummary"></p>
+        </div>
+        
+        <div class="section">
+            <h2>WORK EXPERIENCE</h2>
+            <div id="previewExperience"></div>
+        </div>
+        
+        <div class="section">
+            <h2>EDUCATION</h2>
+            <div id="previewEducation"></div>
+        </div>
+        
+        <div class="section">
+            <h2>SKILLS</h2>
+            <div id="previewSkills"></div>
+        </div>
+        
+        <div class="section">
+            <h2>LANGUAGES</h2>
+            <div id="previewLanguages"></div>
+        </div>
+    </div>
+
+    <style>
+        .international-standard-template { 
+            font-family: 'Arial', sans-serif; 
+            background: #ffffff; 
+            color: #000000; 
+            line-height: 1.4; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+            padding: 1in;
+        }
+        .international-standard-template .header { 
+            text-align: center; 
+            margin-bottom: 2rem; 
+            padding-bottom: 1rem;
+        }
+        .international-standard-template .name { 
+            font-size: 2rem; 
+            margin: 0 0 1rem 0; 
+            font-weight: bold; 
+            color: #000000;
+        }
+        .international-standard-template .contact-info { 
+            font-size: 0.95rem; 
+            color: #333333;
+        }
+        .international-standard-template .contact-line { 
+            margin-bottom: 0.3rem; 
+        }
+        .international-standard-template .contact-line span { 
+            margin: 0 1rem; 
+        }
+        .international-standard-template .section { 
+            margin-bottom: 2rem; 
+        }
+        .international-standard-template h2 { 
+            color: #000000; 
+            font-size: 1.1rem; 
+            margin-bottom: 1rem; 
+            font-weight: bold; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #000000;
+            padding-bottom: 0.3rem;
+        }
+        .international-standard-template .experience-entry, .international-standard-template .education-entry { 
+            margin-bottom: 1.5rem; 
+        }
+        .international-standard-template .entry-title { 
+            font-weight: bold; 
+            font-size: 1rem; 
+            color: #000000; 
+            margin-bottom: 0.2rem;
+        }
+        .international-standard-template .entry-company { 
+            color: #333333; 
+            font-weight: normal; 
+            font-size: 0.95rem;
+        }
+        .international-standard-template .entry-dates { 
+            color: #666666; 
+            font-size: 0.9rem; 
+            margin-top: 0.2rem;
+        }
+        .international-standard-template .skills-list { 
+            display: block; 
+        }
+        .international-standard-template .skill-tag { 
+            display: inline; 
+            background: transparent; 
+            color: #333333; 
+            padding: 0; 
+            margin: 0; 
+            font-size: 0.95rem; 
+        }
+        .international-standard-template .skill-tag:after { 
+            content: " • "; 
+        }
+        .international-standard-template .skill-tag:last-child:after { 
+            content: ""; 
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

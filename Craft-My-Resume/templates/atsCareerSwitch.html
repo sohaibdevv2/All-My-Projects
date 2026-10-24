@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATS Career Switch Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template ats-career-switch-template">
+        <div class="header">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <div class="contact-info">
+                <span id="previewEmail"></span> | 
+                <span id="previewPhone"></span> | 
+                <span id="previewLocation"></span> | 
+                <span id="previewLinkedIn"></span>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Career Objective</h2>
+            <p id="previewSummary"></p>
+        </div>
+        
+        <div class="section">
+            <h2>Transferable Skills</h2>
+            <div id="previewSkills"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Professional Experience</h2>
+            <div id="previewExperience"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Education & Training</h2>
+            <div id="previewEducation"></div>
+        </div>
+    </div>
+
+    <style>
+        .ats-career-switch-template { 
+            font-family: 'Arial', sans-serif; 
+            background: #ffffff; 
+            color: #000000; 
+            line-height: 1.5; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+            padding: 1in;
+        }
+        .ats-career-switch-template .header { 
+            text-align: center; 
+            margin-bottom: 1.5rem; 
+        }
+        .ats-career-switch-template .name { 
+            font-size: 2.1rem; 
+            margin: 0 0 0.5rem 0; 
+            font-weight: bold; 
+            color: #000000;
+        }
+        .ats-career-switch-template .contact-info { 
+            font-size: 1rem; 
+            color: #000000;
+        }
+        .ats-career-switch-template .section { 
+            margin-bottom: 1.8rem; 
+        }
+        .ats-career-switch-template h2 { 
+            color: #000000; 
+            font-size: 1.4rem; 
+            margin-bottom: 1rem; 
+            font-weight: bold; 
+            text-decoration: underline;
+        }
+        .ats-career-switch-template .experience-entry, .ats-career-switch-template .education-entry { 
+            margin-bottom: 1.4rem; 
+        }
+        .ats-career-switch-template .entry-title { 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            color: #000000; 
+            margin-bottom: 0.2rem;
+        }
+        .ats-career-switch-template .entry-company { 
+            color: #000000; 
+            font-weight: normal; 
+            font-size: 1rem;
+        }
+        .ats-career-switch-template .entry-dates { 
+            color: #666666; 
+            font-size: 1rem; 
+            margin-top: 0.2rem;
+        }
+        .ats-career-switch-template .skills-list { 
+            display: block; 
+        }
+        .ats-career-switch-template .skill-tag { 
+            display: block; 
+            color: #000000; 
+            font-size: 1rem; 
+            margin: 0.3rem 0;
+            padding-left: 1rem;
+            position: relative;
+        }
+        .ats-career-switch-template .skill-tag:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #000000;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

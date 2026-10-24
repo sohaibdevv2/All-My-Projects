@@ -1,0 +1,229 @@
+<div class="resume-template dark-slate-professional">
+  <div class="dsp-wrapper">
+    <div class="dsp-sidebar">
+      <div id="profilePhoto" class="dsp-photo"></div>
+      <h1 id="previewName" class="dsp-name">Your Name</h1>
+      <p id="previewJobTitle" class="dsp-title">Job Title</p>
+      <div class="dsp-divider"></div>
+      <div class="dsp-sid-section">
+        <h3 class="dsp-sid-label">Contact</h3>
+        <p id="previewEmail" class="dsp-citem">email@example.com</p>
+        <p id="previewPhone" class="dsp-citem">+1 234 567 890</p>
+        <p id="previewLocation" class="dsp-citem">City, Country</p>
+        <div id="previewLinkedIn" class="dsp-citem">linkedin.com/in/you</div>
+      </div>
+      <div class="dsp-divider"></div>
+      <div class="dsp-sid-section">
+        <h3 class="dsp-sid-label">Skills</h3>
+        <div id="previewSkills" class="skills-list dsp-skills-list"></div>
+      </div>
+      <div class="dsp-divider"></div>
+      <div class="dsp-sid-section">
+        <h3 class="dsp-sid-label">Languages</h3>
+        <div id="previewLanguages" class="skills-list dsp-skills-list"></div>
+      </div>
+      <div class="dsp-divider"></div>
+      <div class="dsp-sid-section">
+        <h3 class="dsp-sid-label">Awards</h3>
+        <ul id="previewAwards" class="dsp-ul"></ul>
+      </div>
+    </div>
+
+    <div class="dsp-main">
+      <div class="dsp-section">
+        <h2 class="dsp-section-title">Summary</h2>
+        <p id="previewSummary" class="dsp-summary">Professional summary goes here.</p>
+      </div>
+      <div class="dsp-section">
+        <h2 class="dsp-section-title">Experience</h2>
+        <div id="previewExperience"></div>
+      </div>
+      <div class="dsp-section">
+        <h2 class="dsp-section-title">Education</h2>
+        <div id="previewEducation"></div>
+      </div>
+      <div class="dsp-section">
+        <h2 class="dsp-section-title">Certifications</h2>
+        <ul id="previewCertifications" class="dsp-main-list"></ul>
+      </div>
+      <div class="dsp-section">
+        <h2 class="dsp-section-title">Projects</h2>
+        <ul id="previewProjects" class="dsp-main-list"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.dark-slate-professional {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  --primary: var(--primary-color, #6366f1);
+  --blue: #64b5f6;
+}
+.dark-slate-professional .dsp-wrapper {
+  display: flex;
+  min-height: 297mm;
+}
+.dark-slate-professional .dsp-sidebar {
+  width: 34%;
+  background: #263238;
+  padding: 28px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 3px solid var(--blue);
+}
+.dark-slate-professional .dsp-photo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(100,181,246,0.1);
+  border: 3px solid var(--blue);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  margin-bottom: 12px;
+}
+.dark-slate-professional .dsp-name {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+  margin: 0 0 4px;
+}
+.dark-slate-professional .dsp-title {
+  font-size: 0.7rem;
+  color: var(--blue);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 0;
+}
+.dark-slate-professional .dsp-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255,255,255,0.1);
+  margin: 14px 0;
+}
+.dark-slate-professional .dsp-sid-section {
+  width: 100%;
+}
+.dark-slate-professional .dsp-sid-label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--blue);
+  margin: 0 0 8px;
+}
+.dark-slate-professional .dsp-citem {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.6);
+  margin: 3px 0;
+  word-break: break-all;
+}
+.dark-slate-professional .dsp-skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.dark-slate-professional .dsp-skills-list span {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.75);
+  padding: 1px 0;
+  border-left: 2px solid var(--blue);
+  padding-left: 8px;
+}
+.dark-slate-professional .dsp-ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.55);
+}
+.dark-slate-professional .dsp-ul li {
+  padding: 2px 0;
+}
+.dark-slate-professional .dsp-ul li::before {
+  content: '— ';
+  color: var(--blue);
+}
+.dark-slate-professional .dsp-main {
+  flex: 1;
+  background: #fff;
+  padding: 24px 26px;
+}
+.dark-slate-professional .dsp-section {
+  margin-bottom: 18px;
+}
+.dark-slate-professional .dsp-section-title {
+  font-size: 0.63rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: #263238;
+  margin: 0 0 10px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid var(--blue);
+}
+.dark-slate-professional .dsp-summary {
+  font-size: 0.81rem;
+  line-height: 1.65;
+  color: #444;
+  margin: 0;
+}
+.dark-slate-professional .dsp-main-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.77rem;
+  color: #555;
+}
+.dark-slate-professional .dsp-main-list li {
+  padding: 3px 0 3px 14px;
+  position: relative;
+}
+.dark-slate-professional .dsp-main-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--blue);
+}
+.dark-slate-professional #previewExperience .experience-entry,
+.dark-slate-professional #previewEducation .education-entry {
+  margin-bottom: 13px;
+  padding-bottom: 13px;
+  border-bottom: 1px solid #eee;
+}
+.dark-slate-professional #previewExperience .experience-entry:last-child,
+.dark-slate-professional #previewEducation .education-entry:last-child {
+  border-bottom: none;
+}
+.dark-slate-professional #previewExperience .entry-title,
+.dark-slate-professional #previewEducation .entry-title {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #263238;
+}
+.dark-slate-professional #previewExperience .entry-company,
+.dark-slate-professional #previewEducation .entry-school {
+  font-size: 0.78rem;
+  color: var(--blue);
+  font-weight: 600;
+}
+.dark-slate-professional #previewExperience .entry-dates,
+.dark-slate-professional #previewEducation .entry-dates {
+  font-size: 0.68rem;
+  color: #999;
+}
+.dark-slate-professional #previewExperience .entry-description,
+.dark-slate-professional #previewEducation .entry-description {
+  font-size: 0.75rem;
+  color: #555;
+  margin-top: 4px;
+  line-height: 1.55;
+}
+</style>

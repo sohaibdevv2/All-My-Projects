@@ -1,0 +1,59 @@
+<div class="resume-template ats-template">
+    <h1 class="name" id="previewName">Your Name</h1>
+    <div class="contact-info">
+        <span id="previewEmail">email@example.com</span>
+        <span id="previewPhone">+1 (555) 123-4567</span>
+        <span id="previewLocation">Location</span>
+        <div id="previewLinkedIn"></div>
+    </div>
+    
+    <div class="section">
+        <h2>Summary</h2>
+        <p id="previewSummary"></p>
+    </div>
+    
+    <div class="section">
+        <h2>Skills</h2>
+        <div id="previewSkills" class="skills-list"></div>
+    </div>
+
+    <div class="section">
+        <h2>Experience</h2>
+        <div id="previewExperience"></div>
+    </div>
+
+    <div class="section">
+        <h2>Education</h2>
+        <div id="previewEducation"></div>
+    </div>
+
+    <div class="section" id="projectsSection">
+        <h2>Projects</h2>
+        <ul id="previewProjects"></ul>
+    </div>
+    
+    <div class="section" id="certificationsSection">
+        <h2>Certifications</h2>
+        <ul id="previewCertifications"></ul>
+    </div>
+</div>
+<style>
+    .ats-template { font-family: Arial, Helvetica, sans-serif; color: #000; padding: 1.5rem; }
+    .ats-template .name { font-size: 1.8rem; font-weight: bold; margin-bottom: 0.5rem; }
+    .ats-template .contact-info { display: flex; flex-wrap: wrap; gap: 0 1rem; margin-bottom: 1rem; font-size: 0.9rem; }
+    .ats-template .contact-info a { color: #000; text-decoration: none; }
+    .ats-template .section { margin-bottom: 1rem; }
+    .ats-template h2 { font-size: 1.1rem; font-weight: bold; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .ats-template p, .ats-template ul { font-size: 0.9rem; line-height: 1.4; margin: 0; }
+    .ats-template ul { padding-left: 1.2rem; }
+    .ats-template .experience-entry, .ats-template .education-entry { margin-bottom: 0.8rem; }
+    .ats-template .entry-header { display: flex; justify-content: space-between; flex-wrap: wrap; }
+    .ats-template .entry-title { font-weight: bold; }
+    .ats-template .entry-company { font-weight: bold; }
+    .ats-template .entry-dates { font-style: normal; }
+    .ats-template .entry-description { margin-top: 0.25rem; white-space: pre-wrap; }
+    .ats-template .skills-list { display: block; }
+    .ats-template .skill-tag { display: inline; background: none; color: #000; padding: 0; margin: 0; }
+    .ats-template .skill-tag::after { content: ', '; }
+    .ats-template .skill-tag:last-child::after { content: ''; }
+</style>

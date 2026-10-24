@@ -1,0 +1,88 @@
+<div class="resume-template forest-exec">
+  <div class="fe-header">
+    <div class="fe-header-bg">
+      <div id="profilePhoto" class="fe-photo"></div>
+      <div class="fe-header-info">
+        <h1 id="previewName" class="fe-name">Your Name</h1>
+        <p id="previewJobTitle" class="fe-role">Job Title</p>
+        <div class="fe-contacts">
+          <span id="previewEmail">email@example.com</span>
+          <span>|</span><span id="previewPhone">+1 234 567 890</span>
+          <span>|</span><span id="previewLocation">City, Country</span>
+          <span>|</span><span id="previewLinkedIn">LinkedIn</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fe-body">
+    <div class="fe-sidebar">
+      <div class="fe-section">
+        <h2 class="fe-side-heading">Skills</h2>
+        <div id="previewSkills" class="skills-list fe-skills"></div>
+      </div>
+      <div class="fe-section">
+        <h2 class="fe-side-heading">Languages</h2>
+        <div id="previewLanguages" class="skills-list fe-skills"></div>
+      </div>
+      <div class="fe-section">
+        <h2 class="fe-side-heading">Education</h2>
+        <div id="previewEducation"></div>
+      </div>
+      <div class="fe-section">
+        <h2 class="fe-side-heading">Certifications</h2>
+        <ul id="previewCertifications" class="fe-list"></ul>
+      </div>
+      <div class="fe-section">
+        <h2 class="fe-side-heading">Awards</h2>
+        <ul id="previewAwards" class="fe-list"></ul>
+      </div>
+    </div>
+    <div class="fe-main">
+      <div class="fe-section">
+        <h2 class="fe-heading">Professional Summary</h2>
+        <p id="previewSummary" class="fe-summary">Professional summary here.</p>
+      </div>
+      <div class="fe-section">
+        <h2 class="fe-heading">Work Experience</h2>
+        <div id="previewExperience"></div>
+      </div>
+      <div class="fe-section">
+        <h2 class="fe-heading">Projects</h2>
+        <ul id="previewProjects" class="fe-proj-list"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+.forest-exec { font-family: 'Segoe UI', system-ui, sans-serif; width: 210mm; min-height: 297mm; margin: 0 auto; --primary: var(--primary-color, #166534); color: #1a1a1a; }
+.fe-header { background: var(--primary); position: relative; overflow: hidden; }
+.fe-header::before { content: ''; position: absolute; right: -60px; top: -60px; width: 220px; height: 220px; border-radius: 50%; background: rgba(255,255,255,0.05); }
+.fe-header-bg { padding: 26px 32px; display: flex; align-items: center; gap: 22px; position: relative; z-index: 1; }
+.fe-photo { width: 100px; height: 100px; border-radius: 50%; background-size: cover; background-position: center; background-color: rgba(255,255,255,0.15); border: 3px solid rgba(255,255,255,0.35); flex-shrink: 0; }
+.fe-name { font-size: 2rem; font-weight: 800; color: #fff; margin: 0 0 4px; letter-spacing: -0.3px; }
+.fe-role { font-size: 0.78rem; color: rgba(255,255,255,0.75); margin: 0 0 10px; text-transform: uppercase; letter-spacing: 2px; }
+.fe-contacts { display: flex; flex-wrap: wrap; gap: 4px 8px; font-size: 0.68rem; color: rgba(255,255,255,0.65); }
+.fe-body { display: flex; min-height: calc(297mm - 130px); }
+.fe-sidebar { width: 200px; background: #f0fdf4; padding: 22px 18px; border-right: 1px solid #d1fae5; flex-shrink: 0; }
+.fe-main { flex: 1; padding: 22px 26px; background: #fff; }
+.fe-section { margin-bottom: 18px; }
+.fe-side-heading { font-size: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2.5px; color: var(--primary); margin: 0 0 8px; padding-bottom: 4px; border-bottom: 1.5px solid #d1fae5; }
+.fe-heading { font-size: 0.62rem; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; color: var(--primary); margin: 0 0 10px; padding-bottom: 5px; border-bottom: 2px solid var(--primary); }
+.fe-summary { font-size: 0.82rem; line-height: 1.65; color: #444; margin: 0; }
+.forest-exec .experience-entry { margin-bottom: 14px; padding-left: 12px; border-left: 3px solid var(--primary); }
+.forest-exec .entry-header { display: flex; flex-wrap: wrap; gap: 2px 8px; margin-bottom: 3px; }
+.forest-exec .entry-title { font-weight: 700; font-size: 0.88rem; color: #111; flex: 100%; }
+.forest-exec .entry-company { font-size: 0.76rem; color: var(--primary); font-weight: 600; }
+.forest-exec .entry-dates { font-size: 0.68rem; color: #aaa; }
+.forest-exec .entry-description { font-size: 0.74rem; color: #555; line-height: 1.55; margin-top: 4px; }
+.forest-exec .education-entry { margin-bottom: 10px; }
+.forest-exec .education-entry .entry-title { font-weight: 700; font-size: 0.78rem; color: #166534; display: block; }
+.forest-exec .education-entry .entry-school { font-size: 0.7rem; color: #555; }
+.forest-exec .education-entry .entry-dates { font-size: 0.64rem; color: #aaa; }
+.forest-exec .education-entry .entry-description { font-size: 0.7rem; color: #666; margin-top: 2px; }
+.fe-skills { display: flex; flex-direction: column; gap: 4px; }
+.fe-skills .skill-tag { background: none; border: none; color: #166534; font-size: 0.7rem; padding: 0; border-radius: 0; display: flex; align-items: center; gap: 6px; }
+.fe-skills .skill-tag::before { content: '✓'; color: var(--primary); font-size: 0.65rem; font-weight: 700; }
+.fe-list { margin: 0; padding-left: 14px; font-size: 0.68rem; color: #444; line-height: 1.7; }
+.fe-proj-list { margin: 0; padding-left: 16px; font-size: 0.76rem; color: #555; line-height: 1.7; }
+</style>

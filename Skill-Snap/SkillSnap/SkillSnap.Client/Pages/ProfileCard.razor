@@ -1,0 +1,16 @@
+@page "/profile"
+
+<div class="card" style="width: 18rem;">
+    <img src="@ProfileImageUrl" class="card-img-top" alt="Profile Picture" style="height: 200px; object-fit: cover;">
+    <div class="card-body">
+        <h5 class="card-title">@Name</h5>
+        <p class="card-text">@Bio</p>
+        <a href="#" class="btn btn-primary">View Projects</a>
+    </div>
+</div>
+
+@code {
+    [Parameter] public string Name { get; set; } = "Jordan Developer";
+    [Parameter] public string Bio { get; set; } = "Full-stack developer passionate about learning new tech.";
+    [Parameter] public string ProfileImageUrl { get; set; } = "https://via.placeholder.com/300x200?text=Profile+Image";
+}

@@ -1,0 +1,50 @@
+<div class="resume-template atscleangrid">
+<style>
+.atscleangrid { background:#fff; color:#1a1a1a; font-family:'Inter',sans-serif; font-size:9pt; line-height:1.55; max-width:794px; margin:0 auto; }
+.atscleangrid .r-header { display:grid; grid-template-columns:1fr 1fr; gap:0; border-bottom:3px solid var(--primary-color,#2d8653); }
+.atscleangrid .r-header-left { padding:28px 32px 22px 44px; }
+.atscleangrid .r-header-right { padding:28px 32px 22px 24px; background:#f9fafb; border-left:1px solid #e5e7eb; display:flex; flex-direction:column; justify-content:center; }
+.atscleangrid .r-name { font-size:21pt; font-weight:800; color:#111; line-height:1.1; }
+.atscleangrid .r-title { font-size:10pt; color:var(--primary-color,#2d8653); font-weight:600; margin:5px 0 0; }
+.atscleangrid .r-contact-item { font-size:8pt; color:#555; margin-bottom:4px; }
+.atscleangrid .r-body { display:grid; grid-template-columns:2fr 1fr; }
+.atscleangrid .r-main { padding:22px 28px 22px 44px; }
+.atscleangrid .r-side { padding:22px 24px; background:#f9fafb; border-left:1px solid #e5e7eb; }
+.atscleangrid .r-sec { font-size:8.5pt; font-weight:700; text-transform:uppercase; letter-spacing:1.2px; color:var(--primary-color,#2d8653); margin:0 0 8px; }
+.atscleangrid .r-block { margin-bottom:16px; }
+.atscleangrid .r-sum { font-size:8.8pt; color:#444; line-height:1.65; }
+.atscleangrid .experience-entry,.atscleangrid .education-entry { margin-bottom:11px; }
+.atscleangrid .entry-header { display:flex; flex-wrap:wrap; align-items:baseline; gap:5px; }
+.atscleangrid .entry-title { font-size:9.5pt; font-weight:700; color:#111; margin:0; }
+.atscleangrid .entry-company,.atscleangrid .entry-school { font-size:8.5pt; color:var(--primary-color,#2d8653); font-weight:600; }
+.atscleangrid .entry-dates { font-size:8pt; color:#888; margin-left:auto; }
+.atscleangrid .entry-description { font-size:8.3pt; color:#555; line-height:1.5; margin-top:3px; }
+.atscleangrid ul { margin:0; padding-left:14px; } .atscleangrid li { margin-bottom:3px; font-size:8.3pt; color:#555; }
+.atscleangrid .skill-tag { display:block; padding:3px 8px; background:#fff; border:1px solid #d1d5db; color:#333; border-radius:3px; font-size:8pt; margin-bottom:4px; }
+</style>
+  <div class="r-header">
+    <div class="r-header-left">
+      <div class="r-name" id="previewName">Your Name</div>
+      <div class="r-title" id="previewJobTitle">Professional Title</div>
+    </div>
+    <div class="r-header-right">
+      <div class="r-contact-item" id="previewEmail"></div>
+      <div class="r-contact-item" id="previewPhone"></div>
+      <div class="r-contact-item" id="previewLocation"></div>
+      <div class="r-contact-item" id="previewLinkedIn"></div>
+    </div>
+  </div>
+  <div class="r-body">
+    <div class="r-main">
+      <div class="r-block"><div class="r-sec">Summary</div><p class="r-sum" id="previewSummary"></p></div>
+      <div class="r-block"><div class="r-sec">Experience</div><div id="previewExperience"></div></div>
+      <div class="r-block"><div class="r-sec">Projects</div><ul id="previewProjects"></ul></div>
+    </div>
+    <div class="r-side">
+      <div class="r-block"><div class="r-sec">Skills</div><div id="previewSkills"></div></div>
+      <div class="r-block"><div class="r-sec">Education</div><div id="previewEducation"></div></div>
+      <div class="r-block"><div class="r-sec">Certifications</div><ul id="previewCertifications"></ul></div>
+      <div class="r-block"><div class="r-sec">Awards</div><ul id="previewAwards"></ul></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,249 @@
+<div class="resume-template split-charcoal">
+  <div class="sch-wrapper">
+    <div class="sch-sidebar">
+      <div id="profilePhoto" class="sch-photo"></div>
+      <h1 id="previewName" class="sch-name">Your Name</h1>
+      <p id="previewJobTitle" class="sch-title">Job Title</p>
+      <div class="sch-divider"></div>
+      <div class="sch-sid-section">
+        <h3 class="sch-sid-label">Contact</h3>
+        <p id="previewEmail" class="sch-citem">email@example.com</p>
+        <p id="previewPhone" class="sch-citem">+1 234 567 890</p>
+        <p id="previewLocation" class="sch-citem">City, Country</p>
+        <div id="previewLinkedIn" class="sch-citem">linkedin.com/in/you</div>
+      </div>
+      <div class="sch-divider"></div>
+      <div class="sch-sid-section">
+        <h3 class="sch-sid-label">Skills</h3>
+        <div id="previewSkills" class="skills-list sch-tags"></div>
+      </div>
+      <div class="sch-divider"></div>
+      <div class="sch-sid-section">
+        <h3 class="sch-sid-label">Languages</h3>
+        <div id="previewLanguages" class="skills-list sch-tags"></div>
+      </div>
+      <div class="sch-divider"></div>
+      <div class="sch-sid-section">
+        <h3 class="sch-sid-label">Awards</h3>
+        <ul id="previewAwards" class="sch-ul"></ul>
+      </div>
+    </div>
+
+    <div class="sch-main">
+      <div class="sch-summary-wrap">
+        <p id="previewSummary">Professional summary goes here.</p>
+      </div>
+      <div class="sch-section">
+        <h2 class="sch-section-title">Experience</h2>
+        <div id="previewExperience"></div>
+      </div>
+      <div class="sch-section">
+        <h2 class="sch-section-title">Education</h2>
+        <div id="previewEducation"></div>
+      </div>
+      <div class="sch-section">
+        <h2 class="sch-section-title">Certifications</h2>
+        <ul id="previewCertifications" class="sch-list"></ul>
+      </div>
+      <div class="sch-section">
+        <h2 class="sch-section-title">Projects</h2>
+        <ul id="previewProjects" class="sch-list"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.split-charcoal {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  --primary: var(--primary-color, #6366f1);
+}
+.split-charcoal .sch-wrapper {
+  display: flex;
+  min-height: 297mm;
+}
+.split-charcoal .sch-sidebar {
+  width: 32%;
+  background: #2c2c2c;
+  padding: 26px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.split-charcoal .sch-photo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(255,255,255,0.1);
+  border: 4px solid var(--primary);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  margin-bottom: 12px;
+}
+.split-charcoal .sch-name {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+  margin: 0 0 4px;
+}
+.split-charcoal .sch-title {
+  font-size: 0.68rem;
+  color: var(--primary);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 0;
+}
+.split-charcoal .sch-divider {
+  width: 100%;
+  height: 1px;
+  background: #444;
+  margin: 14px 0;
+}
+.split-charcoal .sch-sid-section {
+  width: 100%;
+}
+.split-charcoal .sch-sid-label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--primary);
+  margin: 0 0 8px;
+}
+.split-charcoal .sch-citem {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.65);
+  margin: 3px 0;
+  word-break: break-all;
+}
+.split-charcoal .sch-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.split-charcoal .sch-tags span {
+  background: color-mix(in srgb, var(--primary) 20%, transparent);
+  border: 1px solid color-mix(in srgb, var(--primary) 40%, transparent);
+  color: rgba(255,255,255,0.85);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.66rem;
+}
+.split-charcoal .sch-ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.55);
+}
+.split-charcoal .sch-ul li {
+  padding: 2px 0 2px 12px;
+  position: relative;
+}
+.split-charcoal .sch-ul li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-size: 0.6rem;
+}
+.split-charcoal .sch-main {
+  flex: 1;
+  background: #fff;
+  padding: 24px 24px;
+}
+.split-charcoal .sch-summary-wrap {
+  background: #f8f8f8;
+  border-left: 3px solid var(--primary);
+  border-radius: 0 6px 6px 0;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  font-size: 0.81rem;
+  color: #444;
+  line-height: 1.65;
+}
+.split-charcoal .sch-summary-wrap p {
+  margin: 0;
+}
+.split-charcoal .sch-section {
+  margin-bottom: 16px;
+}
+.split-charcoal .sch-section-title {
+  font-size: 0.63rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: #2c2c2c;
+  margin: 0 0 8px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #e8e8e8;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.split-charcoal .sch-section-title::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--primary);
+  border-radius: 50%;
+}
+.split-charcoal .sch-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.76rem;
+  color: #555;
+}
+.split-charcoal .sch-list li {
+  padding: 2px 0 2px 13px;
+  position: relative;
+}
+.split-charcoal .sch-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+.split-charcoal #previewExperience .experience-entry,
+.split-charcoal #previewEducation .education-entry {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #eee;
+}
+.split-charcoal #previewExperience .experience-entry:last-child,
+.split-charcoal #previewEducation .education-entry:last-child {
+  border-bottom: none;
+}
+.split-charcoal #previewExperience .entry-title,
+.split-charcoal #previewEducation .entry-title {
+  font-weight: 700;
+  font-size: 0.87rem;
+  color: #222;
+}
+.split-charcoal #previewExperience .entry-company,
+.split-charcoal #previewEducation .entry-school {
+  font-size: 0.77rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+.split-charcoal #previewExperience .entry-dates,
+.split-charcoal #previewEducation .entry-dates {
+  font-size: 0.68rem;
+  color: #aaa;
+}
+.split-charcoal #previewExperience .entry-description,
+.split-charcoal #previewEducation .entry-description {
+  font-size: 0.75rem;
+  color: #555;
+  margin-top: 4px;
+  line-height: 1.55;
+}
+</style>

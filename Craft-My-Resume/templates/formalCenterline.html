@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formal Centerline Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template formal-centerline-template">
+        <div class="header-section">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <div class="contact-info">
+                <span id="previewEmail"></span> • <span id="previewPhone"></span> • <span id="previewLocation"></span> • <span id="previewLinkedIn"></span>
+            </div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="section">
+                <h3>Professional Summary</h3>
+                <div class="divider-line"></div>
+                <p id="previewSummary"></p>
+            </div>
+            
+            <div class="section">
+                <h3>Professional Experience</h3>
+                <div class="divider-line"></div>
+                <div id="previewExperience"></div>
+            </div>
+            
+            <div class="section">
+                <h3>Education</h3>
+                <div class="divider-line"></div>
+                <div id="previewEducation"></div>
+            </div>
+            
+            <div class="section">
+                <h3>Skills</h3>
+                <div class="divider-line"></div>
+                <div id="previewSkills" class="skills-list"></div>
+            </div>
+            
+            <div class="section">
+                <h3>Languages</h3>
+                <div class="divider-line"></div>
+                <div id="previewLanguages" class="skills-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .formal-centerline-template { 
+            font-family: 'Arial', sans-serif; 
+            background: #ffffff; 
+            color: #000000; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+            padding: 1in;
+        }
+        .formal-centerline-template .header-section { 
+            text-align: center; 
+            margin-bottom: 2rem; 
+            padding-bottom: 1rem;
+        }
+        .formal-centerline-template .name { 
+            font-size: 2.2rem; 
+            margin: 0 0 0.5rem 0; 
+            font-weight: normal; 
+            color: #000000;
+        }
+        .formal-centerline-template .contact-info { 
+            font-size: 1rem; 
+            color: #000; 
+        }
+        .formal-centerline-template .content-wrapper { 
+            max-width: 100%; 
+        }
+        .formal-centerline-template .section { 
+            margin-bottom: 2rem; 
+            position: relative;
+        }
+        .formal-centerline-template h3 { 
+            color: #000000; 
+            font-size: 1.2rem; 
+            margin-bottom: 0.5rem; 
+            font-weight: bold; 
+            text-align: center;
+        }
+        .formal-centerline-template .divider-line {
+            width: 100px;
+            height: 2px;
+            background: #000000;
+            margin: 0 auto 1rem auto;
+        }
+        .formal-centerline-template .experience-entry, .formal-centerline-template .education-entry { 
+            margin-bottom: 1.5rem; 
+            text-align: center;
+        }
+        .formal-centerline-template .entry-title { 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            color: #000000; 
+            margin-bottom: 0.3rem;
+        }
+        .formal-centerline-template .entry-company { 
+            color: #000000; 
+            font-weight: normal; 
+            font-size: 1rem;
+        }
+        .formal-centerline-template .entry-dates { 
+            color: #000000; 
+            font-size: 0.9rem; 
+            margin-top: 0.3rem;
+        }
+        .formal-centerline-template .skills-list { 
+            display: block; 
+            text-align: center;
+        }
+        .formal-centerline-template .skill-tag { 
+            display: inline; 
+            background: transparent; 
+            color: #000000; 
+            padding: 0; 
+            margin: 0; 
+            font-size: 1rem; 
+            font-weight: normal; 
+        }
+        .formal-centerline-template .skill-tag:not(:last-child):after {
+            content: " • ";
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

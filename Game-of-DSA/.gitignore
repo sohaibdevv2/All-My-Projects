@@ -1,0 +1,45 @@
+# Build directories
+build/
+build-desktop/
+build-debug/
+build-web/
+
+# IDE files
+.vscode/
+.idea/
+*.xcodeproj/
+*.xcworkspace/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.cmake
+!CMakeLists.txt
+
+# Binaries
+GameOfDSA
+GameOfDSA.exe
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+
+# Assets - keep fonts and levels but ignore generated
+assets/textures/generated/
+
+# Web build output (committed separately in docs/)
+# docs/ is committed to enable GitHub Pages
+
+# System files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Emscripten cache
+.emscripten_cache/
+
+# Logs
+*.log

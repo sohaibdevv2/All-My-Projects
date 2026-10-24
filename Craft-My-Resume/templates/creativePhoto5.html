@@ -1,0 +1,93 @@
+<div class="resume-template creativePhoto5-template">
+  <div class="cp5-header">
+    <div class="cp5-geo-top"></div>
+    <div class="cp5-geo-bottom"></div>
+    <div class="cp5-header-content">
+      <div class="cp5-photo-container">
+        <div id="profilePhoto" class="cp5-photo"></div>
+        <div class="cp5-photo-ring-outer"></div>
+      </div>
+      <div class="cp5-header-info">
+        <h1 id="previewName" class="cp5-name">Your Name</h1>
+        <div id="previewJobTitle" class="cp5-job-title">Professional Title</div>
+        <div class="cp5-contacts">
+          <div class="cp5-contact"><span class="cp5-ci">✉</span><span id="previewEmail">email@example.com</span></div>
+          <div class="cp5-contact"><span class="cp5-ci">☎</span><span id="previewPhone">+1 555 0000</span></div>
+          <div class="cp5-contact"><span class="cp5-ci">⌂</span><span id="previewLocation">Location</span></div>
+          <div id="previewLinkedIn" class="cp5-contact"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cp5-body">
+    <div class="cp5-summary-wrap">
+      <div class="cp5-summary-box">
+        <p id="previewSummary"></p>
+      </div>
+    </div>
+    <div class="cp5-columns">
+      <div class="cp5-main">
+        <div class="cp5-section">
+          <h3 class="cp5-sh">Experience</h3>
+          <div id="previewExperience"></div>
+        </div>
+        <div class="cp5-section">
+          <h3 class="cp5-sh">Education</h3>
+          <div id="previewEducation"></div>
+        </div>
+        <div class="cp5-section">
+          <h3 class="cp5-sh">Projects</h3>
+          <ul id="previewProjects"></ul>
+        </div>
+      </div>
+      <div class="cp5-aside">
+        <div class="cp5-section">
+          <h3 class="cp5-sh">Skills</h3>
+          <div id="previewSkills" class="skills-list"></div>
+        </div>
+        <div class="cp5-section">
+          <h3 class="cp5-sh">Languages</h3>
+          <div id="previewLanguages" class="skills-list"></div>
+        </div>
+        <div class="cp5-section">
+          <h3 class="cp5-sh">Certifications</h3>
+          <ul id="previewCertifications"></ul>
+        </div>
+        <div class="cp5-section">
+          <h3 class="cp5-sh">Awards</h3>
+          <ul id="previewAwards"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+.creativePhoto5-template{font-family:'Inter','Helvetica Neue',sans-serif;background:#fff;color:#1a1a2e;--accent:var(--primary-color,#6366f1)}
+.cp5-header{background:#fff;padding:2.5rem 2rem 2rem;position:relative;overflow:hidden;border-bottom:3px solid var(--accent)}
+.cp5-geo-top{position:absolute;top:-40px;right:-40px;width:180px;height:180px;background:var(--accent);opacity:.08;border-radius:50%}
+.cp5-geo-bottom{position:absolute;bottom:-60px;left:30%;width:250px;height:250px;background:var(--accent);opacity:.05;border-radius:50%}
+.cp5-header-content{display:flex;align-items:center;gap:2rem;position:relative}
+.cp5-photo-container{position:relative;flex-shrink:0}
+.cp5-photo{width:115px;height:115px;border-radius:50%;background:#eee;background-size:cover;background-position:center;border:4px solid #fff;box-shadow:0 0 0 4px var(--accent)}
+.cp5-photo-ring-outer{position:absolute;inset:-10px;border-radius:50%;border:2px dashed var(--accent);opacity:.4;animation:cp5spin 20s linear infinite}
+@keyframes cp5spin{to{transform:rotate(360deg)}}
+.cp5-name{font-size:2.2rem;font-weight:800;color:#1a1a2e;margin:0 0 .3rem;letter-spacing:-.02em}
+.cp5-job-title{font-size:1rem;font-weight:600;color:var(--accent);margin-bottom:.8rem;letter-spacing:.05em;text-transform:uppercase;font-size:.85rem}
+.cp5-contacts{display:flex;flex-direction:column;gap:.3rem}
+.cp5-contact{display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:#555}
+.cp5-ci{color:var(--accent);font-size:.9rem;width:16px}
+.cp5-body{padding:0 2rem 2rem}
+.cp5-summary-wrap{padding:1.5rem 0}
+.cp5-summary-box{background:linear-gradient(135deg,rgba(99,102,241,.06),rgba(99,102,241,.02));border-left:4px solid var(--accent);padding:1rem 1.5rem;border-radius:0 8px 8px 0}
+.cp5-summary-box p{margin:0;font-size:.88rem;line-height:1.7;color:#374151;font-style:italic}
+.cp5-columns{display:grid;grid-template-columns:1fr 240px;gap:2rem}
+.cp5-section{margin-bottom:1.5rem}
+.cp5-sh{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:.8rem;padding-bottom:.4rem;border-bottom:2px solid var(--accent)}
+.creativePhoto5-template .experience-entry,.creativePhoto5-template .education-entry{margin-bottom:1.1rem;padding:.9rem;background:#f9fafb;border-radius:8px;border:1px solid #e5e7eb}
+.creativePhoto5-template .entry-title{font-weight:700;color:#1a1a2e;font-size:.92rem}
+.creativePhoto5-template .entry-company{color:var(--accent);font-size:.84rem;font-weight:500}
+.creativePhoto5-template .entry-dates{color:#6b7280;font-size:.78rem}
+.creativePhoto5-template .entry-description{color:#374151;font-size:.82rem;line-height:1.6;margin-top:.4rem}
+.creativePhoto5-template .skill-tag{background:linear-gradient(135deg,var(--accent),color-mix(in srgb,var(--accent) 60%,#818cf8));color:#fff;padding:.3rem .8rem;border-radius:25px;font-size:.76rem;font-weight:600;display:inline-block;margin:.2rem;box-shadow:0 2px 8px rgba(99,102,241,.3)}
+.creativePhoto5-template ul{padding-left:1.2rem;font-size:.82rem;color:#374151;line-height:1.7}
+</style>

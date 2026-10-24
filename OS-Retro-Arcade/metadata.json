@@ -1,0 +1,6 @@
+{
+  "name": "Windows 11 Retro Arcade",
+  "description": "Windows 11 web desktop experience featuring retro arcade games including Super Mario, Turbo Highway Car Racing, Space Invaders, and Retro Snake.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

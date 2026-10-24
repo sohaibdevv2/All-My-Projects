@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Future Droidux — The Intelligence of Motion</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #000;
+      overflow: hidden;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+    }
+
+    #intro {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 60%, #0d0a06 0%, #000 70%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 9999;
+    }
+
+    canvas#particles {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .logo-container {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .logo-svg {
+      opacity: 0;
+      transform: scale(0.4) rotate(-15deg);
+      transition: opacity 1.4s ease, transform 1.6s cubic-bezier(0.34, 1.4, 0.64, 1);
+      filter: drop-shadow(0 0 24px rgba(201,169,110,0.4));
+    }
+
+    .logo-svg.visible {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+
+    .brand-name {
+      font-size: clamp(24px, 4.5vw, 50px);
+      font-weight: 700;
+      letter-spacing: 0.35em;
+      color: #C9A96E;
+      opacity: 0;
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path 1.8s cubic-bezier(0.77, 0, 0.18, 1), opacity 0.2s ease;
+      text-shadow: 0 0 40px rgba(201,169,110,0.3);
+    }
+
+    .brand-name.visible {
+      opacity: 1;
+      clip-path: inset(0 0% 0 0);
+    }
+
+    .tagline {
+      font-size: clamp(10px, 1.4vw, 13px);
+      letter-spacing: 0.55em;
+      color: rgba(201, 169, 110, 0.55);
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 1.4s ease, transform 1.4s ease;
+    }
+
+    .tagline.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .divider {
+      width: 0px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #C9A96E, transparent);
+      opacity: 0;
+      transition: width 1.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s, opacity 0.4s ease;
+    }
+
+    .divider.visible {
+      width: 280px;
+      opacity: 0.5;
+    }
+
+    .skip-btn {
+      position: fixed;
+      bottom: 36px;
+      right: 36px;
+      z-index: 20;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      color: rgba(201,169,110,0.4);
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      background: none;
+      opacity: 0;
+      transition: opacity 0.6s ease, color 0.3s ease;
+      padding: 8px;
+    }
+
+    .skip-btn:hover { color: rgba(201,169,110,0.8); }
+    .skip-btn.visible { opacity: 1; }
+
+    .progress-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #C9A96E 50%, transparent);
+      z-index: 20;
+      transition: width 18s linear;
+      opacity: 0.6;
+    }
+
+    .progress-bar.running { width: 100%; }
+
+    #fade-overlay {
+      position: fixed;
+      inset: 0;
+      background: #faf9f5;
+      z-index: 10000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1.8s ease;
+    }
+
+    #fade-overlay.fade-in {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    /* Scan line effect */
+    .scanlines {
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.03) 2px,
+        rgba(0,0,0,0.03) 4px
+      );
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    /* Corner decorations */
+    .corner {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .corner.visible { opacity: 0.3; }
+    .corner-tl { top: 40px; left: 40px; border-top: 1px solid #C9A96E; border-left: 1px solid #C9A96E; }
+    .corner-tr { top: 40px; right: 40px; border-top: 1px solid #C9A96E; border-right: 1px solid #C9A96E; }
+    .corner-bl { bottom: 80px; left: 40px; border-bottom: 1px solid #C9A96E; border-left: 1px solid #C9A96E; }
+    .corner-br { bottom: 80px; right: 40px; border-bottom: 1px solid #C9A96E; border-right: 1px solid #C9A96E; }
+
+    /* Subtitle line */
+    .subtitle {
+      font-size: clamp(9px, 1.1vw, 11px);
+      letter-spacing: 0.4em;
+      color: rgba(201, 169, 110, 0.35);
+      text-transform: uppercase;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+    }
+
+    .subtitle.visible { opacity: 1; }
+  </style>
+</head>
+<body>
+  <div id="intro">
+    <canvas id="particles"></canvas>
+    <div class="scanlines"></div>
+
+    <div class="corner corner-tl" id="c1"></div>
+    <div class="corner corner-tr" id="c2"></div>
+    <div class="corner corner-bl" id="c3"></div>
+    <div class="corner corner-br" id="c4"></div>
+
+    <div class="logo-container">
+      <svg class="logo-svg" id="logoSvg" width="220" height="220" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="2" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+
+        <circle cx="60" cy="60" r="56" fill="none" stroke="#C9A96E" stroke-width="0.4" stroke-opacity="0.2"
+          stroke-dasharray="351.9" stroke-dashoffset="351.9">
+          <animate attributeName="stroke-dashoffset" from="351.9" to="0" dur="2.5s" begin="0.3s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/>
+        </circle>
+
+        <circle cx="60" cy="60" r="44" fill="none" stroke="#C9A96E" stroke-width="0.5" stroke-opacity="0.3"
+          stroke-dasharray="276.5" stroke-dashoffset="276.5">
+          <animate attributeName="stroke-dashoffset" from="276.5" to="0" dur="2.2s" begin="0.6s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/>
+        </circle>
+
+        <circle cx="60" cy="60" r="30" fill="none" stroke="#C9A96E" stroke-width="0.8" stroke-opacity="0.5"
+          stroke-dasharray="188.5" stroke-dashoffset="188.5">
+          <animate attributeName="stroke-dashoffset" from="188.5" to="0" dur="1.8s" begin="0.9s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/>
+        </circle>
+
+        <circle cx="60" cy="60" r="16" fill="none" stroke="#C9A96E" stroke-width="1.2"
+          stroke-dasharray="100.5" stroke-dashoffset="100.5">
+          <animate attributeName="stroke-dashoffset" from="100.5" to="0" dur="1.4s" begin="1.2s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/>
+        </circle>
+
+        <ellipse cx="60" cy="60" rx="56" ry="14" fill="none" stroke="#C9A96E" stroke-width="0.5" stroke-opacity="0.35"
+          stroke-dasharray="228" stroke-dashoffset="228">
+          <animate attributeName="stroke-dashoffset" from="228" to="0" dur="2s" begin="1.4s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/>
+          <animateTransform attributeName="transform" type="rotate" from="0 60 60" to="360 60 60" dur="40s" repeatCount="indefinite"/>
+        </ellipse>
+
+        <ellipse cx="60" cy="60" rx="14" ry="56" fill="none" stroke="#C9A96E" stroke-width="0.5" stroke-opacity="0.35"
+          stroke-dasharray="228" stroke-dashoffset="228">
+          <animate attributeName="stroke-dashoffset" from="228" to="0" dur="2s" begin="1.6s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/>
+          <animateTransform attributeName="transform" type="rotate" from="0 60 60" to="-360 60 60" dur="30s" repeatCount="indefinite"/>
+        </ellipse>
+
+        <circle cx="60" cy="60" r="0" fill="#C9A96E" filter="url(#glow)">
+          <animate attributeName="r" from="0" to="5" dur="0.6s" begin="2s" fill="freeze" calcMode="spline" keySplines="0.34 1.56 0.64 1"/>
+        </circle>
+
+        <circle cx="60" cy="60" r="5" fill="none" stroke="#C9A96E" stroke-width="16" stroke-opacity="0" opacity="0">
+          <animate attributeName="stroke-opacity" values="0;0.12;0" dur="3.5s" begin="2.4s" repeatCount="indefinite"/>
+          <animate attributeName="r" values="5;30;5" dur="3.5s" begin="2.4s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" from="0" to="1" dur="0.01s" begin="2.4s" fill="freeze"/>
+        </circle>
+      </svg>
+
+      <div class="brand-name" id="brandName">FUTURE DROIDUX</div>
+      <div class="divider" id="divider"></div>
+      <div class="tagline" id="tagline">The Intelligence of Motion</div>
+      <div class="subtitle" id="subtitle">Next Generation · Adaptive Interface · 2025</div>
+    </div>
+  </div>
+
+  <div class="progress-bar" id="progressBar"></div>
+  <button class="skip-btn" id="skipBtn" onclick="skipIntro()">Skip ›</button>
+  <div id="fade-overlay"></div>
+
+  <script>
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    const particles = [];
+    for (let i = 0; i < 140; i++) {
+      particles.push({
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        r: Math.random() * 1.4 + 0.2,
+        vx: (Math.random() - 0.5) * 0.25,
+        vy: (Math.random() - 0.5) * 0.25,
+        base: Math.random() * 0.5 + 0.05,
+        phase: Math.random() * Math.PI * 2,
+        speed: Math.random() * 0.018 + 0.004,
+      });
+    }
+
+    let startTime = null;
+    let animRunning = true;
+
+    function drawFrame(ts) {
+      if (!animRunning) return;
+      if (!startTime) startTime = ts;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (const p of particles) {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.phase += p.speed;
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.y > canvas.height) p.y = 0;
+
+        const alpha = p.base * (0.5 + 0.5 * Math.sin(p.phase));
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(201,169,110,${alpha})`;
+        ctx.fill();
+      }
+
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 90) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(201,169,110,${0.07 * (1 - dist / 90)})`;
+            ctx.lineWidth = 0.4;
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(drawFrame);
+    }
+    requestAnimationFrame(drawFrame);
+
+    function launchApp() {
+      animRunning = false;
+      window.location.href = 'app.html';
+    }
+
+    function skipIntro() {
+      document.getElementById('fade-overlay').classList.add('fade-in');
+      setTimeout(launchApp, 1000);
+    }
+
+    // Sequence
+    setTimeout(() => document.getElementById('logoSvg').classList.add('visible'), 200);
+    setTimeout(() => { ['c1','c2','c3','c4'].forEach(id => document.getElementById(id).classList.add('visible')); }, 800);
+    setTimeout(() => document.getElementById('brandName').classList.add('visible'), 3200);
+    setTimeout(() => document.getElementById('divider').classList.add('visible'), 4600);
+    setTimeout(() => document.getElementById('tagline').classList.add('visible'), 5400);
+    setTimeout(() => document.getElementById('subtitle').classList.add('visible'), 7000);
+    setTimeout(() => document.getElementById('skipBtn').classList.add('visible'), 4000);
+
+    setTimeout(() => document.getElementById('progressBar').classList.add('running'), 50);
+
+    setTimeout(() => document.getElementById('fade-overlay').classList.add('fade-in'), 16200);
+    setTimeout(launchApp, 18000);
+  </script>
+</body>
+</html>

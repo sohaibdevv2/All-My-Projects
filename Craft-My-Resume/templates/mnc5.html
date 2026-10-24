@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MNC Template 5</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template mnc5-template">
+        <div class="header-container">
+            <div class="accent-bar"></div>
+            <div class="header-content">
+                <div class="name-section">
+                    <h1 class="name" id="previewName">Your Name</h1>
+                    <h2 class="title" id="previewJobTitle">Executive Director</h2>
+                </div>
+                <div class="contact-section">
+                    <div class="contact-item" id="previewEmail"></div>
+                    <div class="contact-item" id="previewPhone"></div>
+                    <div class="contact-item" id="previewLocation"></div>
+                    <div class="contact-item" id="previewLinkedIn"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="body-content">
+            <div class="summary-panel">
+                <h3>Executive Profile</h3>
+                <p id="previewSummary"></p>
+            </div>
+            
+            <div class="content-columns">
+                <div class="main-column">
+                    <div class="section">
+                        <h3>Professional Experience</h3>
+                        <div id="previewExperience"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Education & Certifications</h3>
+                        <div id="previewEducation"></div>
+                    </div>
+                </div>
+                
+                <div class="accent-column">
+                    <div class="section">
+                        <h3>Core Skills</h3>
+                        <div id="previewSkills" class="skills-list"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Key Projects</h3>
+                        <ul id="previewProjects"></ul>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Languages</h3>
+                        <div id="previewLanguages" class="skills-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .mnc5-template { 
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif; 
+            background: #ffffff; 
+            color: #1a1a1a; 
+            line-height: 1.7; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+        }
+        .mnc5-template .header-container {
+            position: relative;
+            background: #ffffff;
+        }
+        .mnc5-template .accent-bar {
+            height: 8px;
+            background: linear-gradient(90deg, #22543d 0%, #38a169 50%, #68d391 100%);
+        }
+        .mnc5-template .header-content { 
+            padding: 3rem 2.5rem; 
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 3rem;
+            align-items: center;
+            background: #f7fafc;
+        }
+        .mnc5-template .name { 
+            font-size: 3.2rem; 
+            margin: 0; 
+            font-weight: 700; 
+            letter-spacing: 1px; 
+            color: #22543d;
+        }
+        .mnc5-template .title { 
+            font-size: 1.4rem; 
+            margin: 0.8rem 0 0 0; 
+            font-weight: 400; 
+            color: #38a169;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .mnc5-template .contact-section {
+            text-align: right;
+        }
+        .mnc5-template .contact-item { 
+            display: block;
+            margin-bottom: 0.8rem; 
+            font-size: 1rem; 
+            color: #4a5568;
+            font-weight: 500;
+        }
+        .mnc5-template .body-content { 
+            padding: 0 2.5rem 2.5rem; 
+        }
+        .mnc5-template .summary-panel { 
+            margin-bottom: 3rem; 
+            padding: 2.5rem; 
+            background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%); 
+            border-left: 6px solid #38a169;
+            border-radius: 0 12px 12px 0;
+        }
+        .mnc5-template .summary-panel h3 { 
+            margin: 0 0 1.5rem 0; 
+            color: #22543d; 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+        }
+        .mnc5-template .content-columns { 
+            display: grid; 
+            grid-template-columns: 2.2fr 1fr; 
+            gap: 3rem; 
+        }
+        .mnc5-template .section { 
+            margin-bottom: 2.5rem; 
+        }
+        .mnc5-template h3 { 
+            color: #22543d; 
+            font-size: 1.3rem; 
+            margin-bottom: 1.5rem; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        .mnc5-template h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #22543d, #38a169);
+        }
+        .mnc5-template .experience-entry, .mnc5-template .education-entry { 
+            margin-bottom: 2.5rem; 
+            padding: 2rem; 
+            background: #f9f9f9; 
+            border-left: 4px solid #38a169;
+            border-radius: 0 8px 8px 0;
+            position: relative;
+        }
+        .mnc5-template .experience-entry::before, .mnc5-template .education-entry::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-top: 20px solid #38a169;
+        }
+        .mnc5-template .entry-title { 
+            font-weight: 700; 
+            font-size: 1.2rem; 
+            color: #1a1a1a; 
+            margin-bottom: 0.5rem;
+        }
+        .mnc5-template .entry-company { 
+            color: #22543d; 
+            font-weight: 600; 
+            font-size: 1.1rem;
+        }
+        .mnc5-template .entry-dates { 
+            color: #4a5568; 
+            font-size: 0.95rem; 
+            font-weight: 500;
+        }
+        .mnc5-template .accent-column {
+            background: linear-gradient(180deg, #f0fff4 0%, #e6fffa 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            height: fit-content;
+            border: 1px solid #c6f6d5;
+        }
+        .mnc5-template .skills-list { 
+            display: block; 
+        }
+        .mnc5-template .skill-tag { 
+            display: inline-block; 
+            background: linear-gradient(135deg, #22543d, #38a169); 
+            color: white; 
+            padding: 0.6rem 1.2rem; 
+            margin: 0.4rem; 
+            border-radius: 25px; 
+            font-size: 0.9rem; 
+            font-weight: 600; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

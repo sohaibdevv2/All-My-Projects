@@ -1,0 +1,71 @@
+<div class="resume-template proSidebar-template">
+<style>
+.proSidebar-template { background:#fff; color:#2d2d2d; font-family:'Inter',sans-serif; font-size:9pt; line-height:1.5; max-width:794px; margin:0 auto; display:grid; grid-template-columns:1.7fr 1fr; min-height:1000px; }
+.proSidebar-template .pb-main { padding:38px 30px 38px 40px; }
+.proSidebar-template .pb-side { background:#f6f8f7; color:#2d3748; padding:38px 22px; border-left:2px solid var(--primary-color,#2d8653); }
+.proSidebar-template .pb-name { font-size:22pt; font-weight:700; color:#1a1a1a; letter-spacing:-0.5px; line-height:1.1; }
+.proSidebar-template .pb-title { font-size:10pt; color:var(--primary-color,#2d8653); font-weight:600; margin:5px 0 10px; }
+.proSidebar-template .pb-contact { display:flex; flex-wrap:wrap; gap:4px 14px; font-size:8pt; color:#666; margin-bottom:18px; }
+.proSidebar-template .pb-sec-title { font-size:9.5pt; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--primary-color,#2d8653); border-bottom:1.5px solid var(--primary-color,#2d8653); padding-bottom:4px; margin:0 0 10px; }
+.proSidebar-template .pb-block { margin-bottom:18px; }
+.proSidebar-template .experience-entry, .proSidebar-template .education-entry { margin-bottom:13px; }
+.proSidebar-template .entry-header { display:flex; flex-wrap:wrap; align-items:baseline; gap:6px; }
+.proSidebar-template .entry-title { font-size:10pt; font-weight:700; color:#1a1a1a; margin:0; }
+.proSidebar-template .entry-company, .proSidebar-template .entry-school { font-size:8.8pt; color:var(--primary-color,#2d8653); font-weight:600; }
+.proSidebar-template .entry-dates { font-size:8pt; color:#999; margin-left:auto; }
+.proSidebar-template .entry-description { font-size:8.6pt; color:#555; line-height:1.55; margin-top:3px; }
+.proSidebar-template .pb-photo { width:80px; height:80px; border-radius:50%; margin:0 auto 16px; background:#e8f5e3 center/cover no-repeat; border:2px solid var(--primary-color,#2d8653); }
+.proSidebar-template .pb-side-title { font-size:9pt; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--primary-color,#2d8653); border-bottom:1px solid var(--primary-color,#2d8653); padding-bottom:3px; margin:0 0 9px; }
+.proSidebar-template .pb-side-block { margin-bottom:18px; }
+.proSidebar-template .pb-side .skill-tag { display:block; background:#fff; color:#333; border:1px solid #d1d5db; padding:3px 8px; border-radius:4px; font-size:8.2pt; margin-bottom:4px; }
+.proSidebar-template .pb-side ul { margin:0; padding-left:14px; }
+.proSidebar-template .pb-side li { font-size:8.3pt; color:#444; margin-bottom:4px; }
+.proSidebar-template ul#previewProjects { margin:0; padding-left:15px; }
+.proSidebar-template ul#previewProjects li { font-size:8.6pt; color:#555; margin-bottom:3px; }
+</style>
+  <div class="pb-main">
+    <div class="pb-name" id="previewName">Your Name</div>
+    <div class="pb-title" id="previewJobTitle">Professional Title</div>
+    <div class="pb-contact">
+      <span id="previewEmail">email@example.com</span>
+      <span id="previewPhone">+1 555 123 4567</span>
+      <span id="previewLocation">City, Country</span>
+      <span id="previewLinkedIn"></span>
+    </div>
+    <div class="pb-block">
+      <div class="pb-sec-title">Summary</div>
+      <p id="previewSummary" style="font-size:8.8pt;color:#444;line-height:1.6">Professional summary...</p>
+    </div>
+    <div class="pb-block">
+      <div class="pb-sec-title">Experience</div>
+      <div id="previewExperience"></div>
+    </div>
+    <div class="pb-block">
+      <div class="pb-sec-title">Education</div>
+      <div id="previewEducation"></div>
+    </div>
+    <div class="pb-block">
+      <div class="pb-sec-title">Projects</div>
+      <ul id="previewProjects"></ul>
+    </div>
+  </div>
+  <div class="pb-side">
+    <div class="pb-photo" id="profilePhoto"></div>
+    <div class="pb-side-block">
+      <div class="pb-side-title">Skills</div>
+      <div id="previewSkills"></div>
+    </div>
+    <div class="pb-side-block">
+      <div class="pb-side-title">Languages</div>
+      <div id="previewLanguages"></div>
+    </div>
+    <div class="pb-side-block">
+      <div class="pb-side-title">Certifications</div>
+      <ul id="previewCertifications"></ul>
+    </div>
+    <div class="pb-side-block">
+      <div class="pb-side-title">Awards</div>
+      <ul id="previewAwards"></ul>
+    </div>
+  </div>
+</div>

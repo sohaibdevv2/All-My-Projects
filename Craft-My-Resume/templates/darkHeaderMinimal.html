@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Header Minimal Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template dark-header-minimal-template">
+        <div class="header-section">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <div class="contact-info">
+                <span id="previewEmail"></span> • <span id="previewPhone"></span> • <span id="previewLocation"></span> • <span id="previewLinkedIn"></span>
+            </div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="section">
+                <h3>Professional Summary</h3>
+                <p id="previewSummary"></p>
+            </div>
+            
+            <div class="section">
+                <h3>Professional Experience</h3>
+                <div id="previewExperience"></div>
+            </div>
+            
+            <div class="section">
+                <h3>Education</h3>
+                <div id="previewEducation"></div>
+            </div>
+            
+            <div class="section">
+                <h3>Skills</h3>
+                <div id="previewSkills" class="skills-list"></div>
+            </div>
+            
+            <div class="section">
+                <h3>Languages</h3>
+                <div id="previewLanguages" class="skills-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .dark-header-minimal-template { 
+            font-family: 'Arial', sans-serif; 
+            background: #ffffff; 
+            color: #333333; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+        }
+        .dark-header-minimal-template .header-section { 
+            background: #000000; 
+            color: #ffffff; 
+            padding: 2rem; 
+            margin-bottom: 2rem;
+        }
+        .dark-header-minimal-template .name { 
+            font-size: 2.5rem; 
+            margin: 0 0 0.5rem 0; 
+            font-weight: bold; 
+            color: #ffffff;
+        }
+        .dark-header-minimal-template .contact-info { 
+            font-size: 1rem; 
+            color: #e5e7eb; 
+        }
+        .dark-header-minimal-template .content-wrapper { 
+            max-width: 100%; 
+            padding: 0 2rem 2rem 2rem;
+        }
+        .dark-header-minimal-template .section { 
+            margin-bottom: 2rem; 
+        }
+        .dark-header-minimal-template h3 { 
+            color: #000000; 
+            font-size: 1.3rem; 
+            margin-bottom: 1rem; 
+            font-weight: bold; 
+        }
+        .dark-header-minimal-template .experience-entry, .dark-header-minimal-template .education-entry { 
+            margin-bottom: 1.5rem; 
+        }
+        .dark-header-minimal-template .entry-title { 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            color: #000000; 
+            margin-bottom: 0.3rem;
+        }
+        .dark-header-minimal-template .entry-company { 
+            color: #6b7280; 
+            font-weight: normal; 
+            font-size: 1rem;
+        }
+        .dark-header-minimal-template .entry-dates { 
+            color: #9ca3af; 
+            font-size: 0.9rem; 
+            margin-top: 0.3rem;
+        }
+        .dark-header-minimal-template .skills-list { 
+            display: block; 
+        }
+        .dark-header-minimal-template .skill-tag { 
+            display: inline; 
+            background: transparent; 
+            color: #333333; 
+            padding: 0; 
+            margin: 0; 
+            font-size: 1rem; 
+            font-weight: normal; 
+        }
+        .dark-header-minimal-template .skill-tag:not(:last-child):after {
+            content: ", ";
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

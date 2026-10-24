@@ -1,0 +1,50 @@
+<div class="resume-template ct-tpl">
+<style>
+.ct-tpl { background:#fff; color:#2a2a2a; font-family:'Arial','Helvetica',sans-serif; font-size:8.8pt; line-height:1.45; max-width:794px; margin:0 auto; padding:0 0 30px; }
+.ct-tpl .ct-head { padding:26px 44px 0; }
+.ct-tpl .r-name { font-size:24pt; font-weight:700; color:#1a1a1a; letter-spacing:1px; text-transform:uppercase; margin:0 0 8px; }
+.ct-tpl .r-name .ct-accent { color:var(--primary-color,#2d8653); }
+.ct-tpl .r-title { display:none; }
+.ct-tpl .r-contact { background:#1a1a1a; color:#fff; font-size:8.4pt; padding:6px 44px; margin-bottom:14px; }
+.ct-tpl .r-contact span:not(:last-child)::after { content:'  |  '; color:#888; }
+.ct-tpl .ct-body { padding:0 44px; }
+.ct-tpl .r-sec { font-size:11pt; font-weight:600; color:#222; border-bottom:2px solid var(--primary-color,#2d8653); padding-bottom:3px; margin:14px 0 8px; }
+.ct-tpl .r-block { margin-bottom:6px; }
+.ct-tpl .r-sum { font-size:8.8pt; color:#333; line-height:1.5; margin:0; }
+.ct-tpl .experience-entry,.ct-tpl .education-entry { margin-bottom:10px; }
+.ct-tpl .entry-header { display:flex; flex-wrap:wrap; align-items:baseline; }
+.ct-tpl .entry-title { font-size:9.4pt; font-weight:700; color:#1a1a1a; margin:0; }
+.ct-tpl .entry-dates { font-size:8.4pt; color:#666; margin-left:auto; }
+.ct-tpl .entry-company,.ct-tpl .entry-school { font-size:8.8pt; color:#444; flex-basis:100%; margin-top:1px; }
+.ct-tpl .entry-description { font-size:8.6pt; color:#333; line-height:1.5; margin-top:3px; }
+.ct-tpl .entry-description ul { margin:2px 0; padding-left:16px; }
+.ct-tpl .entry-description li { margin-bottom:2px; }
+.ct-tpl .ct-skills-grid { columns:2; column-gap:30px; }
+.ct-tpl #previewSkills { display:block; }
+.ct-tpl .skill-tag { display:list-item; list-style:disc; margin-left:16px; font-size:8.6pt; color:#333 !important; background:none !important; padding:0 !important; border-radius:0 !important; margin-bottom:3px; break-inside:avoid; }
+.ct-tpl ul.r-list { margin:2px 0; padding-left:16px; }
+.ct-tpl ul.r-list li { margin-bottom:2px; font-size:8.6pt; color:#333; }
+.ct-tpl #previewLanguages .skill-tag { display:inline; list-style:none; margin-left:0; background:none !important; color:#333 !important; padding:0 !important; border-radius:0 !important; }
+.ct-tpl #previewLanguages .skill-tag:not(:last-child)::after { content:', '; }
+</style>
+  <div class="ct-head">
+    <div class="r-name"><span id="previewName">CARLOS TORRES</span></div>
+  </div>
+  <div class="r-contact">
+    <span id="previewLocation">Orlando, FL</span>
+    <span id="previewPhone">(555) 555-5555</span>
+    <span id="previewEmail">example@example.com</span>
+    <span id="previewLinkedIn"></span>
+  </div>
+  <div class="ct-body">
+    <div class="r-title" id="previewJobTitle"></div>
+    <div class="r-block"><div class="r-sec">Professional Summary</div><p class="r-sum" id="previewSummary"></p></div>
+    <div class="r-block"><div class="r-sec">Work History</div><div id="previewExperience"></div></div>
+    <div class="r-block"><div class="r-sec">Skills</div><div class="ct-skills-grid"><div id="previewSkills"></div></div></div>
+    <div class="r-block"><div class="r-sec">Education</div><div id="previewEducation"></div></div>
+    <div class="r-block"><div class="r-sec">Certifications</div><ul class="r-list" id="previewCertifications"></ul></div>
+    <div class="r-block"><div class="r-sec">Projects</div><ul class="r-list" id="previewProjects"></ul></div>
+    <div class="r-block"><div class="r-sec">Languages</div><div id="previewLanguages"></div></div>
+    <ul class="r-list" id="previewAwards"></ul>
+  </div>
+</div>

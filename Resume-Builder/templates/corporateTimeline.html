@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Timeline Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template corporate-timeline-template">
+        <div class="header-section">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <h2 class="title" id="previewJobTitle">Corporate Executive</h2>
+            <div class="contact-info">
+                <span id="previewEmail"></span> • <span id="previewPhone"></span> • <span id="previewLocation"></span> • <span id="previewLinkedIn"></span>
+            </div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="section">
+                <h3>Executive Summary</h3>
+                <p id="previewSummary"></p>
+            </div>
+            
+            <div class="section">
+                <h3>Professional Timeline</h3>
+                <div class="timeline-container">
+                    <div class="timeline-line"></div>
+                    <div id="previewExperience" class="timeline-content"></div>
+                </div>
+            </div>
+            
+            <div class="bottom-sections">
+                <div class="left-section">
+                    <div class="section">
+                        <h3>Education</h3>
+                        <div id="previewEducation"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Core Competencies</h3>
+                        <div id="previewSkills" class="skills-list"></div>
+                    </div>
+                </div>
+                
+                <div class="right-section">
+                    <div class="section">
+                        <h3>Key Achievements</h3>
+                        <ul class="achievements-list">
+                            <li>Led digital transformation initiative resulting in 40% efficiency gain</li>
+                            <li>Managed cross-functional teams of 50+ professionals</li>
+                            <li>Delivered $10M+ in cost savings through process optimization</li>
+                            <li>Established strategic partnerships with Fortune 500 companies</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Languages</h3>
+                        <div id="previewLanguages" class="skills-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .corporate-timeline-template { 
+            font-family: 'Georgia', 'Times New Roman', serif; 
+            background: #ffffff; 
+            color: #2c3e50; 
+            line-height: 1.7; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+        }
+        .corporate-timeline-template .header-section { 
+            background: #34495e; 
+            color: white; 
+            padding: 3rem 2.5rem; 
+            text-align: center;
+        }
+        .corporate-timeline-template .name { 
+            font-size: 3rem; 
+            margin: 0; 
+            font-weight: 400; 
+            letter-spacing: 2px; 
+        }
+        .corporate-timeline-template .title { 
+            font-size: 1.4rem; 
+            margin: 1rem 0 2rem 0; 
+            font-weight: 300; 
+            opacity: 0.9; 
+        }
+        .corporate-timeline-template .contact-info { 
+            font-size: 1rem; 
+            opacity: 0.95;
+        }
+        .corporate-timeline-template .content-wrapper { 
+            padding: 3rem 2.5rem; 
+        }
+        .corporate-timeline-template .section { 
+            margin-bottom: 3rem; 
+        }
+        .corporate-timeline-template h3 { 
+            color: #34495e; 
+            font-size: 1.3rem; 
+            margin-bottom: 2rem; 
+            font-weight: 600; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #34495e;
+            padding-bottom: 0.5rem;
+        }
+        .corporate-timeline-template .timeline-container {
+            position: relative;
+            padding-left: 3rem;
+        }
+        .corporate-timeline-template .timeline-line {
+            position: absolute;
+            left: 1rem;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #34495e;
+        }
+        .corporate-timeline-template .experience-entry { 
+            position: relative;
+            margin-bottom: 3rem; 
+            padding: 2rem; 
+            background: #f8f9fa; 
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+        }
+        .corporate-timeline-template .experience-entry::before {
+            content: '';
+            position: absolute;
+            left: -3.5rem;
+            top: 2rem;
+            width: 20px;
+            height: 20px;
+            background: #3498db;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 3px #34495e;
+        }
+        .corporate-timeline-template .entry-title { 
+            font-weight: 700; 
+            font-size: 1.2rem; 
+            color: #2c3e50; 
+            margin-bottom: 0.5rem;
+        }
+        .corporate-timeline-template .entry-company { 
+            color: #3498db; 
+            font-weight: 600; 
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+        .corporate-timeline-template .entry-dates { 
+            color: #7f8c8d; 
+            font-size: 0.95rem; 
+            font-weight: 500;
+            float: right;
+            background: #34495e;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+        .corporate-timeline-template .bottom-sections { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 3rem; 
+        }
+        .corporate-timeline-template .education-entry { 
+            margin-bottom: 1.5rem; 
+            padding: 1.5rem; 
+            background: #ecf0f1; 
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+        }
+        .corporate-timeline-template .skills-list { 
+            display: block; 
+        }
+        .corporate-timeline-template .skill-tag { 
+            display: inline-block; 
+            background: #34495e; 
+            color: white; 
+            padding: 0.6rem 1.2rem; 
+            margin: 0.4rem; 
+            border-radius: 5px; 
+            font-size: 0.9rem; 
+            font-weight: 500; 
+        }
+        .corporate-timeline-template .achievements-list {
+            list-style: none;
+            padding: 0;
+        }
+        .corporate-timeline-template .achievements-list li {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-left: 4px solid #27ae60;
+            border-radius: 5px;
+            position: relative;
+        }
+        .corporate-timeline-template .achievements-list li::before {
+            content: '✓';
+            position: absolute;
+            left: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #27ae60;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

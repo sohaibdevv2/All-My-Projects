@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Sidebar Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template corporate-sidebar-template">
+        <div class="main-container">
+            <div class="sidebar">
+                <div class="profile-section">
+                    <h1 class="name" id="previewName">Your Name</h1>
+                    <h2 class="title" id="previewJobTitle">Professional Title</h2>
+                </div>
+                
+                <div class="contact-section">
+                    <h3>Contact</h3>
+                    <div class="contact-item"><span id="previewEmail"></span></div>
+                    <div class="contact-item"><span id="previewPhone"></span></div>
+                    <div class="contact-item"><span id="previewLocation"></span></div>
+                    <div class="contact-item"><span id="previewLinkedIn"></span></div>
+                </div>
+                
+                <div class="section">
+                    <h3>Skills</h3>
+                    <div id="previewSkills" class="skills-list"></div>
+                </div>
+                
+                <div class="section">
+                    <h3>Languages</h3>
+                    <div id="previewLanguages" class="skills-list"></div>
+                </div>
+            </div>
+            
+            <div class="main-content">
+                <div class="section">
+                    <h3>Professional Summary</h3>
+                    <p id="previewSummary"></p>
+                </div>
+                
+                <div class="section">
+                    <h3>Professional Experience</h3>
+                    <div id="previewExperience"></div>
+                </div>
+                
+                <div class="section">
+                    <h3>Education</h3>
+                    <div id="previewEducation"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .corporate-sidebar-template { 
+            font-family: 'Arial', sans-serif; 
+            background: #ffffff; 
+            color: #333333; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+        }
+        .corporate-sidebar-template .main-container { 
+            display: grid; 
+            grid-template-columns: 1fr 2.5fr; 
+            min-height: 11in;
+        }
+        .corporate-sidebar-template .sidebar { 
+            background: #2c3e50; 
+            color: #ffffff; 
+            padding: 2rem 1.5rem; 
+        }
+        .corporate-sidebar-template .main-content { 
+            background: #ffffff; 
+            padding: 2rem 2.5rem; 
+        }
+        .corporate-sidebar-template .profile-section { 
+            margin-bottom: 2rem; 
+            text-align: center;
+        }
+        .corporate-sidebar-template .name { 
+            font-size: 1.8rem; 
+            margin: 0 0 0.5rem 0; 
+            font-weight: bold; 
+            color: #ffffff;
+        }
+        .corporate-sidebar-template .title { 
+            font-size: 1rem; 
+            margin: 0; 
+            font-weight: normal; 
+            color: #bdc3c7; 
+        }
+        .corporate-sidebar-template .contact-section { 
+            margin-bottom: 2rem; 
+        }
+        .corporate-sidebar-template .contact-item { 
+            margin-bottom: 0.8rem; 
+            font-size: 0.9rem;
+            word-break: break-all;
+        }
+        .corporate-sidebar-template .section { 
+            margin-bottom: 2rem; 
+        }
+        .corporate-sidebar-template .sidebar h3 { 
+            color: #ffffff; 
+            font-size: 1rem; 
+            margin-bottom: 1rem; 
+            font-weight: bold; 
+            text-transform: uppercase;
+            border-bottom: 2px solid #34495e;
+            padding-bottom: 0.5rem;
+        }
+        .corporate-sidebar-template .main-content h3 { 
+            color: #2c3e50; 
+            font-size: 1.3rem; 
+            margin-bottom: 1.5rem; 
+            font-weight: bold; 
+            text-transform: uppercase;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 0.5rem;
+        }
+        .corporate-sidebar-template .experience-entry, .corporate-sidebar-template .education-entry { 
+            margin-bottom: 2rem; 
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        .corporate-sidebar-template .entry-title { 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            color: #2c3e50; 
+            margin-bottom: 0.3rem;
+        }
+        .corporate-sidebar-template .entry-company { 
+            color: #34495e; 
+            font-weight: normal; 
+            font-size: 1rem;
+        }
+        .corporate-sidebar-template .entry-dates { 
+            color: #666; 
+            font-size: 0.9rem; 
+            margin-top: 0.3rem;
+        }
+        .corporate-sidebar-template .sidebar .skills-list { 
+            display: block; 
+        }
+        .corporate-sidebar-template .sidebar .skill-tag { 
+            display: block; 
+            background: #34495e; 
+            color: #ffffff; 
+            padding: 0.5rem; 
+            margin: 0.5rem 0; 
+            font-size: 0.9rem; 
+            border-radius: 3px;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

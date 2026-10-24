@@ -1,0 +1,60 @@
+<div class="resume-template elegant2-template">
+    <div class="sidebar">
+        <div class="profile-section">
+            <div class="profile-photo" id="profilePhoto"></div>
+            <h1 class="name" id="previewName">Your Name</h1>
+            <h2 class="title" id="previewJobTitle">Professional Title</h2>
+        </div>
+        <div class="contact-section">
+            <h3>Contact Information</h3>
+            <div class="contact-item" id="previewEmail"></div>
+            <div class="contact-item" id="previewPhone"></div>
+            <div class="contact-item" id="previewLocation"></div>
+            <div class="contact-item" id="previewLinkedIn"></div>
+        </div>
+        <div class="skills-section">
+            <h3>Skills</h3>
+            <div id="previewSkills" class="skills-list"></div>
+        </div>
+        <div class="languages-section">
+            <h3>Languages</h3>
+            <div id="previewLanguages" class="skills-list"></div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="summary-section">
+            <h3>Professional Summary</h3>
+            <p id="previewSummary"></p>
+        </div>
+        <div class="experience-section">
+            <h3>Professional Experience</h3>
+            <div id="previewExperience"></div>
+        </div>
+        <div class="education-section">
+            <h3>Education</h3>
+            <div id="previewEducation"></div>
+        </div>
+        <div class="projects-section">
+            <h3>Notable Projects</h3>
+            <ul id="previewProjects"></ul>
+        </div>
+    </div>
+</div>
+<style>
+.elegant2-template { display: flex; font-family: 'Playfair Display', serif; background: #fff; color: #333; min-height: 800px; }
+.elegant2-template .sidebar { width: 35%; background: linear-gradient(135deg, #8e44ad, #3498db); color: white; padding: 2rem; }
+.elegant2-template .profile-photo { width: 120px; height: 120px; border-radius: 50%; background: rgba(255,255,255,0.2); background-size: cover; background-position: center; margin: 0 auto 1.5rem; border: 4px solid rgba(255,255,255,0.3); }
+.elegant2-template .name { font-size: 2rem; text-align: center; margin: 0 0 0.5rem 0; font-weight: 400; }
+.elegant2-template .title { font-size: 1.1rem; text-align: center; margin: 0 0 2rem 0; opacity: 0.9; font-weight: 300; font-style: italic; }
+.elegant2-template .sidebar h3 { font-size: 1.1rem; margin: 0 0 1rem 0; color: #f39c12; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+.elegant2-template .contact-item { margin-bottom: 0.8rem; font-size: 0.9rem; }
+.elegant2-template .skills-list { display: block; }
+.elegant2-template .skill-tag { display: block; background: rgba(243,156,18,0.2); padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 6px; font-size: 0.85rem; border-left: 3px solid #f39c12; }
+.elegant2-template .main-content { flex: 1; padding: 2rem; }
+.elegant2-template .main-content h3 { color: #8e44ad; font-size: 1.4rem; margin-bottom: 1rem; font-weight: 600; position: relative; }
+.elegant2-template .main-content h3::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 50px; height: 2px; background: #f39c12; }
+.elegant2-template .experience-entry, .elegant2-template .education-entry { margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid #ecf0f1; }
+.elegant2-template .entry-title { font-weight: bold; font-size: 1.2rem; color: #2c3e50; }
+.elegant2-template .entry-company { color: #8e44ad; font-weight: 500; font-style: italic; }
+.elegant2-template .entry-dates { color: #7f8c8d; font-size: 0.9rem; }
+</style>

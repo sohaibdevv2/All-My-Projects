@@ -1,0 +1,40 @@
+<div class="resume-template cvcrea-t">
+<style>
+.cvcrea-t { background:#fff; color:#2d2d2d; font-family:'Inter',sans-serif; font-size:9.2pt; line-height:1.5; padding:40px 46px; max-width:794px; margin:0 auto; }
+.cvcrea-t .experience-entry,.cvcrea-t .education-entry { margin-bottom:12px; }
+.cvcrea-t .entry-header { display:flex; flex-wrap:wrap; align-items:baseline; gap:6px; }
+.cvcrea-t .entry-title { font-size:9.8pt; font-weight:700; color:#1a1a1a; margin:0; }
+.cvcrea-t .entry-company,.cvcrea-t .entry-school { font-size:8.8pt; color:var(--primary-color,#2d8653); font-weight:600; }
+.cvcrea-t .entry-dates { font-size:8pt; color:#888; margin-left:auto; }
+.cvcrea-t .entry-description { font-size:8.6pt; color:#555; line-height:1.55; margin-top:3px; }
+.cvcrea-t ul { margin:0; padding-left:15px; }
+.cvcrea-t li { font-size:8.6pt; color:#555; margin-bottom:3px; }
+.cvcrea-t .skill-tag { display:inline-block; background:#f2f2f2; color:#333; padding:3px 9px; border-radius:4px; font-size:8pt; margin:0 4px 5px 0; }
+.cvcrea-t { padding:0; display:grid; grid-template-columns:230px 1fr; min-height:1000px; }
+.cvcrea-t .c-side { background:var(--primary-color,#2d8653); color:#fff; padding:34px 24px; }
+.cvcrea-t .c-main { padding:34px 30px; }
+.cvcrea-t .c-photo { width:88px; height:88px; border-radius:50%; margin:0 auto 16px; background:rgba(255,255,255,0.25) center/cover; border:3px solid rgba(255,255,255,0.6); }
+.cvcrea-t .r-name { font-size:17pt; font-weight:800; text-align:center; color:#fff; line-height:1.2; }
+.cvcrea-t .r-title { font-size:9pt; text-align:center; color:rgba(255,255,255,0.85); margin:5px 0 16px; }
+.cvcrea-t .r-contact { display:flex; flex-direction:column; gap:5px; font-size:8.2pt; color:rgba(255,255,255,0.9); margin-bottom:18px; }
+.cvcrea-t .c-side .r-sec { font-size:8.5pt; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:#fff; border-bottom:1px solid rgba(255,255,255,0.3); padding-bottom:4px; margin-bottom:8px; }
+.cvcrea-t .c-side .skill-tag { display:block; background:rgba(255,255,255,0.15); color:#fff; margin-bottom:4px; }
+.cvcrea-t .c-side ul li { color:rgba(255,255,255,0.9); }
+.cvcrea-t .c-main .r-sec { font-size:10pt; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--primary-color,#2d8653); border-bottom:2px solid var(--primary-color,#2d8653); padding-bottom:4px; margin:0 0 10px; }
+.cvcrea-t .r-block { margin-bottom:16px; }
+</style>
+<div class="c-side"><div class="c-photo" id="profilePhoto"></div>  <div class="r-name" id="previewName">Your Name</div>
+  <div class="r-title" id="previewJobTitle">Professional Title</div>
+  <div class="r-contact">
+    <span id="previewEmail">email@example.com</span>
+    <span id="previewPhone">+1 555 123 4567</span>
+    <span id="previewLocation">City, Country</span>
+    <span id="previewLinkedIn"></span>
+  </div>  <div class="r-block"><div class="r-sec">Skills</div><div id="previewSkills"></div></div>
+  <div class="r-block"><div class="r-sec">Languages</div><div id="previewLanguages"></div></div>
+  <div class="r-block"><div class="r-sec">Certifications</div><ul id="previewCertifications"></ul></div></div>
+<div class="c-main">  <div class="r-block"><div class="r-sec">Profile</div><p id="previewSummary" style="font-size:9pt;color:#444;line-height:1.6"></p></div>
+  <div class="r-block"><div class="r-sec">Experience</div><div id="previewExperience"></div></div>
+  <div class="r-block"><div class="r-sec">Education</div><div id="previewEducation"></div></div>
+  <div class="r-block"><div class="r-sec">Projects</div><ul id="previewProjects"></ul></div></div>
+</div>

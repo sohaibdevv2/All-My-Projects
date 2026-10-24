@@ -1,0 +1,7 @@
+@WebApi_Error_Handling_HostAddress = http://localhost:5072
+
+GET {{WebApi_Error_Handling_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+http://localhost:5072/api/ErrorHandling/division?numerator=10&denominator=0

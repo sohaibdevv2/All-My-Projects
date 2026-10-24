@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh Graduate Layout Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template fresh-graduate-layout-template">
+        <div class="header">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <div class="contact-info">
+                <div id="previewEmail"></div>
+                <div id="previewPhone"></div>
+                <div id="previewLocation"></div>
+                <div id="previewLinkedIn"></div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Objective</h2>
+            <p id="previewSummary"></p>
+        </div>
+        
+        <div class="section">
+            <h2>Education</h2>
+            <div id="previewEducation"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Relevant Coursework</h2>
+            <div class="coursework">
+                <span>Course placeholder</span> • <span>Course placeholder</span> • <span>Course placeholder</span> • <span>Course placeholder</span>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Internships & Experience</h2>
+            <div id="previewExperience"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Academic Projects</h2>
+            <div class="projects">
+                <div class="project-entry">
+                    <h3>Project Title Placeholder</h3>
+                    <p class="project-description">Brief description of academic project and technologies used</p>
+                    <ul>
+                        <li>Key learning outcome or achievement</li>
+                        <li>Technical skills demonstrated</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Skills</h2>
+            <div id="previewSkills"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Activities & Leadership</h2>
+            <ul class="activities">
+                <li>Activity placeholder - leadership role or involvement</li>
+                <li>Activity placeholder - volunteer work or organization</li>
+            </ul>
+        </div>
+    </div>
+
+    <style>
+        .fresh-graduate-layout-template { 
+            font-family: 'Arial', sans-serif; 
+            background: #ffffff; 
+            color: #000000; 
+            line-height: 1.5; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+            padding: 0.75in;
+        }
+        .fresh-graduate-layout-template .header { 
+            text-align: center; 
+            margin-bottom: 1.5rem; 
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #000000;
+        }
+        .fresh-graduate-layout-template .name { 
+            font-size: 2.2rem; 
+            margin: 0 0 0.8rem 0; 
+            font-weight: bold; 
+            color: #000000;
+        }
+        .fresh-graduate-layout-template .contact-info { 
+            font-size: 0.95rem; 
+            color: #333333;
+        }
+        .fresh-graduate-layout-template .contact-info div { 
+            display: inline-block; 
+            margin: 0 0.8rem; 
+        }
+        .fresh-graduate-layout-template .section { 
+            margin-bottom: 1.8rem; 
+        }
+        .fresh-graduate-layout-template h2 { 
+            color: #000000; 
+            font-size: 1.2rem; 
+            margin-bottom: 0.8rem; 
+            font-weight: bold; 
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .fresh-graduate-layout-template .coursework { 
+            color: #333333; 
+            font-size: 0.95rem;
+        }
+        .fresh-graduate-layout-template .project-entry { 
+            margin-bottom: 1.2rem; 
+        }
+        .fresh-graduate-layout-template .project-entry h3 { 
+            color: #000000; 
+            font-size: 1rem; 
+            margin-bottom: 0.3rem; 
+            font-weight: bold; 
+        }
+        .fresh-graduate-layout-template .project-description { 
+            color: #333333; 
+            margin-bottom: 0.5rem; 
+            font-style: italic;
+        }
+        .fresh-graduate-layout-template .project-entry ul { 
+            margin: 0; 
+            padding-left: 1.2rem; 
+        }
+        .fresh-graduate-layout-template .project-entry li { 
+            margin-bottom: 0.3rem; 
+            color: #333333;
+        }
+        .fresh-graduate-layout-template .activities { 
+            margin: 0; 
+            padding-left: 1.2rem; 
+        }
+        .fresh-graduate-layout-template .activities li { 
+            margin-bottom: 0.5rem; 
+            color: #333333;
+        }
+        .fresh-graduate-layout-template .experience-entry, .fresh-graduate-layout-template .education-entry { 
+            margin-bottom: 1.2rem; 
+        }
+        .fresh-graduate-layout-template .entry-title { 
+            font-weight: bold; 
+            font-size: 1rem; 
+            color: #000000; 
+            margin-bottom: 0.2rem;
+        }
+        .fresh-graduate-layout-template .entry-company { 
+            color: #333333; 
+            font-weight: normal; 
+            font-size: 0.95rem;
+        }
+        .fresh-graduate-layout-template .entry-dates { 
+            color: #666666; 
+            font-size: 0.9rem; 
+            margin-top: 0.2rem;
+        }
+        .fresh-graduate-layout-template .skills-list { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 0.5rem; 
+        }
+        .fresh-graduate-layout-template .skill-tag { 
+            background: transparent; 
+            color: #333333; 
+            padding: 0.3rem 0.5rem; 
+            font-size: 0.9rem; 
+            border: 1px solid #cccccc;
+            text-align: center;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

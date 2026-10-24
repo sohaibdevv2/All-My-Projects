@@ -1,0 +1,172 @@
+<svg width="900" height="300" viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%"   stop-color="#2e1065"/>
+      <stop offset="60%"  stop-color="#1a0533"/>
+      <stop offset="100%" stop-color="#0d0020"/>
+    </radialGradient>
+    <radialGradient id="glow1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"  stop-color="#a855f7" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"  stop-color="#7c3aed" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur1"><feGaussianBlur stdDeviation="18"/></filter>
+    <filter id="blur2"><feGaussianBlur stdDeviation="8"/></filter>
+    <filter id="textglow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="subtleglow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#e9d5ff"/>
+      <stop offset="40%"  stop-color="#c084fc"/>
+      <stop offset="70%"  stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="subGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#c4b5fd"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    .p { animation: floatUp linear infinite; opacity: 0; }
+    .p1  { animation-duration: 7s;  animation-delay: 0s;   cx: 80;  r: 2.5; fill: #c084fc; }
+    .p2  { animation-duration: 9s;  animation-delay: 1.2s; cx: 160; r: 1.8; fill: #a855f7; }
+    .p3  { animation-duration: 6s;  animation-delay: 0.4s; cx: 250; r: 3;   fill: #e9d5ff; }
+    .p4  { animation-duration: 8s;  animation-delay: 2.1s; cx: 340; r: 2;   fill: #c084fc; }
+    .p5  { animation-duration: 7.5s; animation-delay: 0.8s;cx: 430; r: 2.8; fill: #a78bfa; }
+    .p6  { animation-duration: 10s; animation-delay: 1.5s; cx: 520; r: 1.5; fill: #ddd6fe; }
+    .p7  { animation-duration: 6.5s; animation-delay: 3s;  cx: 610; r: 2.2; fill: #c084fc; }
+    .p8  { animation-duration: 9s;  animation-delay: 0.6s; cx: 700; r: 3.2; fill: #a855f7; }
+    .p9  { animation-duration: 7s;  animation-delay: 2.8s; cx: 790; r: 1.8; fill: #e9d5ff; }
+    .p10 { animation-duration: 8.5s; animation-delay: 1.8s;cx: 860; r: 2.5; fill: #c4b5fd; }
+    .p11 { animation-duration: 6s;  animation-delay: 4s;   cx: 120; r: 2;   fill: #ddd6fe; }
+    .p12 { animation-duration: 9.5s; animation-delay: 3.5s;cx: 480; r: 1.5; fill: #a855f7; }
+    .p13 { animation-duration: 7.5s; animation-delay: 2s;  cx: 660; r: 2.8; fill: #c084fc; }
+    .p14 { animation-duration: 6.5s; animation-delay: 4.5s;cx: 380; r: 2;   fill: #e9d5ff; }
+    .p15 { animation-duration: 8s;  animation-delay: 1s;   cx: 750; r: 3;   fill: #c4b5fd; }
+
+    @keyframes floatUp {
+      0%   { opacity: 0;   transform: translateY(0px); }
+      10%  { opacity: 0.9; }
+      80%  { opacity: 0.6; }
+      100% { opacity: 0;   transform: translateY(-280px); }
+    }
+
+    .orb1 { animation: pulse1 6s ease-in-out infinite; }
+    .orb2 { animation: pulse2 8s ease-in-out infinite; }
+    @keyframes pulse1 {
+      0%,100% { opacity: 0.5; transform: scale(1); }
+      50%      { opacity: 0.8; transform: scale(1.12); }
+    }
+    @keyframes pulse2 {
+      0%,100% { opacity: 0.3; transform: scale(1); }
+      50%      { opacity: 0.55; transform: scale(1.08); }
+    }
+
+    .title { animation: titleFade 1.2s ease-out forwards; opacity: 0; }
+    .sub   { animation: titleFade 1.2s ease-out 0.4s forwards; opacity: 0; }
+    .mono  { animation: titleFade 1.2s ease-out 0.7s forwards; opacity: 0; }
+    .tag1  { animation: tagSlide 0.8s ease-out 0.9s forwards;  opacity: 0; }
+    .tag2  { animation: tagSlide 0.8s ease-out 1.1s forwards;  opacity: 0; }
+    .tag3  { animation: tagSlide 0.8s ease-out 1.3s forwards;  opacity: 0; }
+    @keyframes titleFade {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes tagSlide {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .bar-fill { animation: barGrow 1.8s ease-out 1.5s both; transform-origin: left; }
+    @keyframes barGrow {
+      from { transform: scaleX(0); }
+      to   { transform: scaleX(1); }
+    }
+  </style>
+
+  <!-- Background -->
+  <rect width="900" height="300" fill="url(#bg)" rx="16"/>
+
+  <!-- Grid lines -->
+  <g opacity="0.06" stroke="#a855f7" stroke-width="0.5">
+    <line x1="0" y1="60"  x2="900" y2="60"/>
+    <line x1="0" y1="120" x2="900" y2="120"/>
+    <line x1="0" y1="180" x2="900" y2="180"/>
+    <line x1="0" y1="240" x2="900" y2="240"/>
+    <line x1="150" y1="0" x2="150" y2="300"/>
+    <line x1="300" y1="0" x2="300" y2="300"/>
+    <line x1="450" y1="0" x2="450" y2="300"/>
+    <line x1="600" y1="0" x2="600" y2="300"/>
+    <line x1="750" y1="0" x2="750" y2="300"/>
+  </g>
+
+  <!-- Glow orbs -->
+  <ellipse class="orb1" cx="220" cy="150" rx="200" ry="140" fill="url(#glow1)" filter="url(#blur1)"/>
+  <ellipse class="orb2" cx="680" cy="150" rx="160" ry="120" fill="url(#glow2)" filter="url(#blur1)"/>
+
+  <!-- Particles -->
+  <circle class="p p1"  cy="300"/>
+  <circle class="p p2"  cy="300"/>
+  <circle class="p p3"  cy="300"/>
+  <circle class="p p4"  cy="300"/>
+  <circle class="p p5"  cy="300"/>
+  <circle class="p p6"  cy="300"/>
+  <circle class="p p7"  cy="300"/>
+  <circle class="p p8"  cy="300"/>
+  <circle class="p p9"  cy="300"/>
+  <circle class="p p10" cy="300"/>
+  <circle class="p p11" cy="300"/>
+  <circle class="p p12" cy="300"/>
+  <circle class="p p13" cy="300"/>
+  <circle class="p p14" cy="300"/>
+  <circle class="p p15" cy="300"/>
+
+  <!-- Border glow -->
+  <rect width="900" height="300" rx="16" fill="none" stroke="#7c3aed" stroke-width="1.5" opacity="0.4"/>
+  <rect x="1" y="1" width="898" height="298" rx="15" fill="none" stroke="#c084fc" stroke-width="0.5" opacity="0.25"/>
+
+  <!-- Main title -->
+  <text class="title" x="450" y="122" text-anchor="middle"
+        font-family="'Segoe UI', Arial, sans-serif" font-weight="900"
+        font-size="62" fill="url(#titleGrad)" filter="url(#textglow)"
+        letter-spacing="-1">CodeCrafterz</text>
+
+  <!-- Subtitle -->
+  <text class="sub" x="450" y="162" text-anchor="middle"
+        font-family="'Segoe UI', Arial, sans-serif" font-weight="400"
+        font-size="20" fill="#c4b5fd" filter="url(#subtleglow)"
+        letter-spacing="0.5">Build Your Own &lt;Technology&gt;</text>
+
+  <!-- Mono tagline -->
+  <text class="mono" x="450" y="192" text-anchor="middle"
+        font-family="'Courier New', monospace" font-weight="500"
+        font-size="13" fill="#9333ea" opacity="0.8"
+        letter-spacing="2">// learn by building from scratch</text>
+
+  <!-- Tags -->
+  <g class="tag1">
+    <rect x="226" y="218" width="120" height="28" rx="14" fill="#3b0764" stroke="#7c3aed" stroke-width="1" opacity="0.9"/>
+    <text x="286" y="237" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#c084fc" letter-spacing="0.5">200+ Tutorials</text>
+  </g>
+  <g class="tag2">
+    <rect x="390" y="218" width="120" height="28" rx="14" fill="#3b0764" stroke="#7c3aed" stroke-width="1" opacity="0.9"/>
+    <text x="450" y="237" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#c084fc" letter-spacing="0.5">34 Categories</text>
+  </g>
+  <g class="tag3">
+    <rect x="554" y="218" width="120" height="28" rx="14" fill="#3b0764" stroke="#7c3aed" stroke-width="1" opacity="0.9"/>
+    <text x="614" y="237" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#c084fc" letter-spacing="0.5">15+ Languages</text>
+  </g>
+
+  <!-- Bottom accent bar -->
+  <rect x="50" y="276" width="800" height="3" rx="1.5" fill="#1a0533"/>
+  <rect class="bar-fill" x="50" y="276" width="800" height="3" rx="1.5" fill="url(#titleGrad)"/>
+</svg>

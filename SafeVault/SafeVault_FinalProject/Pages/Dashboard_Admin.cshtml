@@ -1,0 +1,36 @@
+﻿@page
+@using Microsoft.AspNetCore.Authorization
+@attribute [Microsoft.AspNetCore.Authorization.Authorize(Roles = "Admin")];
+
+@model SafeVault_FinalProject.Pages.Models.LoginInputModel
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg rounded-4 border-0">
+                <div class="card-body text-center py-5">
+                    <h1 class="display-4 text-dark mb-3">Welcome, Administrator!</h1>
+                    <p class="lead text-muted">You have successfully accessed the admin dashboard.</p>
+
+                    <hr class="my-4" />
+
+                    <p class="fs-5">
+                        Your username: 
+                        <strong>@User.Identity?.Name</strong>
+                    </p>
+
+                    <p class="fs-5 text-primary">
+                        Role: <strong>Administrator</strong>
+                    </p>
+
+                    <div class="text-end mt-4">
+                        <a class="btn btn-outline-danger" href="/Logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

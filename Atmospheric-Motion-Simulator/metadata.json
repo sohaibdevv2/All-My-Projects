@@ -1,0 +1,6 @@
+{
+  "name": "Snowflakes and Balloons Simulator",
+  "description": "A polite and formal interactive visual presentation tool demonstrating medium-sized falling snowflakes and rising balloons.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

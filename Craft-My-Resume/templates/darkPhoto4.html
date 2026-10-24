@@ -1,0 +1,224 @@
+<div class="resume-template dark-carbon-modern">
+  <div class="dcm-wrapper">
+    <div class="dcm-top-banner">
+      <div id="profilePhoto" class="dcm-photo"></div>
+      <div class="dcm-banner-text">
+        <h1 id="previewName" class="dcm-name">Your Name</h1>
+        <p id="previewJobTitle" class="dcm-title">Job Title</p>
+      </div>
+      <div class="dcm-contact-block">
+        <div id="previewEmail" class="dcm-citem">email@example.com</div>
+        <div id="previewPhone" class="dcm-citem">+1 234 567 890</div>
+        <div id="previewLocation" class="dcm-citem">City, Country</div>
+        <div id="previewLinkedIn" class="dcm-citem">linkedin.com/in/you</div>
+      </div>
+    </div>
+
+    <div class="dcm-body">
+      <div class="dcm-summary-strip">
+        <p id="previewSummary">Professional summary goes here.</p>
+      </div>
+
+      <div class="dcm-columns">
+        <div class="dcm-col-main">
+          <div class="dcm-section">
+            <h2 class="dcm-section-title">Experience</h2>
+            <div id="previewExperience"></div>
+          </div>
+          <div class="dcm-section">
+            <h2 class="dcm-section-title">Education</h2>
+            <div id="previewEducation"></div>
+          </div>
+          <div class="dcm-section">
+            <h2 class="dcm-section-title">Projects</h2>
+            <ul id="previewProjects" class="dcm-list"></ul>
+          </div>
+        </div>
+        <div class="dcm-col-side">
+          <div class="dcm-section">
+            <h2 class="dcm-section-title">Skills</h2>
+            <div id="previewSkills" class="skills-list dcm-tags"></div>
+          </div>
+          <div class="dcm-section">
+            <h2 class="dcm-section-title">Languages</h2>
+            <div id="previewLanguages" class="skills-list dcm-tags"></div>
+          </div>
+          <div class="dcm-section">
+            <h2 class="dcm-section-title">Certifications</h2>
+            <ul id="previewCertifications" class="dcm-list"></ul>
+          </div>
+          <div class="dcm-section">
+            <h2 class="dcm-section-title">Awards</h2>
+            <ul id="previewAwards" class="dcm-list"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.dark-carbon-modern {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  --primary: var(--primary-color, #6366f1);
+  --teal: #14b8a6;
+}
+.dark-carbon-modern .dcm-wrapper {
+  background: #1a1a1a;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 24px, rgba(255,255,255,0.02) 24px, rgba(255,255,255,0.02) 25px),
+    repeating-linear-gradient(90deg, transparent, transparent 24px, rgba(255,255,255,0.02) 24px, rgba(255,255,255,0.02) 25px);
+  min-height: 297mm;
+  color: #e0e0e0;
+}
+.dark-carbon-modern .dcm-top-banner {
+  background: #111;
+  border-bottom: 3px solid var(--teal);
+  padding: 22px 32px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.dark-carbon-modern .dcm-photo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(20,184,166,0.1);
+  border: 3px solid var(--teal);
+  box-shadow: 0 0 15px rgba(20,184,166,0.4);
+  flex-shrink: 0;
+}
+.dark-carbon-modern .dcm-banner-text {
+  flex: 1;
+}
+.dark-carbon-modern .dcm-name {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 4px;
+  letter-spacing: -0.5px;
+}
+.dark-carbon-modern .dcm-title {
+  font-size: 0.78rem;
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+  font-weight: 600;
+}
+.dark-carbon-modern .dcm-contact-block {
+  text-align: right;
+}
+.dark-carbon-modern .dcm-citem {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 3px;
+}
+.dark-carbon-modern .dcm-body {
+  padding: 0;
+}
+.dark-carbon-modern .dcm-summary-strip {
+  background: rgba(20,184,166,0.07);
+  border-bottom: 1px solid rgba(20,184,166,0.15);
+  padding: 12px 32px;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.6;
+}
+.dark-carbon-modern .dcm-summary-strip p {
+  margin: 0;
+}
+.dark-carbon-modern .dcm-columns {
+  display: flex;
+  gap: 0;
+  padding: 20px 28px;
+  gap: 20px;
+}
+.dark-carbon-modern .dcm-col-main {
+  flex: 2;
+}
+.dark-carbon-modern .dcm-col-side {
+  flex: 1;
+}
+.dark-carbon-modern .dcm-section {
+  margin-bottom: 18px;
+}
+.dark-carbon-modern .dcm-section-title {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--teal);
+  margin: 0 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(20,184,166,0.2);
+}
+.dark-carbon-modern .dcm-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.dark-carbon-modern .dcm-tags span {
+  background: rgba(20,184,166,0.1);
+  border: 1px solid rgba(20,184,166,0.25);
+  color: #a7f3d0;
+  padding: 2px 9px;
+  border-radius: 4px;
+  font-size: 0.68rem;
+}
+.dark-carbon-modern .dcm-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.74rem;
+  color: #888;
+}
+.dark-carbon-modern .dcm-list li {
+  padding: 2px 0 2px 14px;
+  position: relative;
+}
+.dark-carbon-modern .dcm-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--teal);
+}
+.dark-carbon-modern #previewExperience .experience-entry,
+.dark-carbon-modern #previewEducation .education-entry {
+  margin-bottom: 13px;
+  padding-bottom: 13px;
+  border-bottom: 1px solid #2a2a2a;
+}
+.dark-carbon-modern #previewExperience .experience-entry:last-child,
+.dark-carbon-modern #previewEducation .education-entry:last-child {
+  border-bottom: none;
+}
+.dark-carbon-modern #previewExperience .entry-title,
+.dark-carbon-modern #previewEducation .entry-title {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #fff;
+}
+.dark-carbon-modern #previewExperience .entry-company,
+.dark-carbon-modern #previewEducation .entry-school {
+  font-size: 0.78rem;
+  color: var(--teal);
+}
+.dark-carbon-modern #previewExperience .entry-dates,
+.dark-carbon-modern #previewEducation .entry-dates {
+  font-size: 0.68rem;
+  color: #666;
+}
+.dark-carbon-modern #previewExperience .entry-description,
+.dark-carbon-modern #previewEducation .entry-description {
+  font-size: 0.74rem;
+  color: #888;
+  margin-top: 4px;
+  line-height: 1.55;
+}
+</style>

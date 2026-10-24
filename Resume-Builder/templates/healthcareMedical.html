@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare & Medical Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template healthcare-medical-template">
+        <div class="header-section">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <h2 class="title" id="previewJobTitle">Healthcare Professional</h2>
+            <div class="contact-info">
+                <span id="previewEmail"></span> • <span id="previewPhone"></span> • <span id="previewLocation"></span> • <span id="previewLinkedIn"></span>
+            </div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="section">
+                <h3>🩺 Professional Summary</h3>
+                <p id="previewSummary"></p>
+            </div>
+            
+            <div class="section">
+                <h3>🏥 Clinical Experience</h3>
+                <div id="previewExperience"></div>
+            </div>
+            
+            <div class="dual-section">
+                <div class="left-column">
+                    <div class="section">
+                        <h3>🎓 Education & Certifications</h3>
+                        <div id="previewEducation"></div>
+                    </div>
+                </div>
+                
+                <div class="right-column">
+                    <div class="section">
+                        <h3>⚕️ Clinical Skills</h3>
+                        <div id="previewSkills" class="skills-list"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>🌍 Languages</h3>
+                        <div id="previewLanguages" class="skills-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .healthcare-medical-template { 
+            font-family: 'Calibri', 'Arial', sans-serif; 
+            background: #ffffff; 
+            color: #2c3e50; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+        }
+        .healthcare-medical-template .header-section { 
+            text-align: center; 
+            padding: 2.5rem 2rem 2rem; 
+            background: #ffffff;
+            border-bottom: 3px solid #3498db;
+        }
+        .healthcare-medical-template .name { 
+            font-size: 2.8rem; 
+            margin: 0; 
+            font-weight: 300; 
+            color: #2c3e50;
+            letter-spacing: 1px;
+        }
+        .healthcare-medical-template .title { 
+            font-size: 1.3rem; 
+            margin: 1rem 0 1.5rem 0; 
+            font-weight: normal; 
+            color: #3498db; 
+        }
+        .healthcare-medical-template .contact-info { 
+            font-size: 1rem; 
+            color: #7f8c8d; 
+        }
+        .healthcare-medical-template .content-wrapper { 
+            padding: 2rem 3rem; 
+        }
+        .healthcare-medical-template .section { 
+            margin-bottom: 2.5rem; 
+        }
+        .healthcare-medical-template h3 { 
+            color: #2c3e50; 
+            font-size: 1.2rem; 
+            margin-bottom: 1.5rem; 
+            font-weight: 600; 
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: #ecf0f1;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        .healthcare-medical-template .dual-section { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 3rem; 
+        }
+        .healthcare-medical-template .experience-entry, .healthcare-medical-template .education-entry { 
+            margin-bottom: 2rem; 
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+        .healthcare-medical-template .entry-title { 
+            font-weight: 600; 
+            font-size: 1.1rem; 
+            color: #2c3e50; 
+            margin-bottom: 0.5rem;
+        }
+        .healthcare-medical-template .entry-company { 
+            color: #3498db; 
+            font-weight: 500; 
+            font-size: 1rem;
+        }
+        .healthcare-medical-template .entry-dates { 
+            color: #7f8c8d; 
+            font-size: 0.95rem; 
+            margin-top: 0.5rem;
+        }
+        .healthcare-medical-template .skills-list { 
+            display: block; 
+        }
+        .healthcare-medical-template .skill-tag { 
+            display: block; 
+            background: #ffffff; 
+            color: #2c3e50; 
+            padding: 0.8rem 1rem; 
+            margin: 0.5rem 0; 
+            font-size: 0.95rem; 
+            border: 1px solid #3498db;
+            border-radius: 6px;
+            border-left: 4px solid #3498db;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

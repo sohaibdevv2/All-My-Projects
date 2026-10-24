@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Futuristic Web Experience — Liquid Mirror Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@200;300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"></script>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Custom cursor -->
+  <div id="cursor">
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+  </div>
+
+  <!-- Loader -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">
+        <span class="shard">F</span>
+        <span class="shard">W</span>
+        <span class="shard">E</span>
+      </div>
+      <div class="loader-bar"><div class="loader-progress" id="loader-progress"></div></div>
+      <p class="loader-label">FUTURISTIC WEB EXPERIENCE — INITIALIZING</p>
+    </div>
+  </div>
+
+  <!-- Three.js canvas -->
+  <canvas id="canvas"></canvas>
+
+  <!-- Nav -->
+  <nav id="nav">
+    <div class="nav-logo">F·W·E</div>
+    <div class="nav-links">
+      <a href="#realm-1" class="nav-link magnetic">Intelligence</a>
+      <a href="#realm-2" class="nav-link magnetic">Neural</a>
+      <a href="#realm-3" class="nav-link magnetic">Finance</a>
+      <a href="#realm-4" class="nav-link magnetic">Data</a>
+    </div>
+    <button class="nav-cta magnetic">Access System</button>
+  </nav>
+
+  <main id="main">
+
+    <!-- REALM 0: HERO -->
+    <section id="realm-0" class="realm hero-realm">
+      <div class="realm-content">
+        <div class="hero-label" id="hero-label">MIRROR INTELLIGENCE — 2047</div>
+        <h1 class="hero-title">
+          <span class="title-line" id="tl-0">The Future</span>
+          <span class="title-line title-stroke" id="tl-1">Reflects</span>
+          <span class="title-line" id="tl-2">Itself</span>
+        </h1>
+        <p class="hero-sub" id="hero-sub">
+          Intelligence that adapts, reflects, and evolves<br>with every interaction you make.
+        </p>
+        <div class="hero-btns" id="hero-btns">
+          <button class="btn-solid magnetic">Enter System</button>
+          <button class="btn-ghost magnetic">Explore</button>
+        </div>
+      </div>
+      <div class="scroll-hint">
+        <div class="scroll-line"></div>
+        <span>SCROLL</span>
+      </div>
+    </section>
+
+    <!-- REALM 1: MIRROR INTELLIGENCE -->
+    <section id="realm-1" class="realm panels-realm">
+      <div class="glass-panel glass-left" data-panel="left">
+        <div class="panel-label">SYSTEM 01</div>
+        <h2 class="panel-h">Mirror<br>Intelligence</h2>
+        <p class="panel-p">Self-aware systems that reflect user intent before it's fully formed. Glass walls that remember where you've been.</p>
+        <div class="panel-divider"></div>
+        <p class="panel-caption">Every surface is a mirror. Every mirror is a mind.</p>
+      </div>
+      <div class="glass-panel glass-right" data-panel="right">
+        <div class="panel-label">LIVE METRICS</div>
+        <div class="metrics-list">
+          <div class="metric-row">
+            <span class="metric-num" data-target="99.7">0</span><span class="metric-unit">%</span>
+            <span class="metric-desc">Prediction Accuracy</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-num" data-target="0.3">0</span><span class="metric-unit">ms</span>
+            <span class="metric-desc">Mirror Response</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-num" data-target="847">0</span><span class="metric-unit">B</span>
+            <span class="metric-desc">Parameters</span>
+          </div>
+          <div class="metric-row">
+            <span class="metric-num" data-target="12">0</span><span class="metric-unit">K</span>
+            <span class="metric-desc">Mirror Nodes</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REALM 2: NEURAL CHAMBER -->
+    <section id="realm-2" class="realm neural-realm">
+      <div class="realm-center">
+        <div class="panel-label">SYSTEM 02</div>
+        <h2 class="realm-h">Neural<br>Chamber</h2>
+        <p class="realm-p">Consciousness mapped into geometric space. Every thought leaves a permanent light trace in the mirror walls.</p>
+        <div class="feat-grid">
+          <div class="feat-card magnetic">
+            <div class="feat-icon">◈</div>
+            <div class="feat-name">Reflective Learning</div>
+            <div class="feat-desc">Models that evolve through reflection</div>
+          </div>
+          <div class="feat-card magnetic">
+            <div class="feat-icon">⬡</div>
+            <div class="feat-name">Spatial Memory</div>
+            <div class="feat-desc">Three-dimensional context retention</div>
+          </div>
+          <div class="feat-card magnetic">
+            <div class="feat-icon">◎</div>
+            <div class="feat-name">Mirror Prediction</div>
+            <div class="feat-desc">Anticipate intent before articulation</div>
+          </div>
+          <div class="feat-card magnetic">
+            <div class="feat-icon">⟁</div>
+            <div class="feat-name">Depth Analysis</div>
+            <div class="feat-desc">Layered semantic understanding</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REALM 3: HOLOGRAPHIC FINANCE -->
+    <section id="realm-3" class="realm finance-realm">
+      <div class="finance-layout">
+        <div class="finance-left">
+          <div class="panel-label">SYSTEM 03</div>
+          <h2 class="realm-h">Holographic<br>Finance</h2>
+          <p class="realm-p">Tokens are no longer flat icons. They are volumetric, spatially aware, refractive intelligence nodes orbiting in your space.</p>
+          <div class="stat-bars">
+            <div class="stat-item">
+              <span class="stat-lbl">LIQUIDITY INDEX</span>
+              <div class="stat-track"><div class="stat-fill" data-w="87"></div></div>
+              <span class="stat-val">87.2%</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-lbl">MIRROR DEPTH</span>
+              <div class="stat-track"><div class="stat-fill" data-w="94"></div></div>
+              <span class="stat-val">94.1%</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-lbl">SPATIAL VELOCITY</span>
+              <div class="stat-track"><div class="stat-fill" data-w="73"></div></div>
+              <span class="stat-val">73.8%</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-lbl">REFRACTION RATE</span>
+              <div class="stat-track"><div class="stat-fill" data-w="91"></div></div>
+              <span class="stat-val">91.4%</span>
+            </div>
+          </div>
+        </div>
+        <div class="finance-right" id="coin-viewport">
+          <!-- Coins rendered via Three.js in 3D overlay area -->
+          <div class="coin-label-overlay">
+            <span class="coin-ticker">NXS</span>
+            <span class="coin-price">$4,820.00</span>
+            <span class="coin-change">+3.47%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REALM 4: SPATIAL DATA VAULT -->
+    <section id="realm-4" class="realm data-realm">
+      <div class="realm-center">
+        <div class="panel-label">SYSTEM 04</div>
+        <h2 class="realm-h">Spatial<br>Data Vault</h2>
+        <p class="realm-p">Information exists in three dimensions. Cards orbit in cursor gravity fields, responding to your presence.</p>
+        <div class="orbit-system" id="orbit-system">
+          <div class="orbit-card" style="--a:0deg">
+            <div class="oc-label">NEURAL STREAM</div>
+            <div class="oc-value">∞ TB/s</div>
+          </div>
+          <div class="orbit-card" style="--a:72deg">
+            <div class="oc-label">MIRROR NODES</div>
+            <div class="oc-value">12,847</div>
+          </div>
+          <div class="orbit-card" style="--a:144deg">
+            <div class="oc-label">LIGHT TRACES</div>
+            <div class="oc-value">4.7M</div>
+          </div>
+          <div class="orbit-card" style="--a:216deg">
+            <div class="oc-label">DEPTH LAYERS</div>
+            <div class="oc-value">128</div>
+          </div>
+          <div class="orbit-card" style="--a:288deg">
+            <div class="oc-label">REFLECTIONS</div>
+            <div class="oc-value">Real-time</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REALM 5: INFINITE FUTURE -->
+    <section id="realm-5" class="realm finale-realm">
+      <div class="realm-center finale-center">
+        <div class="panel-label">THE FUTURE</div>
+        <h2 class="finale-h">Infinite<br>Future</h2>
+        <p class="finale-sub">The mirror has no edges.</p>
+        <button class="btn-finale magnetic">Begin Your Journey</button>
+        <div class="finale-tags">
+          <span>FUTURISTIC WEB EXPERIENCE</span>
+          <span>EST. 2047</span>
+          <span>MIRROR TECHNOLOGY</span>
+          <span>SPATIAL AI</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

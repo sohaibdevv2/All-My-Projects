@@ -1,0 +1,240 @@
+<div class="resume-template split-dark-blue">
+  <div class="sdb-wrapper">
+    <div class="sdb-sidebar">
+      <div id="profilePhoto" class="sdb-photo"></div>
+      <h1 id="previewName" class="sdb-name">Your Name</h1>
+      <p id="previewJobTitle" class="sdb-title">Job Title</p>
+      <div class="sdb-divider"></div>
+      <div class="sdb-sid-section">
+        <h3 class="sdb-sid-label">Contact</h3>
+        <p id="previewEmail" class="sdb-citem">email@example.com</p>
+        <p id="previewPhone" class="sdb-citem">+1 234 567 890</p>
+        <p id="previewLocation" class="sdb-citem">City, Country</p>
+        <div id="previewLinkedIn" class="sdb-citem">linkedin.com/in/you</div>
+      </div>
+      <div class="sdb-divider"></div>
+      <div class="sdb-sid-section">
+        <h3 class="sdb-sid-label">Skills</h3>
+        <div id="previewSkills" class="skills-list sdb-pills"></div>
+      </div>
+      <div class="sdb-divider"></div>
+      <div class="sdb-sid-section">
+        <h3 class="sdb-sid-label">Languages</h3>
+        <div id="previewLanguages" class="skills-list sdb-pills"></div>
+      </div>
+      <div class="sdb-divider"></div>
+      <div class="sdb-sid-section">
+        <h3 class="sdb-sid-label">Awards</h3>
+        <ul id="previewAwards" class="sdb-ul"></ul>
+      </div>
+    </div>
+
+    <div class="sdb-main">
+      <div class="sdb-summary-area">
+        <p id="previewSummary">Professional summary goes here.</p>
+      </div>
+      <div class="sdb-section">
+        <h2 class="sdb-section-title">Experience</h2>
+        <div id="previewExperience"></div>
+      </div>
+      <div class="sdb-section">
+        <h2 class="sdb-section-title">Education</h2>
+        <div id="previewEducation"></div>
+      </div>
+      <div class="sdb-section">
+        <h2 class="sdb-section-title">Certifications</h2>
+        <ul id="previewCertifications" class="sdb-list"></ul>
+      </div>
+      <div class="sdb-section">
+        <h2 class="sdb-section-title">Projects</h2>
+        <ul id="previewProjects" class="sdb-list"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.split-dark-blue {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  --primary: var(--primary-color, #6366f1);
+  --navy: #1a237e;
+}
+.split-dark-blue .sdb-wrapper {
+  display: flex;
+  min-height: 297mm;
+}
+.split-dark-blue .sdb-sidebar {
+  width: 33%;
+  background: var(--navy);
+  padding: 26px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+.split-dark-blue .sdb-photo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(255,255,255,0.1);
+  border: 4px solid rgba(255,255,255,0.7);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  margin-bottom: 12px;
+}
+.split-dark-blue .sdb-name {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+  margin: 0 0 4px;
+}
+.split-dark-blue .sdb-title {
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 0;
+}
+.split-dark-blue .sdb-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255,255,255,0.15);
+  margin: 13px 0;
+}
+.split-dark-blue .sdb-sid-section {
+  width: 100%;
+}
+.split-dark-blue .sdb-sid-label {
+  font-size: 0.57rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.55);
+  margin: 0 0 7px;
+}
+.split-dark-blue .sdb-citem {
+  font-size: 0.69rem;
+  color: rgba(255,255,255,0.75);
+  margin: 3px 0;
+  word-break: break-all;
+}
+.split-dark-blue .sdb-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.split-dark-blue .sdb-pills span {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.9);
+  padding: 2px 9px;
+  border-radius: 20px;
+  font-size: 0.65rem;
+}
+.split-dark-blue .sdb-ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.69rem;
+  color: rgba(255,255,255,0.6);
+  width: 100%;
+}
+.split-dark-blue .sdb-ul li {
+  padding: 2px 0 2px 12px;
+  position: relative;
+}
+.split-dark-blue .sdb-ul li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: rgba(255,255,255,0.4);
+}
+.split-dark-blue .sdb-main {
+  flex: 1;
+  background: #fff;
+  padding: 24px 24px;
+}
+.split-dark-blue .sdb-summary-area {
+  background: #e8ecf8;
+  border-left: 4px solid var(--navy);
+  border-radius: 0 6px 6px 0;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  font-size: 0.8rem;
+  color: #333;
+  line-height: 1.65;
+}
+.split-dark-blue .sdb-summary-area p {
+  margin: 0;
+}
+.split-dark-blue .sdb-section {
+  margin-bottom: 16px;
+}
+.split-dark-blue .sdb-section-title {
+  font-size: 0.63rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: var(--navy);
+  margin: 0 0 8px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #c8d0f0;
+}
+.split-dark-blue .sdb-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.75rem;
+  color: #555;
+}
+.split-dark-blue .sdb-list li {
+  padding: 2px 0 2px 13px;
+  position: relative;
+}
+.split-dark-blue .sdb-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--navy);
+}
+.split-dark-blue #previewExperience .experience-entry,
+.split-dark-blue #previewEducation .education-entry {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #eceff8;
+}
+.split-dark-blue #previewExperience .experience-entry:last-child,
+.split-dark-blue #previewEducation .education-entry:last-child {
+  border-bottom: none;
+}
+.split-dark-blue #previewExperience .entry-title,
+.split-dark-blue #previewEducation .entry-title {
+  font-weight: 700;
+  font-size: 0.87rem;
+  color: #1a237e;
+}
+.split-dark-blue #previewExperience .entry-company,
+.split-dark-blue #previewEducation .entry-school {
+  font-size: 0.77rem;
+  color: #3949ab;
+  font-weight: 600;
+}
+.split-dark-blue #previewExperience .entry-dates,
+.split-dark-blue #previewEducation .entry-dates {
+  font-size: 0.68rem;
+  color: #aaa;
+}
+.split-dark-blue #previewExperience .entry-description,
+.split-dark-blue #previewEducation .entry-description {
+  font-size: 0.74rem;
+  color: #555;
+  margin-top: 4px;
+  line-height: 1.55;
+}
+</style>

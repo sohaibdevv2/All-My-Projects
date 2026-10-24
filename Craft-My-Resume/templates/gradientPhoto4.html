@@ -1,0 +1,221 @@
+<div class="resume-template gradient-forest-executive">
+  <div class="gfe-wrapper">
+    <div class="gfe-header">
+      <div id="profilePhoto" class="gfe-photo"></div>
+      <div class="gfe-header-text">
+        <h1 id="previewName" class="gfe-name">Your Name</h1>
+        <p id="previewJobTitle" class="gfe-title">Job Title</p>
+        <div class="gfe-contacts">
+          <span id="previewEmail" class="gfe-contact">email@example.com</span>
+          <span id="previewPhone" class="gfe-contact">+1 234 567 890</span>
+          <span id="previewLocation" class="gfe-contact">City, Country</span>
+          <div id="previewLinkedIn" class="gfe-contact">linkedin.com/in/you</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gfe-body">
+      <div class="gfe-summary">
+        <p id="previewSummary">Professional summary goes here.</p>
+      </div>
+
+      <div class="gfe-columns">
+        <div class="gfe-main">
+          <div class="gfe-section">
+            <h2 class="gfe-section-title">Experience</h2>
+            <div id="previewExperience"></div>
+          </div>
+          <div class="gfe-section">
+            <h2 class="gfe-section-title">Education</h2>
+            <div id="previewEducation"></div>
+          </div>
+          <div class="gfe-section">
+            <h2 class="gfe-section-title">Projects</h2>
+            <ul id="previewProjects" class="gfe-list"></ul>
+          </div>
+        </div>
+        <div class="gfe-side">
+          <div class="gfe-section">
+            <h2 class="gfe-section-title">Skills</h2>
+            <div id="previewSkills" class="skills-list gfe-tags"></div>
+          </div>
+          <div class="gfe-section">
+            <h2 class="gfe-section-title">Languages</h2>
+            <div id="previewLanguages" class="skills-list gfe-tags"></div>
+          </div>
+          <div class="gfe-section">
+            <h2 class="gfe-section-title">Certifications</h2>
+            <ul id="previewCertifications" class="gfe-list"></ul>
+          </div>
+          <div class="gfe-section">
+            <h2 class="gfe-section-title">Awards</h2>
+            <ul id="previewAwards" class="gfe-list"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.gradient-forest-executive {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  --primary: var(--primary-color, #6366f1);
+  --green: #56ab2f;
+}
+.gradient-forest-executive .gfe-wrapper {
+  background: #f7fff5;
+  min-height: 297mm;
+}
+.gradient-forest-executive .gfe-header {
+  background: linear-gradient(135deg, #56ab2f 0%, #a8e063 100%);
+  padding: 28px 34px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  color: #fff;
+}
+.gradient-forest-executive .gfe-photo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(255,255,255,0.2);
+  border: 4px solid #fff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  flex-shrink: 0;
+}
+.gradient-forest-executive .gfe-name {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 4px;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.gradient-forest-executive .gfe-title {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.9);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0 0 10px;
+}
+.gradient-forest-executive .gfe-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.gradient-forest-executive .gfe-contact {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.95);
+  background: rgba(255,255,255,0.2);
+  border-radius: 20px;
+  padding: 2px 10px;
+}
+.gradient-forest-executive .gfe-body {
+  padding: 20px 30px;
+}
+.gradient-forest-executive .gfe-summary {
+  background: #edfbe6;
+  border-left: 4px solid #56ab2f;
+  border-radius: 0 6px 6px 0;
+  padding: 12px 16px;
+  margin-bottom: 18px;
+  font-size: 0.81rem;
+  color: #333;
+  line-height: 1.65;
+}
+.gradient-forest-executive .gfe-summary p {
+  margin: 0;
+}
+.gradient-forest-executive .gfe-columns {
+  display: flex;
+  gap: 18px;
+}
+.gradient-forest-executive .gfe-main {
+  flex: 2;
+}
+.gradient-forest-executive .gfe-side {
+  flex: 1;
+}
+.gradient-forest-executive .gfe-section {
+  margin-bottom: 16px;
+}
+.gradient-forest-executive .gfe-section-title {
+  font-size: 0.63rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: #2d6a0f;
+  margin: 0 0 8px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #c6edb8;
+}
+.gradient-forest-executive .gfe-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.gradient-forest-executive .gfe-tags span {
+  background: #eafade;
+  border: 1px solid #a8e063;
+  color: #2d6a0f;
+  padding: 2px 9px;
+  border-radius: 20px;
+  font-size: 0.68rem;
+}
+.gradient-forest-executive .gfe-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.75rem;
+  color: #444;
+}
+.gradient-forest-executive .gfe-list li {
+  padding: 2px 0 2px 12px;
+  position: relative;
+}
+.gradient-forest-executive .gfe-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: #56ab2f;
+}
+.gradient-forest-executive #previewExperience .experience-entry,
+.gradient-forest-executive #previewEducation .education-entry {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e4f5de;
+}
+.gradient-forest-executive #previewExperience .experience-entry:last-child,
+.gradient-forest-executive #previewEducation .education-entry:last-child {
+  border-bottom: none;
+}
+.gradient-forest-executive #previewExperience .entry-title,
+.gradient-forest-executive #previewEducation .entry-title {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #1a2e1a;
+}
+.gradient-forest-executive #previewExperience .entry-company,
+.gradient-forest-executive #previewEducation .entry-school {
+  font-size: 0.78rem;
+  color: #56ab2f;
+  font-weight: 600;
+}
+.gradient-forest-executive #previewExperience .entry-dates,
+.gradient-forest-executive #previewEducation .entry-dates {
+  font-size: 0.68rem;
+  color: #aaa;
+}
+.gradient-forest-executive #previewExperience .entry-description,
+.gradient-forest-executive #previewEducation .entry-description {
+  font-size: 0.76rem;
+  color: #555;
+  margin-top: 4px;
+  line-height: 1.55;
+}
+</style>

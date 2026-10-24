@@ -1,0 +1,80 @@
+<div class="resume-template timeline-pro">
+  <div class="tp-header">
+    <div id="profilePhoto" class="tp-photo"></div>
+    <div class="tp-header-text">
+      <h1 id="previewName" class="tp-name">Your Name</h1>
+      <p id="previewJobTitle" class="tp-title">Job Title</p>
+      <div class="tp-contacts">
+        <span id="previewEmail">✉ email@example.com</span>
+        <span id="previewPhone">📱 +1 234 567 890</span>
+        <span id="previewLocation">📍 City, Country</span>
+        <span id="previewLinkedIn">🔗 LinkedIn</span>
+      </div>
+    </div>
+  </div>
+  <div class="tp-body">
+    <div class="tp-main">
+      <div class="tp-section">
+        <h2 class="tp-heading">Profile</h2>
+        <p id="previewSummary" class="tp-summary">Professional summary here.</p>
+      </div>
+      <div class="tp-section">
+        <h2 class="tp-heading">Experience</h2>
+        <div id="previewExperience" class="tp-timeline"></div>
+      </div>
+      <div class="tp-section">
+        <h2 class="tp-heading">Education</h2>
+        <div id="previewEducation" class="tp-timeline"></div>
+      </div>
+      <div class="tp-section">
+        <h2 class="tp-heading">Projects</h2>
+        <ul id="previewProjects" class="tp-proj-list"></ul>
+      </div>
+    </div>
+    <div class="tp-side">
+      <div class="tp-section">
+        <h2 class="tp-heading">Skills</h2>
+        <div id="previewSkills" class="skills-list tp-skills"></div>
+      </div>
+      <div class="tp-section">
+        <h2 class="tp-heading">Languages</h2>
+        <div id="previewLanguages" class="skills-list tp-skills"></div>
+      </div>
+      <div class="tp-section">
+        <h2 class="tp-heading">Certifications</h2>
+        <ul id="previewCertifications" class="tp-list"></ul>
+      </div>
+      <div class="tp-section">
+        <h2 class="tp-heading">Awards</h2>
+        <ul id="previewAwards" class="tp-list"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+.timeline-pro { font-family: 'Segoe UI', system-ui, sans-serif; width: 210mm; min-height: 297mm; margin: 0 auto; background: #fff; --primary: var(--primary-color, #0ea5e9); color: #1e293b; }
+.tp-header { background: linear-gradient(135deg, #0c1445 0%, #1e3a5f 60%, #0ea5e9 130%); padding: 26px 36px; display: flex; align-items: center; gap: 22px; }
+.tp-photo { width: 100px; height: 100px; border-radius: 12px; background-size: cover; background-position: center; background-color: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.3); flex-shrink: 0; }
+.tp-name { font-size: 2rem; font-weight: 800; color: #fff; margin: 0 0 4px; letter-spacing: -0.5px; }
+.tp-title { font-size: 0.8rem; color: var(--primary); margin: 0 0 10px; text-transform: uppercase; letter-spacing: 2px; font-weight: 500; }
+.tp-contacts { display: flex; flex-wrap: wrap; gap: 5px 14px; font-size: 0.68rem; color: rgba(255,255,255,0.7); }
+.tp-body { display: flex; padding: 24px 36px; gap: 28px; }
+.tp-main { flex: 2; }
+.tp-side { flex: 1; padding-left: 22px; border-left: 1px solid #e2e8f0; }
+.tp-section { margin-bottom: 20px; }
+.tp-heading { font-size: 0.62rem; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; color: var(--primary); margin: 0 0 12px; padding-bottom: 5px; border-bottom: 2px solid var(--primary); }
+.tp-summary { font-size: 0.82rem; line-height: 1.65; color: #475569; margin: 0; }
+.tp-timeline { position: relative; padding-left: 18px; }
+.tp-timeline::before { content: ''; position: absolute; left: 5px; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, var(--primary), #e2e8f0); }
+.timeline-pro .experience-entry, .timeline-pro .education-entry { margin-bottom: 14px; position: relative; }
+.timeline-pro .experience-entry::before, .timeline-pro .education-entry::before { content: ''; position: absolute; left: -17px; top: 5px; width: 8px; height: 8px; border-radius: 50%; background: var(--primary); border: 2px solid #fff; box-shadow: 0 0 0 2px var(--primary); }
+.timeline-pro .entry-header { display: flex; flex-wrap: wrap; gap: 2px 8px; margin-bottom: 3px; align-items: baseline; }
+.timeline-pro .entry-title { font-weight: 700; font-size: 0.88rem; color: #1e293b; flex: 100%; }
+.timeline-pro .entry-company, .timeline-pro .entry-school { font-size: 0.76rem; color: var(--primary); font-weight: 600; }
+.timeline-pro .entry-dates { font-size: 0.68rem; color: #94a3b8; background: #f1f5f9; padding: 1px 8px; border-radius: 8px; }
+.timeline-pro .entry-description { font-size: 0.74rem; color: #475569; line-height: 1.55; margin-top: 4px; }
+.tp-skills { display: flex; flex-wrap: wrap; gap: 5px; }
+.tp-skills .skill-tag { background: #f0f9ff; border: 1px solid #bae6fd; color: #0369a1; padding: 3px 10px; border-radius: 12px; font-size: 0.68rem; font-weight: 500; }
+.tp-list { margin: 0; padding-left: 14px; font-size: 0.72rem; color: #475569; line-height: 1.7; }
+.tp-proj-list { margin: 0; padding-left: 16px; font-size: 0.76rem; color: #475569; line-height: 1.7; }
+</style>

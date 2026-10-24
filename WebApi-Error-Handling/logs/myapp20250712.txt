@@ -1,0 +1,11 @@
+2025-07-12 15:53:16.508 +05:00 [INF] Now listening on: http://localhost:5072
+2025-07-12 15:53:16.608 +05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-07-12 15:53:16.634 +05:00 [INF] Hosting environment: Development
+2025-07-12 15:53:16.638 +05:00 [INF] Content root path: C:\Users\dell\WebApi-Error-Handling
+2025-07-12 15:53:25.200 +05:00 [INF] Request starting HTTP/1.1 GET http://localhost:5072/api/ErrorHandling/division?numerator=10&denominator=0 - null null
+2025-07-12 15:53:25.235 +05:00 [INF] Executing endpoint 'MyApi.Controllers.ErrorHandlingController.GetDivisionResult (WebApi-Error-Handling)'
+2025-07-12 15:53:25.273 +05:00 [INF] Route matched with {action = "GetDivisionResult", controller = "ErrorHandling"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetDivisionResult(Int32, Int32) on controller MyApi.Controllers.ErrorHandlingController (WebApi-Error-Handling).
+2025-07-12 15:53:25.298 +05:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2025-07-12 15:53:25.309 +05:00 [INF] Executed action MyApi.Controllers.ErrorHandlingController.GetDivisionResult (WebApi-Error-Handling) in 27.3443ms
+2025-07-12 15:53:25.331 +05:00 [INF] Executed endpoint 'MyApi.Controllers.ErrorHandlingController.GetDivisionResult (WebApi-Error-Handling)'
+2025-07-12 15:53:25.336 +05:00 [INF] Request finished HTTP/1.1 GET http://localhost:5072/api/ErrorHandling/division?numerator=10&denominator=0 - 400 null text/plain; charset=utf-8 140.1264ms

@@ -1,0 +1,70 @@
+<div class="resume-template creative-template">
+    <div class="creative-header">
+        <div class="name-banner">
+            <h1 class="name" id="previewName">Your Name</h1>
+        </div>
+        <div class="profile-photo" id="profilePhoto"></div>
+        <h2 class="job-title" id="previewJobTitle">Professional Title</h2>
+    </div>
+    <div class="creative-body">
+        <div class="creative-contact">
+            <span id="previewEmail">email@example.com</span> &bull;
+            <span id="previewPhone">+1 (555) 123-4567</span> &bull;
+            <span id="previewLocation">Location</span>
+            <div id="previewLinkedIn"></div>
+        </div>
+        <div class="creative-main">
+            <div class="creative-col-left">
+                <div class="section summary-section">
+                    <h3>ABOUT ME</h3>
+                    <p id="previewSummary"></p>
+                </div>
+                <div class="section experience-section">
+                    <h3>EXPERIENCE</h3>
+                    <div id="previewExperience"></div>
+                </div>
+                <div class="section projects-section">
+                    <h3>PROJECTS</h3>
+                    <ul id="previewProjects"></ul>
+                </div>
+            </div>
+            <div class="creative-col-right">
+                <div class="section skills-section">
+                    <h3>SKILLS</h3>
+                    <div id="previewSkills" class="skills-list"></div>
+                </div>
+                <div class="section education-section">
+                    <h3>EDUCATION</h3>
+                    <div id="previewEducation"></div>
+                </div>
+                <div class="section languages-section">
+                    <h3>LANGUAGES</h3>
+                    <div id="previewLanguages" class="skills-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .creative-template { font-family: var(--font-sans, 'Inter', sans-serif); background: #fff; color: #333; }
+    .creative-template .creative-header { background: var(--primary-color, #6366f1); color: white; text-align: center; padding: 3rem 2rem 4rem; position: relative; }
+    .creative-template .name-banner { background: rgba(0,0,0,0.1); padding: 0.5rem 0; }
+    .creative-template .name { font-size: 2.8rem; font-weight: 300; letter-spacing: 2px; text-transform: uppercase; margin: 0; }
+    .creative-template .profile-photo { width: 120px; height: 120px; border-radius: 50%; background: #eee; border: 5px solid white; position: absolute; bottom: -60px; left: 50%; transform: translateX(-50%); background-size: cover; background-position: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+    .creative-template .job-title { font-size: 1.2rem; font-weight: 300; margin-top: 1rem; opacity: 0.9; }
+    .creative-template .creative-body { padding: 2rem; padding-top: 80px; }
+    .creative-template .creative-contact { text-align: center; margin-bottom: 2rem; color: #555; font-size: 0.9rem; }
+    .creative-template .creative-contact a { color: var(--primary-color, #6366f1); text-decoration: none; }
+    .creative-template .creative-main { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; }
+    .creative-template .section { margin-bottom: 2rem; }
+    .creative-template h3 { font-size: 1rem; font-weight: 600; color: var(--primary-color, #6366f1); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; }
+    .creative-template p, .creative-template ul { font-size: 0.9rem; line-height: 1.6; }
+    .creative-template ul { list-style: none; padding: 0; }
+    .creative-template .experience-entry, .creative-template .education-entry { margin-bottom: 1.5rem; }
+    .creative-template .entry-header { margin-bottom: 0.25rem; }
+    .creative-template .entry-title { font-size: 1rem; font-weight: bold; }
+    .creative-template .entry-company { font-style: italic; color: #555; }
+    .creative-template .entry-dates { font-size: 0.8rem; color: #777; }
+    .creative-template .skills-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .creative-template .skill-tag { background: #f0f0f0; color: #333; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem; }
+</style>

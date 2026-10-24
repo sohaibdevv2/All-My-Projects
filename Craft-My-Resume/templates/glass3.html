@@ -1,0 +1,232 @@
+<div class="resume-template glass-emerald">
+  <div class="ge-bg">
+    <div class="ge-container">
+      <div class="ge-header">
+        <div id="profilePhoto" class="ge-photo"></div>
+        <div class="ge-header-text">
+          <h1 id="previewName" class="ge-name">Your Name</h1>
+          <p id="previewJobTitle" class="ge-title">Job Title</p>
+          <div class="ge-contact-row">
+            <span id="previewEmail" class="ge-contact">email@example.com</span>
+            <span id="previewPhone" class="ge-contact">+1 234 567 890</span>
+            <span id="previewLocation" class="ge-contact">City, Country</span>
+            <div id="previewLinkedIn" class="ge-contact">linkedin.com/in/you</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ge-summary-bar">
+        <p id="previewSummary">Professional summary goes here.</p>
+      </div>
+
+      <div class="ge-columns">
+        <div class="ge-col-left">
+          <div class="ge-section">
+            <h2 class="ge-section-title">Experience</h2>
+            <div id="previewExperience"></div>
+          </div>
+          <div class="ge-section">
+            <h2 class="ge-section-title">Education</h2>
+            <div id="previewEducation"></div>
+          </div>
+          <div class="ge-section">
+            <h2 class="ge-section-title">Projects</h2>
+            <ul id="previewProjects" class="ge-list"></ul>
+          </div>
+        </div>
+        <div class="ge-col-right">
+          <div class="ge-section">
+            <h2 class="ge-section-title">Skills</h2>
+            <div id="previewSkills" class="skills-list ge-skills"></div>
+          </div>
+          <div class="ge-section">
+            <h2 class="ge-section-title">Languages</h2>
+            <div id="previewLanguages" class="skills-list ge-skills"></div>
+          </div>
+          <div class="ge-section">
+            <h2 class="ge-section-title">Certifications</h2>
+            <ul id="previewCertifications" class="ge-list"></ul>
+          </div>
+          <div class="ge-section">
+            <h2 class="ge-section-title">Awards</h2>
+            <ul id="previewAwards" class="ge-list"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.glass-emerald {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  --primary: var(--primary-color, #6366f1);
+}
+.glass-emerald .ge-bg {
+  background: linear-gradient(150deg, #0d1f0d 0%, #1a3a1a 50%, #0d2b0d 100%);
+  min-height: 297mm;
+  padding: 24px;
+  box-sizing: border-box;
+}
+.glass-emerald .ge-container {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(52,211,153,0.2);
+  border-radius: 18px;
+  overflow: hidden;
+  min-height: calc(297mm - 48px);
+}
+.glass-emerald .ge-header {
+  background: rgba(52,211,153,0.08);
+  border-bottom: 1px solid rgba(52,211,153,0.2);
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.glass-emerald .ge-photo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(52,211,153,0.1);
+  border: 3px solid #34d399;
+  box-shadow: 0 0 20px rgba(52,211,153,0.4), 0 0 40px rgba(52,211,153,0.2);
+  flex-shrink: 0;
+}
+.glass-emerald .ge-name {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 4px;
+  color: #fff;
+  text-shadow: 0 0 30px rgba(52,211,153,0.3);
+}
+.glass-emerald .ge-title {
+  font-size: 0.82rem;
+  color: #34d399;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin: 0 0 10px;
+}
+.glass-emerald .ge-contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.glass-emerald .ge-contact {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.65);
+  background: rgba(52,211,153,0.08);
+  border: 1px solid rgba(52,211,153,0.2);
+  border-radius: 20px;
+  padding: 2px 10px;
+}
+.glass-emerald .ge-summary-bar {
+  background: rgba(52,211,153,0.06);
+  border-bottom: 1px solid rgba(52,211,153,0.15);
+  padding: 14px 32px;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+}
+.glass-emerald .ge-summary-bar p {
+  margin: 0;
+}
+.glass-emerald .ge-columns {
+  display: flex;
+  gap: 0;
+  flex: 1;
+}
+.glass-emerald .ge-col-left {
+  flex: 1.8;
+  padding: 24px 28px;
+  border-right: 1px solid rgba(52,211,153,0.1);
+}
+.glass-emerald .ge-col-right {
+  flex: 1;
+  padding: 24px 20px;
+}
+.glass-emerald .ge-section {
+  margin-bottom: 20px;
+}
+.glass-emerald .ge-section-title {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #34d399;
+  margin: 0 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(52,211,153,0.2);
+}
+.glass-emerald .ge-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.glass-emerald .ge-skills span {
+  background: rgba(52,211,153,0.12);
+  border: 1px solid rgba(52,211,153,0.3);
+  color: #e2e8f0;
+  padding: 2px 9px;
+  border-radius: 12px;
+  font-size: 0.69rem;
+}
+.glass-emerald .ge-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.65);
+}
+.glass-emerald .ge-list li {
+  padding: 3px 0 3px 14px;
+  position: relative;
+}
+.glass-emerald .ge-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: #34d399;
+  font-size: 0.65rem;
+}
+.glass-emerald #previewExperience .experience-entry,
+.glass-emerald #previewEducation .education-entry {
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.glass-emerald #previewExperience .experience-entry:last-child,
+.glass-emerald #previewEducation .education-entry:last-child {
+  border-bottom: none;
+}
+.glass-emerald #previewExperience .entry-title,
+.glass-emerald #previewEducation .entry-title {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #fff;
+}
+.glass-emerald #previewExperience .entry-company,
+.glass-emerald #previewEducation .entry-school {
+  font-size: 0.78rem;
+  color: #34d399;
+}
+.glass-emerald #previewExperience .entry-dates,
+.glass-emerald #previewEducation .entry-dates {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.45);
+}
+.glass-emerald #previewExperience .entry-description,
+.glass-emerald #previewEducation .entry-description {
+  font-size: 0.76rem;
+  color: rgba(255,255,255,0.6);
+  margin-top: 4px;
+  line-height: 1.5;
+}
+</style>

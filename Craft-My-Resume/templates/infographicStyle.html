@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infographic Style Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template infographic-style-template">
+        <div class="header-section">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <h2 class="title" id="previewJobTitle">Professional Title</h2>
+            <div class="contact-info">
+                <div class="contact-item">📧 <span id="previewEmail"></span></div>
+                <div class="contact-item">📱 <span id="previewPhone"></span></div>
+                <div class="contact-item">📍 <span id="previewLocation"></span></div>
+                <div class="contact-item">💼 <span id="previewLinkedIn"></span></div>
+            </div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="section">
+                <h3>💡 About Me</h3>
+                <p id="previewSummary"></p>
+            </div>
+            
+            <div class="dual-section">
+                <div class="left-column">
+                    <div class="section">
+                        <h3>💼 Experience</h3>
+                        <div id="previewExperience"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>🎓 Education</h3>
+                        <div id="previewEducation"></div>
+                    </div>
+                </div>
+                
+                <div class="right-column">
+                    <div class="section">
+                        <h3>🛠️ Skills</h3>
+                        <div id="previewSkills" class="skills-list"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>🌍 Languages</h3>
+                        <div id="previewLanguages" class="skills-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .infographic-style-template { 
+            font-family: 'Arial', sans-serif; 
+            background: #f8f9fa; 
+            color: #333333; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+        }
+        .infographic-style-template .header-section { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            color: #ffffff; 
+            text-align: center; 
+            padding: 2rem; 
+        }
+        .infographic-style-template .name { 
+            font-size: 2.5rem; 
+            margin: 0 0 0.5rem 0; 
+            font-weight: bold; 
+            color: #ffffff;
+        }
+        .infographic-style-template .title { 
+            font-size: 1.3rem; 
+            margin: 0 0 1.5rem 0; 
+            font-weight: normal; 
+            color: #e0e0e0; 
+        }
+        .infographic-style-template .contact-info { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 0.5rem; 
+            max-width: 400px; 
+            margin: 0 auto;
+        }
+        .infographic-style-template .contact-item { 
+            font-size: 0.9rem; 
+            display: flex; 
+            align-items: center; 
+            gap: 0.5rem;
+        }
+        .infographic-style-template .content-wrapper { 
+            padding: 2rem; 
+            background: #ffffff;
+        }
+        .infographic-style-template .section { 
+            margin-bottom: 2rem; 
+        }
+        .infographic-style-template h3 { 
+            color: #667eea; 
+            font-size: 1.3rem; 
+            margin-bottom: 1.5rem; 
+            font-weight: bold; 
+            display: flex; 
+            align-items: center; 
+            gap: 0.5rem;
+        }
+        .infographic-style-template .dual-section { 
+            display: grid; 
+            grid-template-columns: 2fr 1fr; 
+            gap: 2rem; 
+        }
+        .infographic-style-template .experience-entry, .infographic-style-template .education-entry { 
+            margin-bottom: 1.5rem; 
+            padding: 1rem; 
+            background: #f8f9fa; 
+            border-left: 4px solid #667eea; 
+            border-radius: 0 5px 5px 0;
+        }
+        .infographic-style-template .entry-title { 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            color: #333333; 
+            margin-bottom: 0.3rem;
+        }
+        .infographic-style-template .entry-company { 
+            color: #667eea; 
+            font-weight: normal; 
+            font-size: 1rem;
+        }
+        .infographic-style-template .entry-dates { 
+            color: #666; 
+            font-size: 0.9rem; 
+            margin-top: 0.3rem;
+        }
+        .infographic-style-template .skills-list { 
+            display: block; 
+        }
+        .infographic-style-template .skill-tag { 
+            display: block; 
+            background: #667eea; 
+            color: #ffffff; 
+            padding: 0.8rem; 
+            margin: 0.5rem 0; 
+            font-size: 0.9rem; 
+            border-radius: 20px; 
+            text-align: center; 
+            position: relative;
+        }
+        .infographic-style-template .skill-tag:before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            background: rgba(255,255,255,0.7);
+            border-radius: 50%;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

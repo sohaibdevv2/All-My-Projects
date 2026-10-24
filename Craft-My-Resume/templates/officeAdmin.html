@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office & Administrative Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template office-admin-template">
+        <div class="main-content">
+            <div class="left-sidebar">
+                <div class="profile-section">
+                    <h1 class="name" id="previewName">Your Name</h1>
+                    <h2 class="title" id="previewJobTitle">Administrative Professional</h2>
+                </div>
+                
+                <div class="contact-section">
+                    <h3>Contact</h3>
+                    <div class="contact-item" id="previewEmail"></div>
+                    <div class="contact-item" id="previewPhone"></div>
+                    <div class="contact-item" id="previewLocation"></div>
+                    <div class="contact-item" id="previewLinkedIn"></div>
+                </div>
+                
+                <div class="skills-section">
+                    <h3>Skills</h3>
+                    <div id="previewSkills" class="skills-list"></div>
+                </div>
+                
+                <div class="languages-section">
+                    <h3>Languages</h3>
+                    <div id="previewLanguages" class="skills-list"></div>
+                </div>
+            </div>
+            
+            <div class="right-content">
+                <div class="section">
+                    <h3>Professional Summary</h3>
+                    <p id="previewSummary"></p>
+                </div>
+                
+                <div class="section">
+                    <h3>Work Experience</h3>
+                    <div id="previewExperience"></div>
+                </div>
+                
+                <div class="section">
+                    <h3>Education</h3>
+                    <div id="previewEducation"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .office-admin-template { 
+            font-family: 'Arial', sans-serif; 
+            background: #ffffff; 
+            color: #333; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+        }
+        .office-admin-template .main-content { 
+            display: grid; 
+            grid-template-columns: 300px 1fr; 
+            min-height: 100vh;
+        }
+        .office-admin-template .left-sidebar { 
+            background: #f4f6f8; 
+            padding: 2rem 1.5rem; 
+            border-right: 3px solid #4a90e2;
+        }
+        .office-admin-template .profile-section { 
+            text-align: center; 
+            margin-bottom: 2rem; 
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #4a90e2;
+        }
+        .office-admin-template .name { 
+            font-size: 1.8rem; 
+            margin: 0 0 0.5rem 0; 
+            font-weight: bold; 
+            color: #2c3e50;
+        }
+        .office-admin-template .title { 
+            font-size: 1rem; 
+            margin: 0; 
+            font-weight: normal; 
+            color: #4a90e2; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .office-admin-template .left-sidebar h3 { 
+            color: #2c3e50; 
+            font-size: 1.1rem; 
+            margin: 2rem 0 1rem 0; 
+            font-weight: bold; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .office-admin-template .contact-item { 
+            margin-bottom: 0.8rem; 
+            font-size: 0.9rem; 
+            color: #555;
+        }
+        .office-admin-template .right-content { 
+            padding: 2rem 2.5rem; 
+        }
+        .office-admin-template .right-content .section { 
+            margin-bottom: 2.5rem; 
+        }
+        .office-admin-template .right-content h3 { 
+            color: #2c3e50; 
+            font-size: 1.3rem; 
+            margin-bottom: 1.5rem; 
+            font-weight: bold; 
+            text-transform: uppercase;
+            border-bottom: 2px solid #4a90e2;
+            padding-bottom: 0.5rem;
+        }
+        .office-admin-template .experience-entry, .office-admin-template .education-entry { 
+            margin-bottom: 2rem; 
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        .office-admin-template .entry-title { 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            color: #2c3e50; 
+            margin-bottom: 0.3rem;
+        }
+        .office-admin-template .entry-company { 
+            color: #4a90e2; 
+            font-weight: normal; 
+            font-size: 1rem;
+        }
+        .office-admin-template .entry-dates { 
+            color: #666; 
+            font-size: 0.9rem; 
+            margin-top: 0.3rem;
+        }
+        .office-admin-template .skills-list { 
+            display: block; 
+        }
+        .office-admin-template .skill-tag { 
+            display: block; 
+            background: #4a90e2; 
+            color: white; 
+            padding: 0.4rem 0.8rem; 
+            margin: 0.5rem 0; 
+            font-size: 0.85rem; 
+            border-radius: 15px;
+            text-align: center;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

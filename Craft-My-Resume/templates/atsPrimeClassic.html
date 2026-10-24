@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATS Prime Classic Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template ats-prime-classic-template">
+        <div class="header">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <div class="contact-info">
+                <div id="previewEmail"></div>
+                <div id="previewPhone"></div>
+                <div id="previewLocation"></div>
+                <div id="previewLinkedIn"></div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Professional Summary</h2>
+            <p id="previewSummary"></p>
+        </div>
+        
+        <div class="section">
+            <h2>Professional Experience</h2>
+            <div id="previewExperience"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Education</h2>
+            <div id="previewEducation"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Skills</h2>
+            <div id="previewSkills"></div>
+        </div>
+    </div>
+
+    <style>
+        .ats-prime-classic-template { 
+            font-family: 'Times New Roman', serif; 
+            background: #ffffff; 
+            color: #000000; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+            padding: 1in;
+        }
+        .ats-prime-classic-template .header { 
+            text-align: center; 
+            margin-bottom: 1.5rem; 
+            padding-bottom: 1rem;
+        }
+        .ats-prime-classic-template .name { 
+            font-size: 2rem; 
+            margin: 0 0 0.5rem 0; 
+            font-weight: bold; 
+            color: #000000;
+        }
+        .ats-prime-classic-template .contact-info div { 
+            font-size: 1rem; 
+            color: #000000;
+            margin: 0.2rem 0;
+        }
+        .ats-prime-classic-template .section { 
+            margin-bottom: 1.5rem; 
+        }
+        .ats-prime-classic-template h2 { 
+            color: #000000; 
+            font-size: 1.3rem; 
+            margin-bottom: 0.8rem; 
+            font-weight: bold; 
+            border-bottom: 1px solid #000000;
+            padding-bottom: 0.2rem;
+        }
+        .ats-prime-classic-template .experience-entry, .ats-prime-classic-template .education-entry { 
+            margin-bottom: 1.2rem; 
+        }
+        .ats-prime-classic-template .entry-title { 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            color: #000000; 
+            margin-bottom: 0.2rem;
+        }
+        .ats-prime-classic-template .entry-company { 
+            color: #000000; 
+            font-weight: normal; 
+            font-size: 1rem;
+        }
+        .ats-prime-classic-template .entry-dates { 
+            color: #000000; 
+            font-size: 1rem; 
+            margin-top: 0.2rem;
+        }
+        .ats-prime-classic-template .skills-list { 
+            display: block; 
+        }
+        .ats-prime-classic-template .skill-tag { 
+            display: inline; 
+            color: #000000; 
+            font-size: 1rem; 
+            margin-right: 0.5rem;
+        }
+        .ats-prime-classic-template .skill-tag:after {
+            content: ", ";
+        }
+        .ats-prime-classic-template .skill-tag:last-child:after {
+            content: "";
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

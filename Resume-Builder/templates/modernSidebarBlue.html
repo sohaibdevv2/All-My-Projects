@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Sidebar Blue Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template modern-sidebar-blue-template">
+        <div class="sidebar">
+            <div class="profile-section">
+                <h1 class="name" id="previewName">Your Name</h1>
+                <div class="contact-info">
+                    <div id="previewEmail"></div>
+                    <div id="previewPhone"></div>
+                    <div id="previewLocation"></div>
+                    <div id="previewLinkedIn"></div>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3>Skills</h3>
+                <div id="previewSkills" class="skills-list"></div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3>Languages</h3>
+                <div id="previewLanguages" class="skills-list"></div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="section">
+                <h3>Professional Summary</h3>
+                <p id="previewSummary"></p>
+            </div>
+            
+            <div class="section">
+                <h3>Professional Experience</h3>
+                <div id="previewExperience"></div>
+            </div>
+            
+            <div class="section">
+                <h3>Education</h3>
+                <div id="previewEducation"></div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .modern-sidebar-blue-template { 
+            font-family: 'Arial', sans-serif; 
+            background: #ffffff; 
+            color: #333333; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+            display: flex;
+            min-height: 11in;
+        }
+        .modern-sidebar-blue-template .sidebar { 
+            background: #1e3a8a; 
+            color: #ffffff; 
+            width: 35%; 
+            padding: 2rem 1.5rem;
+        }
+        .modern-sidebar-blue-template .profile-section { 
+            margin-bottom: 2rem; 
+        }
+        .modern-sidebar-blue-template .name { 
+            font-size: 1.8rem; 
+            margin: 0 0 1rem 0; 
+            font-weight: bold; 
+            color: #ffffff;
+        }
+        .modern-sidebar-blue-template .contact-info div { 
+            font-size: 0.9rem; 
+            margin-bottom: 0.5rem; 
+            color: #e5e7eb;
+        }
+        .modern-sidebar-blue-template .sidebar-section { 
+            margin-bottom: 2rem; 
+        }
+        .modern-sidebar-blue-template .sidebar h3 { 
+            color: #ffffff; 
+            font-size: 1.1rem; 
+            margin-bottom: 1rem; 
+            font-weight: bold; 
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 0.5rem;
+        }
+        .modern-sidebar-blue-template .main-content { 
+            background: #ffffff; 
+            width: 65%; 
+            padding: 2rem;
+        }
+        .modern-sidebar-blue-template .main-content .section { 
+            margin-bottom: 2rem; 
+        }
+        .modern-sidebar-blue-template .main-content h3 { 
+            color: #1e3a8a; 
+            font-size: 1.3rem; 
+            margin-bottom: 1rem; 
+            font-weight: bold; 
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 0.5rem;
+        }
+        .modern-sidebar-blue-template .experience-entry, .modern-sidebar-blue-template .education-entry { 
+            margin-bottom: 1.5rem; 
+        }
+        .modern-sidebar-blue-template .entry-title { 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            color: #1e3a8a; 
+            margin-bottom: 0.3rem;
+        }
+        .modern-sidebar-blue-template .entry-company { 
+            color: #6b7280; 
+            font-weight: normal; 
+            font-size: 1rem;
+        }
+        .modern-sidebar-blue-template .entry-dates { 
+            color: #9ca3af; 
+            font-size: 0.9rem; 
+            margin-top: 0.3rem;
+        }
+        .modern-sidebar-blue-template .skills-list { 
+            display: block; 
+        }
+        .modern-sidebar-blue-template .skill-tag { 
+            display: block; 
+            background: transparent; 
+            color: #e5e7eb; 
+            padding: 0.3rem 0; 
+            margin: 0; 
+            font-size: 0.9rem; 
+            border-bottom: 1px solid #3b82f6;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<div class="resume-template glass-aurora">
+  <div class="ga-bg">
+    <div class="ga-header">
+      <div id="profilePhoto" class="ga-photo"></div>
+      <div class="ga-header-info">
+        <h1 id="previewName" class="ga-name">Your Name</h1>
+        <p id="previewJobTitle" class="ga-title">Job Title</p>
+        <div class="ga-contact-row">
+          <span id="previewEmail" class="ga-contact-item">email@example.com</span>
+          <span id="previewPhone" class="ga-contact-item">+1 234 567 890</span>
+          <span id="previewLocation" class="ga-contact-item">City, Country</span>
+          <span id="previewLinkedIn" class="ga-contact-item">linkedin.com/in/yourprofile</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ga-body">
+      <div class="ga-card ga-summary-card">
+        <h2 class="ga-section-title">About Me</h2>
+        <p id="previewSummary" class="ga-summary-text">Professional summary goes here.</p>
+      </div>
+
+      <div class="ga-columns">
+        <div class="ga-col-main">
+          <div class="ga-card">
+            <h2 class="ga-section-title">Experience</h2>
+            <div id="previewExperience"></div>
+          </div>
+          <div class="ga-card">
+            <h2 class="ga-section-title">Education</h2>
+            <div id="previewEducation"></div>
+          </div>
+          <div class="ga-card">
+            <h2 class="ga-section-title">Projects</h2>
+            <ul id="previewProjects" class="ga-list"></ul>
+          </div>
+        </div>
+        <div class="ga-col-side">
+          <div class="ga-card">
+            <h2 class="ga-section-title">Skills</h2>
+            <div id="previewSkills" class="skills-list ga-skills"></div>
+          </div>
+          <div class="ga-card">
+            <h2 class="ga-section-title">Languages</h2>
+            <div id="previewLanguages" class="skills-list ga-skills"></div>
+          </div>
+          <div class="ga-card">
+            <h2 class="ga-section-title">Certifications</h2>
+            <ul id="previewCertifications" class="ga-list"></ul>
+          </div>
+          <div class="ga-card">
+            <h2 class="ga-section-title">Awards</h2>
+            <ul id="previewAwards" class="ga-list"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.glass-aurora {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  color: #e2e8f0;
+  --primary: var(--primary-color, #6366f1);
+}
+.glass-aurora .ga-bg {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  min-height: 297mm;
+  padding: 0;
+}
+.glass-aurora .ga-header {
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  padding: 32px 40px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.glass-aurora .ga-photo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(255,255,255,0.1);
+  border: 3px solid var(--primary);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--primary) 60%, transparent), 0 0 40px color-mix(in srgb, var(--primary) 30%, transparent);
+  flex-shrink: 0;
+}
+.glass-aurora .ga-header-info {
+  flex: 1;
+}
+.glass-aurora .ga-name {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0 0 4px;
+  background: linear-gradient(90deg, #fff 0%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+}
+.glass-aurora .ga-title {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.7);
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+.glass-aurora .ga-contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+.glass-aurora .ga-contact-item {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.65);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 2px 12px;
+}
+.glass-aurora .ga-body {
+  padding: 24px 32px;
+}
+.glass-aurora .ga-card {
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.13);
+  border-radius: 14px;
+  padding: 18px 22px;
+  margin-bottom: 16px;
+}
+.glass-aurora .ga-summary-card {
+  margin-bottom: 20px;
+}
+.glass-aurora .ga-section-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--primary);
+  margin: 0 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.glass-aurora .ga-summary-text {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.75);
+  margin: 0;
+}
+.glass-aurora .ga-columns {
+  display: flex;
+  gap: 16px;
+}
+.glass-aurora .ga-col-main {
+  flex: 2;
+}
+.glass-aurora .ga-col-side {
+  flex: 1;
+}
+.glass-aurora .ga-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.glass-aurora .ga-skills span {
+  background: color-mix(in srgb, var(--primary) 20%, transparent);
+  border: 1px solid color-mix(in srgb, var(--primary) 50%, transparent);
+  color: #e2e8f0;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  box-shadow: 0 0 8px color-mix(in srgb, var(--primary) 20%, transparent);
+}
+.glass-aurora .ga-list {
+  margin: 0;
+  padding-left: 16px;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.7;
+}
+.glass-aurora #previewExperience .experience-entry,
+.glass-aurora #previewEducation .education-entry {
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.glass-aurora #previewExperience .experience-entry:last-child,
+.glass-aurora #previewEducation .education-entry:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.glass-aurora #previewExperience .entry-title,
+.glass-aurora #previewEducation .entry-title {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #fff;
+}
+.glass-aurora #previewExperience .entry-company,
+.glass-aurora #previewEducation .entry-school {
+  font-size: 0.8rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+.glass-aurora #previewExperience .entry-dates,
+.glass-aurora #previewEducation .entry-dates {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 4px;
+}
+.glass-aurora #previewExperience .entry-description,
+.glass-aurora #previewEducation .entry-description {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.5;
+  margin-top: 4px;
+}
+</style>

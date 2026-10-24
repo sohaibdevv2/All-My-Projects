@@ -1,0 +1,208 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scrollbar-color: #8e8e8e #fff;
+  scrollbar-width: thin;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 107rem;
+  padding: 0 4rem;
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  color: #2d2e32;
+  text-align: center;
+  font-family: sans-serif;
+  word-break: break-word;
+}
+
+p {
+  color: #555;
+  font-family: sans-serif;
+  text-align: center;
+  word-break: break-word;
+  font-size: large;
+  font-weight: 500;
+}
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 0;
+  max-width: 100%;
+}
+
+.hero-content {
+  flex: 1 1 400px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-wrap: break-word;
+}
+
+.hero-img {
+  background-image: url('../images/haris.jpg');
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 3px solid #2d2e32;
+  border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+  height: 27rem;
+  width: 25rem;
+  margin-bottom: 2rem;
+  animation: morph 5s ease-in-out infinite;
+  flex: 0 1 25rem;
+  position: relative;
+}
+
+@keyframes morph {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 2rem;
+  }
+  .hero-img {
+    width: 27rem;
+    height: 27rem;
+    margin-bottom: 1rem;
+    order: 1;
+  }
+  .footerb {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .hero-img {
+    order: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    max-width: 100%;
+    padding: 0 1.7rem;
+  }
+  h1 {
+    font-size: 2.3em;
+    margin-bottom: 15px;
+  }
+  p {
+    font-size: 1em;
+    line-height: 1.4;
+  }
+  .hero {
+    padding: 2rem 0;
+  }
+  .hero-content {
+    padding: 0.7rem;
+    flex: 1 1 100%;
+  }
+  .hero-img {
+    width: 27rem;
+    height: 27rem;
+    margin-bottom: 1rem;
+  }
+  .journey {
+    padding: 3rem 1.5rem;
+  }
+  .img-journey img {
+    max-width: 90%;
+    margin-top: 1rem;
+  }
+  footer {
+    padding: 3rem 0;
+  }
+  footer h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 460px) {
+  .container {
+    padding: 0 1.7rem;
+  }
+}
+
+/* Journey Section Styles */
+.journey {
+  background-color: #f9f9f9;
+  padding: 5rem 2rem;
+  color: #2d2e32;
+  font-size: 2.6rem;
+  text-align: center;
+  border-radius: 1rem;
+  box-shadow: 0 0 15px #c9d1ce;
+}
+
+.img-journey {
+  display: flex;
+  justify-content: center;
+}
+
+.img-journey img {
+  border-radius: 1.7rem;
+  max-width: 50%;
+  height: auto;
+  margin: 0 auto;
+  margin-top: 2rem;
+  object-fit: cover;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #2d2e32;
+  padding: 5rem 0;
+  width: 100%;
+}
+
+.footerb {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer h3 {
+  color: #fff;
+  font-size: 1.7rem;
+  flex: 1;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}

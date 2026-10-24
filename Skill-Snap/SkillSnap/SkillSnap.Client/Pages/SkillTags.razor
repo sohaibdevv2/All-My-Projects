@@ -1,0 +1,121 @@
+@page "/skills"
+@inject SkillService SkillService
+
+<div class="container mt-4">
+    <h1 class="mb-4">My Skills</h1>
+
+    @if (skills == null)
+    {
+        <div class="d-flex justify-content-center">
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    }
+    else if (!skills.Any())
+    {
+        <div class="alert alert-info" role="alert">
+            No skills found. <button type="button" class="btn btn-primary ms-2" @onclick="LoadSkills">Refresh</button>
+        </div>
+    }
+    else
+    {
+        <div class="skills-container mb-4">
+            @foreach (var skill in skills)
+            {
+                <span class="badge bg-@GetSkillBadgeColor(skill.Level) me-2 mb-2 p-2" style="font-size: 0.9rem;">
+                    @skill.Name - @skill.Level
+                </span>
+            }
+        </div>
+    }
+
+    <div class="mt-4">
+        <button type="button" class="btn btn-success" @onclick="ShowAddForm">Add New Skill</button>
+    </div>
+    
+    @if (showAddForm)
+    {
+        <div class="card mt-4">
+            <div class="card-header">
+                <h5>Add New Skill</h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="skillName" class="form-label">Skill Name</label>
+                    <input id="skillName" class="form-control" @bind="newSkill.Name" />
+                </div>
+                <div class="mb-3">
+                    <label for="skillLevel" class="form-label">Level</label>
+                    <select id="skillLevel" class="form-select" @bind="newSkill.Level">
+                        <option value="">Select Level</option>
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced</option>
+                    </select>
+                </div>
+                <div class="d-flex gap-2">
+                    <button type="button" class="btn btn-primary" @onclick="AddSkill">Add Skill</button>
+                    <button type="button" class="btn btn-secondary" @onclick="CancelAdd">Cancel</button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<style>
+    .skills-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+</style>
+
+@code {
+    private List<Skill>? skills;
+    private Skill newSkill = new();
+    private bool showAddForm = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadSkills();
+    }
+
+    private async Task LoadSkills()
+    {
+        skills = await SkillService.GetSkillsAsync();
+    }
+
+    private void ShowAddForm()
+    {
+        showAddForm = true;
+        newSkill = new Skill { PortfolioUserId = 1 }; // Assuming user ID 1 for now
+    }
+
+    private void CancelAdd()
+    {
+        showAddForm = false;
+        newSkill = new();
+    }
+
+    private async Task AddSkill()
+    {
+        var result = await SkillService.AddSkillAsync(newSkill);
+        if (result != null)
+        {
+            await LoadSkills(); // Refresh the list
+            CancelAdd();
+        }
+    }
+
+    private string GetSkillBadgeColor(string level)
+    {
+        return level.ToLower() switch
+        {
+            "beginner" => "secondary",
+            "intermediate" => "warning",
+            "advanced" => "success",
+            _ => "primary"
+        };
+    }
+}

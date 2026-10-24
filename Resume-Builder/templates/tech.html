@@ -1,0 +1,65 @@
+<div class="resume-template tech-template">
+    <div class="tech-header">
+        <div class="header-left">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <h2 class="job-title" id="previewJobTitle">Professional Title</h2>
+            <p class="summary" id="previewSummary"></p>
+        </div>
+        <div class="header-right">
+            <div class="contact-item" id="previewEmail"></div>
+            <div class="contact-item" id="previewPhone"></div>
+            <div class="contact-item" id="previewLocation"></div>
+            <div class="contact-item" id="previewLinkedIn"></div>
+        </div>
+    </div>
+    <div class="tech-body">
+        <div class="tech-main">
+            <div class="section">
+                <h3><span class="icon">💼</span> Experience</h3>
+                <div id="previewExperience"></div>
+            </div>
+            <div class="section">
+                <h3><span class="icon">🚀</span> Projects</h3>
+                <ul id="previewProjects"></ul>
+            </div>
+        </div>
+        <div class="tech-sidebar">
+            <div class="section">
+                <h3><span class="icon">💻</span> Technical Skills</h3>
+                <div id="previewSkills" class="skills-list"></div>
+            </div>
+            <div class="section">
+                <h3><span class="icon">🎓</span> Education</h3>
+                <div id="previewEducation"></div>
+            </div>
+            <div class="section">
+                <h3><span class="icon">🏆</span> Certifications</h3>
+                <ul id="previewCertifications"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .tech-template { font-family: var(--font-sans, 'Inter', sans-serif); background: #fff; color: #333; }
+    .tech-template .tech-header { display: flex; justify-content: space-between; padding: 2rem; background: #f8f9fa; border-bottom: 1px solid #e9ecef; }
+    .tech-template .header-left { flex: 2; }
+    .tech-template .header-right { flex: 1; text-align: right; font-size: 0.9rem; }
+    .tech-template .name { font-size: 2.5rem; font-weight: 700; color: var(--primary-color, #6366f1); margin: 0; }
+    .tech-template .job-title { font-size: 1.2rem; font-weight: 400; color: #555; margin: 0.25rem 0 1rem; }
+    .tech-template .summary { font-size: 0.95rem; line-height: 1.6; }
+    .tech-template .contact-item { margin-bottom: 0.25rem; }
+    .tech-template .contact-item a { color: var(--primary-color, #6366f1); text-decoration: none; }
+    .tech-template .tech-body { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; padding: 2rem; }
+    .tech-template .section { margin-bottom: 2rem; }
+    .tech-template h3 { font-size: 1.1rem; font-weight: 600; color: #333; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+    .tech-template h3 .icon { color: var(--primary-color, #6366f1); }
+    .tech-template ul { list-style-type: '» '; padding-left: 1.2rem; }
+    .tech-template .experience-entry, .tech-template .education-entry { margin-bottom: 1.5rem; }
+    .tech-template .entry-header { margin-bottom: 0.25rem; }
+    .tech-template .entry-title { font-size: 1.05rem; font-weight: bold; }
+    .tech-template .entry-company { font-weight: 500; color: #555; }
+    .tech-template .entry-dates { font-size: 0.85rem; color: #777; }
+    .tech-template .entry-description { margin-top: 0.5rem; font-size: 0.9rem; }
+    .tech-template .skills-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .tech-template .skill-tag { background: var(--primary-color, #6366f1); color: white; padding: 0.3rem 0.8rem; border-radius: 4px; font-size: 0.85rem; }
+</style>

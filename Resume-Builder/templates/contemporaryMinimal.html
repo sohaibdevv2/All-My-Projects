@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contemporary Minimal Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template contemporary-minimal-template">
+        <div class="header-section">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <h2 class="title" id="previewJobTitle">Professional Title</h2>
+            <div class="contact-info">
+                <span id="previewEmail"></span> • <span id="previewPhone"></span> • <span id="previewLocation"></span> • <span id="previewLinkedIn"></span>
+            </div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="section">
+                <h3>Summary</h3>
+                <p id="previewSummary"></p>
+            </div>
+            
+            <div class="section">
+                <h3>Experience</h3>
+                <div id="previewExperience"></div>
+            </div>
+            
+            <div class="section">
+                <h3>Education</h3>
+                <div id="previewEducation"></div>
+            </div>
+            
+            <div class="section">
+                <h3>Skills</h3>
+                <div id="previewSkills" class="skills-list"></div>
+            </div>
+            
+            <div class="section">
+                <h3>Languages</h3>
+                <div id="previewLanguages" class="skills-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .contemporary-minimal-template { 
+            font-family: 'Helvetica Neue', Arial, sans-serif; 
+            background: #ffffff; 
+            color: #333333; 
+            line-height: 1.8; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+            padding: 3rem;
+        }
+        .contemporary-minimal-template .header-section { 
+            text-align: left; 
+            margin-bottom: 4rem; 
+            padding-bottom: 2rem;
+        }
+        .contemporary-minimal-template .name { 
+            font-size: 3rem; 
+            margin: 0 0 1rem 0; 
+            font-weight: 300; 
+            color: #333333;
+            letter-spacing: -1px;
+        }
+        .contemporary-minimal-template .title { 
+            font-size: 1.3rem; 
+            margin: 0 0 2rem 0; 
+            font-weight: 300; 
+            color: #666666; 
+        }
+        .contemporary-minimal-template .contact-info { 
+            font-size: 1rem; 
+            color: #666; 
+            font-weight: 300;
+        }
+        .contemporary-minimal-template .content-wrapper { 
+            max-width: 100%; 
+        }
+        .contemporary-minimal-template .section { 
+            margin-bottom: 4rem; 
+        }
+        .contemporary-minimal-template h3 { 
+            color: #333333; 
+            font-size: 1.1rem; 
+            margin-bottom: 2rem; 
+            font-weight: 400; 
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+        }
+        .contemporary-minimal-template h3:after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 30px;
+            height: 1px;
+            background: #cccccc;
+        }
+        .contemporary-minimal-template .experience-entry, .contemporary-minimal-template .education-entry { 
+            margin-bottom: 3rem; 
+        }
+        .contemporary-minimal-template .entry-title { 
+            font-weight: 400; 
+            font-size: 1.2rem; 
+            color: #333333; 
+            margin-bottom: 0.5rem;
+        }
+        .contemporary-minimal-template .entry-company { 
+            color: #666666; 
+            font-weight: 300; 
+            font-size: 1rem;
+        }
+        .contemporary-minimal-template .entry-dates { 
+            color: #999999; 
+            font-size: 0.9rem; 
+            margin-top: 0.5rem;
+            font-weight: 300;
+        }
+        .contemporary-minimal-template .skills-list { 
+            display: block; 
+        }
+        .contemporary-minimal-template .skill-tag { 
+            display: inline-block; 
+            background: transparent; 
+            color: #666666; 
+            padding: 0.5rem 0; 
+            margin: 0.3rem 1rem 0.3rem 0; 
+            font-size: 1rem; 
+            font-weight: 300; 
+            border-bottom: 1px solid #eeeeee;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

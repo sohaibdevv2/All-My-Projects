@@ -1,0 +1,70 @@
+<div class="resume-template creative1-template">
+    <div class="creative-header">
+        <div class="header-shape"></div>
+        <div class="header-content">
+            <div class="profile-photo" id="profilePhoto"></div>
+            <h1 class="name" id="previewName">Your Name</h1>
+            <h2 class="title" id="previewJobTitle">Professional Title</h2>
+            <div class="contact-row">
+                <span id="previewEmail">email@example.com</span>
+                <span id="previewPhone">+1 (555) 123-4567</span>
+                <span id="previewLocation">Location</span>
+                <div id="previewLinkedIn"></div>
+            </div>
+        </div>
+    </div>
+    <div class="creative-body">
+        <div class="summary-card">
+            <h3>About Me</h3>
+            <p id="previewSummary"></p>
+        </div>
+        <div class="content-grid">
+            <div class="left-content">
+                <div class="section">
+                    <h3>Experience</h3>
+                    <div id="previewExperience"></div>
+                </div>
+                <div class="section">
+                    <h3>Education</h3>
+                    <div id="previewEducation"></div>
+                </div>
+            </div>
+            <div class="right-content">
+                <div class="section">
+                    <h3>Skills</h3>
+                    <div id="previewSkills" class="skills-list"></div>
+                </div>
+                <div class="section">
+                    <h3>Projects</h3>
+                    <ul id="previewProjects"></ul>
+                </div>
+                <div class="section">
+                    <h3>Languages</h3>
+                    <div id="previewLanguages" class="skills-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+.creative1-template { font-family: 'Montserrat', sans-serif; background: #fff; color: #333; position: relative; }
+.creative1-template .creative-header { background: linear-gradient(45deg, #ff9a9e, #fecfef, #fecfef); padding: 3rem 2rem; text-align: center; position: relative; overflow: hidden; }
+.creative1-template .header-shape { position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: rgba(255,255,255,0.1); border-radius: 50%; }
+.creative1-template .profile-photo { width: 120px; height: 120px; border-radius: 50%; background: rgba(255,255,255,0.3); background-size: cover; background-position: center; margin: 0 auto 1rem; border: 4px solid white; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+.creative1-template .name { font-size: 2.5rem; margin: 0; font-weight: 700; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.creative1-template .title { font-size: 1.2rem; margin: 0.5rem 0 1rem 0; color: white; font-weight: 300; opacity: 0.9; }
+.creative1-template .contact-row { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; font-size: 0.9rem; color: white; }
+.creative1-template .creative-body { padding: 2rem; }
+.creative1-template .summary-card { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 2rem; border-radius: 15px; margin-bottom: 2rem; }
+.creative1-template .summary-card h3 { margin: 0 0 1rem 0; font-size: 1.3rem; }
+.creative1-template .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; }
+.creative1-template .section { margin-bottom: 2rem; }
+.creative1-template h3 { color: #667eea; font-size: 1.2rem; margin-bottom: 1rem; font-weight: 600; position: relative; }
+.creative1-template h3::before { content: ''; position: absolute; left: -15px; top: 50%; transform: translateY(-50%); width: 4px; height: 20px; background: #ff9a9e; border-radius: 2px; }
+.creative1-template .experience-entry, .creative1-template .education-entry { margin-bottom: 1.5rem; padding: 1rem; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #ff9a9e; }
+.creative1-template .entry-title { font-weight: bold; font-size: 1.1rem; color: #333; }
+.creative1-template .entry-company { color: #667eea; font-weight: 500; }
+.creative1-template .entry-dates { color: #666; font-size: 0.9rem; }
+.creative1-template .skills-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.creative1-template .skill-tag { background: linear-gradient(45deg, #ff9a9e, #fecfef); color: white; padding: 0.4rem 1rem; border-radius: 25px; font-size: 0.85rem; font-weight: 500; }
+</style>

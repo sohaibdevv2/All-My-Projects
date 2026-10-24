@@ -1,0 +1,29 @@
+name: Build and Deploy Blazor WebAssembly Client to Azure App Service
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy-client:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Build and publish Client
+        run: |
+          dotnet restore "SkillSnap/SkillSnap.sln"
+          dotnet publish "SkillSnap/SkillSnap.Client/SkillSnap.Client.csproj" -c Release -o publish
+
+      - name: Deploy to Azure Web App (Client)
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: ${{ secrets.CLIENT_APP_NAME }}
+          publish-profile: ${{ secrets.CLIENT_PUBLISH_PROFILE }}
+          package: publish

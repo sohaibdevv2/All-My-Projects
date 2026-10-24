@@ -1,0 +1,5350 @@
+{
+  "id": "nDPmh5TUm8r7MF0m",
+  "name": "Smart Job Apply V8 - 89 LinkedIn + 6 Apify Searches",
+  "nodes": [
+    {
+      "id": "node-schedule",
+      "name": "Every 30 Min",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -200,
+        80
+      ],
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 30
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "node-manual",
+      "name": "Run Now",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -200,
+        240
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "node-fetch-ids",
+      "name": "Fetch Existing IDs",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        60,
+        160
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "https://backend.composio.dev/api/v3.1/tools/execute/GOOGLESHEETS_BATCH_GET",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "YOUR_COMPOSIO_API_KEY"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"connected_account_id\": \"YOUR_CONNECTED_ACCOUNT_ID\", \"entity_id\": \"sohaib\", \"arguments\": {\"spreadsheet_id\": \"1FTtoDeoXcVPvKpXv2GO9zRpNJPjlQjC_6Fpi6N6P_nI\", \"ranges\": [\"Sheet1!O2:O\"]}}"
+      }
+    },
+    {
+      "id": "search-00",
+      "name": "Backend 24h",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        400,
+        -200
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+backend+python+nodejs+golang+developer&location=India&geoId=102713980&f_TPR=r86400&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-01",
+      "name": "ML AI 24h",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        640,
+        -200
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=machine+learning+AI+data+scientist+NLP+LLM+deep+learning&location=India&geoId=102713980&f_TPR=r86400&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-02",
+      "name": "Frontend 7d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        880,
+        -200
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=frontend+developer+react+angular+vue+typescript+javascript&location=India&geoId=102713980&f_TPR=r604800&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-03",
+      "name": "FullStack 7d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1120,
+        -200
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=full+stack+developer+MERN+MEAN+fullstack+engineer&location=India&geoId=102713980&f_TPR=r604800&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-04",
+      "name": "Mobile 7d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1360,
+        -200
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=mobile+developer+flutter+android+ios+kotlin+react+native&location=India&geoId=102713980&f_TPR=r604800&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-05",
+      "name": "DevOps Cloud 7d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        -200
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=devops+cloud+SRE+AWS+GCP+kubernetes+docker+infrastructure&location=India&geoId=102713980&f_TPR=r604800&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-06",
+      "name": "DataEng 7d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1840,
+        -200
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=data+engineer+analytics+spark+kafka+SQL+ETL+pipeline&location=India&geoId=102713980&f_TPR=r604800&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-07",
+      "name": "Java Spring 7d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2080,
+        -200
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=java+developer+spring+boot+microservices+backend+engineer&location=India&geoId=102713980&f_TPR=r604800&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-08",
+      "name": "SDE India 15d p0",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        400,
+        -40
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+programmer+SDE&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-09",
+      "name": "SDE India 15d p25",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        640,
+        -40
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+programmer+SDE&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=25",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-10",
+      "name": "SDE India 15d p50",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        880,
+        -40
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+programmer+SDE&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=50",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-11",
+      "name": "SDE India 15d p75",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1120,
+        -40
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+programmer+SDE&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=75",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-12",
+      "name": "Intern Fresh 15d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1360,
+        -40
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=intern+trainee+fresher+graduate+junior+developer+engineer&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-13",
+      "name": "Chennai 15d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        -40
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+programmer+IT&location=India&geoId=102140561&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-14",
+      "name": "Startup 15d p0",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1840,
+        -40
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=startup+SDE+software+engineer+product+engineer+developer&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-15",
+      "name": "Startup 15d p25",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2080,
+        -40
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=startup+SDE+software+engineer+product+developer&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=25",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-16",
+      "name": "Backend 7d p25",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        400,
+        120
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+backend+python+nodejs+golang+developer&location=India&geoId=102713980&f_TPR=r604800&sortBy=DD&start=25",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-17",
+      "name": "Backend 7d p50",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        640,
+        120
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+backend+python+nodejs+developer&location=India&geoId=102713980&f_TPR=r604800&sortBy=DD&start=50",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-18",
+      "name": "ML AI 7d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        880,
+        120
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=machine+learning+AI+data+scientist+engineer+analyst&location=India&geoId=102713980&f_TPR=r604800&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-19",
+      "name": "React NodeJS 15d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1120,
+        120
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=react+nodejs+developer+engineer+javascript+typescript&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-20",
+      "name": "Python Cloud 15d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1360,
+        120
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=python+developer+cloud+AWS+Django+FastAPI+engineer&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-21",
+      "name": "Java Kotlin 15d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        120
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=java+kotlin+android+spring+backend+engineer+developer&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-22",
+      "name": "Golang Rust 15d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1840,
+        120
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=golang+go+rust+backend+systems+engineer+developer&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-23",
+      "name": "QA DevOps 15d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2080,
+        120
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=QA+automation+testing+devops+CI+CD+selenium+cypress&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "node-merge",
+      "name": "Merge Searches",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        2480,
+        160
+      ],
+      "parameters": {
+        "mode": "append"
+      }
+    },
+    {
+      "id": "node-parse",
+      "name": "Parse + Dedup + Build Rows",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2720,
+        160
+      ],
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "\n// ===== SMART JOB APPLY V8 + APIFY =====\nconst existingIds = new Set();\ntry {\n  const idsResp = $('Fetch Existing IDs').first().json;\n  const ranges = idsResp.data?.valueRanges || idsResp.valueRanges || [];\n  const vals = (ranges[0] || {}).values || [];\n  for (const row of vals) { if (row && row[0]) existingIds.add(String(row[0]).trim()); }\n} catch(e) {}\n\nconst tier1 = ['google','microsoft','amazon','meta','apple','netflix','adobe','salesforce','anthropic','openai','deepmind','cohere','mistral','hugging face','stripe','figma','notion','linear','vercel','cloudflare','twilio','atlassian','databricks','snowflake','palantir','elastic','mongodb','confluent','cockroachdb','supabase','hashicorp','github','gitlab','docker','datadog','grafana','sentry','nvidia','crowdstrike','zscaler','splunk','dynatrace','new relic'];\nconst tier2 = ['razorpay','phonepe','paytm','cred','groww','upstox','zerodha','smallcase','slice','jupiter','niyo','navi','perfios','setu','juspay','bharatpe','cashfree','zepto','blinkit','swiggy','zomato','flipkart','meesho','nykaa','dunzo','porter','delhivery','shiprocket','bigbasket','reliance','ola','rapido','zoho','freshworks','chargebee','browserstack','postman','hasura','clevertap','darwinbox','keka','mfine','pristyn','healthifyme','curefit','practo','1mg','unacademy','scaler','interviewbit','vedantu','great learning','upgrad','physicswallah','urban company','lenskart','moglix','acko','policybazaar','cars24','spinny','oyo','ixigo','redbus','myntra'];\nconst tier3 = ['thoughtworks','ltimindtree','mphasis','persistent','coforge','hexaware','qualcomm','intel','amd','arm','samsung','texas instruments','harman','cisco','juniper','vmware','nutanix','palo alto','intuit','autodesk','sap','oracle','ibm','servicenow','workday','zendesk','hubspot','dell','hp','cognizant','infosys','wipro','tcs','hcl','accenture','capgemini','deloitte','kpmg','jpmorgan','jp morgan','goldman sachs','morgan stanley','hsbc','barclays','citibank','visa','mastercard','paypal','walmart','shopify'];\n\nconst badTitle = ['unpaid','commission only','mlm','network marketing','direct sales','insurance agent','real estate agent','field sales'];\nconst badCompany = ['staffing solutions','placement agency','recruitment solutions','manpower','talent hunt','hr consultancy','recruitment firm'];\nconst skipTitleWords = ['vice president',' vp ','director,','head of engineering','cto ','ceo ','chief technology','chief executive','engineering manager','principal engineer','staff engineer ','distinguished engineer'];\nconst techKeywords = ['react','node.js','nodejs','python','java','golang','go','rust','typescript','javascript','flutter','android','ios','swift','kotlin','c++','c#','.net','php','ruby','scala','kubernetes','docker','aws','azure','gcp','postgres','mysql','mongodb','redis','kafka','spark','tensorflow','pytorch','llm','ml','ai','data science','spring','django','fastapi','express','nextjs','next.js','vue','angular','nestjs','graphql'];\n\nconst rows = [];\nconst seenThisRun = new Set();\n\nfor (const page of $input.all()) {\n  const raw = page.json;\n\n  // ===== APIFY JSON PATH =====\n  const apifyJobs = Array.isArray(raw) ? raw : (raw && Array.isArray(raw.data)) ? raw.data : null;\n  if (apifyJobs) {\n    for (const job of apifyJobs) {\n      const jobId = String(job.id || '').trim();\n      if (!jobId || existingIds.has(jobId) || seenThisRun.has(jobId)) continue;\n      seenThisRun.add(jobId);\n\n      const rawTitle = (job.title || '').trim();\n      const title = rawTitle.toLowerCase();\n      const rawCompany = (job.companyName || '').trim();\n      const company = rawCompany.toLowerCase();\n\n      if (!rawTitle || !rawCompany) continue;\n      if (badTitle.some(b => title.includes(b))) continue;\n      if (badCompany.some(b => company.includes(b))) continue;\n      if (skipTitleWords.some(b => title.includes(b))) continue;\n\n      const inT1 = tier1.some(s => company.includes(s));\n      const inT2 = !inT1 && tier2.some(s => company.includes(s));\n      const inT3 = !inT1 && !inT2 && tier3.some(s => company.includes(s));\n      const companyTier = inT1 ? 'Tier1-WorldClass' : inT2 ? 'Tier2-IndianUnicorn' : inT3 ? 'Tier3-GlobalMNC' : 'Tier4-Other';\n\n      const seniority = (job.seniorityLevel || '').toLowerCase();\n      let expLevel = 'Entry Level';\n      if (seniority.includes('intern') || /intern|trainee|apprentice/.test(title)) expLevel = 'Internship';\n      else if (seniority.includes('entry') || /fresher|junior|entry level/.test(title)) expLevel = 'Fresher/0-2yr';\n      else if (seniority.includes('mid')) expLevel = '1-3 Years';\n      else if (seniority.includes('senior') || /senior|sr\\./.test(title)) expLevel = '3-5 Years';\n\n      const desc = (job.descriptionText || '').toLowerCase();\n      const foundSkills = techKeywords.filter(k => title.includes(k) || desc.includes(k));\n      const reqSkills = foundSkills.length > 0 ? [...new Set(foundSkills)].slice(0,6).join(', ') : 'See Job URL';\n\n      const empType = job.employmentType || 'Full-time';\n      const salHint = job.salary || job.salaryInsights || '';\n      const location = (job.location || 'India').replace(/\\s+/g,' ').trim();\n      const jobUrl = job.link || '';\n      const postedAt = job.postedAt ? job.postedAt.split('T')[0] : '';\n      const hrUrl = 'https://www.linkedin.com/search/results/people/?keywords=Recruiter+Talent+Acquisition+' + encodeURIComponent(rawCompany);\n      const now = new Date();\n\n      rows.push([\n        now.toISOString().split('T')[0],\n        now.toLocaleTimeString('en-IN', {timeZone:'Asia/Kolkata', hour12:false}),\n        rawCompany, companyTier, rawTitle, location, jobUrl,\n        expLevel, reqSkills, empType, String(salHint), 'Applied',\n        hrUrl, 'Apify V8', jobId, postedAt\n      ]);\n    }\n    continue;\n  }\n\n  // ===== LINKEDIN HTML PATH =====\n  const htmlStr = (raw && typeof raw.data === 'string') ? raw.data :\n                  (typeof raw === 'string') ? raw : '';\n  if (!htmlStr || htmlStr.length < 500) continue;\n\n  const lis = htmlStr.match(/<li[^>]*>[\\s\\S]*?<\\/li>/g) || [];\n  for (const li of lis) {\n    const tM = li.match(/class=\"base-search-card__title\"[^>]*>\\s*([^<]+)\\s*</);\n    const cM = li.match(/class=\"hidden-nested-link\"[^>]*>\\s*([^<]+)\\s*</);\n    const uM = li.match(/href=\"(https?:\\/\\/[a-z0-9-]+\\.linkedin\\.com\\/jobs\\/view\\/[^\"?]+)/);\n    const iM = uM ? uM[1].match(/-(\\d+)\\/?$/) : null;\n    const dM = li.match(/datetime=\"([^\"]+)\"/);\n    const lM = li.match(/job-search-card__location[^>]*>\\s*([^<]+)\\s*</);\n\n    if (!tM || !cM || !uM || !iM) continue;\n    const jobId = iM[1];\n    if (existingIds.has(jobId) || seenThisRun.has(jobId)) continue;\n    seenThisRun.add(jobId);\n\n    const rawTitle = tM[1].trim();\n    const title = rawTitle.toLowerCase();\n    const rawCompany = cM[1].trim().replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>');\n    const company = rawCompany.toLowerCase();\n\n    if (badTitle.some(b => title.includes(b))) continue;\n    if (badCompany.some(b => company.includes(b))) continue;\n    if (skipTitleWords.some(b => title.includes(b))) continue;\n\n    const inT1 = tier1.some(s => company.includes(s));\n    const inT2 = !inT1 && tier2.some(s => company.includes(s));\n    const inT3 = !inT1 && !inT2 && tier3.some(s => company.includes(s));\n    const companyTier = inT1 ? 'Tier1-WorldClass' : inT2 ? 'Tier2-IndianUnicorn' : inT3 ? 'Tier3-GlobalMNC' : 'Tier4-Other';\n\n    const hrUrl = 'https://www.linkedin.com/search/results/people/?keywords=Recruiter+Talent+Acquisition+' + encodeURIComponent(rawCompany);\n    let expLevel = 'Entry Level';\n    if (/intern|trainee|apprentice/.test(title)) expLevel = 'Internship';\n    else if (/fresher|junior|associate|entry level/.test(title)) expLevel = 'Fresher/0-2yr';\n    else if (/\\b[1-3][-\u20131-3]\\s*(yr|year)/.test(title)) expLevel = '1-3 Years';\n    else if (/\\b[3-6][-\u20135-9]\\s*(yr|year)/.test(title)) expLevel = '3-5 Years';\n\n    const foundSkills = techKeywords.filter(k => title.includes(k.toLowerCase()));\n    const reqSkills = foundSkills.length > 0 ? [...new Set(foundSkills)].join(', ') : 'See Job URL';\n    let empType = 'Full-time';\n    if (/intern|trainee/.test(title)) empType = 'Internship';\n    else if (/contract|freelance/.test(title)) empType = 'Contract';\n\n    const salM = rawTitle.match(/(\\d+[\\s]*(?:LPA|lpa|lakh|CTC|K\\s*pm))/i);\n    const location = lM ? lM[1].trim().replace(/\\s+/g,' ') : 'India';\n    const postedAt = dM ? dM[1].split('T')[0] : '';\n    const now = new Date();\n\n    rows.push([\n      now.toISOString().split('T')[0],\n      now.toLocaleTimeString('en-IN', {timeZone:'Asia/Kolkata', hour12:false}),\n      rawCompany, companyTier, rawTitle, location, uM[1],\n      expLevel, reqSkills, empType, salM ? salM[1] : '', 'Applied',\n      hrUrl, 'Auto V8', jobId, postedAt\n    ]);\n  }\n}\n\nreturn [{json: {\n  status: rows.length > 0 ? 'ready' : 'no_new_jobs',\n  new_count: rows.length,\n  skipped_duplicates: existingIds.size,\n  rows: rows\n}}];\n"
+      }
+    },
+    {
+      "id": "node-filter",
+      "name": "Has New Jobs?",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2,
+      "position": [
+        2960,
+        160
+      ],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "loose"
+          },
+          "conditions": [
+            {
+              "id": "cond-1",
+              "leftValue": "={{ $json.new_count }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        }
+      }
+    },
+    {
+      "id": "node-write",
+      "name": "Batch Write to Sheets",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3200,
+        160
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "https://backend.composio.dev/api/v3.1/tools/execute/GOOGLESHEETS_SPREADSHEETS_VALUES_APPEND",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "YOUR_COMPOSIO_API_KEY"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"connected_account_id\": \"YOUR_CONNECTED_ACCOUNT_ID\",\n  \"entity_id\": \"sohaib\",\n  \"arguments\": {\n    \"spreadsheet_id\": \"1FTtoDeoXcVPvKpXv2GO9zRpNJPjlQjC_6Fpi6N6P_nI\",\n    \"range\": \"Sheet1!A1\",\n    \"value_input_option\": \"USER_ENTERED\",\n    \"values\": {{ JSON.stringify($json.rows) }}\n  }\n}"
+      }
+    },
+    {
+      "id": "search-city-00",
+      "name": "Pune 15d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        400,
+        120
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+programmer&geoId=114731580&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-city-01",
+      "name": "Delhi NCR 15d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        640,
+        120
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+programmer&geoId=100664647&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-city-02",
+      "name": "Gurgaon 15d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        880,
+        120
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+programmer&geoId=102093620&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-city-03",
+      "name": "Mumbai 15d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1120,
+        120
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+programmer&geoId=102717694&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-city-04",
+      "name": "Hyderabad 15d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1360,
+        120
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+programmer&geoId=102551549&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-city-05",
+      "name": "Bangalore 15d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        120
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+programmer&geoId=105556991&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-city-06",
+      "name": "Bangalore 15d p25",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1840,
+        120
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+programmer&geoId=105556991&f_TPR=r1296000&sortBy=DD&start=25",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-city-07",
+      "name": "Delhi 15d p25",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2080,
+        120
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+programmer&geoId=100664647&f_TPR=r1296000&sortBy=DD&start=25",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-deep-00",
+      "name": "SDE Deep p100",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        400,
+        280
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+programmer&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=100",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-deep-01",
+      "name": "SDE Deep p125",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        640,
+        280
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+programmer&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=125",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-deep-02",
+      "name": "SDE Deep p150",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        880,
+        280
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+programmer&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=150",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-deep-03",
+      "name": "SDE Deep p175",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1120,
+        280
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+programmer&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=175",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-deep-04",
+      "name": "Backend Deep p100",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1360,
+        280
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+backend+python+node+developer&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=100",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-deep-05",
+      "name": "Backend Deep p125",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        280
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+backend+developer+programmer&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=125",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-deep-06",
+      "name": "Startup Deep p50",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1840,
+        280
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=startup+SDE+software+engineer+developer+programmer&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=50",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-deep-07",
+      "name": "Bangalore p50",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2080,
+        280
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+programmer&location=India&geoId=105556991&f_TPR=r1296000&sortBy=DD&start=50",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-fresh-00",
+      "name": "Fresh 1h SDE",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        400,
+        120
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+programmer+SDE&location=India&geoId=102713980&f_TPR=r3600&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-fresh-01",
+      "name": "Fresh 1h ML AI",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        640,
+        120
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=machine+learning+AI+data+scientist+engineer&location=India&geoId=102713980&f_TPR=r3600&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-fresh-02",
+      "name": "Fresh 1h Full",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        880,
+        120
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=fullstack+frontend+backend+react+node+python&location=India&geoId=102713980&f_TPR=r3600&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-fresh-03",
+      "name": "Fresh 2h SDE",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1120,
+        120
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+programmer&location=India&geoId=102713980&f_TPR=r7200&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-fresh-04",
+      "name": "Fresh 2h Tech",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1360,
+        120
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=backend+frontend+devops+cloud+data+mobile&location=India&geoId=102713980&f_TPR=r7200&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-fresh-05",
+      "name": "Fresh 4h SDE",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        120
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+programmer+SDE&location=India&geoId=102713980&f_TPR=r14400&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-fresh-06",
+      "name": "Fresh 4h Startup",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1840,
+        120
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=startup+engineer+developer+product+SDE&location=India&geoId=102713980&f_TPR=r14400&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-fresh-07",
+      "name": "Fresh 6h India",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2080,
+        120
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+programmer&location=India&geoId=102713980&f_TPR=r21600&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-fresh-08",
+      "name": "Fresh 6h Cities",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        400,
+        280
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+fresher+intern&location=India&geoId=102713980&f_TPR=r21600&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-fresh-09",
+      "name": "Rel SDE India",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        640,
+        280
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+programmer+SDE&location=India&geoId=102713980&f_TPR=r1296000&sortBy=R&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-fresh-10",
+      "name": "Rel ML AI India",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        880,
+        280
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=machine+learning+AI+data+scientist+engineer&location=India&geoId=102713980&f_TPR=r1296000&sortBy=R&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            }
+          ]
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "search-react-developer-15d",
+      "name": "React Developer 15d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -200,
+        580
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=react+developer+frontend+javascript&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-angular-vue-15d",
+      "name": "Angular Vue 15d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -200,
+        620
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=angular+vue+frontend+developer+javascript&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-spring-boot-15d",
+      "name": "Spring Boot 15d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -200,
+        660
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=spring+boot+java+microservices+backend&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-cloud-aws-15d",
+      "name": "Cloud AWS 15d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -200,
+        700
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=aws+cloud+architect+engineer+devops&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-flutter-mobile-15d",
+      "name": "Flutter Mobile 15d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -200,
+        740
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=flutter+dart+mobile+developer+android+ios&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-data-analytics-15d",
+      "name": "Data Analytics 15d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -200,
+        780
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=data+analyst+analytics+sql+tableau+power+bi&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-cybersecurity-15d",
+      "name": "Cybersecurity 15d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -200,
+        820
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=cybersecurity+security+engineer+pentesting&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-blockchain-web3-15d",
+      "name": "Blockchain Web3 15d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -200,
+        860
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=blockchain+web3+solidity+smart+contract&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-nlp-ai-research-15d",
+      "name": "NLP AI Research 15d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -200,
+        900
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=nlp+natural+language+processing+ai+research&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-embedded-systems-15d",
+      "name": "Embedded Systems 15d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -200,
+        940
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=embedded+systems+firmware+RTOS+IoT&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-sre-platform-15d",
+      "name": "SRE Platform 15d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -200,
+        980
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=SRE+platform+engineer+kubernetes+docker+helm&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-product-analyst-15d",
+      "name": "Product Analyst 15d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -200,
+        1020
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=product+analyst+business+analyst+SQL+agile&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-ui-ux-engineer-15d",
+      "name": "UI UX Engineer 15d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -200,
+        1060
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=UI+UX+designer+frontend+figma+react&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-typescript-node-15d",
+      "name": "TypeScript Node 15d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -200,
+        1100
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=typescript+nodejs+express+nestjs+backend&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-rust-systems-15d",
+      "name": "Rust Systems 15d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -200,
+        1140
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=rust+systems+programming+backend+developer&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-chennai-sde-p0",
+      "name": "Chennai SDE p0",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        400,
+        580
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+backend+frontend&location=India&geoId=102140561&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-chennai-sde-p25",
+      "name": "Chennai SDE p25",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        400,
+        620
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+backend+frontend&location=India&geoId=102140561&f_TPR=r1296000&sortBy=DD&start=25",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-chennai-intern-15d",
+      "name": "Chennai Intern 15d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        400,
+        660
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=intern+trainee+fresher+graduate+entry+level&location=India&geoId=102140561&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-bangalore-intern-15d",
+      "name": "Bangalore Intern 15d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        400,
+        700
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=intern+trainee+fresher+graduate+developer&location=India&geoId=105556991&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-hyderabad-sde-p0",
+      "name": "Hyderabad SDE p0",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        400,
+        740
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+python+java&location=India&geoId=102551549&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-mumbai-fintech-15d",
+      "name": "Mumbai Fintech 15d",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        400,
+        780
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=fintech+developer+software+engineer+banking&location=India&geoId=102717694&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-pune-sde-p25",
+      "name": "Pune SDE p25",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        400,
+        820
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+backend+java&location=India&geoId=114731580&f_TPR=r1296000&sortBy=DD&start=25",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-fresh-2h-ml-intern",
+      "name": "Fresh 2h ML Intern",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        800,
+        580
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=machine+learning+AI+intern+entry+level+fresher&location=India&geoId=102713980&f_TPR=r7200&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-fresh-2h-react",
+      "name": "Fresh 2h React",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        800,
+        620
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=react+frontend+developer+javascript+typescript&location=India&geoId=102713980&f_TPR=r7200&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-fresh-2h-java",
+      "name": "Fresh 2h Java",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        800,
+        660
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=java+spring+boot+backend+developer&location=India&geoId=102713980&f_TPR=r7200&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-fresh-2h-python",
+      "name": "Fresh 2h Python",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        800,
+        700
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=python+developer+backend+django+fastapi&location=India&geoId=102713980&f_TPR=r7200&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-fresh-4h-ml",
+      "name": "Fresh 4h ML",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        800,
+        740
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=machine+learning+AI+data+scientist+engineer&location=India&geoId=102713980&f_TPR=r14400&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-fresh-4h-react",
+      "name": "Fresh 4h React",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        800,
+        780
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=react+nextjs+frontend+developer+javascript&location=India&geoId=102713980&f_TPR=r14400&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-fresh-6h-chennai",
+      "name": "Fresh 6h Chennai",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        800,
+        820
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+programmer&location=India&geoId=102140561&f_TPR=r21600&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-fresh-6h-bangalore",
+      "name": "Fresh 6h Bangalore",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        800,
+        860
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+backend+frontend&location=India&geoId=105556991&f_TPR=r21600&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-fresh-6h-hyderabad",
+      "name": "Fresh 6h Hyderabad",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        800,
+        900
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+python+java&location=India&geoId=102551549&f_TPR=r21600&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-sde-india-15d-p100",
+      "name": "SDE India 15d p100",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1200,
+        580
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+sde+programmer&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=100",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-sde-india-15d-p125",
+      "name": "SDE India 15d p125",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1200,
+        620
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=software+engineer+developer+sde+programmer&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=125",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-intern-india-p0",
+      "name": "Intern India p0",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1200,
+        660
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=intern+internship+trainee+fresher+entry+level+developer&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=0",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-intern-india-p25",
+      "name": "Intern India p25",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1200,
+        700
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=intern+internship+trainee+fresher+entry+level+developer&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=25",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-intern-india-p50",
+      "name": "Intern India p50",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1200,
+        740
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=intern+internship+trainee+fresher+entry+level+developer&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=50",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-backend-india-p75",
+      "name": "Backend India p75",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1200,
+        780
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=backend+software+engineer+developer+api&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=75",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "search-ml-ai-p75",
+      "name": "ML AI p75",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1200,
+        820
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=machine+learning+AI+deep+learning+engineer&location=India&geoId=102713980&f_TPR=r1296000&sortBy=DD&start=75",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          }
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+            }
+          ]
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "apify-apify-sde-india-24h",
+      "name": "Apify SDE India 24h",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        580
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/curious_coder~linkedin-jobs-scraper/run-sync-get-dataset-items?token=YOUR_APIFY_API_KEY&timeout=150",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"urls\": [\"https://www.linkedin.com/jobs/search/?keywords=software%20engineer%20developer%20sde%20programmer&location=India&f_TPR=r86400&sortBy=DD\"], \"maxItems\": 50}",
+        "options": {
+          "timeout": 200000,
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "apify-apify-ml-ai-india-24h",
+      "name": "Apify ML AI India 24h",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        620
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/curious_coder~linkedin-jobs-scraper/run-sync-get-dataset-items?token=YOUR_APIFY_API_KEY&timeout=150",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"urls\": [\"https://www.linkedin.com/jobs/search/?keywords=machine%20learning%20AI%20data%20scientist%20engineer&location=India&f_TPR=r86400&sortBy=DD\"], \"maxItems\": 50}",
+        "options": {
+          "timeout": 200000,
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "apify-apify-frontend-24h",
+      "name": "Apify Frontend 24h",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        660
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/curious_coder~linkedin-jobs-scraper/run-sync-get-dataset-items?token=YOUR_APIFY_API_KEY&timeout=150",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"urls\": [\"https://www.linkedin.com/jobs/search/?keywords=frontend%20react%20angular%20vue%20typescript%20developer&location=India&f_TPR=r86400&sortBy=DD\"], \"maxItems\": 50}",
+        "options": {
+          "timeout": 200000,
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "apify-apify-backend-24h",
+      "name": "Apify Backend 24h",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        700
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/curious_coder~linkedin-jobs-scraper/run-sync-get-dataset-items?token=YOUR_APIFY_API_KEY&timeout=150",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"urls\": [\"https://www.linkedin.com/jobs/search/?keywords=backend%20nodejs%20python%20java%20golang%20developer&location=India&f_TPR=r86400&sortBy=DD\"], \"maxItems\": 50}",
+        "options": {
+          "timeout": 200000,
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "apify-apify-intern-fresher-24h",
+      "name": "Apify Intern Fresher 24h",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        740
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/curious_coder~linkedin-jobs-scraper/run-sync-get-dataset-items?token=YOUR_APIFY_API_KEY&timeout=150",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"urls\": [\"https://www.linkedin.com/jobs/search/?keywords=intern%20fresher%20trainee%20entry%20level%20developer&location=India&f_TPR=r86400&sortBy=DD\"], \"maxItems\": 50}",
+        "options": {
+          "timeout": 200000,
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        },
+        "onError": "continueRegularOutput"
+      }
+    },
+    {
+      "id": "apify-apify-chennai-blr-24h",
+      "name": "Apify Chennai Blr 24h",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1600,
+        780
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apify.com/v2/acts/curious_coder~linkedin-jobs-scraper/run-sync-get-dataset-items?token=YOUR_APIFY_API_KEY&timeout=150",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\"urls\": [\"https://www.linkedin.com/jobs/search/?keywords=software%20engineer%20developer%20Chennai%20Bangalore&location=India&f_TPR=r86400&sortBy=DD\"], \"maxItems\": 50}",
+        "options": {
+          "timeout": 200000,
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        },
+        "onError": "continueRegularOutput"
+      }
+    }
+  ],
+  "connections": {
+    "Every 30 Min": {
+      "main": [
+        [
+          {
+            "node": "Fetch Existing IDs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Run Now": {
+      "main": [
+        [
+          {
+            "node": "Fetch Existing IDs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Existing IDs": {
+      "main": [
+        [
+          {
+            "node": "Backend 24h",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "ML AI 24h",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Frontend 7d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "FullStack 7d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Mobile 7d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "DevOps Cloud 7d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "DataEng 7d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Java Spring 7d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "SDE India 15d p0",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "SDE India 15d p25",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "SDE India 15d p50",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "SDE India 15d p75",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Intern Fresh 15d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Chennai 15d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Startup 15d p0",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Startup 15d p25",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Backend 7d p25",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Backend 7d p50",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "ML AI 7d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "React NodeJS 15d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Python Cloud 15d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Java Kotlin 15d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Golang Rust 15d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "QA DevOps 15d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Pune 15d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Delhi NCR 15d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Gurgaon 15d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Mumbai 15d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Hyderabad 15d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Bangalore 15d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Bangalore 15d p25",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Delhi 15d p25",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "SDE Deep p100",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "SDE Deep p125",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "SDE Deep p150",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "SDE Deep p175",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Backend Deep p100",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Backend Deep p125",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Startup Deep p50",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Bangalore p50",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Fresh 1h SDE",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Fresh 1h ML AI",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Fresh 1h Full",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Fresh 2h SDE",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Fresh 2h Tech",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Fresh 4h SDE",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Fresh 4h Startup",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Fresh 6h India",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Fresh 6h Cities",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Rel SDE India",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Rel ML AI India",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "React Developer 15d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Angular Vue 15d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Spring Boot 15d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Cloud AWS 15d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Flutter Mobile 15d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Data Analytics 15d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Cybersecurity 15d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Blockchain Web3 15d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "NLP AI Research 15d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Embedded Systems 15d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "SRE Platform 15d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Product Analyst 15d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "UI UX Engineer 15d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "TypeScript Node 15d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Rust Systems 15d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Chennai SDE p0",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Chennai SDE p25",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Chennai Intern 15d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Bangalore Intern 15d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Hyderabad SDE p0",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Mumbai Fintech 15d",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Pune SDE p25",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Fresh 2h ML Intern",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Fresh 2h React",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Fresh 2h Java",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Fresh 2h Python",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Fresh 4h ML",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Fresh 4h React",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Fresh 6h Chennai",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Fresh 6h Bangalore",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Fresh 6h Hyderabad",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "SDE India 15d p100",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "SDE India 15d p125",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Intern India p0",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Intern India p25",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Intern India p50",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Backend India p75",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "ML AI p75",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Apify SDE India 24h",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Apify ML AI India 24h",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Apify Frontend 24h",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Apify Backend 24h",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Apify Intern Fresher 24h",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Apify Chennai Blr 24h",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge Searches": {
+      "main": [
+        [
+          {
+            "node": "Parse + Dedup + Build Rows",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse + Dedup + Build Rows": {
+      "main": [
+        [
+          {
+            "node": "Has New Jobs?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has New Jobs?": {
+      "main": [
+        [
+          {
+            "node": "Batch Write to Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Backend 24h": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ML AI 24h": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Frontend 7d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "FullStack 7d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 3
+          }
+        ]
+      ]
+    },
+    "Mobile 7d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 4
+          }
+        ]
+      ]
+    },
+    "DevOps Cloud 7d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 5
+          }
+        ]
+      ]
+    },
+    "DataEng 7d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 6
+          }
+        ]
+      ]
+    },
+    "Java Spring 7d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 7
+          }
+        ]
+      ]
+    },
+    "SDE India 15d p0": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 8
+          }
+        ]
+      ]
+    },
+    "SDE India 15d p25": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 9
+          }
+        ]
+      ]
+    },
+    "SDE India 15d p50": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 10
+          }
+        ]
+      ]
+    },
+    "SDE India 15d p75": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 11
+          }
+        ]
+      ]
+    },
+    "Intern Fresh 15d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 12
+          }
+        ]
+      ]
+    },
+    "Chennai 15d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 13
+          }
+        ]
+      ]
+    },
+    "Startup 15d p0": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 14
+          }
+        ]
+      ]
+    },
+    "Startup 15d p25": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 15
+          }
+        ]
+      ]
+    },
+    "Backend 7d p25": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 16
+          }
+        ]
+      ]
+    },
+    "Backend 7d p50": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 17
+          }
+        ]
+      ]
+    },
+    "ML AI 7d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 18
+          }
+        ]
+      ]
+    },
+    "React NodeJS 15d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 19
+          }
+        ]
+      ]
+    },
+    "Python Cloud 15d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 20
+          }
+        ]
+      ]
+    },
+    "Java Kotlin 15d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 21
+          }
+        ]
+      ]
+    },
+    "Golang Rust 15d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 22
+          }
+        ]
+      ]
+    },
+    "QA DevOps 15d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 23
+          }
+        ]
+      ]
+    },
+    "Pune 15d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 24
+          }
+        ]
+      ]
+    },
+    "Delhi NCR 15d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 25
+          }
+        ]
+      ]
+    },
+    "Gurgaon 15d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 26
+          }
+        ]
+      ]
+    },
+    "Mumbai 15d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 27
+          }
+        ]
+      ]
+    },
+    "Hyderabad 15d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 28
+          }
+        ]
+      ]
+    },
+    "Bangalore 15d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 29
+          }
+        ]
+      ]
+    },
+    "Bangalore 15d p25": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 30
+          }
+        ]
+      ]
+    },
+    "Delhi 15d p25": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 31
+          }
+        ]
+      ]
+    },
+    "SDE Deep p100": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 32
+          }
+        ]
+      ]
+    },
+    "SDE Deep p125": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 33
+          }
+        ]
+      ]
+    },
+    "SDE Deep p150": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 34
+          }
+        ]
+      ]
+    },
+    "SDE Deep p175": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 35
+          }
+        ]
+      ]
+    },
+    "Backend Deep p100": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 36
+          }
+        ]
+      ]
+    },
+    "Backend Deep p125": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 37
+          }
+        ]
+      ]
+    },
+    "Startup Deep p50": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 38
+          }
+        ]
+      ]
+    },
+    "Bangalore p50": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 39
+          }
+        ]
+      ]
+    },
+    "Fresh 1h SDE": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 40
+          }
+        ]
+      ]
+    },
+    "Fresh 1h ML AI": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 41
+          }
+        ]
+      ]
+    },
+    "Fresh 1h Full": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 42
+          }
+        ]
+      ]
+    },
+    "Fresh 2h SDE": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 43
+          }
+        ]
+      ]
+    },
+    "Fresh 2h Tech": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 44
+          }
+        ]
+      ]
+    },
+    "Fresh 4h SDE": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 45
+          }
+        ]
+      ]
+    },
+    "Fresh 4h Startup": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 46
+          }
+        ]
+      ]
+    },
+    "Fresh 6h India": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 47
+          }
+        ]
+      ]
+    },
+    "Fresh 6h Cities": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 48
+          }
+        ]
+      ]
+    },
+    "Rel SDE India": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 49
+          }
+        ]
+      ]
+    },
+    "Rel ML AI India": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 50
+          }
+        ]
+      ]
+    },
+    "React Developer 15d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Angular Vue 15d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Spring Boot 15d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cloud AWS 15d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Flutter Mobile 15d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data Analytics 15d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Cybersecurity 15d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Blockchain Web3 15d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "NLP AI Research 15d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embedded Systems 15d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SRE Platform 15d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Product Analyst 15d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "UI UX Engineer 15d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TypeScript Node 15d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rust Systems 15d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Chennai SDE p0": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Chennai SDE p25": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Chennai Intern 15d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Bangalore Intern 15d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Hyderabad SDE p0": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mumbai Fintech 15d": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pune SDE p25": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fresh 2h ML Intern": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fresh 2h React": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fresh 2h Java": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fresh 2h Python": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fresh 4h ML": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fresh 4h React": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fresh 6h Chennai": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fresh 6h Bangalore": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fresh 6h Hyderabad": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SDE India 15d p100": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SDE India 15d p125": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Intern India p0": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Intern India p25": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Intern India p50": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Backend India p75": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ML AI p75": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Apify SDE India 24h": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Apify ML AI India 24h": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Apify Frontend 24h": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Apify Backend 24h": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Apify Intern Fresher 24h": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Apify Chennai Blr 24h": {
+      "main": [
+        [
+          {
+            "node": "Merge Searches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveExecutionProgress": false,
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "active": true
+}

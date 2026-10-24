@@ -1,0 +1,235 @@
+<div class="resume-template dark-navy-commander">
+  <div class="dnc-wrapper">
+    <div class="dnc-sidebar">
+      <div id="profilePhoto" class="dnc-photo"></div>
+      <h1 id="previewName" class="dnc-name">Your Name</h1>
+      <p id="previewJobTitle" class="dnc-title">Job Title</p>
+      <div class="dnc-divider"></div>
+      <div class="dnc-sidebar-section">
+        <h3 class="dnc-side-label">Contact</h3>
+        <p id="previewEmail" class="dnc-contact">email@example.com</p>
+        <p id="previewPhone" class="dnc-contact">+1 234 567 890</p>
+        <p id="previewLocation" class="dnc-contact">City, Country</p>
+        <div id="previewLinkedIn" class="dnc-contact">linkedin.com/in/you</div>
+      </div>
+      <div class="dnc-divider"></div>
+      <div class="dnc-sidebar-section">
+        <h3 class="dnc-side-label">Skills</h3>
+        <div id="previewSkills" class="skills-list dnc-skills"></div>
+      </div>
+      <div class="dnc-divider"></div>
+      <div class="dnc-sidebar-section">
+        <h3 class="dnc-side-label">Languages</h3>
+        <div id="previewLanguages" class="skills-list dnc-skills"></div>
+      </div>
+      <div class="dnc-divider"></div>
+      <div class="dnc-sidebar-section">
+        <h3 class="dnc-side-label">Awards</h3>
+        <ul id="previewAwards" class="dnc-ul"></ul>
+      </div>
+    </div>
+
+    <div class="dnc-main">
+      <div class="dnc-section">
+        <h2 class="dnc-section-title">Professional Summary</h2>
+        <p id="previewSummary" class="dnc-summary">Professional summary goes here.</p>
+      </div>
+      <div class="dnc-section">
+        <h2 class="dnc-section-title">Experience</h2>
+        <div id="previewExperience"></div>
+      </div>
+      <div class="dnc-section">
+        <h2 class="dnc-section-title">Education</h2>
+        <div id="previewEducation"></div>
+      </div>
+      <div class="dnc-section">
+        <h2 class="dnc-section-title">Certifications</h2>
+        <ul id="previewCertifications" class="dnc-main-list"></ul>
+      </div>
+      <div class="dnc-section">
+        <h2 class="dnc-section-title">Projects</h2>
+        <ul id="previewProjects" class="dnc-main-list"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.dark-navy-commander {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  --primary: var(--primary-color, #6366f1);
+  --gold: #f59e0b;
+}
+.dark-navy-commander .dnc-wrapper {
+  display: flex;
+  min-height: 297mm;
+}
+.dark-navy-commander .dnc-sidebar {
+  width: 34%;
+  background: #0c1445;
+  padding: 28px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 3px solid var(--gold);
+}
+.dark-navy-commander .dnc-photo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(255,255,255,0.1);
+  border: 4px solid var(--gold);
+  margin-bottom: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+.dark-navy-commander .dnc-name {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+  margin: 0 0 4px;
+  line-height: 1.2;
+}
+.dark-navy-commander .dnc-title {
+  font-size: 0.7rem;
+  color: var(--gold);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 0;
+}
+.dark-navy-commander .dnc-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255,255,255,0.12);
+  margin: 14px 0;
+}
+.dark-navy-commander .dnc-sidebar-section {
+  width: 100%;
+}
+.dark-navy-commander .dnc-side-label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--gold);
+  margin: 0 0 8px;
+}
+.dark-navy-commander .dnc-contact {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.65);
+  margin: 3px 0;
+  word-break: break-all;
+}
+.dark-navy-commander .dnc-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.dark-navy-commander .dnc-skills span {
+  background: rgba(245,158,11,0.15);
+  border: 1px solid rgba(245,158,11,0.3);
+  color: rgba(255,255,255,0.8);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.66rem;
+}
+.dark-navy-commander .dnc-ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.6);
+}
+.dark-navy-commander .dnc-ul li {
+  padding: 2px 0 2px 12px;
+  position: relative;
+}
+.dark-navy-commander .dnc-ul li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 0.6rem;
+}
+.dark-navy-commander .dnc-main {
+  flex: 1;
+  background: #ffffff;
+  padding: 26px 28px;
+}
+.dark-navy-commander .dnc-section {
+  margin-bottom: 20px;
+}
+.dark-navy-commander .dnc-section-title {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: #0c1445;
+  margin: 0 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--gold);
+}
+.dark-navy-commander .dnc-summary {
+  font-size: 0.82rem;
+  line-height: 1.65;
+  color: #444;
+  margin: 0;
+}
+.dark-navy-commander .dnc-main-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.78rem;
+  color: #555;
+}
+.dark-navy-commander .dnc-main-list li {
+  padding: 3px 0 3px 16px;
+  position: relative;
+}
+.dark-navy-commander .dnc-main-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+.dark-navy-commander #previewExperience .experience-entry,
+.dark-navy-commander #previewEducation .education-entry {
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #eee;
+}
+.dark-navy-commander #previewExperience .experience-entry:last-child,
+.dark-navy-commander #previewEducation .education-entry:last-child {
+  border-bottom: none;
+}
+.dark-navy-commander #previewExperience .entry-title,
+.dark-navy-commander #previewEducation .entry-title {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #0c1445;
+}
+.dark-navy-commander #previewExperience .entry-company,
+.dark-navy-commander #previewEducation .entry-school {
+  font-size: 0.8rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+.dark-navy-commander #previewExperience .entry-dates,
+.dark-navy-commander #previewEducation .entry-dates {
+  font-size: 0.7rem;
+  color: #999;
+}
+.dark-navy-commander #previewExperience .entry-description,
+.dark-navy-commander #previewEducation .entry-description {
+  font-size: 0.77rem;
+  color: #555;
+  margin-top: 4px;
+  line-height: 1.55;
+}
+</style>

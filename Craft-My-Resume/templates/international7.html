@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Resume Template 7</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template international7-template">
+        <div class="header-section">
+            <div class="header-left">
+                <h1 class="name" id="previewName">Your Name</h1>
+                <h2 class="title" id="previewJobTitle">Professional Title</h2>
+            </div>
+            <div class="header-right">
+                <div class="contact-grid">
+                    <div class="contact-item" id="previewEmail"></div>
+                    <div class="contact-item" id="previewPhone"></div>
+                    <div class="contact-item" id="previewLocation"></div>
+                    <div class="contact-item" id="previewLinkedIn"></div>
+                </div>
+            </div>
+        </div>
+        <div class="summary-stripe">
+            <h3>Executive Summary</h3>
+            <p id="previewSummary"></p>
+        </div>
+        <div class="main-content">
+            <div class="content-left">
+                <div class="section">
+                    <h3>Professional Experience</h3>
+                    <div id="previewExperience"></div>
+                </div>
+                <div class="section">
+                    <h3>Education</h3>
+                    <div id="previewEducation"></div>
+                </div>
+            </div>
+            <div class="content-right">
+                <div class="section">
+                    <h3>Core Competencies</h3>
+                    <div id="previewSkills" class="skills-list"></div>
+                </div>
+                <div class="section">
+                    <h3>Languages</h3>
+                    <div id="previewLanguages" class="skills-list"></div>
+                </div>
+                <div class="section">
+                    <h3>Key Projects</h3>
+                    <ul id="previewProjects"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .international7-template { font-family: 'Tahoma', sans-serif; background: #fff; color: #2c3e50; }
+        .international7-template .header-section { display: flex; justify-content: space-between; align-items: center; padding: 2rem; background: #f39c12; color: white; }
+        .international7-template .name { font-size: 2.8rem; margin: 0; font-weight: 700; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
+        .international7-template .title { font-size: 1.3rem; margin: 0.5rem 0; opacity: 0.95; font-weight: 300; }
+        .international7-template .contact-grid { display: grid; grid-template-columns: 1fr; gap: 0.5rem; text-align: right; }
+        .international7-template .contact-item { font-size: 0.9rem; opacity: 0.9; }
+        .international7-template .summary-stripe { background: #ffeaa7; padding: 1.5rem 2rem; border-left: 6px solid #f39c12; }
+        .international7-template .summary-stripe h3 { margin: 0 0 1rem 0; color: #d35400; font-size: 1.3rem; font-weight: 600; }
+        .international7-template .main-content { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; padding: 2rem; }
+        .international7-template .section { margin-bottom: 2rem; }
+        .international7-template h3 { color: #f39c12; font-size: 1.2rem; margin-bottom: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; position: relative; }
+        .international7-template h3:before { content: '▶'; margin-right: 0.5rem; color: #d35400; }
+        .international7-template .experience-entry, .international7-template .education-entry { margin-bottom: 1.5rem; padding-left: 1rem; border-left: 3px solid #ffeaa7; }
+        .international7-template .entry-title { font-weight: bold; font-size: 1.1rem; color: #2c3e50; }
+        .international7-template .entry-company { color: #f39c12; font-weight: 600; margin: 0.3rem 0; }
+        .international7-template .entry-dates { color: #7f8c8d; font-size: 0.9rem; }
+        .international7-template .skills-list { display: block; }
+        .international7-template .skill-tag { display: inline-block; background: #f39c12; color: white; padding: 0.4rem 0.8rem; margin: 0.2rem; border-radius: 15px; font-size: 0.85rem; font-weight: 500; }
+    </style>
+    <script src="../script.js"></script>
+</body>
+</html>

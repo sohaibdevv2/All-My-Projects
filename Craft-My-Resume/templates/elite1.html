@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Template 1</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template elite1-template">
+        <div class="header-section">
+            <div class="profile-circle">
+                <div class="initials">YN</div>
+            </div>
+            <div class="header-content">
+                <h1 class="name" id="previewName">Your Name</h1>
+                <h2 class="title" id="previewJobTitle">Executive Leader</h2>
+                <div class="contact-line">
+                    <span id="previewEmail"></span> • <span id="previewPhone"></span> • <span id="previewLocation"></span> • <span id="previewLinkedIn"></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="summary-section">
+                <h3>Executive Summary</h3>
+                <p id="previewSummary"></p>
+            </div>
+            
+            <div class="main-content">
+                <div class="section">
+                    <h3>Professional Experience</h3>
+                    <div id="previewExperience"></div>
+                </div>
+                
+                <div class="dual-column">
+                    <div class="left-col">
+                        <div class="section">
+                            <h3>Education</h3>
+                            <div id="previewEducation"></div>
+                        </div>
+                        
+                        <div class="section">
+                            <h3>Core Competencies</h3>
+                            <div id="previewSkills" class="skills-list"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="right-col">
+                        <div class="section">
+                            <h3>Awards & Recognition</h3>
+                            <div class="awards-list">
+                                <div class="award-item">Excellence in Leadership Award</div>
+                                <div class="award-item">Industry Innovation Recognition</div>
+                                <div class="award-item">Top Performer Achievement</div>
+                            </div>
+                        </div>
+                        
+                        <div class="section">
+                            <h3>Languages</h3>
+                            <div id="previewLanguages" class="skills-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .elite1-template { 
+            font-family: 'Georgia', 'Times New Roman', serif; 
+            background: #ffffff; 
+            color: #2c3e50; 
+            line-height: 1.7; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .elite1-template .header-section { 
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%); 
+            color: white; 
+            padding: 3rem 2.5rem; 
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            position: relative;
+        }
+        .elite1-template .header-section::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid #2c3e50;
+        }
+        .elite1-template .profile-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
+        }
+        .elite1-template .header-content {
+            flex: 1;
+        }
+        .elite1-template .name { 
+            font-size: 3.2rem; 
+            margin: 0; 
+            font-weight: 400; 
+            letter-spacing: 2px; 
+        }
+        .elite1-template .title { 
+            font-size: 1.6rem; 
+            margin: 0.5rem 0 1.5rem 0; 
+            font-weight: 300; 
+            opacity: 0.9; 
+            font-style: italic;
+        }
+        .elite1-template .contact-line { 
+            font-size: 1rem; 
+            opacity: 0.95;
+        }
+        .elite1-template .content-wrapper { 
+            padding: 3rem 2.5rem 2rem; 
+        }
+        .elite1-template .summary-section { 
+            margin-bottom: 3rem; 
+            padding: 2.5rem; 
+            background: #ecf0f1; 
+            border-radius: 15px;
+            border-left: 8px solid #3498db;
+            position: relative;
+        }
+        .elite1-template .summary-section::before {
+            content: '"';
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+            font-size: 4rem;
+            color: #3498db;
+            opacity: 0.3;
+            font-family: serif;
+        }
+        .elite1-template .summary-section h3 { 
+            margin: 0 0 1.5rem 0; 
+            color: #2c3e50; 
+            font-size: 1.4rem; 
+            font-weight: 600; 
+        }
+        .elite1-template .dual-column { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 3rem; 
+            margin-top: 2rem;
+        }
+        .elite1-template .section { 
+            margin-bottom: 2.5rem; 
+        }
+        .elite1-template h3 { 
+            color: #2c3e50; 
+            font-size: 1.3rem; 
+            margin-bottom: 1.5rem; 
+            font-weight: 600; 
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        .elite1-template h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            border-radius: 2px;
+        }
+        .elite1-template .experience-entry, .elite1-template .education-entry { 
+            margin-bottom: 2rem; 
+            padding: 2rem; 
+            background: #f8f9fa; 
+            border-radius: 12px;
+            border-left: 5px solid #3498db;
+            position: relative;
+        }
+        .elite1-template .experience-entry::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 2rem;
+            width: 16px;
+            height: 16px;
+            background: #3498db;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+        .elite1-template .entry-title { 
+            font-weight: 700; 
+            font-size: 1.2rem; 
+            color: #2c3e50; 
+            margin-bottom: 0.5rem;
+        }
+        .elite1-template .entry-company { 
+            color: #3498db; 
+            font-weight: 600; 
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+        .elite1-template .entry-dates { 
+            color: #7f8c8d; 
+            font-size: 0.95rem; 
+            font-weight: 500;
+        }
+        .elite1-template .skills-list { 
+            display: block; 
+        }
+        .elite1-template .skill-tag { 
+            display: inline-block; 
+            background: linear-gradient(135deg, #3498db, #2980b9); 
+            color: white; 
+            padding: 0.7rem 1.2rem; 
+            margin: 0.4rem; 
+            border-radius: 25px; 
+            font-size: 0.9rem; 
+            font-weight: 500; 
+            box-shadow: 0 4px 8px rgba(52, 152, 219, 0.2);
+            transition: transform 0.2s ease;
+        }
+        .elite1-template .skill-tag:hover {
+            transform: translateY(-2px);
+        }
+        .elite1-template .awards-list {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #e74c3c;
+        }
+        .elite1-template .award-item {
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 3px solid #e74c3c;
+            font-weight: 500;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

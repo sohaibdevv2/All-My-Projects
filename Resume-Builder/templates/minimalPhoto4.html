@@ -1,0 +1,231 @@
+<div class="resume-template minimal-nordic">
+  <div class="mn-wrapper">
+    <div class="mn-header">
+      <div id="profilePhoto" class="mn-photo"></div>
+      <div class="mn-header-text">
+        <h1 id="previewName" class="mn-name">Your Name</h1>
+        <p id="previewJobTitle" class="mn-title">Job Title</p>
+        <div class="mn-contacts">
+          <span class="mn-label">EMAIL</span><span id="previewEmail" class="mn-cval">email@example.com</span>
+          <span class="mn-label">PHONE</span><span id="previewPhone" class="mn-cval">+1 234 567 890</span>
+          <span class="mn-label">LOC</span><span id="previewLocation" class="mn-cval">City, Country</span>
+          <span class="mn-label">WEB</span><div id="previewLinkedIn" class="mn-cval mn-cval-inline">linkedin.com/in/you</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="mn-hr" />
+
+    <div class="mn-body">
+      <div class="mn-section">
+        <h2 class="mn-section-title">// summary</h2>
+        <p id="previewSummary" class="mn-text">Professional summary goes here.</p>
+      </div>
+
+      <div class="mn-section">
+        <h2 class="mn-section-title">// experience</h2>
+        <div id="previewExperience"></div>
+      </div>
+
+      <div class="mn-section">
+        <h2 class="mn-section-title">// education</h2>
+        <div id="previewEducation"></div>
+      </div>
+
+      <div class="mn-two-col">
+        <div class="mn-col">
+          <div class="mn-section">
+            <h2 class="mn-section-title">// skills</h2>
+            <div id="previewSkills" class="skills-list mn-tags"></div>
+          </div>
+          <div class="mn-section">
+            <h2 class="mn-section-title">// languages</h2>
+            <div id="previewLanguages" class="skills-list mn-tags"></div>
+          </div>
+          <div class="mn-section">
+            <h2 class="mn-section-title">// awards</h2>
+            <ul id="previewAwards" class="mn-list"></ul>
+          </div>
+        </div>
+        <div class="mn-col">
+          <div class="mn-section">
+            <h2 class="mn-section-title">// certifications</h2>
+            <ul id="previewCertifications" class="mn-list"></ul>
+          </div>
+          <div class="mn-section">
+            <h2 class="mn-section-title">// projects</h2>
+            <ul id="previewProjects" class="mn-list"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.minimal-nordic {
+  font-family: 'Courier New', 'Lucida Console', monospace;
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  --primary: var(--primary-color, #6366f1);
+}
+.minimal-nordic .mn-wrapper {
+  background: #fafafa;
+  min-height: 297mm;
+  padding: 32px 40px;
+  box-sizing: border-box;
+}
+.minimal-nordic .mn-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 18px;
+}
+.minimal-nordic .mn-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  background-color: #e8e8e8;
+  border: 1px solid #ccc;
+  flex-shrink: 0;
+}
+.minimal-nordic .mn-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #111;
+  margin: 0 0 4px;
+  letter-spacing: -1px;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+.minimal-nordic .mn-title {
+  font-size: 0.72rem;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0 0 10px;
+  font-family: 'Courier New', monospace;
+}
+.minimal-nordic .mn-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 12px;
+  font-size: 0.68rem;
+  align-items: baseline;
+}
+.minimal-nordic .mn-label {
+  font-size: 0.58rem;
+  color: #aaa;
+  letter-spacing: 1px;
+  margin-right: 4px;
+}
+.minimal-nordic .mn-cval {
+  color: #555;
+  margin-right: 12px;
+}
+.minimal-nordic .mn-cval-inline {
+  display: inline;
+}
+.minimal-nordic .mn-hr {
+  border: none;
+  border-top: 1px solid #222;
+  margin-bottom: 18px;
+}
+.minimal-nordic .mn-body {
+  color: #333;
+}
+.minimal-nordic .mn-section {
+  margin-bottom: 16px;
+}
+.minimal-nordic .mn-section-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0 0 8px;
+  padding-bottom: 3px;
+  border-bottom: 1px dashed #ddd;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0;
+}
+.minimal-nordic .mn-text {
+  font-size: 0.78rem;
+  line-height: 1.65;
+  color: #555;
+  margin: 0;
+}
+.minimal-nordic .mn-two-col {
+  display: flex;
+  gap: 28px;
+}
+.minimal-nordic .mn-col {
+  flex: 1;
+}
+.minimal-nordic .mn-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.minimal-nordic .mn-tags span {
+  background: #fff;
+  border: 1px solid #ddd;
+  color: #333;
+  padding: 1px 8px;
+  border-radius: 2px;
+  font-size: 0.65rem;
+  font-family: 'Courier New', monospace;
+}
+.minimal-nordic .mn-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.73rem;
+  color: #555;
+}
+.minimal-nordic .mn-list li {
+  padding: 2px 0 2px 14px;
+  position: relative;
+}
+.minimal-nordic .mn-list li::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+.minimal-nordic #previewExperience .experience-entry,
+.minimal-nordic #previewEducation .education-entry {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed #e8e8e8;
+}
+.minimal-nordic #previewExperience .experience-entry:last-child,
+.minimal-nordic #previewEducation .education-entry:last-child {
+  border-bottom: none;
+}
+.minimal-nordic #previewExperience .entry-title,
+.minimal-nordic #previewEducation .entry-title {
+  font-weight: 700;
+  font-size: 0.86rem;
+  color: #111;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+.minimal-nordic #previewExperience .entry-company,
+.minimal-nordic #previewEducation .entry-school {
+  font-size: 0.76rem;
+  color: var(--primary);
+}
+.minimal-nordic #previewExperience .entry-dates,
+.minimal-nordic #previewEducation .entry-dates {
+  font-size: 0.65rem;
+  color: #aaa;
+}
+.minimal-nordic #previewExperience .entry-description,
+.minimal-nordic #previewEducation .entry-description {
+  font-size: 0.73rem;
+  color: #555;
+  margin-top: 4px;
+  line-height: 1.55;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+</style>

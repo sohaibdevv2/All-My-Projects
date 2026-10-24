@@ -1,0 +1,248 @@
+<div class="resume-template glass-holographic">
+  <div class="gh-bg">
+    <div class="gh-header">
+      <div class="gh-photo-hex-wrapper">
+        <div id="profilePhoto" class="gh-photo"></div>
+      </div>
+      <div class="gh-header-text">
+        <h1 id="previewName" class="gh-name">Your Name</h1>
+        <p id="previewJobTitle" class="gh-title">Job Title</p>
+        <div class="gh-contacts">
+          <span id="previewEmail" class="gh-contact">email@example.com</span>
+          <span id="previewPhone" class="gh-contact">+1 234 567 890</span>
+          <span id="previewLocation" class="gh-contact">City, Country</span>
+          <div id="previewLinkedIn" class="gh-contact">linkedin.com/in/you</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gh-summary-band">
+      <p id="previewSummary">Professional summary goes here.</p>
+    </div>
+
+    <div class="gh-body">
+      <div class="gh-col-left">
+        <div class="gh-card">
+          <h2 class="gh-section-title">Experience</h2>
+          <div id="previewExperience"></div>
+        </div>
+        <div class="gh-card">
+          <h2 class="gh-section-title">Education</h2>
+          <div id="previewEducation"></div>
+        </div>
+        <div class="gh-card">
+          <h2 class="gh-section-title">Projects</h2>
+          <ul id="previewProjects" class="gh-list"></ul>
+        </div>
+      </div>
+      <div class="gh-col-right">
+        <div class="gh-card">
+          <h2 class="gh-section-title">Skills</h2>
+          <div id="previewSkills" class="skills-list gh-tags"></div>
+        </div>
+        <div class="gh-card">
+          <h2 class="gh-section-title">Languages</h2>
+          <div id="previewLanguages" class="skills-list gh-tags"></div>
+        </div>
+        <div class="gh-card">
+          <h2 class="gh-section-title">Certifications</h2>
+          <ul id="previewCertifications" class="gh-list"></ul>
+        </div>
+        <div class="gh-card">
+          <h2 class="gh-section-title">Awards</h2>
+          <ul id="previewAwards" class="gh-list"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+@keyframes holo-shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.glass-holographic {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  --primary: var(--primary-color, #6366f1);
+}
+.glass-holographic .gh-bg {
+  background: #0d0d0d;
+  background-image: radial-gradient(ellipse at 20% 20%, rgba(120,40,200,0.12) 0%, transparent 50%),
+                    radial-gradient(ellipse at 80% 80%, rgba(0,200,255,0.1) 0%, transparent 50%),
+                    radial-gradient(ellipse at 60% 10%, rgba(255,0,180,0.07) 0%, transparent 40%);
+  min-height: 297mm;
+}
+.glass-holographic .gh-header {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(90deg, #ff00cc, #3333ff, #00ccff, #00ff99, #ff00cc) 1;
+  border-image-slice: 1;
+  padding: 28px 36px;
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+.glass-holographic .gh-photo-hex-wrapper {
+  flex-shrink: 0;
+}
+.glass-holographic .gh-photo {
+  width: 110px;
+  height: 110px;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(120,40,200,0.2);
+  outline: none;
+  box-shadow: 0 0 20px rgba(100,100,255,0.3), 0 0 40px rgba(0,200,255,0.2);
+}
+.glass-holographic .gh-name {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 4px;
+  background: linear-gradient(270deg, #ff00cc, #3333ff, #00ccff, #ff6600, #ff00cc);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: holo-shimmer 6s ease infinite;
+  letter-spacing: -0.5px;
+}
+.glass-holographic .gh-title {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  margin: 0 0 10px;
+}
+.glass-holographic .gh-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.glass-holographic .gh-contact {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.55);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 2px 10px;
+  background: rgba(255,255,255,0.04);
+}
+.glass-holographic .gh-summary-band {
+  background: rgba(255,255,255,0.03);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  padding: 12px 36px;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.6;
+}
+.glass-holographic .gh-summary-band p {
+  margin: 0;
+}
+.glass-holographic .gh-body {
+  display: flex;
+  gap: 0;
+  padding: 20px 28px;
+  gap: 14px;
+}
+.glass-holographic .gh-col-left {
+  flex: 1.9;
+}
+.glass-holographic .gh-col-right {
+  flex: 1;
+}
+.glass-holographic .gh-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+}
+.glass-holographic .gh-section-title {
+  font-size: 0.63rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  background: linear-gradient(90deg, #ff00cc, #00ccff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.glass-holographic .gh-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.glass-holographic .gh-tags span {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(100,100,255,0.25);
+  color: rgba(200,200,255,0.8);
+  padding: 2px 9px;
+  border-radius: 12px;
+  font-size: 0.68rem;
+}
+.glass-holographic .gh-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.74rem;
+  color: rgba(255,255,255,0.5);
+}
+.glass-holographic .gh-list li {
+  padding: 2px 0 2px 14px;
+  position: relative;
+}
+.glass-holographic .gh-list li::before {
+  content: '◆';
+  position: absolute;
+  left: 0;
+  font-size: 0.5rem;
+  top: 4px;
+  background: linear-gradient(90deg, #ff00cc, #00ccff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.glass-holographic #previewExperience .experience-entry,
+.glass-holographic #previewEducation .education-entry {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.glass-holographic #previewExperience .experience-entry:last-child,
+.glass-holographic #previewEducation .education-entry:last-child {
+  border-bottom: none;
+}
+.glass-holographic #previewExperience .entry-title,
+.glass-holographic #previewEducation .entry-title {
+  font-weight: 700;
+  font-size: 0.86rem;
+  color: rgba(255,255,255,0.85);
+}
+.glass-holographic #previewExperience .entry-company,
+.glass-holographic #previewEducation .entry-school {
+  font-size: 0.76rem;
+  color: #00ccff;
+}
+.glass-holographic #previewExperience .entry-dates,
+.glass-holographic #previewEducation .entry-dates {
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.3);
+}
+.glass-holographic #previewExperience .entry-description,
+.glass-holographic #previewEducation .entry-description {
+  font-size: 0.74rem;
+  color: rgba(255,255,255,0.45);
+  margin-top: 4px;
+  line-height: 1.5;
+}
+</style>

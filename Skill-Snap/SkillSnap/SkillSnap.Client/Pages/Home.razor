@@ -1,0 +1,198 @@
+@page "/"
+@using SkillSnap.Client.Services
+@using SkillSnap.Client.Models.Auth
+@inject IAuthService AuthService
+@inject ProjectService ProjectService
+@inject SkillService SkillService
+@inject NavigationManager Navigation
+
+<PageTitle>SkillSnap - Portfolio Tracker</PageTitle>
+
+<div class="hero-section bg-primary text-white py-5 mb-4">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4 fw-bold">Welcome to SkillSnap</h1>
+                <p class="lead">Your personal portfolio and project tracker. Showcase your skills, manage your projects, and track your professional growth.</p>
+                @if (!isAuthenticated)
+                {
+                    <div class="mt-4">
+                        <button class="btn btn-light btn-lg me-3" @onclick="NavigateToLogin">Login</button>
+                        <button class="btn btn-outline-light btn-lg" @onclick="NavigateToRegister">Get Started</button>
+                    </div>
+                }                else
+                {
+                    <div class="mt-4">
+                        <h4>Welcome back, @($"{currentUser?.FirstName} {currentUser?.LastName}")!</h4>
+                        <p class="mb-0">Ready to manage your portfolio?</p>
+                    </div>
+                }
+            </div>
+            <div class="col-lg-6 text-center">
+                <i class="fas fa-rocket fa-8x opacity-75"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <!-- Features Section -->
+        <div class="col-12 mb-5">
+            <h2 class="text-center mb-4">Features</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-project-diagram fa-3x text-primary mb-3"></i>
+                            <h5 class="card-title">Project Management</h5>
+                            <p class="card-text">Track your projects with detailed descriptions, technologies used, and links to live demos or repositories.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-cogs fa-3x text-success mb-3"></i>
+                            <h5 class="card-title">Skill Tracking</h5>
+                            <p class="card-text">Organize and showcase your technical skills with proficiency levels and categories.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-user fa-3x text-info mb-3"></i>
+                            <h5 class="card-title">Portfolio Profile</h5>
+                            <p class="card-text">Create a professional profile that brings together all your projects and skills in one place.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @if (isAuthenticated)
+        {
+            <!-- Quick Stats Dashboard -->
+            <div class="col-12 mb-5">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="card-title text-primary">Your Projects</h5>
+                                        <h2 class="mb-0">@projectCount</h2>
+                                        <small class="text-muted">Projects tracked</small>
+                                    </div>
+                                    <i class="fas fa-folder-open fa-2x text-primary"></i>
+                                </div>
+                                <div class="mt-3">
+                                    <button class="btn btn-primary btn-sm" @onclick="NavigateToProjects">Manage Projects</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h5 class="card-title text-success">Your Skills</h5>
+                                        <h2 class="mb-0">@skillCount</h2>
+                                        <small class="text-muted">Skills tracked</small>
+                                    </div>
+                                    <i class="fas fa-star fa-2x text-success"></i>
+                                </div>
+                                <div class="mt-3">
+                                    <button class="btn btn-success btn-sm" @onclick="NavigateToSkills">Manage Skills</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            @if (recentProjects?.Any() == true)
+            {
+                <div class="col-12 mb-4">
+                    <h3>Recent Projects</h3>
+                    <div class="row">
+                        @foreach (var project in recentProjects.Take(3))
+                        {
+                            <div class="col-md-4 mb-3">                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="card-title">@project.Title</h6>
+                                        <p class="card-text text-truncate">@project.Description</p>
+                                        <small class="text-muted">Project #@project.Id</small>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <!-- Call to Action for Non-Authenticated Users -->
+            <div class="col-12 text-center">
+                <div class="card border-primary">
+                    <div class="card-body py-5">
+                        <h3>Ready to Get Started?</h3>
+                        <p class="lead">Join SkillSnap today and start building your professional portfolio.</p>
+                        <button class="btn btn-primary btn-lg me-3" @onclick="NavigateToRegister">Create Account</button>
+                        <button class="btn btn-outline-primary btn-lg" @onclick="NavigateToLogin">Sign In</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    private bool isAuthenticated = false;
+    private UserInfo? currentUser;
+    private int projectCount = 0;
+    private int skillCount = 0;
+    private List<Project>? recentProjects;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            isAuthenticated = await AuthService.IsAuthenticatedAsync();
+            
+            if (isAuthenticated)
+            {
+                currentUser = await AuthService.GetCurrentUserAsync();
+                await LoadDashboardData();
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error loading dashboard: {ex.Message}");
+        }
+    }private async Task LoadDashboardData()
+    {
+        try
+        {
+            var projects = await ProjectService.GetProjectsAsync();
+            var skills = await SkillService.GetSkillsAsync();
+            
+            projectCount = projects?.Count() ?? 0;
+            skillCount = skills?.Count() ?? 0;
+            recentProjects = projects?.OrderByDescending(p => p.Id).ToList();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error loading dashboard data: {ex.Message}");
+        }
+    }
+
+    private void NavigateToLogin() => Navigation.NavigateTo("/login");
+    private void NavigateToRegister() => Navigation.NavigateTo("/register");
+    private void NavigateToProjects() => Navigation.NavigateTo("/projects");
+    private void NavigateToSkills() => Navigation.NavigateTo("/skills");
+}

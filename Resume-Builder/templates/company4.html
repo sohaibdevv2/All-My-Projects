@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Template 4</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template company4-template">
+        <div class="header-section">
+            <div class="name-section">
+                <h1 class="name" id="previewName">Your Name</h1>
+                <h2 class="title" id="previewJobTitle">Professional Title</h2>
+            </div>
+            <div class="contact-section">
+                <div class="contact-item" id="previewEmail"></div>
+                <div class="contact-item" id="previewPhone"></div>
+                <div class="contact-item" id="previewLocation"></div>
+                <div class="contact-item" id="previewLinkedIn"></div>
+            </div>
+        </div>
+        
+        <div class="summary-section">
+            <h3>Professional Summary</h3>
+            <p id="previewSummary"></p>
+        </div>
+        
+        <div class="main-content">
+            <div class="section">
+                <h3>Professional Experience</h3>
+                <div id="previewExperience"></div>
+            </div>
+            
+            <div class="two-column">
+                <div class="left-col">
+                    <div class="section">
+                        <h3>Education</h3>
+                        <div id="previewEducation"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Key Projects</h3>
+                        <ul id="previewProjects"></ul>
+                    </div>
+                </div>
+                
+                <div class="right-col">
+                    <div class="section">
+                        <h3>Core Competencies</h3>
+                        <div id="previewSkills" class="skills-list"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3>Languages</h3>
+                        <div id="previewLanguages" class="skills-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .company4-template { 
+            font-family: 'Helvetica', Arial, sans-serif; 
+            background: #ffffff; 
+            color: #2c3e50; 
+            line-height: 1.5; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+        }
+        .company4-template .header-section { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: flex-start; 
+            padding: 2rem; 
+            background: #ffffff; 
+            border-bottom: 1px solid #bdc3c7; 
+        }
+        .company4-template .name { 
+            font-size: 2.5rem; 
+            margin: 0; 
+            font-weight: 300; 
+            color: #2c3e50; 
+            letter-spacing: 1px; 
+        }
+        .company4-template .title { 
+            font-size: 1.2rem; 
+            margin: 0.5rem 0 0 0; 
+            font-weight: 400; 
+            color: #7f8c8d; 
+        }
+        .company4-template .contact-section { 
+            text-align: right; 
+            font-size: 0.95rem; 
+        }
+        .company4-template .contact-item { 
+            margin-bottom: 0.5rem; 
+            color: #2c3e50; 
+        }
+        .company4-template .summary-section { 
+            padding: 1.5rem 2rem; 
+            background: #ecf0f1; 
+            margin: 0; 
+        }
+        .company4-template .summary-section h3 { 
+            margin: 0 0 1rem 0; 
+            color: #2c3e50; 
+            font-size: 1.2rem; 
+            font-weight: 500; 
+        }
+        .company4-template .main-content { 
+            padding: 2rem; 
+        }
+        .company4-template .section { 
+            margin-bottom: 2rem; 
+        }
+        .company4-template h3 { 
+            color: #2c3e50; 
+            font-size: 1.1rem; 
+            margin-bottom: 1rem; 
+            font-weight: 500; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            border-bottom: 1px solid #bdc3c7; 
+            padding-bottom: 0.5rem; 
+        }
+        .company4-template .two-column { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 2rem; 
+        }
+        .company4-template .experience-entry, .company4-template .education-entry { 
+            margin-bottom: 1.5rem; 
+            padding-bottom: 1rem; 
+        }
+        .company4-template .entry-title { 
+            font-weight: 500; 
+            font-size: 1.1rem; 
+            color: #2c3e50; 
+        }
+        .company4-template .entry-company { 
+            color: #34495e; 
+            font-weight: 400; 
+        }
+        .company4-template .entry-dates { 
+            color: #7f8c8d; 
+            font-size: 0.9rem; 
+        }
+        .company4-template .skills-list { 
+            display: block; 
+        }
+        .company4-template .skill-tag { 
+            display: inline-block; 
+            background: #ecf0f1; 
+            color: #2c3e50; 
+            padding: 0.3rem 0.8rem; 
+            margin: 0.2rem; 
+            border: 1px solid #bdc3c7; 
+            font-size: 0.85rem; 
+            font-weight: 400; 
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+@LogiTrack_HostAddress = http://localhost:5029
+
+GET {{LogiTrack_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+# Check GET /inventory endpoint
+GET {{LogiTrack_HostAddress}}/inventory
+Accept: application/json
+
+###
+
+# Check POST /inventory endpoint
+POST {{LogiTrack_HostAddress}}/inventory
+Content-Type: application/json
+Accept: application/json
+
+{
+	"itemId": 101,
+	"name": "Sample Item",
+	"quantity": 10,
+	"location": "A1"
+}
+
+###
+
+# Delete inventory item
+DELETE {{LogiTrack_HostAddress}}/inventory/1
+Accept: application/json
+
+###
+
+# Get all orders
+GET {{LogiTrack_HostAddress}}/orders
+Accept: application/json
+
+###
+
+# Get order by id
+GET {{LogiTrack_HostAddress}}/orders/1
+Accept: application/json
+
+###
+
+# Create order
+POST {{LogiTrack_HostAddress}}/orders
+Content-Type: application/json
+Accept: application/json
+
+{
+	"orderId": 2001,
+	"customerName": "Test Customer",
+	"datePlaced": "2025-09-12T10:00:00",
+	"items": [
+		{
+			"itemId": 101,
+			"name": "Sample Item",
+			"quantity": 10,
+			"location": "A1"
+		}
+	]
+}
+
+###
+
+# Delete order
+DELETE {{LogiTrack_HostAddress}}/orders/1
+Accept: application/json
+
+###
+

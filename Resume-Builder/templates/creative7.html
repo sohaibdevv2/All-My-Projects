@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative 7 Resume Template</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="resume-template creative7-template">
+    <div class="wave-header">
+        <div class="wave-bg"></div>
+        <div class="header-info">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <h2 class="title" id="previewJobTitle">Professional Title</h2>
+            <div class="contact-wave">
+                <span id="previewEmail">email@example.com</span>
+                <span id="previewPhone">+1 (555) 123-4567</span>
+                <span id="previewLocation">Location</span>
+                <div id="previewLinkedIn"></div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="summary-wave">
+            <h3>Creative Summary</h3>
+            <p id="previewSummary"></p>
+        </div>
+        <div class="content-grid">
+            <div class="left-content">
+                <div class="section">
+                    <h3>Experience</h3>
+                    <div id="previewExperience"></div>
+                </div>
+                <div class="section">
+                    <h3>Education</h3>
+                    <div id="previewEducation"></div>
+                </div>
+            </div>
+            <div class="right-content">
+                <div class="section">
+                    <h3>Skills</h3>
+                    <div id="previewSkills" class="skills-list"></div>
+                </div>
+                <div class="section">
+                    <h3>Projects</h3>
+                    <ul id="previewProjects"></ul>
+                </div>
+                <div class="section">
+                    <h3>Languages</h3>
+                    <div id="previewLanguages" class="skills-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+.creative7-template { font-family: 'Poppins', sans-serif; background: #fff; color: #333; }
+.creative7-template .wave-header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; text-align: center; position: relative; overflow: hidden; }
+.creative7-template .wave-bg { position: absolute; bottom: -10px; left: 0; width: 100%; height: 50px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%23fff'%3E%3C/path%3E%3C/svg%3E") repeat-x; }
+.creative7-template .header-info { position: relative; z-index: 2; }
+.creative7-template .name { font-size: 2.5rem; margin: 0; font-weight: 700; }
+.creative7-template .title { font-size: 1.2rem; margin: 0.5rem 0 1rem 0; opacity: 0.9; font-weight: 300; }
+.creative7-template .contact-wave { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; font-size: 0.9rem; }
+.creative7-template .main-content { padding: 2rem; }
+.creative7-template .summary-wave { background: #f8f9fa; padding: 1.5rem; border-radius: 15px; margin-bottom: 2rem; border: 2px solid #667eea; }
+.creative7-template .summary-wave h3 { margin: 0 0 1rem 0; color: #667eea; font-size: 1.2rem; }
+.creative7-template .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; }
+.creative7-template .section { margin-bottom: 2rem; }
+.creative7-template h3 { color: #667eea; font-size: 1.2rem; margin-bottom: 1rem; font-weight: 600; }
+.creative7-template .experience-entry, .creative7-template .education-entry { margin-bottom: 1.5rem; padding: 1rem; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(102,126,234,0.1); }
+.creative7-template .entry-title { font-weight: bold; font-size: 1.1rem; color: #333; }
+.creative7-template .entry-company { color: #667eea; font-weight: 500; }
+.creative7-template .entry-dates { color: #666; font-size: 0.9rem; }
+.creative7-template .skills-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.creative7-template .skill-tag { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 0.4rem 1rem; border-radius: 25px; font-size: 0.85rem; }
+</style>
+</body>
+</html>

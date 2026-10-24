@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Template 2</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template tech2-template">
+        <div class="sidebar">
+            <div class="profile-section">
+                <h1 class="name" id="previewName">Your Name</h1>
+                <h2 class="title" id="previewJobTitle">Full Stack Developer</h2>
+            </div>
+            
+            <div class="contact-section">
+                <h3>Contact</h3>
+                <div class="contact-item" id="previewEmail"></div>
+                <div class="contact-item" id="previewPhone"></div>
+                <div class="contact-item" id="previewLocation"></div>
+                <div class="contact-item" id="previewLinkedIn"></div>
+            </div>
+            
+            <div class="section">
+                <h3>Tech Stack</h3>
+                <div id="previewSkills" class="skills-list"></div>
+            </div>
+            
+            <div class="section">
+                <h3>GitHub & Portfolio</h3>
+                <div class="portfolio-links">
+                    <div class="portfolio-item">github.com/username</div>
+                    <div class="portfolio-item">portfolio.dev</div>
+                    <div class="portfolio-item">codepen.io/username</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h3>Languages</h3>
+                <div id="previewLanguages" class="skills-list"></div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="summary-section">
+                <h3>Developer Profile</h3>
+                <p id="previewSummary"></p>
+            </div>
+            
+            <div class="section">
+                <h3>Professional Experience</h3>
+                <div id="previewExperience"></div>
+            </div>
+            
+            <div class="section">
+                <h3>Featured Projects</h3>
+                <ul id="previewProjects"></ul>
+            </div>
+            
+            <div class="section">
+                <h3>Education & Certifications</h3>
+                <div id="previewEducation"></div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .tech2-template { 
+            font-family: 'Inter', 'Segoe UI', sans-serif; 
+            background: #ffffff; 
+            color: #1a202c; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            min-height: 11in;
+        }
+        .tech2-template .sidebar { 
+            background: linear-gradient(180deg, #1a202c 0%, #2d3748 100%); 
+            color: white; 
+            padding: 2rem 1.5rem; 
+            position: relative;
+        }
+        .tech2-template .sidebar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(56,178,172,0.3)"/><circle cx="80" cy="40" r="1.5" fill="rgba(56,178,172,0.2)"/><circle cx="40" cy="70" r="1" fill="rgba(56,178,172,0.4)"/><circle cx="70" cy="80" r="2.5" fill="rgba(56,178,172,0.2)"/></svg>');
+        }
+        .tech2-template .name { 
+            font-size: 2.2rem; 
+            margin: 0 0 0.5rem 0; 
+            font-weight: 700; 
+            position: relative;
+            z-index: 1;
+        }
+        .tech2-template .title { 
+            font-size: 1.1rem; 
+            margin: 0 0 2rem 0; 
+            font-weight: 400; 
+            color: #38b2ac; 
+            position: relative;
+            z-index: 1;
+        }
+        .tech2-template .sidebar .section { 
+            margin-bottom: 2rem; 
+            position: relative;
+            z-index: 1;
+        }
+        .tech2-template .sidebar h3 { 
+            color: #38b2ac; 
+            font-size: 1rem; 
+            margin-bottom: 1rem; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+        }
+        .tech2-template .contact-item { 
+            margin-bottom: 0.8rem; 
+            font-size: 0.9rem; 
+            opacity: 0.9;
+        }
+        .tech2-template .main-content { 
+            padding: 2rem; 
+            background: #ffffff;
+        }
+        .tech2-template .summary-section { 
+            margin-bottom: 2.5rem; 
+            padding: 2rem; 
+            background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%); 
+            border-left: 5px solid #38b2ac; 
+            border-radius: 8px;
+        }
+        .tech2-template .summary-section h3 { 
+            margin: 0 0 1rem 0; 
+            color: #2c7a7b; 
+            font-size: 1.3rem; 
+            font-weight: 600; 
+        }
+        .tech2-template .main-content .section { 
+            margin-bottom: 2rem; 
+        }
+        .tech2-template .main-content h3 { 
+            color: #2d3748; 
+            font-size: 1.2rem; 
+            margin-bottom: 1.2rem; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px; 
+            border-bottom: 2px solid #38b2ac;
+            padding-bottom: 0.5rem;
+        }
+        .tech2-template .experience-entry, .tech2-template .education-entry { 
+            margin-bottom: 1.8rem; 
+            padding: 1.5rem; 
+            background: #f7fafc; 
+            border-radius: 8px;
+            border-left: 4px solid #38b2ac;
+        }
+        .tech2-template .entry-title { 
+            font-weight: 700; 
+            font-size: 1.1rem; 
+            color: #1a202c; 
+            margin-bottom: 0.3rem;
+        }
+        .tech2-template .entry-company { 
+            color: #38b2ac; 
+            font-weight: 600; 
+            font-size: 1rem;
+        }
+        .tech2-template .entry-dates { 
+            color: #718096; 
+            font-size: 0.9rem; 
+            font-weight: 500;
+        }
+        .tech2-template .skills-list { 
+            display: block; 
+        }
+        .tech2-template .skill-tag { 
+            display: inline-block; 
+            background: #38b2ac; 
+            color: white; 
+            padding: 0.4rem 0.8rem; 
+            margin: 0.3rem 0.3rem 0.3rem 0; 
+            border-radius: 15px; 
+            font-size: 0.8rem; 
+            font-weight: 500; 
+        }
+        .tech2-template .portfolio-links {
+            font-size: 0.85rem;
+        }
+        .tech2-template .portfolio-item {
+            margin-bottom: 0.6rem;
+            padding: 0.6rem;
+            background: rgba(56, 178, 172, 0.1);
+            border-radius: 4px;
+            border-left: 2px solid #38b2ac;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

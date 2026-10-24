@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATS Chronological Focus Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template ats-chronological-focus-template">
+        <div class="header">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <div class="contact-info">
+                <div id="previewEmail"></div>
+                <div id="previewPhone"></div>
+                <div id="previewLocation"></div>
+                <div id="previewLinkedIn"></div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Career Summary</h2>
+            <p id="previewSummary"></p>
+        </div>
+        
+        <div class="section">
+            <h2>Work History</h2>
+            <div id="previewExperience"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Education</h2>
+            <div id="previewEducation"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Skills</h2>
+            <div id="previewSkills"></div>
+        </div>
+    </div>
+
+    <style>
+        .ats-chronological-focus-template { 
+            font-family: 'Arial', sans-serif; 
+            background: #ffffff; 
+            color: #000000; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+            padding: 1in;
+        }
+        .ats-chronological-focus-template .header { 
+            margin-bottom: 1.5rem; 
+        }
+        .ats-chronological-focus-template .name { 
+            font-size: 2.2rem; 
+            margin: 0 0 0.5rem 0; 
+            font-weight: bold; 
+            color: #000000;
+        }
+        .ats-chronological-focus-template .contact-info div { 
+            font-size: 1rem; 
+            color: #000000;
+            margin: 0.1rem 0;
+        }
+        .ats-chronological-focus-template .section { 
+            margin-bottom: 1.8rem; 
+        }
+        .ats-chronological-focus-template h2 { 
+            color: #000000; 
+            font-size: 1.4rem; 
+            margin-bottom: 1rem; 
+            font-weight: bold; 
+            text-transform: uppercase;
+        }
+        .ats-chronological-focus-template .experience-entry, .ats-chronological-focus-template .education-entry { 
+            margin-bottom: 1.5rem; 
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .ats-chronological-focus-template .entry-content {
+            flex: 1;
+            margin-right: 1rem;
+        }
+        .ats-chronological-focus-template .entry-title { 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            color: #000000; 
+            margin-bottom: 0.2rem;
+        }
+        .ats-chronological-focus-template .entry-company { 
+            color: #000000; 
+            font-weight: normal; 
+            font-size: 1rem;
+        }
+        .ats-chronological-focus-template .entry-dates { 
+            color: #000000; 
+            font-size: 1rem; 
+            font-weight: bold;
+            white-space: nowrap;
+        }
+        .ats-chronological-focus-template .skills-list { 
+            display: block; 
+        }
+        .ats-chronological-focus-template .skill-tag { 
+            display: inline; 
+            color: #000000; 
+            font-size: 1rem; 
+        }
+        .ats-chronological-focus-template .skill-tag:after {
+            content: " • ";
+        }
+        .ats-chronological-focus-template .skill-tag:last-child:after {
+            content: "";
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

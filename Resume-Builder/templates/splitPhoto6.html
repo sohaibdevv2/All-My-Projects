@@ -1,0 +1,243 @@
+<div class="resume-template split-forest">
+  <div class="sf-wrapper">
+    <div class="sf-sidebar">
+      <div id="profilePhoto" class="sf-photo"></div>
+      <h1 id="previewName" class="sf-name">Your Name</h1>
+      <p id="previewJobTitle" class="sf-title">Job Title</p>
+      <div class="sf-divider"></div>
+      <div class="sf-sid-section">
+        <h3 class="sf-sid-label">Contact</h3>
+        <p id="previewEmail" class="sf-citem">email@example.com</p>
+        <p id="previewPhone" class="sf-citem">+1 234 567 890</p>
+        <p id="previewLocation" class="sf-citem">City, Country</p>
+        <div id="previewLinkedIn" class="sf-citem">linkedin.com/in/you</div>
+      </div>
+      <div class="sf-divider"></div>
+      <div class="sf-sid-section">
+        <h3 class="sf-sid-label">Skills</h3>
+        <div id="previewSkills" class="skills-list sf-tags"></div>
+      </div>
+      <div class="sf-divider"></div>
+      <div class="sf-sid-section">
+        <h3 class="sf-sid-label">Languages</h3>
+        <div id="previewLanguages" class="skills-list sf-tags"></div>
+      </div>
+      <div class="sf-divider"></div>
+      <div class="sf-sid-section">
+        <h3 class="sf-sid-label">Awards</h3>
+        <ul id="previewAwards" class="sf-ul"></ul>
+      </div>
+    </div>
+
+    <div class="sf-main">
+      <div class="sf-summary-area">
+        <p id="previewSummary">Professional summary goes here.</p>
+      </div>
+      <div class="sf-section">
+        <h2 class="sf-section-title">Experience</h2>
+        <div id="previewExperience"></div>
+      </div>
+      <div class="sf-section">
+        <h2 class="sf-section-title">Education</h2>
+        <div id="previewEducation"></div>
+      </div>
+      <div class="sf-section">
+        <h2 class="sf-section-title">Certifications</h2>
+        <ul id="previewCertifications" class="sf-list"></ul>
+      </div>
+      <div class="sf-section">
+        <h2 class="sf-section-title">Projects</h2>
+        <ul id="previewProjects" class="sf-list"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.split-forest {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  --primary: var(--primary-color, #6366f1);
+  --forest: #2e7d32;
+}
+.split-forest .sf-wrapper {
+  display: flex;
+  min-height: 297mm;
+}
+.split-forest .sf-sidebar {
+  width: 35%;
+  background: var(--forest);
+  padding: 26px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+.split-forest .sf-photo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(255,255,255,0.15);
+  border: 4px solid rgba(255,255,255,0.8);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  margin-bottom: 12px;
+}
+.split-forest .sf-name {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+  margin: 0 0 4px;
+  line-height: 1.2;
+}
+.split-forest .sf-title {
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.75);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 0;
+}
+.split-forest .sf-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255,255,255,0.2);
+  margin: 13px 0;
+}
+.split-forest .sf-sid-section {
+  width: 100%;
+}
+.split-forest .sf-sid-label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.65);
+  margin: 0 0 7px;
+}
+.split-forest .sf-citem {
+  font-size: 0.69rem;
+  color: rgba(255,255,255,0.8);
+  margin: 3px 0;
+  word-break: break-all;
+}
+.split-forest .sf-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.split-forest .sf-tags span {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  padding: 2px 9px;
+  border-radius: 20px;
+  font-size: 0.65rem;
+}
+.split-forest .sf-ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.69rem;
+  color: rgba(255,255,255,0.65);
+  width: 100%;
+}
+.split-forest .sf-ul li {
+  padding: 2px 0 2px 12px;
+  position: relative;
+}
+.split-forest .sf-ul li::before {
+  content: '✿';
+  position: absolute;
+  left: 0;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.55rem;
+  top: 3px;
+}
+.split-forest .sf-main {
+  flex: 1;
+  background: #fff;
+  padding: 24px 24px;
+}
+.split-forest .sf-summary-area {
+  background: #e8f5e9;
+  border-left: 4px solid var(--forest);
+  border-radius: 0 6px 6px 0;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  font-size: 0.8rem;
+  color: #333;
+  line-height: 1.65;
+}
+.split-forest .sf-summary-area p {
+  margin: 0;
+}
+.split-forest .sf-section {
+  margin-bottom: 16px;
+}
+.split-forest .sf-section-title {
+  font-size: 0.63rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: var(--forest);
+  margin: 0 0 8px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #c8e6c9;
+}
+.split-forest .sf-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.75rem;
+  color: #555;
+}
+.split-forest .sf-list li {
+  padding: 2px 0 2px 13px;
+  position: relative;
+}
+.split-forest .sf-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--forest);
+}
+.split-forest #previewExperience .experience-entry,
+.split-forest #previewEducation .education-entry {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e8f5e9;
+}
+.split-forest #previewExperience .experience-entry:last-child,
+.split-forest #previewEducation .education-entry:last-child {
+  border-bottom: none;
+}
+.split-forest #previewExperience .entry-title,
+.split-forest #previewEducation .entry-title {
+  font-weight: 700;
+  font-size: 0.87rem;
+  color: #1b5e20;
+}
+.split-forest #previewExperience .entry-company,
+.split-forest #previewEducation .entry-school {
+  font-size: 0.77rem;
+  color: var(--forest);
+  font-weight: 600;
+}
+.split-forest #previewExperience .entry-dates,
+.split-forest #previewEducation .entry-dates {
+  font-size: 0.68rem;
+  color: #aaa;
+}
+.split-forest #previewExperience .entry-description,
+.split-forest #previewEducation .entry-description {
+  font-size: 0.74rem;
+  color: #555;
+  margin-top: 4px;
+  line-height: 1.55;
+}
+</style>

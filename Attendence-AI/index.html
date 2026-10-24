@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attendence-AI Intellect</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<!-- Animated Background -->
+<div class="bg-animation">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="particles" id="particles"></div>
+</div>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <div class="nav-brand">
+      <div class="brand-icon"><i class="fas fa-brain"></i></div>
+      <span class="brand-name">Attendence<span class="brand-ai">AI</span></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#features" class="nav-link">Features</a></li>
+      <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
+      <li><a href="#tracker" class="nav-link">Tracker</a></li>
+      <li><a href="#analytics" class="nav-link">Analytics</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="btn-outline" onclick="openModal('loginModal')">Login</button>
+      <button class="btn-primary" onclick="openModal('signupModal')">Get Started</button>
+    </div>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-badge"><i class="fas fa-sparkles"></i> AI-Powered Attendance System</div>
+    <h1 class="hero-title">
+      Smart <span class="gradient-text">Attendance</span><br/>Tracking with AI
+    </h1>
+    <p class="hero-subtitle">
+      Revolutionize how you track attendance with real-time AI insights, facial recognition,
+      predictive analytics, and automated reports — all in one powerful platform.
+    </p>
+    <div class="hero-actions">
+      <button class="btn-hero-primary" onclick="scrollTo('tracker')">
+        <i class="fas fa-play"></i> Start Tracking
+      </button>
+      <button class="btn-hero-outline" onclick="scrollTo('features')">
+        <i class="fas fa-arrow-right"></i> Explore Features
+      </button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num" data-target="50000">0</span><span>+</span><p>Students Tracked</p></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num" data-target="99">0</span><span>%</span><p>Accuracy Rate</p></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num" data-target="500">0</span><span>+</span><p>Institutions</p></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="visual-card main-card">
+      <div class="card-header">
+        <div class="card-dot green"></div>
+        <span>Live Attendance Monitor</span>
+        <div class="live-badge"><i class="fas fa-circle"></i> LIVE</div>
+      </div>
+      <div class="attendance-feed" id="liveFeed">
+        <!-- Populated by JS -->
+      </div>
+      <div class="card-footer">
+        <span>Today's Rate: <strong class="text-green" id="todayRate">87%</strong></span>
+        <button class="mini-btn" onclick="refreshFeed()"><i class="fas fa-sync-alt"></i></button>
+      </div>
+    </div>
+    <div class="visual-card mini-card top-right">
+      <i class="fas fa-brain fa-2x text-purple"></i>
+      <p>AI Prediction</p>
+      <strong>High attendance expected</strong>
+    </div>
+    <div class="visual-card mini-card bottom-left">
+      <i class="fas fa-chart-line fa-2x text-blue"></i>
+      <p>Weekly Trend</p>
+      <strong>+12% this week</strong>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="features" id="features">
+  <div class="section-container">
+    <div class="section-badge">Why Choose Us</div>
+    <h2 class="section-title">Powered by <span class="gradient-text">Intelligent AI</span></h2>
+    <p class="section-subtitle">Everything you need to manage attendance smartly, efficiently, and accurately.</p>
+    <div class="features-grid">
+      <div class="feature-card" data-delay="0">
+        <div class="feature-icon purple"><i class="fas fa-brain"></i></div>
+        <h3>AI Recognition</h3>
+        <p>Advanced facial recognition and pattern learning ensures 99% accurate attendance marking — zero manual effort.</p>
+        <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="feature-card" data-delay="100">
+        <div class="feature-icon blue"><i class="fas fa-chart-line"></i></div>
+        <h3>Predictive Analytics</h3>
+        <p>AI models forecast attendance trends, flag at-risk students, and surface actionable insights before problems grow.</p>
+        <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="feature-card" data-delay="200">
+        <div class="feature-icon green"><i class="fas fa-bolt"></i></div>
+        <h3>Real-Time Tracking</h3>
+        <p>Instant attendance capture with live dashboards, push alerts, and SMS/email notifications to parents and staff.</p>
+        <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="feature-card" data-delay="300">
+        <div class="feature-icon orange"><i class="fas fa-file-alt"></i></div>
+        <h3>Auto Reports</h3>
+        <p>One-click PDF/Excel reports, monthly summaries, and compliance-ready documents — fully automated.</p>
+        <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="feature-card" data-delay="400">
+        <div class="feature-icon pink"><i class="fas fa-shield-alt"></i></div>
+        <h3>Secure & Private</h3>
+        <p>End-to-end encryption, role-based access control, and GDPR-compliant data handling protect every record.</p>
+        <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="feature-card" data-delay="500">
+        <div class="feature-icon teal"><i class="fas fa-plug"></i></div>
+        <h3>Easy Integration</h3>
+        <p>Connect seamlessly with your LMS, ERP, or HR systems via RESTful APIs. Works with Google Classroom, Moodle, and more.</p>
+        <a href="#" class="feature-link">Learn more <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Dashboard Preview -->
+<section class="dashboard-section" id="dashboard">
+  <div class="section-container">
+    <div class="section-badge">Live Dashboard</div>
+    <h2 class="section-title">Everything at a <span class="gradient-text">Glance</span></h2>
+    <p class="section-subtitle">Your institution's attendance health, visualized in real time.</p>
+    <div class="dashboard-grid">
+      <div class="dash-card wide">
+        <h4>Weekly Attendance Overview</h4>
+        <div class="chart-container">
+          <canvas id="weeklyChart"></canvas>
+        </div>
+      </div>
+      <div class="dash-card">
+        <h4>Today's Summary</h4>
+        <div class="summary-stats">
+          <div class="sum-item">
+            <div class="sum-circle present"><span id="presentCount">0</span></div>
+            <p>Present</p>
+          </div>
+          <div class="sum-item">
+            <div class="sum-circle absent"><span id="absentCount">0</span></div>
+            <p>Absent</p>
+          </div>
+          <div class="sum-item">
+            <div class="sum-circle late"><span id="lateCount">0</span></div>
+            <p>Late</p>
+          </div>
+        </div>
+        <div class="progress-bar-wrap">
+          <div class="progress-label"><span>Attendance Rate</span><span id="rateText">0%</span></div>
+          <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+        </div>
+      </div>
+      <div class="dash-card">
+        <h4>Department Breakdown</h4>
+        <div class="dept-list" id="deptList"></div>
+      </div>
+      <div class="dash-card wide">
+        <h4><i class="fas fa-robot text-purple"></i> AI Alerts & Insights</h4>
+        <div class="alerts-list" id="alertsList"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tracker Section -->
+<section class="tracker-section" id="tracker">
+  <div class="section-container">
+    <div class="section-badge">Attendance Tracker</div>
+    <h2 class="section-title">Mark & Manage <span class="gradient-text">Attendance</span></h2>
+    <p class="section-subtitle">Add students, mark attendance, and export reports instantly.</p>
+    <div class="tracker-grid">
+      <div class="tracker-panel">
+        <div class="tracker-header">
+          <h4><i class="fas fa-users"></i> Student List</h4>
+          <button class="btn-sm" onclick="openModal('addStudentModal')"><i class="fas fa-plus"></i> Add Student</button>
+        </div>
+        <div class="search-bar">
+          <i class="fas fa-search"></i>
+          <input type="text" id="searchInput" placeholder="Search students..." oninput="filterStudents()" />
+        </div>
+        <div class="filter-tabs">
+          <button class="tab active" onclick="filterByStatus('all', this)">All</button>
+          <button class="tab" onclick="filterByStatus('present', this)">Present</button>
+          <button class="tab" onclick="filterByStatus('absent', this)">Absent</button>
+          <button class="tab" onclick="filterByStatus('late', this)">Late</button>
+        </div>
+        <div class="student-list" id="studentList"></div>
+        <div class="tracker-actions">
+          <button class="btn-success" onclick="markAllPresent()"><i class="fas fa-check-double"></i> Mark All Present</button>
+          <button class="btn-export" onclick="exportReport()"><i class="fas fa-download"></i> Export Report</button>
+        </div>
+      </div>
+      <div class="tracker-panel">
+        <div class="tracker-header">
+          <h4><i class="fas fa-calendar-alt"></i> Session Info</h4>
+        </div>
+        <div class="session-form">
+          <div class="form-group">
+            <label>Subject / Class</label>
+            <input type="text" id="subjectInput" placeholder="e.g. Mathematics 101" />
+          </div>
+          <div class="form-group">
+            <label>Date</label>
+            <input type="date" id="dateInput" />
+          </div>
+          <div class="form-group">
+            <label>Time Slot</label>
+            <select id="timeSlot">
+              <option>09:00 AM - 10:00 AM</option>
+              <option>10:00 AM - 11:00 AM</option>
+              <option>11:00 AM - 12:00 PM</option>
+              <option>12:00 PM - 01:00 PM</option>
+              <option>02:00 PM - 03:00 PM</option>
+              <option>03:00 PM - 04:00 PM</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Teacher / Instructor</label>
+            <input type="text" id="teacherInput" placeholder="e.g. Dr. Smith" />
+          </div>
+          <button class="btn-primary full-width" onclick="saveSession()">
+            <i class="fas fa-save"></i> Save Session
+          </button>
+        </div>
+        <div class="session-stats-box">
+          <h5>Session Statistics</h5>
+          <div class="session-stats">
+            <div class="ss-item"><i class="fas fa-user-check text-green"></i><span id="ss-present">0</span><p>Present</p></div>
+            <div class="ss-item"><i class="fas fa-user-times text-red"></i><span id="ss-absent">0</span><p>Absent</p></div>
+            <div class="ss-item"><i class="fas fa-clock text-orange"></i><span id="ss-late">0</span><p>Late</p></div>
+            <div class="ss-item"><i class="fas fa-percent text-blue"></i><span id="ss-rate">0%</span><p>Rate</p></div>
+          </div>
+        </div>
+        <div class="ai-suggestion-box">
+          <div class="ai-icon"><i class="fas fa-robot"></i></div>
+          <div>
+            <p class="ai-label">AI Insight</p>
+            <p class="ai-text" id="aiInsight">Analyzing attendance patterns...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Analytics Section -->
+<section class="analytics-section" id="analytics">
+  <div class="section-container">
+    <div class="section-badge">Analytics</div>
+    <h2 class="section-title">Deep <span class="gradient-text">Insights</span> & Trends</h2>
+    <p class="section-subtitle">Understand patterns, predict outcomes, and improve engagement with AI-driven analytics.</p>
+    <div class="analytics-grid">
+      <div class="analytics-card">
+        <div class="analytics-icon purple"><i class="fas fa-trending-up"></i></div>
+        <h3>Attendance Trend</h3>
+        <p>Track weekly, monthly, and semester-level attendance trends with AI-generated forecasts.</p>
+        <div class="sparkline" id="spark1"></div>
+      </div>
+      <div class="analytics-card">
+        <div class="analytics-icon blue"><i class="fas fa-exclamation-triangle"></i></div>
+        <h3>At-Risk Detection</h3>
+        <p>AI flags students with attendance below threshold before they cross the critical mark.</p>
+        <div class="risk-meter">
+          <div class="risk-fill" style="width:68%"></div>
+        </div>
+        <span class="risk-label">68% students are safe</span>
+      </div>
+      <div class="analytics-card">
+        <div class="analytics-icon green"><i class="fas fa-star"></i></div>
+        <h3>Performance Correlation</h3>
+        <p>Discover how attendance correlates with academic performance across subjects and batches.</p>
+        <div class="correlation-badge">r = 0.87 <span>Strong positive</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials">
+  <div class="section-container">
+    <div class="section-badge">Testimonials</div>
+    <h2 class="section-title">Loved by <span class="gradient-text">Educators</span></h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p>"Attendence-AI transformed how we handle attendance. The AI insights helped us reduce absenteeism by 40% in one semester."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:linear-gradient(135deg,#667eea,#764ba2)">DR</div>
+          <div><strong>Dr. Ramesh Kumar</strong><span>Principal, IIT Madras</span></div>
+        </div>
+      </div>
+      <div class="testimonial-card featured">
+        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p>"The real-time dashboard and automated reports saved our admin team hours every week. Absolutely brilliant product!"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:linear-gradient(135deg,#f093fb,#f5576c)">SP</div>
+          <div><strong>Sunita Patel</strong><span>Dean, Delhi University</span></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p>"Parents love getting instant alerts. Students improved attendance because they knew the system was watching intelligently."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar" style="background:linear-gradient(135deg,#4facfe,#00f2fe)">MJ</div>
+          <div><strong>Mohan Joshi</strong><span>HOD, BITS Pilani</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section" id="contact">
+  <div class="section-container">
+    <div class="section-badge">Contact Us</div>
+    <h2 class="section-title">Get in <span class="gradient-text">Touch</span></h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+          <div><h4>Email</h4><p>hello@attendence-ai.com</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-phone"></i></div>
+          <div><h4>Phone</h4><p>+91 98765 43210</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div><h4>Office</h4><p>Chennai, Tamil Nadu, India</p></div>
+        </div>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="submitContact(event)">
+        <div class="form-row">
+          <div class="form-group"><label>Name</label><input type="text" placeholder="Your name" required /></div>
+          <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com" required /></div>
+        </div>
+        <div class="form-group"><label>Subject</label><input type="text" placeholder="How can we help?" required /></div>
+        <div class="form-group"><label>Message</label><textarea rows="5" placeholder="Tell us more..." required></textarea></div>
+        <button type="submit" class="btn-primary full-width"><i class="fas fa-paper-plane"></i> Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <div class="nav-brand">
+        <div class="brand-icon"><i class="fas fa-brain"></i></div>
+        <span class="brand-name">Attendence<span class="brand-ai">AI</span></span>
+      </div>
+      <p>The world's smartest AI-powered attendance and analytics platform for modern institutions.</p>
+    </div>
+    <div class="footer-links">
+      <h5>Product</h5>
+      <ul>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#analytics">Analytics</a></li>
+        <li><a href="#">Pricing</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h5>Legal</h5>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">GDPR</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Attendence-AI Intellect. Built with <i class="fas fa-heart text-red"></i> for smarter education.</p>
+  </div>
+</footer>
+
+<!-- Login Modal -->
+<div class="modal" id="loginModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('loginModal')"><i class="fas fa-times"></i></button>
+    <div class="modal-icon"><i class="fas fa-sign-in-alt"></i></div>
+    <h3>Welcome Back</h3>
+    <p class="modal-sub">Sign in to your account</p>
+    <form onsubmit="handleLogin(event)">
+      <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com" required /></div>
+      <div class="form-group"><label>Password</label><input type="password" placeholder="••••••••" required /></div>
+      <button type="submit" class="btn-primary full-width">Sign In</button>
+      <p class="modal-switch">Don't have an account? <a onclick="switchModal('loginModal','signupModal')">Sign up</a></p>
+    </form>
+  </div>
+</div>
+
+<!-- Signup Modal -->
+<div class="modal" id="signupModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('signupModal')"><i class="fas fa-times"></i></button>
+    <div class="modal-icon"><i class="fas fa-user-plus"></i></div>
+    <h3>Create Account</h3>
+    <p class="modal-sub">Start your free trial today</p>
+    <form onsubmit="handleSignup(event)">
+      <div class="form-row">
+        <div class="form-group"><label>First Name</label><input type="text" placeholder="John" required /></div>
+        <div class="form-group"><label>Last Name</label><input type="text" placeholder="Doe" required /></div>
+      </div>
+      <div class="form-group"><label>Institution</label><input type="text" placeholder="University / School name" required /></div>
+      <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com" required /></div>
+      <div class="form-group"><label>Password</label><input type="password" placeholder="Create strong password" required /></div>
+      <button type="submit" class="btn-primary full-width">Create Account</button>
+      <p class="modal-switch">Already have an account? <a onclick="switchModal('signupModal','loginModal')">Sign in</a></p>
+    </form>
+  </div>
+</div>
+
+<!-- Add Student Modal -->
+<div class="modal" id="addStudentModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('addStudentModal')"><i class="fas fa-times"></i></button>
+    <h3>Add New Student</h3>
+    <form onsubmit="addStudent(event)">
+      <div class="form-row">
+        <div class="form-group"><label>First Name</label><input type="text" id="newFirstName" placeholder="John" required /></div>
+        <div class="form-group"><label>Last Name</label><input type="text" id="newLastName" placeholder="Doe" required /></div>
+      </div>
+      <div class="form-group"><label>Roll Number</label><input type="text" id="newRoll" placeholder="e.g. CS2024001" required /></div>
+      <div class="form-group"><label>Department</label>
+        <select id="newDept">
+          <option>Computer Science</option>
+          <option>Electronics</option>
+          <option>Mechanical</option>
+          <option>Civil</option>
+          <option>Mathematics</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-primary full-width"><i class="fas fa-user-plus"></i> Add Student</button>
+    </form>
+  </div>
+</div>
+
+<!-- Toast Notification -->
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

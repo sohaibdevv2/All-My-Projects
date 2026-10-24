@@ -1,0 +1,78 @@
+<div class="resume-template professional6-template">
+    <div class="modern-header">
+        <div class="header-stripe"></div>
+        <div class="header-main">
+            <div class="profile-area">
+                <div class="profile-photo" id="profilePhoto"></div>
+                <div class="name-title">
+                    <h1 class="name" id="previewName">Your Name</h1>
+                    <h2 class="title" id="previewJobTitle">Professional Title</h2>
+                </div>
+            </div>
+            <div class="contact-area">
+                <div class="contact-list">
+                    <div class="contact-item" id="previewEmail">email@example.com</div>
+                    <div class="contact-item" id="previewPhone">+1 (555) 123-4567</div>
+                    <div class="contact-item" id="previewLocation">Location</div>
+                    <div id="previewLinkedIn"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modern-content">
+        <div class="intro-section">
+            <h3>Professional Summary</h3>
+            <p id="previewSummary"></p>
+        </div>
+        <div class="content-layout">
+            <div class="main-column">
+                <div class="section">
+                    <h3>Professional Experience</h3>
+                    <div id="previewExperience"></div>
+                </div>
+                <div class="section">
+                    <h3>Education</h3>
+                    <div id="previewEducation"></div>
+                </div>
+            </div>
+            <div class="side-column">
+                <div class="section">
+                    <h3>Skills</h3>
+                    <div id="previewSkills" class="skills-list"></div>
+                </div>
+                <div class="section">
+                    <h3>Projects</h3>
+                    <ul id="previewProjects"></ul>
+                </div>
+                <div class="section">
+                    <h3>Languages</h3>
+                    <div id="previewLanguages" class="skills-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+.professional6-template { font-family: 'Segoe UI', sans-serif; background: #fff; color: #333; }
+.professional6-template .modern-header { background: #fff; position: relative; }
+.professional6-template .header-stripe { height: 8px; background: linear-gradient(90deg, #0066cc, #004499); }
+.professional6-template .header-main { padding: 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e6e6e6; }
+.professional6-template .profile-area { display: flex; align-items: center; gap: 1.5rem; }
+.professional6-template .profile-photo { width: 90px; height: 90px; border-radius: 50%; background: #f0f0f0; background-size: cover; background-position: center; border: 3px solid #0066cc; }
+.professional6-template .name { font-size: 2.2rem; margin: 0; font-weight: 600; color: #0066cc; }
+.professional6-template .title { font-size: 1.1rem; margin: 0.3rem 0; color: #666; font-weight: 400; }
+.professional6-template .contact-list { text-align: right; }
+.professional6-template .contact-item { margin-bottom: 0.4rem; font-size: 0.9rem; color: #666; }
+.professional6-template .modern-content { padding: 2rem; }
+.professional6-template .intro-section { margin-bottom: 2rem; padding: 1.5rem; background: #f8f9fa; border-radius: 6px; border-left: 4px solid #0066cc; }
+.professional6-template .content-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; }
+.professional6-template .section { margin-bottom: 2rem; }
+.professional6-template h3 { color: #0066cc; font-size: 1.2rem; margin-bottom: 1rem; font-weight: 600; position: relative; padding-bottom: 0.5rem; }
+.professional6-template h3::after { content: ''; position: absolute; bottom: 0; left: 0; width: 30px; height: 2px; background: #0066cc; }
+.professional6-template .experience-entry, .professional6-template .education-entry { margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid #e6e6e6; }
+.professional6-template .entry-title { font-weight: 600; font-size: 1rem; color: #0066cc; }
+.professional6-template .entry-company { color: #333; font-weight: 500; }
+.professional6-template .entry-dates { color: #888; font-size: 0.9rem; }
+.professional6-template .skills-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.professional6-template .skill-tag { background: #e6f2ff; color: #0066cc; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.85rem; border: 1px solid #cce6ff; }
+</style>

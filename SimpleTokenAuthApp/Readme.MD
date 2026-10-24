@@ -1,0 +1,1 @@
+<h1>Simple Token Auth App</h1>

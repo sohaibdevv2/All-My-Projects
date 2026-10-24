@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATS Technical Layout Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template ats-technical-layout-template">
+        <div class="header">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <div class="contact-info">
+                <span id="previewEmail"></span> • 
+                <span id="previewPhone"></span> • 
+                <span id="previewLocation"></span> • 
+                <span id="previewLinkedIn"></span>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Technical Summary</h2>
+            <p id="previewSummary"></p>
+        </div>
+        
+        <div class="section">
+            <h2>Technical Skills</h2>
+            <div id="previewSkills"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Professional Experience</h2>
+            <div id="previewExperience"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Education</h2>
+            <div id="previewEducation"></div>
+        </div>
+    </div>
+
+    <style>
+        .ats-technical-layout-template { 
+            font-family: 'Courier New', monospace; 
+            background: #ffffff; 
+            color: #000000; 
+            line-height: 1.4; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+            padding: 1in;
+        }
+        .ats-technical-layout-template .header { 
+            text-align: center; 
+            margin-bottom: 1.5rem; 
+            border: 1px solid #000000;
+            padding: 1rem;
+        }
+        .ats-technical-layout-template .name { 
+            font-size: 2rem; 
+            margin: 0 0 0.5rem 0; 
+            font-weight: bold; 
+            color: #000000;
+        }
+        .ats-technical-layout-template .contact-info { 
+            font-size: 1rem; 
+            color: #000000;
+        }
+        .ats-technical-layout-template .section { 
+            margin-bottom: 1.5rem; 
+        }
+        .ats-technical-layout-template h2 { 
+            color: #000000; 
+            font-size: 1.2rem; 
+            margin-bottom: 0.8rem; 
+            font-weight: bold; 
+            text-transform: uppercase;
+            border-bottom: 1px solid #000000;
+            padding-bottom: 0.2rem;
+        }
+        .ats-technical-layout-template .experience-entry, .ats-technical-layout-template .education-entry { 
+            margin-bottom: 1.2rem; 
+        }
+        .ats-technical-layout-template .entry-title { 
+            font-weight: bold; 
+            font-size: 1rem; 
+            color: #000000; 
+            margin-bottom: 0.2rem;
+        }
+        .ats-technical-layout-template .entry-company { 
+            color: #000000; 
+            font-weight: normal; 
+            font-size: 1rem;
+        }
+        .ats-technical-layout-template .entry-dates { 
+            color: #000000; 
+            font-size: 1rem; 
+            margin-top: 0.2rem;
+        }
+        .ats-technical-layout-template .skills-list { 
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.3rem;
+        }
+        .ats-technical-layout-template .skill-tag { 
+            color: #000000; 
+            font-size: 1rem; 
+            padding: 0.2rem;
+            border: 1px solid #000000;
+            background: #f9f9f9;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

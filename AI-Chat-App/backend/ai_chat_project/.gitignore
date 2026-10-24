@@ -1,0 +1,16 @@
+# .gitignore (in the AI-Chat-App/ root)
+# Environments
+/venv
+.vscode/
+
+# Python cache
+__pycache__/
+*.pyc
+*.sqlite3
+
+# Node modules
+/frontend/node_modules
+
+# React build output (IMPORTANT: DO NOT ignore the "dist" folder,
+# as Django needs it to be deployed!)
+# /frontend/dist  <-- DO NOT UNCOMMENT THIS LINE

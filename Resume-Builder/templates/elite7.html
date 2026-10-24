@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Template 7</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template elite7-template">
+        <div class="document-header">
+            <div class="letterhead">
+                <div class="letterhead-line"></div>
+                <div class="letterhead-content">
+                    <h1 class="name" id="previewName">Your Name</h1>
+                    <h2 class="title" id="previewJobTitle">Senior Executive</h2>
+                </div>
+                <div class="letterhead-line"></div>
+            </div>
+            <div class="contact-section">
+                <div class="contact-item" id="previewEmail"></div>
+                <div class="contact-item" id="previewPhone"></div>
+                <div class="contact-item" id="previewLocation"></div>
+                <div class="contact-item" id="previewLinkedIn"></div>
+            </div>
+        </div>
+        
+        <div class="document-body">
+            <div class="executive-summary">
+                <div class="summary-header">
+                    <h3>Executive Summary</h3>
+                </div>
+                <div class="summary-content">
+                    <p id="previewSummary"></p>
+                </div>
+            </div>
+            
+            <div class="main-sections">
+                <div class="left-section">
+                    <div class="experience-section">
+                        <div class="section-title">
+                            <h3>Professional Experience</h3>
+                        </div>
+                        <div id="previewExperience" class="experience-list"></div>
+                    </div>
+                    
+                    <div class="education-section">
+                        <div class="section-title">
+                            <h3>Education</h3>
+                        </div>
+                        <div id="previewEducation"></div>
+                    </div>
+                </div>
+                
+                <div class="right-section">
+                    <div class="competencies-section">
+                        <div class="section-title">
+                            <h3>Core Competencies</h3>
+                        </div>
+                        <div id="previewSkills" class="skills-list"></div>
+                    </div>
+                    
+                    <div class="languages-section">
+                        <div class="section-title">
+                            <h3>Languages</h3>
+                        </div>
+                        <div id="previewLanguages" class="skills-list"></div>
+                    </div>
+                    
+                    <div class="leadership-section">
+                        <div class="section-title">
+                            <h3>Leadership Highlights</h3>
+                        </div>
+                        <div class="highlight-list">
+                            <div class="highlight-item">P&L responsibility for $100M+ division</div>
+                            <div class="highlight-item">Led digital transformation initiatives</div>
+                            <div class="highlight-item">Built and scaled high-performance teams</div>
+                            <div class="highlight-item">Drove strategic partnerships & M&A</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .elite7-template { 
+            font-family: 'Times New Roman', 'Georgia', serif; 
+            background: #ffffff; 
+            color: #1a1a1a; 
+            line-height: 1.7; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+            border: 2px solid #2c3e50;
+        }
+        .elite7-template .document-header { 
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); 
+            color: white; 
+            padding: 3rem 3rem 2rem; 
+        }
+        .elite7-template .letterhead {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .elite7-template .letterhead-line {
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ecf0f1, transparent);
+        }
+        .elite7-template .letterhead-content {
+            text-align: center;
+            min-width: 400px;
+        }
+        .elite7-template .name { 
+            font-size: 3.2rem; 
+            margin: 0; 
+            font-weight: 400; 
+            letter-spacing: 3px; 
+            margin-bottom: 0.5rem;
+        }
+        .elite7-template .title { 
+            font-size: 1.4rem; 
+            margin: 0; 
+            font-weight: 300; 
+            opacity: 0.9; 
+            font-style: italic;
+        }
+        .elite7-template .contact-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 1rem;
+            text-align: center;
+            font-size: 0.95rem;
+            opacity: 0.95;
+        }
+        .elite7-template .document-body { 
+            padding: 3rem; 
+        }
+        .elite7-template .executive-summary { 
+            margin-bottom: 3rem; 
+            border: 2px solid #ecf0f1;
+            border-radius: 0;
+        }
+        .elite7-template .summary-header {
+            background: #2c3e50;
+            color: white;
+            padding: 1rem 2rem;
+            text-align: center;
+        }
+        .elite7-template .summary-header h3 { 
+            margin: 0; 
+            font-size: 1.3rem; 
+            font-weight: 600; 
+            letter-spacing: 1px;
+        }
+        .elite7-template .summary-content {
+            padding: 2rem;
+            background: #f8f9fa;
+        }
+        .elite7-template .main-sections { 
+            display: grid; 
+            grid-template-columns: 2fr 1fr; 
+            gap: 3rem; 
+        }
+        .elite7-template .section-title {
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #2c3e50;
+        }
+        .elite7-template .section-title h3 { 
+            color: #2c3e50; 
+            font-size: 1.3rem; 
+            margin: 0; 
+            font-weight: 600; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .elite7-template .experience-entry, .elite7-template .education-entry { 
+            margin-bottom: 2.5rem; 
+            padding: 2rem; 
+            background: #f8f9fa; 
+            border: 1px solid #ecf0f1;
+            position: relative;
+        }
+        .elite7-template .experience-entry::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 6px;
+            height: 100%;
+            background: #2c3e50;
+        }
+        .elite7-template .entry-title { 
+            font-weight: 700; 
+            font-size: 1.2rem; 
+            color: #1a1a1a; 
+            margin-bottom: 0.5rem;
+        }
+        .elite7-template .entry-company { 
+            color: #2c3e50; 
+            font-weight: 600; 
+            font-size: 1rem;
+            font-style: italic;
+        }
+        .elite7-template .entry-dates { 
+            color: #666; 
+            font-size: 0.95rem; 
+            font-weight: 500;
+            float: right;
+            background: #ecf0f1;
+            padding: 0.3rem 0.8rem;
+        }
+        .elite7-template .right-section > div {
+            margin-bottom: 2.5rem;
+            padding: 2rem;
+            background: #f8f9fa;
+            border: 1px solid #ecf0f1;
+        }
+        .elite7-template .skill-tag { 
+            display: block; 
+            background: #2c3e50; 
+            color: white; 
+            padding: 0.8rem 1.2rem; 
+            margin: 0.5rem 0; 
+            font-size: 0.9rem; 
+            font-weight: 500; 
+            text-align: center;
+            border-left: 4px solid #ecf0f1;
+        }
+        .elite7-template .highlight-list {
+            font-size: 0.95rem;
+        }
+        .elite7-template .highlight-item {
+            margin-bottom: 1.2rem;
+            padding: 1rem;
+            background: white;
+            border-left: 4px solid #2c3e50;
+            font-weight: 500;
+        }
+        .elite7-template .highlight-item::before {
+            content: '▶';
+            color: #2c3e50;
+            margin-right: 0.5rem;
+            font-size: 0.8rem;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

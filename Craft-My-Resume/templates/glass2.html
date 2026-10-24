@@ -1,0 +1,247 @@
+<div class="resume-template glass-blue-premium">
+  <div class="gbp-wrapper">
+    <div class="gbp-sidebar">
+      <div id="profilePhoto" class="gbp-photo"></div>
+      <h1 id="previewName" class="gbp-name">Your Name</h1>
+      <p id="previewJobTitle" class="gbp-title">Job Title</p>
+      <div class="gbp-divider"></div>
+      <div class="gbp-contact-section">
+        <h3 class="gbp-side-label">Contact</h3>
+        <p id="previewEmail" class="gbp-contact-item">email@example.com</p>
+        <p id="previewPhone" class="gbp-contact-item">+1 234 567 890</p>
+        <p id="previewLocation" class="gbp-contact-item">City, Country</p>
+        <div id="previewLinkedIn" class="gbp-contact-item">linkedin.com/in/you</div>
+      </div>
+      <div class="gbp-divider"></div>
+      <div class="gbp-skills-section">
+        <h3 class="gbp-side-label">Skills</h3>
+        <div id="previewSkills" class="skills-list gbp-skills"></div>
+      </div>
+      <div class="gbp-divider"></div>
+      <div class="gbp-skills-section">
+        <h3 class="gbp-side-label">Languages</h3>
+        <div id="previewLanguages" class="skills-list gbp-skills"></div>
+      </div>
+      <div class="gbp-divider"></div>
+      <div class="gbp-skills-section">
+        <h3 class="gbp-side-label">Awards</h3>
+        <ul id="previewAwards" class="gbp-ul"></ul>
+      </div>
+    </div>
+    <div class="gbp-main">
+      <div class="gbp-main-header">
+        <p id="previewSummary" class="gbp-summary">Professional summary goes here.</p>
+      </div>
+      <div class="gbp-section">
+        <h2 class="gbp-section-title">Experience</h2>
+        <div id="previewExperience"></div>
+      </div>
+      <div class="gbp-section">
+        <h2 class="gbp-section-title">Education</h2>
+        <div id="previewEducation"></div>
+      </div>
+      <div class="gbp-section">
+        <h2 class="gbp-section-title">Certifications</h2>
+        <ul id="previewCertifications" class="gbp-main-ul"></ul>
+      </div>
+      <div class="gbp-section">
+        <h2 class="gbp-section-title">Projects</h2>
+        <ul id="previewProjects" class="gbp-main-ul"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.glass-blue-premium {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  --primary: var(--primary-color, #6366f1);
+}
+.glass-blue-premium .gbp-wrapper {
+  display: flex;
+  min-height: 297mm;
+  background: linear-gradient(160deg, #0a0e27 0%, #1a237e 100%);
+}
+.glass-blue-premium .gbp-sidebar {
+  width: 36%;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(0,200,255,0.2);
+  padding: 32px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.glass-blue-premium .gbp-photo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(255,255,255,0.1);
+  border: 3px solid #00d4ff;
+  box-shadow: 0 0 20px rgba(0,212,255,0.4), 0 0 40px rgba(0,212,255,0.2);
+  margin-bottom: 14px;
+}
+.glass-blue-premium .gbp-name {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+  margin: 0 0 4px;
+}
+.glass-blue-premium .gbp-title {
+  font-size: 0.75rem;
+  color: #00d4ff;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 0;
+  font-weight: 600;
+}
+.glass-blue-premium .gbp-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(0,212,255,0.2);
+  margin: 16px 0;
+}
+.glass-blue-premium .gbp-side-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #00d4ff;
+  margin: 0 0 10px;
+  text-align: center;
+  width: 100%;
+}
+.glass-blue-premium .gbp-contact-section,
+.glass-blue-premium .gbp-skills-section {
+  width: 100%;
+  text-align: center;
+}
+.glass-blue-premium .gbp-contact-item {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.7);
+  margin: 4px 0;
+  word-break: break-all;
+}
+.glass-blue-premium .gbp-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+}
+.glass-blue-premium .gbp-skills span {
+  background: rgba(0,212,255,0.12);
+  border: 1px solid rgba(0,212,255,0.3);
+  color: rgba(255,255,255,0.85);
+  padding: 2px 9px;
+  border-radius: 12px;
+  font-size: 0.68rem;
+}
+.glass-blue-premium .gbp-ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.65);
+  text-align: left;
+  width: 100%;
+}
+.glass-blue-premium .gbp-ul li {
+  padding: 2px 0;
+}
+.glass-blue-premium .gbp-ul li::before {
+  content: '→ ';
+  color: #00d4ff;
+}
+.glass-blue-premium .gbp-main {
+  flex: 1;
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 28px 28px;
+  color: #e2e8f0;
+}
+.glass-blue-premium .gbp-main-header {
+  background: rgba(0,212,255,0.07);
+  border: 1px solid rgba(0,212,255,0.15);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+}
+.glass-blue-premium .gbp-summary {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.75);
+  margin: 0;
+}
+.glass-blue-premium .gbp-section {
+  margin-bottom: 20px;
+}
+.glass-blue-premium .gbp-section-title {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #00d4ff;
+  margin: 0 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(0,212,255,0.2);
+}
+.glass-blue-premium .gbp-main-ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.65);
+}
+.glass-blue-premium .gbp-main-ul li {
+  padding: 3px 0 3px 16px;
+  position: relative;
+}
+.glass-blue-premium .gbp-main-ul li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: #00d4ff;
+}
+.glass-blue-premium #previewExperience .experience-entry,
+.glass-blue-premium #previewEducation .education-entry {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.glass-blue-premium #previewExperience .experience-entry:last-child,
+.glass-blue-premium #previewEducation .education-entry:last-child {
+  border-bottom: none;
+}
+.glass-blue-premium #previewExperience .entry-title,
+.glass-blue-premium #previewEducation .entry-title {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #fff;
+}
+.glass-blue-premium #previewExperience .entry-company,
+.glass-blue-premium #previewEducation .entry-school {
+  font-size: 0.78rem;
+  color: #00d4ff;
+}
+.glass-blue-premium #previewExperience .entry-dates,
+.glass-blue-premium #previewEducation .entry-dates {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.45);
+}
+.glass-blue-premium #previewExperience .entry-description,
+.glass-blue-premium #previewEducation .entry-description {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.6);
+  margin-top: 4px;
+  line-height: 1.5;
+}
+</style>

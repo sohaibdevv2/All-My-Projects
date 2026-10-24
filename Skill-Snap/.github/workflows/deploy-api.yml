@@ -1,0 +1,29 @@
+name: Build and Deploy API to Azure App Service
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Build and publish API
+        run: |
+          dotnet restore "SkillSnap/SkillSnap.sln"
+          dotnet publish "SkillSnap/SkillSnap.Api/SkillSnap.Api.csproj" -c Release -o publish
+
+      - name: Deploy to Azure Web App (API)
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: ${{ secrets.API_APP_NAME }}
+          publish-profile: ${{ secrets.API_PUBLISH_PROFILE }}
+          package: publish

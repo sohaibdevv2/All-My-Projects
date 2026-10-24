@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Bold Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template creative-bold-template">
+        <div class="main-container">
+            <div class="left-column">
+                <div class="header-section">
+                    <h1 class="name" id="previewName">Your Name</h1>
+                    <h2 class="title" id="previewJobTitle">Creative Professional</h2>
+                </div>
+                
+                <div class="contact-section">
+                    <h3>Contact</h3>
+                    <div class="contact-item"><span id="previewEmail"></span></div>
+                    <div class="contact-item"><span id="previewPhone"></span></div>
+                    <div class="contact-item"><span id="previewLocation"></span></div>
+                    <div class="contact-item"><span id="previewLinkedIn"></span></div>
+                </div>
+                
+                <div class="section">
+                    <h3>Skills</h3>
+                    <div id="previewSkills" class="skills-list"></div>
+                </div>
+                
+                <div class="section">
+                    <h3>Languages</h3>
+                    <div id="previewLanguages" class="skills-list"></div>
+                </div>
+            </div>
+            
+            <div class="right-column">
+                <div class="section">
+                    <h3>About Me</h3>
+                    <p id="previewSummary"></p>
+                </div>
+                
+                <div class="section">
+                    <h3>Experience</h3>
+                    <div id="previewExperience"></div>
+                </div>
+                
+                <div class="section">
+                    <h3>Education</h3>
+                    <div id="previewEducation"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .creative-bold-template { 
+            font-family: 'Arial', sans-serif; 
+            background: #ffffff; 
+            color: #333333; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+        }
+        .creative-bold-template .main-container { 
+            display: grid; 
+            grid-template-columns: 1fr 2fr; 
+            min-height: 11in;
+        }
+        .creative-bold-template .left-column { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            color: #ffffff; 
+            padding: 2rem 1.5rem; 
+        }
+        .creative-bold-template .right-column { 
+            padding: 2rem 2rem; 
+        }
+        .creative-bold-template .header-section { 
+            margin-bottom: 2rem; 
+        }
+        .creative-bold-template .name { 
+            font-size: 2.2rem; 
+            margin: 0 0 0.5rem 0; 
+            font-weight: bold; 
+            color: #ffffff;
+        }
+        .creative-bold-template .title { 
+            font-size: 1.2rem; 
+            margin: 0; 
+            font-weight: normal; 
+            color: #e0e0e0; 
+        }
+        .creative-bold-template .contact-section { 
+            margin-bottom: 2rem; 
+        }
+        .creative-bold-template .contact-item { 
+            margin-bottom: 0.5rem; 
+            font-size: 0.9rem;
+        }
+        .creative-bold-template .section { 
+            margin-bottom: 2rem; 
+        }
+        .creative-bold-template .left-column h3 { 
+            color: #ffffff; 
+            font-size: 1.1rem; 
+            margin-bottom: 1rem; 
+            font-weight: bold; 
+            text-transform: uppercase;
+            border-bottom: 2px solid #ffffff;
+            padding-bottom: 0.5rem;
+        }
+        .creative-bold-template .right-column h3 { 
+            color: #667eea; 
+            font-size: 1.3rem; 
+            margin-bottom: 1rem; 
+            font-weight: bold; 
+            text-transform: uppercase;
+        }
+        .creative-bold-template .experience-entry, .creative-bold-template .education-entry { 
+            margin-bottom: 1.5rem; 
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        .creative-bold-template .entry-title { 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            color: #333333; 
+            margin-bottom: 0.3rem;
+        }
+        .creative-bold-template .entry-company { 
+            color: #667eea; 
+            font-weight: normal; 
+            font-size: 1rem;
+        }
+        .creative-bold-template .entry-dates { 
+            color: #666; 
+            font-size: 0.9rem; 
+            margin-top: 0.3rem;
+        }
+        .creative-bold-template .left-column .skills-list { 
+            display: block; 
+        }
+        .creative-bold-template .left-column .skill-tag { 
+            display: block; 
+            background: rgba(255,255,255,0.2); 
+            color: #ffffff; 
+            padding: 0.5rem; 
+            margin: 0.5rem 0; 
+            font-size: 0.9rem; 
+            border-radius: 15px;
+            text-align: center;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

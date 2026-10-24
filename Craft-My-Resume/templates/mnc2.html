@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MNC Template 2</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template mnc2-template">
+        <div class="sidebar">
+            <div class="profile-section">
+                <h1 class="name" id="previewName">Your Name</h1>
+                <h2 class="title" id="previewJobTitle">Senior Executive</h2>
+            </div>
+            
+            <div class="contact-section">
+                <h3>Contact</h3>
+                <div class="contact-item" id="previewEmail"></div>
+                <div class="contact-item" id="previewPhone"></div>
+                <div class="contact-item" id="previewLocation"></div>
+                <div class="contact-item" id="previewLinkedIn"></div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3>Skills</h3>
+                <div id="previewSkills" class="skills-list"></div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3>Languages</h3>
+                <div id="previewLanguages" class="skills-list"></div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="summary-section">
+                <h3>Professional Profile</h3>
+                <p id="previewSummary"></p>
+            </div>
+            
+            <div class="section">
+                <h3>Professional Experience</h3>
+                <div id="previewExperience"></div>
+            </div>
+            
+            <div class="section">
+                <h3>Education</h3>
+                <div id="previewEducation"></div>
+            </div>
+            
+            <div class="section">
+                <h3>Key Projects</h3>
+                <ul id="previewProjects"></ul>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .mnc2-template { 
+            font-family: 'Calibri', 'Segoe UI', sans-serif; 
+            background: #ffffff; 
+            color: #2d3748; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            min-height: 11in;
+        }
+        .mnc2-template .sidebar { 
+            background: linear-gradient(180deg, #2d3748 0%, #4a5568 100%); 
+            color: white; 
+            padding: 2.5rem 2rem; 
+        }
+        .mnc2-template .profile-section {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+        }
+        .mnc2-template .name { 
+            font-size: 2.2rem; 
+            margin: 0; 
+            font-weight: 700; 
+            letter-spacing: 1px; 
+            line-height: 1.2;
+        }
+        .mnc2-template .title { 
+            font-size: 1.1rem; 
+            margin: 1rem 0 0 0; 
+            font-weight: 400; 
+            opacity: 0.9; 
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .mnc2-template .contact-section {
+            margin-bottom: 2.5rem;
+        }
+        .mnc2-template .contact-section h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #e2e8f0;
+        }
+        .mnc2-template .contact-item { 
+            margin-bottom: 0.8rem; 
+            font-size: 0.9rem; 
+            opacity: 0.9;
+        }
+        .mnc2-template .sidebar-section {
+            margin-bottom: 2.5rem;
+        }
+        .mnc2-template .sidebar h3 { 
+            color: #e2e8f0; 
+            font-size: 1.1rem; 
+            margin-bottom: 1rem; 
+            font-weight: 600; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+        }
+        .mnc2-template .main-content { 
+            padding: 2.5rem; 
+            background: #ffffff;
+        }
+        .mnc2-template .summary-section { 
+            margin-bottom: 2.5rem; 
+            padding: 2rem; 
+            background: #f7fafc; 
+            border-left: 5px solid #2d3748; 
+            border-radius: 0 10px 10px 0;
+        }
+        .mnc2-template .summary-section h3 { 
+            margin: 0 0 1rem 0; 
+            color: #2d3748; 
+            font-size: 1.4rem; 
+            font-weight: 700; 
+        }
+        .mnc2-template .section { 
+            margin-bottom: 2.5rem; 
+        }
+        .mnc2-template .main-content h3 { 
+            color: #2d3748; 
+            font-size: 1.3rem; 
+            margin-bottom: 1.5rem; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        .mnc2-template .main-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #2d3748;
+        }
+        .mnc2-template .experience-entry, .mnc2-template .education-entry { 
+            margin-bottom: 2rem; 
+            padding-bottom: 1.5rem; 
+            border-bottom: 1px solid #e2e8f0; 
+        }
+        .mnc2-template .entry-title { 
+            font-weight: 700; 
+            font-size: 1.2rem; 
+            color: #2d3748; 
+            margin-bottom: 0.3rem;
+        }
+        .mnc2-template .entry-company { 
+            color: #4a5568; 
+            font-weight: 600; 
+            font-size: 1.1rem;
+        }
+        .mnc2-template .entry-dates { 
+            color: #718096; 
+            font-size: 0.95rem; 
+            font-weight: 500;
+        }
+        .mnc2-template .sidebar .skills-list { 
+            display: block; 
+        }
+        .mnc2-template .sidebar .skill-tag { 
+            display: block; 
+            background: rgba(255,255,255,0.1); 
+            color: white; 
+            padding: 0.5rem 1rem; 
+            margin: 0.5rem 0; 
+            border-radius: 20px; 
+            font-size: 0.85rem; 
+            font-weight: 500; 
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

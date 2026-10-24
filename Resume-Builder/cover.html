@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cover Letter Builder — CMR | Free with Digital Signature</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      html, body { height:100%; margin:0; overflow:hidden !important; }
+      .home-nav-cta { background:var(--primary-color); color:#fff; padding:9px 20px; border-radius:50px; font-size:.85rem; font-weight:600; text-decoration:none; transition:all .2s; }
+      .home-nav-cta:hover { background:var(--primary-dark); }
+      .cl-wrap { position:fixed; top:65px; left:0; right:0; bottom:0; display:flex; overflow:hidden; background:var(--bg-secondary); }
+      .cl-form { width:46%; min-width:46%; height:100%; overflow-y:auto; padding:28px 32px; background:var(--bg-primary); border-right:1px solid var(--border-color); }
+      .cl-form h2 { font-family:'Playfair Display',serif; font-size:1.6rem; color:var(--text-primary); margin:0 0 4px; }
+      .cl-form .cl-sub { color:var(--text-secondary); font-size:.88rem; margin-bottom:22px; }
+      .cl-label { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.6px; color:var(--text-muted); margin:18px 0 8px; display:block; }
+      .cl-input, .cl-textarea { width:100%; padding:11px 14px; border:1.5px solid var(--border-color); border-radius:10px; font-size:.9rem; font-family:inherit; background:var(--bg-primary); color:var(--text-primary); transition:border-color .2s; box-sizing:border-box; }
+      .cl-input:focus, .cl-textarea:focus { outline:none; border-color:var(--primary-color); }
+      .cl-textarea { min-height:90px; resize:vertical; line-height:1.6; }
+      .cl-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+      .cl-templates { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:6px; }
+      .cl-tpl-card { border:2px solid var(--border-color); border-radius:10px; padding:10px 8px; cursor:pointer; text-align:center; transition:all .18s; background:var(--bg-primary); }
+      .cl-tpl-card:hover { border-color:var(--primary-light); }  
+      .cl-tpl-card.active { border-color:var(--primary-color); background:var(--bg-tertiary); }
+      .cl-tpl-icon { font-size:1.3rem; display:block; margin-bottom:4px; }
+      .cl-tpl-card strong { font-size:.72rem; color:var(--text-primary); display:block; }
+      .sig-tabs { display:flex; gap:4px; background:var(--bg-tertiary); border-radius:9px; padding:3px; margin-bottom:10px; }
+      .sig-tab { flex:1; border:none; background:transparent; padding:7px; font-size:.78rem; font-weight:600; border-radius:6px; cursor:pointer; color:var(--text-secondary); }
+      .sig-tab.active { background:var(--primary-color); color:#fff; }
+      .sig-pane { display:none; }
+      .sig-pane.active { display:block; }
+      #sigCanvas { border:2px dashed var(--border-color); border-radius:10px; width:100%; height:120px; cursor:crosshair; background:#fff; touch-action:none; }
+      .sig-clear { margin-top:6px; font-size:.78rem; color:var(--primary-color); background:none; border:none; cursor:pointer; font-weight:600; }
+      .sig-type-input { font-family:'Brush Script MT',cursive; font-size:1.6rem; }
+      .cl-actions { display:flex; gap:10px; margin-top:24px; flex-wrap:wrap; padding-bottom:30px; }
+      .cl-btn { flex:1; min-width:140px; padding:13px; border-radius:10px; font-size:.9rem; font-weight:700; cursor:pointer; border:none; transition:all .2s; }
+      .cl-btn-primary { background:var(--primary-color); color:#fff; }
+      .cl-btn-primary:hover { background:var(--primary-dark); }
+      .cl-btn-ai { background:var(--bg-tertiary); color:var(--primary-dark); border:1.5px solid var(--primary-light); }
+      .cl-preview-wrap { flex:1; height:100%; overflow-y:auto; padding:28px; background:#e8f5e3; display:flex; flex-direction:column; align-items:center; }
+      .cl-preview-bar { width:100%; max-width:620px; display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
+      .cl-preview-bar h3 { font-size:.95rem; color:var(--text-secondary); margin:0; }
+      .cl-paper { background:#fff; width:100%; max-width:620px; min-height:800px; padding:54px 56px; box-shadow:0 8px 32px rgba(0,0,0,.12); font-family:'Inter',sans-serif; font-size:10.5pt; line-height:1.7; color:#2d2d2d; box-sizing:border-box; }
+      .cl-paper .clp-sender { margin-bottom:24px; }
+      .cl-paper .clp-name { font-size:18pt; font-weight:700; color:#1a1a1a; }
+      .cl-paper .clp-contact { font-size:9pt; color:#666; margin-top:3px; }
+      .cl-paper .clp-date { color:#666; font-size:9.5pt; margin-bottom:18px; }
+      .cl-paper .clp-recipient { margin-bottom:18px; font-size:10pt; }
+      .cl-paper .clp-recipient strong { color:#1a1a1a; }
+      .cl-paper .clp-greeting { font-weight:600; margin-bottom:14px; color:#1a1a1a; }
+      .cl-paper .clp-body p { margin:0 0 13px; text-align:justify; }
+      .cl-paper .clp-accent { color:var(--primary-color); font-weight:600; }
+      .cl-paper .clp-signoff { margin-top:22px; }
+      .cl-paper .clp-sig-img { max-height:64px; margin:6px 0; display:block; }
+      .cl-paper .clp-sig-name { font-weight:700; color:#1a1a1a; }
+      @media (max-width:900px){ .cl-form{ width:100%; min-width:100%; border-right:none; } .cl-preview-wrap{ display:none; } }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <img src="logo.png" alt="CMR" class="logo-icon" style="width:36px;height:36px;object-fit:contain;border-radius:6px;">
+                    <div class="logo-text"><h1>CMR</h1><span>Cover Letter</span></div>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="form" class="nav-link">Resume Builder</a>
+                    <a href="cover" class="nav-link active">Cover Letter</a>
+                </div>
+                <div class="nav-actions">
+                    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"><span class="theme-icon">🌙</span></button>
+                    <a href="form" class="home-nav-cta">Build Resume →</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="cl-wrap">
+        <div class="cl-form">
+            <h2>Cover Letter Builder</h2>
+            <p class="cl-sub">Pick a style, fill the blanks, add your signature, and download. Free — no watermark.</p>
+            <label class="cl-label">1 · Choose a Letter Type</label>
+            <div class="cl-templates" id="clTemplates">
+                <div class="cl-tpl-card active" data-tpl="standard" onclick="pickCoverTpl('standard')"><span class="cl-tpl-icon">📄</span><strong>Standard</strong></div>
+                <div class="cl-tpl-card" data-tpl="formal" onclick="pickCoverTpl('formal')"><span class="cl-tpl-icon">🎩</span><strong>Formal</strong></div>
+                <div class="cl-tpl-card" data-tpl="thankyou" onclick="pickCoverTpl('thankyou')"><span class="cl-tpl-icon">🙏</span><strong>Thank You</strong></div>
+                <div class="cl-tpl-card" data-tpl="followup" onclick="pickCoverTpl('followup')"><span class="cl-tpl-icon">🔄</span><strong>Follow-Up</strong></div>
+                <div class="cl-tpl-card" data-tpl="careerchange" onclick="pickCoverTpl('careerchange')"><span class="cl-tpl-icon">🚀</span><strong>Career Change</strong></div>
+                <div class="cl-tpl-card" data-tpl="networking" onclick="pickCoverTpl('networking')"><span class="cl-tpl-icon">🤝</span><strong>Networking</strong></div>
+            </div>
+            <label class="cl-label">2 · Your Details</label>
+            <div class="cl-row">
+                <input type="text" id="clName" class="cl-input" placeholder="Your Full Name" oninput="renderCover()">
+                <input type="text" id="clPhone" class="cl-input" placeholder="Your Phone" oninput="renderCover()">
+            </div>
+            <div style="margin-top:12px"><input type="email" id="clEmail" class="cl-input" placeholder="Your Email" oninput="renderCover()"></div>
+            <label class="cl-label">3 · Job & Company</label>
+            <div class="cl-row">
+                <input type="text" id="clJobTitle" class="cl-input" placeholder="Position / Role" oninput="renderCover()">
+                <input type="text" id="clCompany" class="cl-input" placeholder="Company Name" oninput="renderCover()">
+            </div>
+            <div style="margin-top:12px"><input type="text" id="clManager" class="cl-input" placeholder="Hiring Manager Name (optional)" oninput="renderCover()"></div>
+            <label class="cl-label">4 · Letter Content</label>
+            <textarea id="clOpening" class="cl-textarea" placeholder="Opening paragraph..." oninput="renderCover()"></textarea>
+            <textarea id="clBody" class="cl-textarea" placeholder="Body — why you're a great fit..." oninput="renderCover()" style="margin-top:10px"></textarea>
+            <textarea id="clClosing" class="cl-textarea" placeholder="Closing paragraph..." oninput="renderCover()" style="margin-top:10px"></textarea>
+            <label class="cl-label">5 · Digital Signature</label>
+            <div class="sig-tabs">
+                <button class="sig-tab active" data-sig="draw" onclick="switchSig('draw')">✍️ Draw</button>
+                <button class="sig-tab" data-sig="type" onclick="switchSig('type')">⌨️ Type</button>
+                <button class="sig-tab" data-sig="upload" onclick="switchSig('upload')">📤 Upload</button>
+            </div>
+            <div class="sig-pane active" id="sig-draw">
+                <canvas id="sigCanvas"></canvas>
+                <button class="sig-clear" onclick="clearSig()">✕ Clear signature</button>
+            </div>
+            <div class="sig-pane" id="sig-type">
+                <input type="text" id="sigTypeInput" class="cl-input sig-type-input" placeholder="Type your name" oninput="renderCover()">
+            </div>
+            <div class="sig-pane" id="sig-upload">
+                <input type="file" id="sigUpload" accept="image/*" class="cl-input" onchange="handleSigUpload(event)">
+            </div>
+            <div class="cl-actions">
+                <button class="cl-btn cl-btn-primary" onclick="downloadCover()">📥 Download PDF</button>
+                <button class="cl-btn cl-btn-ai" onclick="aiFillCover()" id="clAiBtn">🤖 AI Write</button>
+            </div>
+        </div>
+        <div class="cl-preview-wrap">
+            <div class="cl-preview-bar">
+                <h3>Live Preview</h3>
+                <span style="font-size:.78rem;color:var(--text-muted)">A4 · PDF-ready</span>
+            </div>
+            <div class="cl-paper" id="clPaper">
+                <div class="clp-sender">
+                    <div class="clp-name" id="pvName">Your Name</div>
+                    <div class="clp-contact" id="pvContact">your@email.com · +1 555 123 4567</div>
+                </div>
+                <div class="clp-date" id="pvDate"></div>
+                <div class="clp-recipient" id="pvRecipient"></div>
+                <div class="clp-greeting" id="pvGreeting">Dear Hiring Manager,</div>
+                <div class="clp-body" id="pvBody"><p>Your cover letter will appear here as you type. Pick a letter type above to auto-fill professional text.</p></div>
+                <div class="clp-signoff">
+                    <div>Sincerely,</div>
+                    <img class="clp-sig-img" id="pvSigImg" style="display:none" alt="signature">
+                    <div class="clp-sig-name" id="pvSigName">Your Name</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script src="ai.js"></script>
+    <script>
+    const COVER_TEMPLATES = {
+      standard: { opening:"I am writing to express my strong interest in the {ROLE} position at {COMPANY}. With my background and skills, I am confident I would be a valuable addition to your team.", body:"Throughout my career, I have developed expertise that aligns closely with the requirements of this role. I am particularly drawn to {COMPANY} because of its reputation for excellence and innovation. In my previous roles, I consistently delivered strong results, and I am eager to bring that same dedication to your organization.", closing:"I would welcome the opportunity to discuss how my experience can contribute to {COMPANY}'s continued success. Thank you for considering my application. I look forward to hearing from you." },
+      formal: { opening:"I am writing to formally apply for the {ROLE} position at {COMPANY}, as advertised. I believe my qualifications and professional experience make me a strong candidate for this opportunity.", body:"My professional background has equipped me with the precise skill set required for this role. I have a proven track record of meeting objectives, maintaining the highest standards of professionalism, and contributing meaningfully to organizational goals. I am confident that my expertise would be of significant benefit to {COMPANY}.", closing:"I would be honored to further discuss my candidacy at your convenience. Thank you for your time and consideration. I await your response with great interest." },
+      thankyou: { opening:"Thank you for taking the time to meet with me regarding the {ROLE} position at {COMPANY}. I genuinely enjoyed our conversation and learning more about your team.", body:"Our discussion reinforced my enthusiasm for this role and my belief that my skills are an excellent match for what {COMPANY} is looking for. I was especially excited to hear about the team's goals, and I am confident I can make a meaningful contribution from day one.", closing:"Thank you again for the opportunity. Please don't hesitate to reach out if you need any additional information. I look forward to the possibility of working together." },
+      followup: { opening:"I am following up regarding my application for the {ROLE} position at {COMPANY}, submitted recently. I remain very enthusiastic about the opportunity to join your team.", body:"I wanted to reiterate my strong interest and highlight that my experience aligns well with the role's requirements. Since applying, my excitement about contributing to {COMPANY} has only grown. I would welcome the chance to provide any further information that may assist in your decision.", closing:"Thank you for considering my application. I understand you have many candidates to review, and I appreciate your time. I look forward to hearing from you soon." },
+      careerchange: { opening:"I am excited to apply for the {ROLE} position at {COMPANY}. While my background may differ from a traditional path, I bring a unique combination of transferable skills and fresh perspective to this role.", body:"My decision to transition into this field is driven by genuine passion and deliberate preparation. The skills I have built — including problem-solving, communication, and adaptability — translate directly to the demands of this position. I am eager to apply my diverse experience to deliver real value at {COMPANY}.", closing:"I am confident that my unique journey makes me a compelling candidate. I would love the opportunity to explain how my background can benefit your team. Thank you for your consideration." },
+      networking: { opening:"I hope this message finds you well. I am reaching out to express my interest in opportunities at {COMPANY}, particularly the {ROLE} position, and to connect regarding how I might contribute to your team.", body:"I have long admired {COMPANY}'s work and would be thrilled to bring my skills and enthusiasm to your organization. I believe building genuine professional relationships is key, and I would value the chance to learn more about your team's needs and share how my experience aligns.", closing:"I would greatly appreciate any opportunity to connect, whether about this specific role or future possibilities. Thank you for your time — I look forward to the conversation." }
+    };
+    let currentCoverTpl = 'standard';
+    function pickCoverTpl(tpl) {
+      currentCoverTpl = tpl;
+      document.querySelectorAll('.cl-tpl-card').forEach(c => c.classList.toggle('active', c.dataset.tpl === tpl));
+      const t = COVER_TEMPLATES[tpl];
+      const role = document.getElementById('clJobTitle').value || '{ROLE}';
+      const company = document.getElementById('clCompany').value || '{COMPANY}';
+      const fill = s => s.replace(/\{ROLE\}/g, role).replace(/\{COMPANY\}/g, company);
+      document.getElementById('clOpening').value = fill(t.opening);
+      document.getElementById('clBody').value = fill(t.body);
+      document.getElementById('clClosing').value = fill(t.closing);
+      renderCover();
+    }
+    function renderCover() {
+      const v = id => (document.getElementById(id).value || '').trim();
+      const name = v('clName') || 'Your Name';
+      const email = v('clEmail'), phone = v('clPhone'), company = v('clCompany'), manager = v('clManager');
+      document.getElementById('pvName').textContent = name;
+      document.getElementById('pvContact').textContent = [email,phone].filter(Boolean).join(' · ') || 'your@email.com';
+      document.getElementById('pvDate').textContent = new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+      let rec = '';
+      if (manager) rec += '<strong>'+esc(manager)+'</strong><br>';
+      if (company) rec += esc(company);
+      document.getElementById('pvRecipient').innerHTML = rec;
+      document.getElementById('pvGreeting').textContent = manager ? 'Dear '+manager+',' : 'Dear Hiring Manager,';
+      const op=v('clOpening'), bd=v('clBody'), cl=v('clClosing');
+      let body='';
+      if (op||bd||cl) { [op,bd,cl].filter(Boolean).forEach(p=>{ body += '<p>'+esc(p)+'</p>'; }); }
+      else { body='<p>Your cover letter will appear here as you type. Pick a letter type above to auto-fill professional text.</p>'; }
+      document.getElementById('pvBody').innerHTML = body;
+      document.getElementById('pvSigName').textContent = name;
+      const sigImg = document.getElementById('pvSigImg');
+      if (sigMode==='type') { const typed=v('sigTypeInput'); if(typed){ renderTypedSig(typed); sigImg.style.display='block'; } else sigImg.style.display='none'; }
+      else if (sigDataUrl) { sigImg.src=sigDataUrl; sigImg.style.display='block'; }
+      else { sigImg.style.display='none'; }
+    }
+    function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+    let sigMode='draw', sigDataUrl='';
+    const canvas=document.getElementById('sigCanvas'); const ctx=canvas.getContext('2d');
+    function sizeCanvas(){ const r=canvas.getBoundingClientRect(); canvas.width=r.width*2; canvas.height=r.height*2; ctx.setTransform(1,0,0,1,0,0); ctx.scale(2,2); ctx.strokeStyle='#1a1a2e'; ctx.lineWidth=2.2; ctx.lineCap='round'; ctx.lineJoin='round'; }
+    setTimeout(sizeCanvas,150);
+    let drawing=false,lastX=0,lastY=0;
+    function pos(e){ const r=canvas.getBoundingClientRect(); const t=e.touches?e.touches[0]:e; return [t.clientX-r.left,t.clientY-r.top]; }
+    function start(e){ drawing=true; [lastX,lastY]=pos(e); e.preventDefault(); }
+    function move(e){ if(!drawing)return; const [x,y]=pos(e); ctx.beginPath(); ctx.moveTo(lastX,lastY); ctx.lineTo(x,y); ctx.stroke(); [lastX,lastY]=[x,y]; e.preventDefault(); }
+    function end(){ if(drawing){ drawing=false; sigDataUrl=canvas.toDataURL(); renderCover(); } }
+    canvas.addEventListener('mousedown',start); canvas.addEventListener('mousemove',move); canvas.addEventListener('mouseup',end); canvas.addEventListener('mouseleave',end);
+    canvas.addEventListener('touchstart',start); canvas.addEventListener('touchmove',move); canvas.addEventListener('touchend',end);
+    function clearSig(){ ctx.clearRect(0,0,canvas.width,canvas.height); sigDataUrl=''; renderCover(); }
+    function switchSig(mode){ sigMode=mode; document.querySelectorAll('.sig-tab').forEach(t=>t.classList.toggle('active',t.dataset.sig===mode)); document.querySelectorAll('.sig-pane').forEach(p=>p.classList.remove('active')); document.getElementById('sig-'+mode).classList.add('active'); if(mode==='draw')setTimeout(sizeCanvas,50); renderCover(); }
+    function handleSigUpload(e){ const f=e.target.files[0]; if(!f)return; const rd=new FileReader(); rd.onload=ev=>{ sigDataUrl=ev.target.result; renderCover(); }; rd.readAsDataURL(f); }
+    function renderTypedSig(text){ const c=document.createElement('canvas'); c.width=400; c.height=100; const x=c.getContext('2d'); x.fillStyle='#1a1a2e'; x.font='italic 44px "Brush Script MT", cursive'; x.fillText(text,10,60); document.getElementById('pvSigImg').src=c.toDataURL(); }
+    function downloadCover() {
+      const name=(document.getElementById('clName').value||'cover-letter').replace(/\s+/g,'_');
+      const paper=document.getElementById('clPaper').cloneNode(true);
+      paper.style.boxShadow='none'; paper.style.maxWidth='none'; paper.style.width='100%';
+      const opt={ margin:0, filename:name+'_Cover_Letter.pdf', image:{type:'jpeg',quality:0.98}, html2canvas:{scale:2,useCORS:true}, jsPDF:{unit:'mm',format:'a4',orientation:'portrait'} };
+      html2pdf().set(opt).from(paper).save();
+    }
+    async function aiFillCover() {
+      const btn=document.getElementById('clAiBtn');
+      const role=document.getElementById('clJobTitle').value, company=document.getElementById('clCompany').value;
+      if(!role||!company){ alert('Enter the position and company first, then click AI Write.'); return; }
+      btn.textContent='⏳ Writing...'; btn.disabled=true;
+      try {
+        const prompt='Write a professional 3-paragraph cover letter for a '+role+' position at '+company+'. Return ONLY the three paragraphs separated by blank lines, no greeting or signature.';
+        const res=await fetch('http://localhost:11434/api/generate',{ method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({model:'mistral:latest',prompt,stream:false}) });
+        if(!res.ok) throw new Error('Ollama not running');
+        const data=await res.json();
+        const paras=data.response.trim().split(/\n\n+/).filter(Boolean);
+        document.getElementById('clOpening').value=paras[0]||'';
+        document.getElementById('clBody').value=paras[1]||'';
+        document.getElementById('clClosing').value=paras[2]||'';
+        renderCover();
+      } catch(err) {
+        alert('AI needs Ollama running locally. Using the selected template instead.');
+        pickCoverTpl(currentCoverTpl);
+      }
+      btn.textContent='🤖 AI Write'; btn.disabled=false;
+    }
+    pickCoverTpl('standard');
+    renderCover();
+    </script>
+</body>
+</html>

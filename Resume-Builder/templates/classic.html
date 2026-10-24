@@ -1,0 +1,88 @@
+<div class="resume-template classic-template">
+    <div class="resume-header">
+        <h1 class="name" id="previewName">Your Name</h1>
+        <div class="contact-info">
+            <span id="previewEmail">email@example.com</span> | 
+            <span id="previewPhone">+1 (555) 123-4567</span> | 
+            <span id="previewLocation">Location</span>
+        </div>
+        <hr style="margin: 1rem 0; border: 1px solid var(--primary-color);">
+    </div>
+    
+    <div class="summary-section">
+        <h2>Professional Summary</h2>
+        <p id="previewSummary">Professional summary will appear here...</p>
+    </div>
+    
+    <div class="section">
+        <h2>Professional Experience</h2>
+        <div id="previewExperience">
+            <p>No experience added yet.</p>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Education</h2>
+        <div id="previewEducation">
+            <p>No education added yet.</p>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Core Competencies</h2>
+        <div id="previewSkills" class="skills-list">
+            <p>No skills added yet.</p>
+        </div>
+    </div>
+</div>
+
+<style>
+.classic-template {
+    font-family: var(--font-serif);
+    line-height: 1.6;
+    color: #333;
+}
+
+.classic-template .name {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.classic-template .contact-info {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+.classic-template h2 {
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    margin: 1.5rem 0 0.75rem 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.classic-template .skills-list {
+    display: block;
+}
+
+.classic-template .skill-tag {
+    display: inline;
+    background: none;
+    color: var(--text-color);
+    padding: 0;
+    margin-right: 1rem;
+    border-radius: 0;
+}
+
+.classic-template .skill-tag:after {
+    content: " • ";
+    color: var(--primary-color);
+}
+
+.classic-template .skill-tag:last-child:after {
+    content: "";
+}
+</style>

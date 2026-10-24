@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.5">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.12.0" />
+  </ItemGroup>
+
+  <!-- Publish Blazor WebAssembly client into API publish output so a single App Service can host both -->
+  <Target Name="PublishBlazorClient" AfterTargets="Publish">
+    <!-- Publish the Blazor client to an intermediate folder -->
+    <PropertyGroup>
+      <BlazorIntermediate>$(MSBuildThisFileDirectory)..\obj\BlazorPublish\$(Configuration)\</BlazorIntermediate>
+    </PropertyGroup>
+    <Message Importance="high" Text="Publishing Blazor client to intermediate path: $(BlazorIntermediate)" />
+    <Exec Command="dotnet publish ..\SkillSnap.Client\SkillSnap.Client.csproj -c $(Configuration) -o &quot;$(BlazorIntermediate)&quot;" />
+
+    <!-- Copy the published client 'wwwroot' into the API publish folder's wwwroot so it will be served by the API -->
+    <ItemGroup>
+      <BlazorDist Include="$(BlazorIntermediate)wwwroot\**\*.*" />
+    </ItemGroup>
+
+    <Message Importance="high" Text="Copying Blazor client files to API publish folder: $(PublishDir)wwwroot" />
+    <Copy SourceFiles="@(BlazorDist)" DestinationFiles="@(BlazorDist->'$(PublishDir)wwwroot\%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+  </Target>
+
+</Project>

@@ -1,0 +1,254 @@
+<div class="resume-template split-slate-executive">
+  <div class="sse-wrapper">
+    <div class="sse-sidebar">
+      <div id="profilePhoto" class="sse-photo"></div>
+      <h1 id="previewName" class="sse-name">Your Name</h1>
+      <p id="previewJobTitle" class="sse-title">Job Title</p>
+      <div class="sse-divider"></div>
+      <p id="previewSummary" class="sse-summary">Professional summary goes here.</p>
+      <div class="sse-divider"></div>
+      <div class="sse-sid-section">
+        <h3 class="sse-sid-label">Contact</h3>
+        <p id="previewEmail" class="sse-citem">email@example.com</p>
+        <p id="previewPhone" class="sse-citem">+1 234 567 890</p>
+        <p id="previewLocation" class="sse-citem">City, Country</p>
+        <div id="previewLinkedIn" class="sse-citem">linkedin.com/in/you</div>
+      </div>
+      <div class="sse-divider"></div>
+      <div class="sse-sid-section">
+        <h3 class="sse-sid-label">Skills</h3>
+        <div id="previewSkills" class="skills-list sse-tags"></div>
+      </div>
+      <div class="sse-divider"></div>
+      <div class="sse-sid-section">
+        <h3 class="sse-sid-label">Languages</h3>
+        <div id="previewLanguages" class="skills-list sse-tags"></div>
+      </div>
+      <div class="sse-divider"></div>
+      <div class="sse-sid-section">
+        <h3 class="sse-sid-label">Awards</h3>
+        <ul id="previewAwards" class="sse-ul"></ul>
+      </div>
+    </div>
+
+    <div class="sse-main">
+      <div class="sse-section">
+        <h2 class="sse-section-title">Experience</h2>
+        <div id="previewExperience" class="sse-timeline"></div>
+      </div>
+      <div class="sse-section">
+        <h2 class="sse-section-title">Education</h2>
+        <div id="previewEducation" class="sse-timeline"></div>
+      </div>
+      <div class="sse-section">
+        <h2 class="sse-section-title">Certifications</h2>
+        <ul id="previewCertifications" class="sse-list"></ul>
+      </div>
+      <div class="sse-section">
+        <h2 class="sse-section-title">Projects</h2>
+        <ul id="previewProjects" class="sse-list"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.split-slate-executive {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  --primary: var(--primary-color, #6366f1);
+  --teal: #14b8a6;
+}
+.split-slate-executive .sse-wrapper {
+  display: flex;
+  min-height: 297mm;
+}
+.split-slate-executive .sse-sidebar {
+  width: 38%;
+  background: #37474f;
+  padding: 26px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+.split-slate-executive .sse-photo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(20,184,166,0.15);
+  border: 3px solid var(--teal);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  margin-bottom: 12px;
+}
+.split-slate-executive .sse-name {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #fff;
+  text-align: center;
+  margin: 0 0 4px;
+  line-height: 1.2;
+}
+.split-slate-executive .sse-title {
+  font-size: 0.68rem;
+  color: var(--teal);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 0;
+}
+.split-slate-executive .sse-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255,255,255,0.12);
+  margin: 12px 0;
+}
+.split-slate-executive .sse-summary {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.55;
+  margin: 0;
+  text-align: left;
+  width: 100%;
+}
+.split-slate-executive .sse-sid-section {
+  width: 100%;
+}
+.split-slate-executive .sse-sid-label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--teal);
+  margin: 0 0 7px;
+}
+.split-slate-executive .sse-citem {
+  font-size: 0.69rem;
+  color: rgba(255,255,255,0.65);
+  margin: 3px 0;
+  word-break: break-all;
+}
+.split-slate-executive .sse-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.split-slate-executive .sse-tags span {
+  background: rgba(20,184,166,0.15);
+  border: 1px solid rgba(20,184,166,0.35);
+  color: rgba(255,255,255,0.85);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.65rem;
+}
+.split-slate-executive .sse-ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.69rem;
+  color: rgba(255,255,255,0.55);
+  width: 100%;
+}
+.split-slate-executive .sse-ul li {
+  padding: 2px 0 2px 12px;
+  position: relative;
+}
+.split-slate-executive .sse-ul li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--teal);
+  font-size: 0.6rem;
+}
+.split-slate-executive .sse-main {
+  flex: 1;
+  background: #fff;
+  padding: 24px 22px;
+}
+.split-slate-executive .sse-section {
+  margin-bottom: 16px;
+}
+.split-slate-executive .sse-section-title {
+  font-size: 0.63rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: #37474f;
+  margin: 0 0 10px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid var(--teal);
+}
+.split-slate-executive .sse-timeline {
+  position: relative;
+  padding-left: 16px;
+  border-left: 2px solid #e0f2f1;
+}
+.split-slate-executive .sse-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.75rem;
+  color: #555;
+}
+.split-slate-executive .sse-list li {
+  padding: 2px 0 2px 13px;
+  position: relative;
+}
+.split-slate-executive .sse-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--teal);
+}
+.split-slate-executive #previewExperience .experience-entry,
+.split-slate-executive #previewEducation .education-entry {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0f4f8;
+  position: relative;
+}
+.split-slate-executive #previewExperience .experience-entry::before,
+.split-slate-executive #previewEducation .education-entry::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 6px;
+  width: 8px;
+  height: 8px;
+  background: var(--teal);
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+.split-slate-executive #previewExperience .experience-entry:last-child,
+.split-slate-executive #previewEducation .education-entry:last-child {
+  border-bottom: none;
+}
+.split-slate-executive #previewExperience .entry-title,
+.split-slate-executive #previewEducation .entry-title {
+  font-weight: 700;
+  font-size: 0.87rem;
+  color: #222;
+}
+.split-slate-executive #previewExperience .entry-company,
+.split-slate-executive #previewEducation .entry-school {
+  font-size: 0.77rem;
+  color: var(--teal);
+  font-weight: 600;
+}
+.split-slate-executive #previewExperience .entry-dates,
+.split-slate-executive #previewEducation .entry-dates {
+  font-size: 0.68rem;
+  color: #aaa;
+}
+.split-slate-executive #previewExperience .entry-description,
+.split-slate-executive #previewEducation .entry-description {
+  font-size: 0.74rem;
+  color: #555;
+  margin-top: 4px;
+  line-height: 1.55;
+}
+</style>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Template 4</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template elite4-template">
+        <div class="header-section">
+            <div class="header-left">
+                <h1 class="name" id="previewName">Your Name</h1>
+                <h2 class="title" id="previewJobTitle">Innovation Leader</h2>
+            </div>
+            <div class="header-right">
+                <div class="contact-grid">
+                    <div class="contact-item" id="previewEmail"></div>
+                    <div class="contact-item" id="previewPhone"></div>
+                    <div class="contact-item" id="previewLocation"></div>
+                    <div class="contact-item" id="previewLinkedIn"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="divider-line"></div>
+        
+        <div class="content-wrapper">
+            <div class="summary-section">
+                <div class="section-icon">💡</div>
+                <h3>Leadership Philosophy</h3>
+                <p id="previewSummary"></p>
+            </div>
+            
+            <div class="main-grid">
+                <div class="primary-content">
+                    <div class="section">
+                        <div class="section-header">
+                            <div class="section-icon">🚀</div>
+                            <h3>Career Progression</h3>
+                        </div>
+                        <div id="previewExperience" class="experience-timeline"></div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header">
+                            <div class="section-icon">🎓</div>
+                            <h3>Academic Foundation</h3>
+                        </div>
+                        <div id="previewEducation"></div>
+                    </div>
+                </div>
+                
+                <div class="secondary-content">
+                    <div class="skills-panel">
+                        <div class="section-header">
+                            <div class="section-icon">⚡</div>
+                            <h3>Core Strengths</h3>
+                        </div>
+                        <div id="previewSkills" class="skills-list"></div>
+                    </div>
+                    
+                    <div class="languages-panel">
+                        <div class="section-header">
+                            <div class="section-icon">🌍</div>
+                            <h3>Global Reach</h3>
+                        </div>
+                        <div id="previewLanguages" class="skills-list"></div>
+                    </div>
+                    
+                    <div class="metrics-panel">
+                        <h3>Impact Metrics</h3>
+                        <div class="metric-item">
+                            <div class="metric-number">150%</div>
+                            <div class="metric-label">Revenue Growth</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-number">50+</div>
+                            <div class="metric-label">Team Members Led</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-number">25</div>
+                            <div class="metric-label">Projects Delivered</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .elite4-template { 
+            font-family: 'Inter', 'Segoe UI', sans-serif; 
+            background: #ffffff; 
+            color: #1a202c; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+        }
+        .elite4-template .header-section { 
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%); 
+            color: white; 
+            padding: 3rem 2.5rem; 
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        .elite4-template .name { 
+            font-size: 3rem; 
+            margin: 0; 
+            font-weight: 800; 
+            letter-spacing: 1px; 
+        }
+        .elite4-template .title { 
+            font-size: 1.4rem; 
+            margin: 0.8rem 0 0 0; 
+            font-weight: 300; 
+            opacity: 0.9; 
+            color: #ffd700;
+        }
+        .elite4-template .contact-grid { 
+            display: grid; 
+            grid-template-columns: 1fr; 
+            gap: 0.8rem; 
+            font-size: 0.95rem; 
+        }
+        .elite4-template .contact-item {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .elite4-template .divider-line {
+            height: 8px;
+            background: linear-gradient(90deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+        }
+        .elite4-template .content-wrapper { 
+            padding: 3rem 2.5rem; 
+        }
+        .elite4-template .summary-section { 
+            margin-bottom: 3rem; 
+            padding: 2.5rem; 
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%); 
+            border-radius: 20px;
+            border: 2px solid #ffd700;
+            position: relative;
+        }
+        .elite4-template .section-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .elite4-template .summary-section h3 { 
+            margin: 0 0 1.5rem 0; 
+            color: #1a202c; 
+            font-size: 1.4rem; 
+            font-weight: 700; 
+        }
+        .elite4-template .main-grid { 
+            display: grid; 
+            grid-template-columns: 2fr 1fr; 
+            gap: 3rem; 
+        }
+        .elite4-template .section { 
+            margin-bottom: 2.5rem; 
+        }
+        .elite4-template .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .elite4-template .section-header h3 { 
+            color: #1a202c; 
+            font-size: 1.3rem; 
+            margin: 0; 
+            font-weight: 700; 
+        }
+        .elite4-template .experience-entry, .elite4-template .education-entry { 
+            margin-bottom: 2rem; 
+            padding: 2rem; 
+            background: #f8fafc; 
+            border-radius: 15px;
+            border-left: 6px solid #ffd700;
+            position: relative;
+        }
+        .elite4-template .experience-timeline .experience-entry::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 2rem;
+            width: 18px;
+            height: 18px;
+            background: #ffd700;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+        .elite4-template .entry-title { 
+            font-weight: 700; 
+            font-size: 1.2rem; 
+            color: #1a202c; 
+            margin-bottom: 0.5rem;
+        }
+        .elite4-template .entry-company { 
+            color: #ffd700; 
+            font-weight: 600; 
+            font-size: 1rem;
+        }
+        .elite4-template .entry-dates { 
+            color: #718096; 
+            font-size: 0.9rem; 
+            font-weight: 500;
+            float: right;
+            background: #e2e8f0;
+            padding: 0.3rem 0.8rem;
+            border-radius: 12px;
+        }
+        .elite4-template .secondary-content > div {
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: #f8fafc;
+            border-radius: 15px;
+            border-top: 4px solid #ffd700;
+        }
+        .elite4-template .skill-tag { 
+            display: inline-block; 
+            background: linear-gradient(135deg, #ffd700, #ffed4e); 
+            color: #1a202c; 
+            padding: 0.6rem 1.2rem; 
+            margin: 0.3rem; 
+            border-radius: 20px; 
+            font-size: 0.85rem; 
+            font-weight: 600; 
+            box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+        }
+        .elite4-template .metrics-panel h3 {
+            color: #1a202c;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+        }
+        .elite4-template .metric-item {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .elite4-template .metric-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+        }
+        .elite4-template .metric-label {
+            font-size: 0.9rem;
+            color: #718096;
+            font-weight: 500;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

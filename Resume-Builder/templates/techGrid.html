@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Grid Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template tech-grid-template">
+        <div class="header-section">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <h2 class="title" id="previewJobTitle">Software Engineer</h2>
+            <div class="contact-info">
+                <span id="previewEmail"></span> • <span id="previewPhone"></span> • <span id="previewLocation"></span> • <span id="previewLinkedIn"></span>
+            </div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="section">
+                <h3>Technical Summary</h3>
+                <p id="previewSummary"></p>
+            </div>
+            
+            <div class="tech-grid-section">
+                <div class="grid-item skills-grid">
+                    <h3>Technical Skills</h3>
+                    <div class="skill-categories">
+                        <div class="skill-category">
+                            <h4>Languages</h4>
+                            <div id="previewSkills" class="skills-list"></div>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Frameworks</h4>
+                            <div class="framework-skills">
+                                <span class="skill-tag">React</span>
+                                <span class="skill-tag">Node.js</span>
+                                <span class="skill-tag">Express</span>
+                                <span class="skill-tag">Django</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Tools & Platforms</h4>
+                            <div class="tool-skills">
+                                <span class="skill-tag">Docker</span>
+                                <span class="skill-tag">AWS</span>
+                                <span class="skill-tag">Git</span>
+                                <span class="skill-tag">Jenkins</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid-item projects-grid">
+                    <h3>Key Projects</h3>
+                    <div class="project-cards">
+                        <div class="project-card">
+                            <h4>E-Commerce Platform</h4>
+                            <p>Full-stack web application with React, Node.js, and MongoDB</p>
+                            <div class="project-tech">
+                                <span>React</span><span>Node.js</span><span>MongoDB</span>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <h4>Mobile Banking App</h4>
+                            <p>Cross-platform mobile application with React Native</p>
+                            <div class="project-tech">
+                                <span>React Native</span><span>Firebase</span><span>Redux</span>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <h4>Data Analytics Dashboard</h4>
+                            <p>Real-time analytics platform with Python and D3.js</p>
+                            <div class="project-tech">
+                                <span>Python</span><span>D3.js</span><span>PostgreSQL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="experience-section">
+                <h3>Professional Experience</h3>
+                <div id="previewExperience"></div>
+            </div>
+            
+            <div class="bottom-grid">
+                <div class="education-section">
+                    <h3>Education</h3>
+                    <div id="previewEducation"></div>
+                </div>
+                
+                <div class="certifications-section">
+                    <h3>Certifications</h3>
+                    <div class="cert-list">
+                        <div class="cert-item">AWS Certified Solutions Architect</div>
+                        <div class="cert-item">Google Cloud Professional Developer</div>
+                        <div class="cert-item">MongoDB Certified Developer</div>
+                    </div>
+                </div>
+                
+                <div class="languages-section">
+                    <h3>Languages</h3>
+                    <div id="previewLanguages" class="skills-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .tech-grid-template { 
+            font-family: 'Roboto', 'Arial', sans-serif; 
+            background: #f8f9fa; 
+            color: #2c3e50; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+        }
+        .tech-grid-template .header-section { 
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); 
+            color: white; 
+            padding: 2.5rem 2rem; 
+            text-align: center;
+        }
+        .tech-grid-template .name { 
+            font-size: 2.8rem; 
+            margin: 0; 
+            font-weight: 700; 
+            letter-spacing: 1px; 
+        }
+        .tech-grid-template .title { 
+            font-size: 1.3rem; 
+            margin: 0.8rem 0 1.5rem 0; 
+            font-weight: 300; 
+            opacity: 0.9; 
+            color: #3498db;
+        }
+        .tech-grid-template .contact-info { 
+            font-size: 0.95rem; 
+            opacity: 0.95;
+        }
+        .tech-grid-template .content-wrapper { 
+            padding: 2.5rem 2rem; 
+            background: white;
+        }
+        .tech-grid-template .section { 
+            margin-bottom: 3rem; 
+        }
+        .tech-grid-template h3 { 
+            color: #2c3e50; 
+            font-size: 1.3rem; 
+            margin-bottom: 1.5rem; 
+            font-weight: 600; 
+            position: relative;
+            padding-left: 1rem;
+        }
+        .tech-grid-template h3::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #3498db;
+            border-radius: 2px;
+        }
+        .tech-grid-template .tech-grid-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .tech-grid-template .grid-item {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+        }
+        .tech-grid-template .skill-categories {
+            display: grid;
+            gap: 1.5rem;
+        }
+        .tech-grid-template .skill-category h4 {
+            margin: 0 0 1rem 0;
+            color: #34495e;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .tech-grid-template .project-cards {
+            display: grid;
+            gap: 1.5rem;
+        }
+        .tech-grid-template .project-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .tech-grid-template .project-card h4 {
+            margin: 0 0 0.5rem 0;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        .tech-grid-template .project-card p {
+            margin: 0 0 1rem 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .tech-grid-template .project-tech {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .tech-grid-template .project-tech span {
+            background: #3498db;
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        .tech-grid-template .experience-entry { 
+            margin-bottom: 2rem; 
+            padding: 2rem; 
+            background: #f8f9fa; 
+            border-radius: 10px;
+            border-left: 5px solid #27ae60;
+        }
+        .tech-grid-template .entry-title { 
+            font-weight: 600; 
+            font-size: 1.2rem; 
+            color: #2c3e50; 
+            margin-bottom: 0.5rem;
+        }
+        .tech-grid-template .entry-company { 
+            color: #3498db; 
+            font-weight: 500; 
+            font-size: 1rem;
+        }
+        .tech-grid-template .entry-dates { 
+            color: #7f8c8d; 
+            font-size: 0.9rem; 
+            float: right;
+        }
+        .tech-grid-template .bottom-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+        .tech-grid-template .education-entry { 
+            margin-bottom: 1.5rem; 
+            padding: 1.5rem; 
+            background: #f8f9fa; 
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+        }
+        .tech-grid-template .skills-list { 
+            display: block; 
+        }
+        .tech-grid-template .skill-tag { 
+            display: inline-block; 
+            background: #3498db; 
+            color: white; 
+            padding: 0.5rem 1rem; 
+            margin: 0.3rem; 
+            border-radius: 15px; 
+            font-size: 0.85rem; 
+            font-weight: 500; 
+        }
+        .tech-grid-template .framework-skills .skill-tag {
+            background: #27ae60;
+        }
+        .tech-grid-template .tool-skills .skill-tag {
+            background: #e74c3c;
+        }
+        .tech-grid-template .cert-list {
+            display: grid;
+            gap: 1rem;
+        }
+        .tech-grid-template .cert-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 5px;
+            border-left: 3px solid #f39c12;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

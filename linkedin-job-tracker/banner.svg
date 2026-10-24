@@ -1,0 +1,56 @@
+<svg width="900" height="200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0a;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0d1f3c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0a0a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00ff88;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="200" fill="url(#bg)" rx="12"/>
+
+  <!-- Border -->
+  <rect width="898" height="198" x="1" y="1" fill="none" stroke="url(#accent)" stroke-width="1.5" rx="12" opacity="0.6"/>
+
+  <!-- Pulse dots -->
+  <circle cx="40" cy="40" r="4" fill="#00ff88" opacity="0.8" filter="url(#glow)"/>
+  <circle cx="860" cy="40" r="4" fill="#00d4ff" opacity="0.8" filter="url(#glow)"/>
+  <circle cx="40" cy="160" r="4" fill="#00d4ff" opacity="0.8" filter="url(#glow)"/>
+  <circle cx="860" cy="160" r="4" fill="#00ff88" opacity="0.8" filter="url(#glow)"/>
+
+  <!-- Grid lines subtle -->
+  <line x1="0" y1="100" x2="900" y2="100" stroke="#ffffff" stroke-width="0.2" opacity="0.05"/>
+  <line x1="450" y1="0" x2="450" y2="200" stroke="#ffffff" stroke-width="0.2" opacity="0.05"/>
+
+  <!-- Main title -->
+  <text x="450" y="85" font-family="'Courier New', monospace" font-size="38" font-weight="bold"
+    fill="url(#accent)" text-anchor="middle" filter="url(#glow)">
+    LinkedIn Job Tracker
+  </text>
+
+  <!-- Subtitle -->
+  <text x="450" y="118" font-family="'Courier New', monospace" font-size="14"
+    fill="#8892b0" text-anchor="middle">
+    Automated • Intelligent • Zero Manual Work
+  </text>
+
+  <!-- Stats bar -->
+  <rect x="200" y="138" width="500" height="28" fill="#ffffff" fill-opacity="0.04" rx="6"/>
+  <text x="260" y="157" font-family="'Courier New', monospace" font-size="12" fill="#00ff88" text-anchor="middle">⚡ 57 Searches</text>
+  <text x="390" y="157" font-family="'Courier New', monospace" font-size="12" fill="#00d4ff" text-anchor="middle">🔄 Every 30 Min</text>
+  <text x="520" y="157" font-family="'Courier New', monospace" font-size="12" fill="#00ff88" text-anchor="middle">🎯 Zero Duplicates</text>
+  <text x="648" y="157" font-family="'Courier New', monospace" font-size="12" fill="#00d4ff" text-anchor="middle">📊 Google Sheets</text>
+
+  <!-- Version tag -->
+  <rect x="15" y="15" width="42" height="18" fill="#00ff88" fill-opacity="0.15" rx="4"/>
+  <text x="36" y="27" font-family="'Courier New', monospace" font-size="10" fill="#00ff88" text-anchor="middle">v8.0</text>
+</svg>

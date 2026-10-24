@@ -1,0 +1,233 @@
+<div class="resume-template dark-charcoal-executive">
+  <div class="dce-wrapper">
+    <div class="dce-header">
+      <div id="profilePhoto" class="dce-photo"></div>
+      <h1 id="previewName" class="dce-name">Your Name</h1>
+      <p id="previewJobTitle" class="dce-title">Job Title</p>
+      <div class="dce-contacts">
+        <span id="previewEmail" class="dce-contact">email@example.com</span>
+        <span class="dce-sep">|</span>
+        <span id="previewPhone" class="dce-contact">+1 234 567 890</span>
+        <span class="dce-sep">|</span>
+        <span id="previewLocation" class="dce-contact">City, Country</span>
+        <span class="dce-sep">|</span>
+        <div id="previewLinkedIn" class="dce-contact dce-contact-inline">linkedin.com/in/you</div>
+      </div>
+    </div>
+
+    <div class="dce-body">
+      <div class="dce-section">
+        <h2 class="dce-section-title">Professional Summary</h2>
+        <p id="previewSummary" class="dce-text">Professional summary goes here.</p>
+      </div>
+
+      <div class="dce-columns">
+        <div class="dce-col-main">
+          <div class="dce-section">
+            <h2 class="dce-section-title">Experience</h2>
+            <div id="previewExperience"></div>
+          </div>
+          <div class="dce-section">
+            <h2 class="dce-section-title">Education</h2>
+            <div id="previewEducation"></div>
+          </div>
+          <div class="dce-section">
+            <h2 class="dce-section-title">Projects</h2>
+            <ul id="previewProjects" class="dce-list"></ul>
+          </div>
+        </div>
+        <div class="dce-col-side">
+          <div class="dce-section">
+            <h2 class="dce-section-title">Skills</h2>
+            <div id="previewSkills" class="skills-list dce-skills"></div>
+          </div>
+          <div class="dce-section">
+            <h2 class="dce-section-title">Languages</h2>
+            <div id="previewLanguages" class="skills-list dce-skills"></div>
+          </div>
+          <div class="dce-section">
+            <h2 class="dce-section-title">Certifications</h2>
+            <ul id="previewCertifications" class="dce-list"></ul>
+          </div>
+          <div class="dce-section">
+            <h2 class="dce-section-title">Awards</h2>
+            <ul id="previewAwards" class="dce-list"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.dark-charcoal-executive {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  --primary: var(--primary-color, #6366f1);
+  --gold: #f59e0b;
+}
+.dark-charcoal-executive .dce-wrapper {
+  background: #2d2d2d;
+  min-height: 297mm;
+}
+.dark-charcoal-executive .dce-header {
+  background: #1e1e1e;
+  padding: 32px 40px;
+  text-align: center;
+  border-bottom: 3px solid var(--gold);
+}
+.dark-charcoal-executive .dce-photo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-color: #333;
+  border: 4px solid var(--gold);
+  margin: 0 auto 14px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+.dark-charcoal-executive .dce-name {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 4px;
+  letter-spacing: -0.5px;
+}
+.dark-charcoal-executive .dce-title {
+  font-size: 0.85rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 600;
+  margin: 0 0 14px;
+}
+.dark-charcoal-executive .dce-contacts {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px 0;
+  align-items: center;
+}
+.dark-charcoal-executive .dce-contact {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.6);
+}
+.dark-charcoal-executive .dce-contact-inline {
+  display: inline;
+}
+.dark-charcoal-executive .dce-sep {
+  margin: 0 8px;
+  color: var(--gold);
+  font-size: 0.7rem;
+}
+.dark-charcoal-executive .dce-body {
+  padding: 24px 36px;
+  color: #e0e0e0;
+}
+.dark-charcoal-executive .dce-section {
+  margin-bottom: 20px;
+}
+.dark-charcoal-executive .dce-section-title {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--gold);
+  margin: 0 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #444;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.dark-charcoal-executive .dce-section-title::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 14px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+.dark-charcoal-executive .dce-text {
+  font-size: 0.82rem;
+  line-height: 1.65;
+  color: #b0b0b0;
+  margin: 0;
+}
+.dark-charcoal-executive .dce-columns {
+  display: flex;
+  gap: 24px;
+}
+.dark-charcoal-executive .dce-col-main {
+  flex: 2;
+}
+.dark-charcoal-executive .dce-col-side {
+  flex: 1;
+}
+.dark-charcoal-executive .dce-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.dark-charcoal-executive .dce-skills span {
+  background: #3a3a3a;
+  border: 1px solid #555;
+  color: #d0d0d0;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+}
+.dark-charcoal-executive .dce-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.76rem;
+  color: #a0a0a0;
+}
+.dark-charcoal-executive .dce-list li {
+  padding: 2px 0 2px 14px;
+  position: relative;
+}
+.dark-charcoal-executive .dce-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+.dark-charcoal-executive #previewExperience .experience-entry,
+.dark-charcoal-executive #previewEducation .education-entry {
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #3a3a3a;
+}
+.dark-charcoal-executive #previewExperience .experience-entry:last-child,
+.dark-charcoal-executive #previewEducation .education-entry:last-child {
+  border-bottom: none;
+}
+.dark-charcoal-executive #previewExperience .entry-title,
+.dark-charcoal-executive #previewEducation .entry-title {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #fff;
+}
+.dark-charcoal-executive #previewExperience .entry-company,
+.dark-charcoal-executive #previewEducation .entry-school {
+  font-size: 0.8rem;
+  color: var(--gold);
+}
+.dark-charcoal-executive #previewExperience .entry-dates,
+.dark-charcoal-executive #previewEducation .entry-dates {
+  font-size: 0.7rem;
+  color: #777;
+}
+.dark-charcoal-executive #previewExperience .entry-description,
+.dark-charcoal-executive #previewEducation .entry-description {
+  font-size: 0.77rem;
+  color: #999;
+  margin-top: 4px;
+  line-height: 1.55;
+}
+</style>

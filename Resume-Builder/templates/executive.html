@@ -1,0 +1,61 @@
+<div class="resume-template executive-template">
+    <div class="executive-header">
+        <h1 class="name" id="previewName">Your Name</h1>
+        <h2 class="job-title" id="previewJobTitle">Professional Title</h2>
+    </div>
+    <div class="executive-body">
+        <div class="executive-sidebar">
+            <div class="section">
+                <h3>CONTACT</h3>
+                <div class="contact-item" id="previewEmail"></div>
+                <div class="contact-item" id="previewPhone"></div>
+                <div class="contact-item" id="previewLocation"></div>
+                <div class="contact-item" id="previewLinkedIn"></div>
+            </div>
+            <div class="section">
+                <h3>CORE COMPETENCIES</h3>
+                <div id="previewSkills" class="skills-list"></div>
+            </div>
+            <div class="section">
+                <h3>EDUCATION</h3>
+                <div id="previewEducation"></div>
+            </div>
+        </div>
+        <div class="executive-main">
+            <div class="section">
+                <h3>PROFESSIONAL PROFILE</h3>
+                <p id="previewSummary"></p>
+            </div>
+            <div class="section">
+                <h3>PROFESSIONAL EXPERIENCE</h3>
+                <div id="previewExperience"></div>
+            </div>
+            <div class="section" id="awardsSection">
+                <h3>AWARDS & ACHIEVEMENTS</h3>
+                <ul id="previewAwards"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .executive-template { font-family: var(--font-sans, 'Inter', sans-serif); background: #fff; color: #2d3748; }
+    .executive-template .executive-header { text-align: center; padding: 2rem; border-bottom: 2px solid var(--primary-color, #6366f1); }
+    .executive-template .name { font-family: var(--font-display, 'Playfair Display', serif); font-size: 2.5rem; font-weight: 700; margin: 0; }
+    .executive-template .job-title { font-size: 1.2rem; font-weight: 300; color: #718096; text-transform: uppercase; letter-spacing: 2px; margin-top: 0.5rem; }
+    .executive-template .executive-body { display: grid; grid-template-columns: 1fr 2.5fr; gap: 2rem; padding: 2rem; }
+    .executive-template .executive-sidebar { border-right: 1px solid #e2e8f0; padding-right: 2rem; }
+    .executive-template .section { margin-bottom: 2rem; }
+    .executive-template h3 { font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-color, #6366f1); margin-bottom: 1rem; }
+    .executive-template p, .executive-template ul { font-size: 0.95rem; line-height: 1.7; }
+    .executive-template ul { list-style-type: none; padding: 0; }
+    .executive-template .contact-item { margin-bottom: 0.5rem; }
+    .executive-template .contact-item a { color: #2d3748; text-decoration: none; }
+    .executive-template .skills-list { display: block; }
+    .executive-template .skill-tag { display: block; margin-bottom: 0.5rem; }
+    .executive-template .experience-entry, .executive-template .education-entry { margin-bottom: 1.5rem; }
+    .executive-template .entry-header { margin-bottom: 0.25rem; }
+    .executive-template .entry-title { font-size: 1.1rem; font-weight: bold; }
+    .executive-template .entry-company { font-weight: 500; color: #4a5568; }
+    .executive-template .entry-dates { font-size: 0.85rem; color: #718096; font-style: italic; }
+    .executive-template .entry-description { margin-top: 0.5rem; }
+</style>

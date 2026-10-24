@@ -1,0 +1,240 @@
+<div class="resume-template split-light-modern">
+  <div class="slm-wrapper">
+    <div class="slm-sidebar">
+      <div id="profilePhoto" class="slm-photo"></div>
+      <h1 id="previewName" class="slm-name">Your Name</h1>
+      <p id="previewJobTitle" class="slm-title">Job Title</p>
+      <div class="slm-divider"></div>
+      <div class="slm-sid-section">
+        <h3 class="slm-sid-label">Contact</h3>
+        <p id="previewEmail" class="slm-citem">email@example.com</p>
+        <p id="previewPhone" class="slm-citem">+1 234 567 890</p>
+        <p id="previewLocation" class="slm-citem">City, Country</p>
+        <div id="previewLinkedIn" class="slm-citem">linkedin.com/in/you</div>
+      </div>
+      <div class="slm-divider"></div>
+      <div class="slm-sid-section">
+        <h3 class="slm-sid-label">Skills</h3>
+        <div id="previewSkills" class="skills-list slm-tags"></div>
+      </div>
+      <div class="slm-divider"></div>
+      <div class="slm-sid-section">
+        <h3 class="slm-sid-label">Languages</h3>
+        <div id="previewLanguages" class="skills-list slm-tags"></div>
+      </div>
+      <div class="slm-divider"></div>
+      <div class="slm-sid-section">
+        <h3 class="slm-sid-label">Awards</h3>
+        <ul id="previewAwards" class="slm-ul"></ul>
+      </div>
+    </div>
+
+    <div class="slm-main">
+      <div class="slm-summary-box">
+        <p id="previewSummary">Professional summary goes here.</p>
+      </div>
+      <div class="slm-section">
+        <h2 class="slm-section-title">Experience</h2>
+        <div id="previewExperience"></div>
+      </div>
+      <div class="slm-section">
+        <h2 class="slm-section-title">Education</h2>
+        <div id="previewEducation"></div>
+      </div>
+      <div class="slm-section">
+        <h2 class="slm-section-title">Certifications</h2>
+        <ul id="previewCertifications" class="slm-list"></ul>
+      </div>
+      <div class="slm-section">
+        <h2 class="slm-section-title">Projects</h2>
+        <ul id="previewProjects" class="slm-list"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.split-light-modern {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  --primary: var(--primary-color, #6366f1);
+}
+.split-light-modern .slm-wrapper {
+  display: flex;
+  min-height: 297mm;
+}
+.split-light-modern .slm-sidebar {
+  width: 30%;
+  background: #f0f4f8;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 1px solid #dde4ec;
+}
+.split-light-modern .slm-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-color: #d0dae8;
+  border: 3px solid var(--primary);
+  box-shadow: 0 3px 14px rgba(0,0,0,0.12);
+  margin-bottom: 12px;
+}
+.split-light-modern .slm-name {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--primary);
+  text-align: center;
+  margin: 0 0 4px;
+  line-height: 1.2;
+}
+.split-light-modern .slm-title {
+  font-size: 0.66rem;
+  color: #607d8b;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 0;
+}
+.split-light-modern .slm-divider {
+  width: 100%;
+  height: 1px;
+  background: #dde4ec;
+  margin: 12px 0;
+}
+.split-light-modern .slm-sid-section {
+  width: 100%;
+}
+.split-light-modern .slm-sid-label {
+  font-size: 0.57rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: var(--primary);
+  margin: 0 0 7px;
+}
+.split-light-modern .slm-citem {
+  font-size: 0.69rem;
+  color: #546e7a;
+  margin: 3px 0;
+  word-break: break-all;
+}
+.split-light-modern .slm-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.split-light-modern .slm-tags span {
+  background: #fff;
+  border: 1px solid #c7d7e8;
+  color: #445566;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 0.64rem;
+}
+.split-light-modern .slm-ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.69rem;
+  color: #607d8b;
+  width: 100%;
+}
+.split-light-modern .slm-ul li {
+  padding: 2px 0 2px 12px;
+  position: relative;
+}
+.split-light-modern .slm-ul li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-size: 0.6rem;
+}
+.split-light-modern .slm-main {
+  flex: 1;
+  background: #fff;
+  padding: 22px 24px;
+}
+.split-light-modern .slm-summary-box {
+  background: #f7f9fc;
+  border: 1px solid #e0e8f0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  font-size: 0.8rem;
+  color: #444;
+  line-height: 1.65;
+}
+.split-light-modern .slm-summary-box p {
+  margin: 0;
+}
+.split-light-modern .slm-section {
+  margin-bottom: 16px;
+}
+.split-light-modern .slm-section-title {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: #546e7a;
+  margin: 0 0 8px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #e0e8f0;
+}
+.split-light-modern .slm-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.75rem;
+  color: #555;
+}
+.split-light-modern .slm-list li {
+  padding: 2px 0 2px 13px;
+  position: relative;
+}
+.split-light-modern .slm-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+.split-light-modern #previewExperience .experience-entry,
+.split-light-modern #previewEducation .education-entry {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border: 1px solid #eef2f7;
+  border-radius: 6px;
+  padding: 10px 12px;
+  background: #fafcff;
+}
+.split-light-modern #previewExperience .entry-title,
+.split-light-modern #previewEducation .entry-title {
+  font-weight: 700;
+  font-size: 0.86rem;
+  color: #1a2a3a;
+}
+.split-light-modern #previewExperience .entry-company,
+.split-light-modern #previewEducation .entry-school {
+  font-size: 0.76rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+.split-light-modern #previewExperience .entry-dates,
+.split-light-modern #previewEducation .entry-dates {
+  font-size: 0.67rem;
+  color: #aaa;
+}
+.split-light-modern #previewExperience .entry-description,
+.split-light-modern #previewEducation .entry-description {
+  font-size: 0.74rem;
+  color: #555;
+  margin-top: 4px;
+  line-height: 1.55;
+}
+</style>

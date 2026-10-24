@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Template 6</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template elite6-template">
+        <div class="header-section">
+            <div class="header-background">
+                <div class="floating-shapes">
+                    <div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                    <div class="shape shape-3"></div>
+                </div>
+                <div class="header-content">
+                    <h1 class="name" id="previewName">Your Name</h1>
+                    <h2 class="title" id="previewJobTitle">Creative Director</h2>
+                    <div class="contact-bar">
+                        <span id="previewEmail"></span>
+                        <span class="separator">•</span>
+                        <span id="previewPhone"></span>
+                        <span class="separator">•</span>
+                        <span id="previewLocation"></span>
+                        <span class="separator">•</span>
+                        <span id="previewLinkedIn"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="summary-section">
+                <div class="summary-card">
+                    <div class="card-header">
+                        <h3>Creative Vision</h3>
+                    </div>
+                    <div class="card-content">
+                        <p id="previewSummary"></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-layout">
+                <div class="primary-section">
+                    <div class="experience-section">
+                        <div class="section-header">
+                            <h3>Professional Journey</h3>
+                            <div class="header-line"></div>
+                        </div>
+                        <div id="previewExperience" class="experience-grid"></div>
+                    </div>
+                    
+                    <div class="education-section">
+                        <div class="section-header">
+                            <h3>Academic Background</h3>
+                            <div class="header-line"></div>
+                        </div>
+                        <div id="previewEducation"></div>
+                    </div>
+                </div>
+                
+                <div class="secondary-section">
+                    <div class="skills-card">
+                        <div class="card-header">
+                            <h3>Creative Skills</h3>
+                        </div>
+                        <div class="card-content">
+                            <div id="previewSkills" class="skills-list"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="languages-card">
+                        <div class="card-header">
+                            <h3>Languages</h3>
+                        </div>
+                        <div class="card-content">
+                            <div id="previewLanguages" class="skills-list"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="awards-card">
+                        <div class="card-header">
+                            <h3>Recognition</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="award-list">
+                                <div class="award-item">Design Excellence Award 2023</div>
+                                <div class="award-item">Creative Innovation Prize</div>
+                                <div class="award-item">Industry Leadership Recognition</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .elite6-template { 
+            font-family: 'Montserrat', 'Helvetica Neue', sans-serif; 
+            background: #ffffff; 
+            color: #2d3748; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+        }
+        .elite6-template .header-section { 
+            position: relative;
+            overflow: hidden;
+        }
+        .elite6-template .header-background {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            color: white; 
+            padding: 4rem 3rem; 
+            position: relative;
+        }
+        .elite6-template .floating-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+        }
+        .elite6-template .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .elite6-template .shape-1 {
+            width: 200px;
+            height: 200px;
+            top: -100px;
+            right: -100px;
+        }
+        .elite6-template .shape-2 {
+            width: 150px;
+            height: 150px;
+            bottom: -75px;
+            left: -75px;
+        }
+        .elite6-template .shape-3 {
+            width: 100px;
+            height: 100px;
+            top: 50%;
+            right: 20%;
+            transform: translateY(-50%);
+        }
+        .elite6-template .header-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        .elite6-template .name { 
+            font-size: 3.5rem; 
+            margin: 0; 
+            font-weight: 700; 
+            letter-spacing: 2px; 
+            margin-bottom: 1rem;
+        }
+        .elite6-template .title { 
+            font-size: 1.6rem; 
+            margin: 0 0 2rem 0; 
+            font-weight: 300; 
+            opacity: 0.95; 
+        }
+        .elite6-template .contact-bar { 
+            font-size: 1rem; 
+            opacity: 0.9;
+        }
+        .elite6-template .separator {
+            margin: 0 1rem;
+            opacity: 0.7;
+        }
+        .elite6-template .main-content { 
+            padding: 3rem; 
+        }
+        .elite6-template .summary-section { 
+            margin-bottom: 3rem; 
+        }
+        .elite6-template .summary-card, .elite6-template .skills-card, 
+        .elite6-template .languages-card, .elite6-template .awards-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        .elite6-template .card-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1.5rem 2rem;
+        }
+        .elite6-template .card-header h3 {
+            margin: 0;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        .elite6-template .card-content {
+            padding: 2rem;
+        }
+        .elite6-template .content-layout { 
+            display: grid; 
+            grid-template-columns: 2fr 1fr; 
+            gap: 3rem; 
+        }
+        .elite6-template .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .elite6-template .section-header h3 { 
+            color: #2d3748; 
+            font-size: 1.4rem; 
+            margin: 0; 
+            font-weight: 700; 
+        }
+        .elite6-template .header-line {
+            flex: 1;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, transparent);
+            border-radius: 2px;
+        }
+        .elite6-template .experience-entry, .elite6-template .education-entry { 
+            margin-bottom: 2rem; 
+            padding: 2rem; 
+            background: #f7fafc; 
+            border-radius: 15px;
+            border: 1px solid #e2e8f0;
+            position: relative;
+        }
+        .elite6-template .experience-entry::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 2rem;
+            width: 16px;
+            height: 16px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+        .elite6-template .entry-title { 
+            font-weight: 700; 
+            font-size: 1.2rem; 
+            color: #2d3748; 
+            margin-bottom: 0.5rem;
+        }
+        .elite6-template .entry-company { 
+            color: #667eea; 
+            font-weight: 600; 
+            font-size: 1rem;
+        }
+        .elite6-template .entry-dates { 
+            color: #718096; 
+            font-size: 0.9rem; 
+            font-weight: 500;
+            float: right;
+            background: #edf2f7;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+        }
+        .elite6-template .skill-tag { 
+            display: inline-block; 
+            background: linear-gradient(135deg, #667eea, #764ba2); 
+            color: white; 
+            padding: 0.6rem 1.2rem; 
+            margin: 0.3rem; 
+            border-radius: 20px; 
+            font-size: 0.85rem; 
+            font-weight: 500; 
+            box-shadow: 0 3px 10px rgba(102, 126, 234, 0.2);
+        }
+        .elite6-template .award-list {
+            font-size: 0.95rem;
+        }
+        .elite6-template .award-item {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: #f7fafc;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            font-weight: 500;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

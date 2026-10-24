@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compact Professional Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template compact-professional-template">
+        <div class="header">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <div class="contact-info">
+                <span id="previewEmail"></span> | <span id="previewPhone"></span> | <span id="previewLocation"></span> | <span id="previewLinkedIn"></span>
+            </div>
+        </div>
+        
+        <div class="two-column">
+            <div class="left-column">
+                <div class="section">
+                    <h2>Summary</h2>
+                    <p id="previewSummary"></p>
+                </div>
+                
+                <div class="section">
+                    <h2>Experience</h2>
+                    <div id="previewExperience"></div>
+                </div>
+            </div>
+            
+            <div class="right-column">
+                <div class="section">
+                    <h2>Skills</h2>
+                    <div id="previewSkills"></div>
+                </div>
+                
+                <div class="section">
+                    <h2>Education</h2>
+                    <div id="previewEducation"></div>
+                </div>
+                
+                <div class="section">
+                    <h2>Languages</h2>
+                    <div id="previewLanguages"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .compact-professional-template { 
+            font-family: 'Arial', sans-serif; 
+            background: #ffffff; 
+            color: #000000; 
+            line-height: 1.3; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+            padding: 0.5in;
+            font-size: 0.9rem;
+        }
+        .compact-professional-template .header { 
+            text-align: center; 
+            margin-bottom: 1rem; 
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #000000;
+        }
+        .compact-professional-template .name { 
+            font-size: 1.8rem; 
+            margin: 0 0 0.3rem 0; 
+            font-weight: bold; 
+            color: #000000;
+        }
+        .compact-professional-template .contact-info { 
+            font-size: 0.85rem; 
+            color: #333333;
+        }
+        .compact-professional-template .two-column { 
+            display: flex; 
+            gap: 1.5rem; 
+        }
+        .compact-professional-template .left-column { 
+            flex: 2; 
+        }
+        .compact-professional-template .right-column { 
+            flex: 1; 
+        }
+        .compact-professional-template .section { 
+            margin-bottom: 1.2rem; 
+        }
+        .compact-professional-template h2 { 
+            color: #000000; 
+            font-size: 1rem; 
+            margin-bottom: 0.5rem; 
+            font-weight: bold; 
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .compact-professional-template .experience-entry, .compact-professional-template .education-entry { 
+            margin-bottom: 1rem; 
+        }
+        .compact-professional-template .entry-title { 
+            font-weight: bold; 
+            font-size: 0.95rem; 
+            color: #000000; 
+            margin-bottom: 0.1rem;
+        }
+        .compact-professional-template .entry-company { 
+            color: #333333; 
+            font-weight: normal; 
+            font-size: 0.85rem;
+        }
+        .compact-professional-template .entry-dates { 
+            color: #666666; 
+            font-size: 0.8rem; 
+            margin-top: 0.1rem;
+        }
+        .compact-professional-template .skills-list { 
+            display: block; 
+        }
+        .compact-professional-template .skill-tag { 
+            display: block; 
+            background: transparent; 
+            color: #333333; 
+            padding: 0.1rem 0; 
+            margin: 0; 
+            font-size: 0.8rem; 
+            border-bottom: 1px solid #eeeeee;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

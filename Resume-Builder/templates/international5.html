@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Resume Template 5</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template international5-template">
+        <div class="header-banner">
+            <div class="header-content">
+                <h1 class="name" id="previewName">Your Name</h1>
+                <h2 class="title" id="previewJobTitle">Professional Title</h2>
+                <div class="contact-row">
+                    <div class="contact-item" id="previewEmail"></div>
+                    <div class="contact-item" id="previewPhone"></div>
+                    <div class="contact-item" id="previewLocation"></div>
+                    <div class="contact-item" id="previewLinkedIn"></div>
+                </div>
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="summary-box">
+                <h3>Professional Summary</h3>
+                <p id="previewSummary"></p>
+            </div>
+            <div class="content-columns">
+                <div class="primary-column">
+                    <div class="section">
+                        <h3>Work Experience</h3>
+                        <div id="previewExperience"></div>
+                    </div>
+                    <div class="section">
+                        <h3>Education</h3>
+                        <div id="previewEducation"></div>
+                    </div>
+                </div>
+                <div class="secondary-column">
+                    <div class="section">
+                        <h3>Technical Skills</h3>
+                        <div id="previewSkills" class="skills-list"></div>
+                    </div>
+                    <div class="section">
+                        <h3>Languages</h3>
+                        <div id="previewLanguages" class="skills-list"></div>
+                    </div>
+                    <div class="section">
+                        <h3>Key Projects</h3>
+                        <ul id="previewProjects"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .international5-template { font-family: 'Verdana', sans-serif; background: #fff; color: #333; }
+        .international5-template .header-banner { background: linear-gradient(45deg, #dc3545, #e74c3c); color: white; padding: 2.5rem 2rem; }
+        .international5-template .name { font-size: 3.2rem; margin: 0; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .international5-template .title { font-size: 1.4rem; margin: 0.5rem 0 1.5rem 0; opacity: 0.95; font-weight: 300; }
+        .international5-template .contact-row { display: flex; flex-wrap: wrap; gap: 2rem; }
+        .international5-template .contact-item { font-size: 0.95rem; opacity: 0.9; }
+        .international5-template .main-container { padding: 2rem; }
+        .international5-template .summary-box { background: #f8f9fa; padding: 1.5rem; margin-bottom: 2rem; border-left: 5px solid #dc3545; }
+        .international5-template .summary-box h3 { margin: 0 0 1rem 0; color: #dc3545; font-size: 1.3rem; font-weight: 600; }
+        .international5-template .content-columns { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; }
+        .international5-template .section { margin-bottom: 2rem; }
+        .international5-template h3 { color: #dc3545; font-size: 1.2rem; margin-bottom: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        .international5-template .experience-entry, .international5-template .education-entry { margin-bottom: 1.5rem; padding: 1rem; background: #f8f9fa; border-radius: 8px; }
+        .international5-template .entry-title { font-weight: bold; font-size: 1.1rem; color: #212529; }
+        .international5-template .entry-company { color: #dc3545; font-weight: 600; margin: 0.3rem 0; }
+        .international5-template .entry-dates { color: #6c757d; font-size: 0.9rem; }
+        .international5-template .skills-list { display: block; }
+        .international5-template .skill-tag { display: inline-block; background: #dc3545; color: white; padding: 0.4rem 0.8rem; margin: 0.2rem; border-radius: 6px; font-size: 0.85rem; font-weight: 500; }
+    </style>
+    <script src="../script.js"></script>
+</body>
+</html>

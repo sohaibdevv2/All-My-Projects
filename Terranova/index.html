@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>TERRANOVA — See Earth. Watch Space. Track Everything.</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#070c1a;--accent:#1a5fb4;--warm:#f5f0e8;--muted:#a8bdd4;
+  --green:#3db87a;--danger:#d94f4f;--gold:#c8a96e;--nav:52px;
+  --panel:rgba(7,12,26,0.92);--border:rgba(26,95,180,0.2);--r:10px
+}
+html,body{height:100%;overflow:hidden;background:#000;color:var(--warm);
+  font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',system-ui,sans-serif}
+
+/* ─── INTRO ─── */
+#intro{position:fixed;inset:0;z-index:9999;background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#ic{position:absolute;inset:0;width:100%;height:100%}
+#intro::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,.025) 3px,rgba(0,0,0,.025) 4px);pointer-events:none;z-index:1}
+#iu{position:relative;z-index:3;text-align:center;pointer-events:none;padding:20px;user-select:none}
+#il{font-size:clamp(3.2rem,8vw,6.5rem);font-weight:900;letter-spacing:.2em;color:var(--warm);opacity:0;transform:translateY(22px) scale(.97);transition:opacity 2s ease,transform 2s ease;text-shadow:0 0 60px rgba(245,240,232,.08)}
+#il.on{opacity:1;transform:translateY(0) scale(1)}
+#it{font-size:clamp(.68rem,1.5vw,.92rem);letter-spacing:.4em;color:var(--muted);opacity:0;margin-top:14px;text-transform:uppercase;transition:opacity 2s ease .8s}
+#it.on{opacity:.72}
+#ibar{width:140px;height:1px;background:rgba(245,240,232,.08);margin:22px auto 0;overflow:hidden;opacity:0;transition:opacity .5s 1.4s}
+#ibar.on{opacity:1}
+#ibf{height:1px;background:linear-gradient(90deg,transparent,rgba(245,240,232,.7),transparent);width:0;transition:width .1s linear}
+#iloc{position:fixed;bottom:84px;left:50%;transform:translateX(-50%);font-size:.6rem;letter-spacing:.4em;text-transform:uppercase;color:rgba(245,240,232,.38);z-index:4;transition:opacity .7s ease;text-align:center;width:260px}
+#istat{position:fixed;bottom:30px;left:30px;z-index:5;font-size:.58rem;letter-spacing:.14em;color:rgba(245,240,232,.22);font-family:'Courier New',monospace}
+#iskip{position:fixed;bottom:28px;right:28px;z-index:5;color:rgba(245,240,232,.28);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;border:1px solid rgba(245,240,232,.08);padding:7px 15px;border-radius:3px;transition:all .25s;backdrop-filter:blur(4px)}
+#iskip:hover{color:var(--warm);border-color:rgba(245,240,232,.28)}
+/* intro orbit ring */
+#orb{position:fixed;top:50%;left:50%;transform:translate(-50%,-54%);z-index:2;pointer-events:none;opacity:0;transition:opacity 2s ease 2s}
+#orb.on{opacity:1}
+.orb-ring{animation:orbspin 20s linear infinite;transform-origin:center;transform-box:fill-box}
+@keyframes orbspin{to{transform:rotateZ(360deg)}}
+
+/* ─── WELCOME / HOME ─── */
+#welcome{position:fixed;inset:0;z-index:8000;background:rgba(5,8,18,.97);backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:center}
+#welcome.gone{display:none}
+.wc{text-align:center;max-width:580px;padding:48px 32px}
+.w-logo{font-size:3.2rem;font-weight:900;letter-spacing:.18em;color:var(--warm);margin-bottom:6px}
+.w-tag{font-size:.68rem;letter-spacing:.38em;text-transform:uppercase;color:var(--muted);margin-bottom:36px;display:block}
+.w-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:36px}
+.wcard{background:rgba(26,95,180,.07);border:1px solid var(--border);border-radius:var(--r);padding:20px 14px;text-align:center;transition:all .25s;cursor:default}
+.wcard:hover{background:rgba(26,95,180,.12);border-color:rgba(26,95,180,.38);transform:translateY(-2px)}
+.wci{font-size:1.7rem;margin-bottom:8px}
+.wcn{font-size:.65rem;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;line-height:1.4}
+.wbtn{background:var(--accent);border:none;color:var(--warm);padding:14px 44px;font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;border-radius:6px;cursor:pointer;transition:all .28s;font-family:inherit;box-shadow:0 0 30px rgba(26,95,180,.2)}
+.wbtn:hover{background:#2370c8;transform:translateY(-1px);box-shadow:0 6px 28px rgba(26,95,180,.35)}
+
+/* ─── APP SHELL ─── */
+#app{position:fixed;inset:0;display:flex;opacity:0;pointer-events:none;transition:opacity 1.2s ease}
+#app.on{opacity:1;pointer-events:all}
+
+/* ─── LEFT NAV ─── */
+#nav{width:var(--nav);flex-shrink:0;height:100%;background:rgba(4,7,16,.96);backdrop-filter:blur(16px);border-right:1px solid var(--border);display:flex;flex-direction:column;align-items:center;padding:10px 0;z-index:1000;position:relative}
+/* mini Earth canvas in nav logo */
+#nav-earth-wrap{width:40px;height:40px;margin-bottom:14px;position:relative;cursor:pointer;flex-shrink:0}
+#nav-earth-wrap canvas{border-radius:50%;border:1px solid rgba(26,95,180,.35);display:block}
+.navbtn{width:38px;height:38px;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--muted);font-size:1.05rem;transition:all .2s;position:relative;flex-shrink:0;margin-bottom:4px;user-select:none}
+.navbtn:hover{background:rgba(26,95,180,.12);color:var(--warm)}
+.navbtn.on{background:rgba(26,95,180,.2);color:#7ab3f0;box-shadow:inset 0 0 0 1px rgba(26,95,180,.4)}
+.navbtn .tt{position:absolute;left:calc(100% + 10px);top:50%;transform:translateY(-50%);background:rgba(4,7,16,.97);border:1px solid var(--border);padding:4px 10px;border-radius:5px;font-size:.62rem;color:var(--warm);white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .18s;z-index:200;letter-spacing:.06em}
+.navbtn:hover .tt{opacity:1}
+.nav-sep{width:26px;height:1px;background:var(--border);margin:8px 0;flex-shrink:0}
+.nav-bottom{margin-top:auto;display:flex;flex-direction:column;align-items:center;gap:4px}
+
+/* ─── PAGES ─── */
+#pages{flex:1;height:100%;overflow:hidden;position:relative}
+.page{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .35s ease,transform .35s ease;transform:translateY(8px)}
+.page.on{opacity:1;pointer-events:all;transform:translateY(0)}
+/* page header */
+.ph{height:56px;background:rgba(4,7,16,.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 20px;gap:14px;flex-shrink:0;position:relative;z-index:100}
+.ph-title{font-size:.88rem;font-weight:700;letter-spacing:.1em;color:var(--warm)}
+.ph-sub{font-size:.6rem;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;margin-left:2px}
+.ph-right{margin-left:auto;display:flex;align-items:center;gap:8px}
+.ib{width:32px;height:32px;background:rgba(245,240,232,.05);border:1px solid var(--border);border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--muted);font-size:.82rem;transition:all .18s;user-select:none;position:relative}
+.ib:hover{background:rgba(26,95,180,.12);border-color:var(--accent);color:var(--warm)}
+.ib.on{background:rgba(26,95,180,.18);border-color:var(--accent);color:#7ab3f0}
+.ib .tt{position:absolute;bottom:calc(100% + 7px);left:50%;transform:translateX(-50%);background:rgba(4,7,16,.97);border:1px solid var(--border);padding:3px 9px;border-radius:4px;font-size:.6rem;color:var(--warm);white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .18s;z-index:200;letter-spacing:.06em}
+.ib:hover .tt{opacity:1}
+
+/* ─── PAGE 1: EARTH ─── */
+#p-earth{display:flex;flex-direction:column}
+#map-wrap{flex:1;position:relative}
+#map{position:absolute;inset:0}
+#srch-wrap{position:absolute;top:10px;left:50%;transform:translateX(-50%);z-index:500;width:min(420px,80vw)}
+#srch{width:100%;height:36px;background:rgba(4,7,16,.94);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:7px;color:var(--warm);padding:0 34px 0 13px;font-size:.84rem;outline:none;transition:border-color .2s;font-family:inherit}
+#srch:focus{border-color:rgba(26,95,180,.5)}
+#srch::placeholder{color:rgba(245,240,232,.22)}
+.srch-ico{position:absolute;right:10px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:.8rem;pointer-events:none}
+/* map pills */
+#mpills{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:500}
+.mp{padding:5px 12px;background:rgba(4,7,16,.92);backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:14px;color:var(--muted);font-size:.64rem;letter-spacing:.1em;cursor:pointer;transition:all .18s;white-space:nowrap}
+.mp:hover,.mp.on{background:rgba(26,95,180,.18);border-color:rgba(26,95,180,.45);color:var(--warm)}
+/* click panel */
+#cpan{position:absolute;bottom:0;left:50%;transform:translateX(-50%) translateY(108%);width:min(540px,calc(100% - 24px));background:var(--panel);backdrop-filter:blur(18px);border:1px solid var(--border);border-radius:var(--r) var(--r) 0 0;z-index:600;transition:transform .36s cubic-bezier(.4,0,.2,1);will-change:transform}
+#cpan.on{transform:translateX(-50%) translateY(0)}
+#cph{padding:12px 16px 9px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
+#cpn{font-size:.88rem;font-weight:600;color:var(--warm)}
+.cpx{cursor:pointer;color:var(--muted);font-size:1.05rem;width:24px;height:24px;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:all .18s}
+.cpx:hover{background:rgba(245,240,232,.08);color:var(--warm)}
+#cpb{display:flex;height:178px}
+.cpc{flex:1;padding:12px 16px;border-right:1px solid var(--border)}
+.cpc:last-child{border:none}
+.ir{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;gap:8px}
+.il{font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,240,232,.32);flex-shrink:0}
+.iv{font-size:.74rem;color:var(--warm);font-weight:500;font-family:'Courier New',monospace;text-align:right}
+#epr{flex:0 0 138px;position:relative;overflow:hidden}
+#epr img{width:100%;height:100%;object-fit:cover;opacity:.78}
+#epr .erl{position:absolute;bottom:0;left:0;right:0;padding:5px 8px;background:rgba(4,7,16,.88);font-size:.55rem;color:var(--muted);letter-spacing:.1em}
+/* dist */
+#dist{position:absolute;bottom:52px;left:12px;background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:6px 12px;font-size:.68rem;color:var(--warm);z-index:500;display:none;backdrop-filter:blur(8px)}
+/* status bar */
+#sbar{height:34px;background:rgba(4,7,16,.96);border-top:1px solid var(--border);display:flex;align-items:center;padding:0 14px;gap:16px;font-size:.6rem;letter-spacing:.07em;color:var(--muted);flex-shrink:0}
+.si{display:flex;align-items:center;gap:5px;white-space:nowrap}
+.sd{width:1px;height:11px;background:var(--border);flex-shrink:0}
+.sdot{width:5px;height:5px;border-radius:50%;background:var(--green);flex-shrink:0;transition:background .3s}
+.sdot.err{background:var(--danger)}
+#coords{margin-left:auto;font-family:'Courier New',monospace;font-size:.58rem;color:rgba(245,240,232,.25);flex-shrink:0}
+
+/* ─── PAGE 2: SPACE ─── */
+#p-space{display:flex;flex-direction:column}
+.space-body{flex:1;overflow-y:auto;padding:16px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:14px}
+.space-body::-webkit-scrollbar{width:3px}
+.space-body::-webkit-scrollbar-thumb{background:rgba(26,95,180,.25);border-radius:2px}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;backdrop-filter:blur(14px)}
+/* APOD */
+#apod-p{grid-column:1;grid-row:1/3}
+#apod-imgw{position:relative;height:240px;overflow:hidden;cursor:pointer;background:#030810}
+#apod-img{width:100%;height:100%;object-fit:cover;display:none;transition:transform .4s ease}
+#apod-imgw:hover #apod-img{transform:scale(1.04)}
+#apod-sk{width:100%;height:100%;animation:sk 1.7s infinite}
+@keyframes sk{0%{background:linear-gradient(90deg,rgba(245,240,232,.03) 0%,rgba(245,240,232,.07) 50%,rgba(245,240,232,.03) 100%);background-size:200% 100%}100%{background:linear-gradient(90deg,rgba(245,240,232,.03) 0%,rgba(245,240,232,.07) 50%,rgba(245,240,232,.03) 100%);background-size:200% 100%;background-position:-200% 0}}
+#apod-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(4,7,16,.97) 0%,transparent 52%);display:none;flex-direction:column;justify-content:flex-end;padding:14px}
+#apod-ttl{font-size:.86rem;font-weight:600;color:var(--warm);line-height:1.3;margin-bottom:3px}
+#apod-dt{font-size:.6rem;color:var(--muted);letter-spacing:.1em}
+.panel-hdr{padding:12px 14px 8px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
+.panel-t{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.adp{background:rgba(245,240,232,.05);border:1px solid var(--border);border-radius:5px;color:var(--warm);padding:3px 7px;font-size:.62rem;outline:none;cursor:pointer;font-family:inherit}
+#apod-exp{padding:12px 14px;font-size:.7rem;color:var(--muted);line-height:1.65;overflow-y:auto;max-height:160px}
+#apod-exp::-webkit-scrollbar{width:3px}
+#apod-exp::-webkit-scrollbar-thumb{background:rgba(26,95,180,.2);border-radius:2px}
+/* EPIC */
+#epic-p{grid-column:2;grid-row:1}
+#epic-imgw{position:relative;height:180px;overflow:hidden;background:#030810}
+#epic-img{width:100%;height:100%;object-fit:cover;opacity:.82;transition:opacity .9s ease;display:block}
+#epic-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(4,7,16,.88) 0%,transparent 40%);display:flex;flex-direction:column;justify-content:flex-end;padding:12px;pointer-events:none}
+#epic-lbl{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+#epic-date{font-size:.65rem;color:var(--warm);margin-top:2px}
+/* NeoWs */
+#neo-p{grid-column:2;grid-row:2}
+#neo-inner{display:flex;flex-direction:column;align-items:center;padding:8px 12px 6px;position:relative}
+#acnt{position:absolute;top:14px;left:14px;font-size:.62rem;color:var(--muted)}
+#acnt span{font-size:.98rem;font-weight:700;color:var(--warm);display:block}
+#acan{border-radius:50%;border:1px solid rgba(26,95,180,.22);flex-shrink:0}
+.aleg{font-size:.56rem;color:var(--muted);display:flex;gap:10px;margin-top:5px}
+#ainf{padding:8px 14px;border-top:1px solid var(--border);font-size:.68rem;color:var(--muted);min-height:52px}
+
+/* ─── PAGE 3: EVENTS ─── */
+#p-events{display:flex;flex-direction:column}
+.ev-body{flex:1;display:flex;overflow:hidden}
+/* filters + list */
+#ev-side{width:300px;flex-shrink:0;border-right:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden}
+#ev-filters{padding:12px 12px 8px;display:flex;flex-wrap:wrap;gap:6px;border-bottom:1px solid var(--border)}
+.fc{display:flex;align-items:center;gap:4px;padding:4px 9px;border-radius:14px;border:1px solid var(--border);background:rgba(245,240,232,.03);cursor:pointer;font-size:.67rem;color:var(--muted);transition:all .18s;user-select:none}
+.fc.on{background:rgba(26,95,180,.12);border-color:rgba(26,95,180,.38);color:var(--warm)}
+.bj{background:rgba(245,240,232,.1);border-radius:8px;padding:1px 5px;font-size:.57rem;font-weight:600;min-width:15px;text-align:center}
+#ev-list{flex:1;overflow-y:auto;padding:5px}
+#ev-list::-webkit-scrollbar{width:3px}
+#ev-list::-webkit-scrollbar-thumb{background:rgba(26,95,180,.22);border-radius:2px}
+.ei{padding:10px 12px;border-radius:7px;border:1px solid transparent;cursor:pointer;transition:all .18s;margin-bottom:2px}
+.ei:hover{background:rgba(245,240,232,.04);border-color:var(--border)}
+.eih{display:flex;align-items:center;gap:8px;margin-bottom:2px}
+.ein{font-size:.77rem;color:var(--warm);font-weight:500;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.eid{font-size:.62rem;color:var(--muted)}
+.ev-ft{padding:9px 14px;border-top:1px solid var(--border);display:flex;align-items:center;gap:6px;flex-shrink:0}
+.lu{font-size:.58rem;color:rgba(245,240,232,.25);letter-spacing:.07em}
+.ld{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pd 2s ease-in-out infinite;flex-shrink:0}
+@keyframes pd{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.38;transform:scale(.76)}}
+/* events mini map */
+#ev-map{flex:1;position:relative}
+#ev-map-canvas{position:absolute;inset:0}
+
+/* ─── PAGE 4: MISSIONS ─── */
+#p-missions{display:flex;flex-direction:column}
+.miss-body{flex:1;overflow-y:auto;padding:14px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;align-content:start}
+.miss-body::-webkit-scrollbar{width:3px}
+.miss-body::-webkit-scrollbar-thumb{background:rgba(26,95,180,.2);border-radius:2px}
+/* ISS */
+#iss-p{grid-column:1/3}
+.iss-bar{display:flex;align-items:center;gap:14px;padding:16px}
+.iss-dot{width:10px;height:10px;border-radius:50%;background:#f5c242;animation:pd 1.2s ease-in-out infinite;flex-shrink:0;box-shadow:0 0 8px rgba(245,194,66,.4)}
+.iss-info{flex:1}
+.iss-name{font-size:.88rem;font-weight:700;color:var(--warm);margin-bottom:4px}
+.iss-coords{font-size:.68rem;color:var(--muted);font-family:'Courier New',monospace;margin-bottom:3px}
+.iss-spd{font-size:.62rem;color:var(--gold);letter-spacing:.08em}
+.iss-btn{padding:8px 16px;background:rgba(26,95,180,.15);border:1px solid rgba(26,95,180,.35);border-radius:6px;color:var(--warm);font-size:.72rem;cursor:pointer;transition:all .2s;white-space:nowrap;font-family:inherit;letter-spacing:.06em}
+.iss-btn:hover{background:rgba(26,95,180,.28)}
+/* Mars */
+#mars-p{grid-column:3;grid-row:1/3}
+.mars-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:10px}
+.mars-card{border-radius:6px;overflow:hidden;border:1px solid var(--border);cursor:pointer;transition:all .2s}
+.mars-card:hover{border-color:rgba(26,95,180,.45);transform:scale(1.02)}
+.mars-card img{width:100%;aspect-ratio:1;object-fit:cover;display:block;background:#080808}
+.mars-ci{padding:4px 7px;font-size:.55rem;color:var(--muted)}
+/* launches */
+#launch-p{grid-column:1/3}
+.launch-scroll{overflow-y:auto;max-height:260px;padding:8px 12px}
+.launch-scroll::-webkit-scrollbar{width:3px}
+.launch-scroll::-webkit-scrollbar-thumb{background:rgba(26,95,180,.2);border-radius:2px}
+.lc{border:1px solid var(--border);border-radius:7px;padding:12px;margin-bottom:7px;background:rgba(26,95,180,.04);transition:border-color .2s}
+.lc:hover{border-color:rgba(26,95,180,.38)}
+.lc-name{font-size:.78rem;font-weight:600;color:var(--warm);margin-bottom:4px;line-height:1.3}
+.lc-rocket{font-size:.63rem;color:var(--muted);margin-bottom:6px}
+.lc-cd{font-size:.68rem;color:var(--gold);display:flex;align-items:center;gap:5px}
+.lc-net{font-size:.58rem;color:rgba(245,240,232,.28);margin-top:3px}
+
+/* ─── PAGE 5: GUIDE ─── */
+#p-guide{display:flex;flex-direction:column}
+.guide-body{flex:1;overflow-y:auto;padding:24px;max-width:760px;margin:0 auto;width:100%}
+.guide-body::-webkit-scrollbar{width:3px}
+.guide-body::-webkit-scrollbar-thumb{background:rgba(26,95,180,.2);border-radius:2px}
+.g-section{margin-bottom:32px}
+.g-h1{font-size:1.05rem;font-weight:700;color:var(--warm);letter-spacing:.08em;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.g-h1::after{content:'';flex:1;height:1px;background:var(--border)}
+.g-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;margin-bottom:10px}
+.g-feature{display:flex;gap:14px;align-items:flex-start}
+.g-ico{font-size:1.5rem;flex-shrink:0;margin-top:2px}
+.g-ft-t{font-size:.82rem;font-weight:600;color:var(--warm);margin-bottom:4px}
+.g-ft-d{font-size:.72rem;color:var(--muted);line-height:1.6}
+.g-table{width:100%;border-collapse:collapse;font-size:.72rem}
+.g-table th{text-align:left;padding:7px 12px;background:rgba(26,95,180,.1);color:var(--muted);letter-spacing:.1em;text-transform:uppercase;font-size:.6rem;border-bottom:1px solid var(--border)}
+.g-table td{padding:8px 12px;border-bottom:1px solid rgba(26,95,180,.1);color:var(--warm)}
+.g-table tr:last-child td{border-bottom:none}
+.kbd{background:rgba(245,240,232,.08);border:1px solid rgba(245,240,232,.15);border-radius:4px;padding:2px 8px;font-size:.65rem;font-family:'Courier New',monospace;color:var(--warm)}
+.g-badge{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:12px;border:1px solid var(--border);background:rgba(26,95,180,.08);font-size:.62rem;color:var(--muted);margin-right:6px;margin-bottom:6px}
+.g-badge .dot{width:5px;height:5px;border-radius:50%;background:var(--green)}
+
+/* ─── MODALS ─── */
+#amod,#mmod{position:fixed;inset:0;background:rgba(0,0,0,.93);z-index:9500;display:none;align-items:center;justify-content:center;padding:28px}
+#amod.on,#mmod.on{display:flex}
+#amod-c{max-width:840px;width:100%;background:rgba(6,9,20,.98);border:1px solid var(--border);border-radius:12px;overflow:hidden;display:flex;max-height:84vh}
+#amod-img{flex:0 0 52%;object-fit:cover;max-height:84vh;background:#050810}
+#amod-txt{flex:1;padding:24px;overflow-y:auto}
+#amod-txt::-webkit-scrollbar{width:3px}
+#amod-txt::-webkit-scrollbar-thumb{background:rgba(26,95,180,.2);border-radius:2px}
+#amod-ttl{font-size:1.1rem;font-weight:700;color:var(--warm);margin-bottom:6px;line-height:1.3}
+#amod-exp{font-size:.75rem;line-height:1.68;color:var(--muted)}
+.mod-x{position:absolute;top:14px;right:14px;cursor:pointer;color:var(--warm);font-size:1.2rem;background:rgba(0,0,0,.6);border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.mod-x:hover{background:rgba(245,240,232,.1)}
+#mmod-c{max-width:680px;width:100%;background:rgba(6,9,20,.98);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+#mmod-img{width:100%;max-height:58vh;object-fit:contain;background:#050810;display:block}
+#mmod-info{padding:14px 18px;display:flex;justify-content:space-between;align-items:center}
+#mmod-ttl{font-size:.8rem;font-weight:600;color:var(--warm)}
+#mmod-dt{font-size:.63rem;color:var(--muted);margin-top:3px}
+
+/* ─── SETTINGS ─── */
+#spn{position:fixed;top:64px;right:14px;width:252px;background:rgba(5,8,18,.97);backdrop-filter:blur(16px);border:1px solid var(--border);border-radius:var(--r);padding:14px;z-index:1100;display:none;box-shadow:0 8px 36px rgba(0,0,0,.5)}
+#spn.on{display:block}
+.sl{font-size:.57rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;display:block}
+.si2{width:100%;background:rgba(245,240,232,.05);border:1px solid var(--border);border-radius:5px;color:var(--warm);padding:7px 10px;font-size:.76rem;outline:none;font-family:inherit;transition:border-color .2s}
+.si2:focus{border-color:rgba(26,95,180,.45)}
+.srow{margin-bottom:11px}
+.sbtn{width:100%;padding:7px;background:rgba(26,95,180,.15);border:1px solid var(--accent);border-radius:5px;color:var(--warm);cursor:pointer;font-size:.72rem;letter-spacing:.1em;transition:all .2s;font-family:inherit}
+.sbtn:hover{background:rgba(26,95,180,.28)}
+
+/* ─── TOAST ─── */
+#toast{position:fixed;top:68px;left:50%;transform:translateX(-50%) translateY(-16px);background:rgba(4,7,16,.96);border:1px solid var(--border);border-radius:6px;padding:7px 16px;font-size:.7rem;color:var(--warm);z-index:2000;opacity:0;transition:all .28s;pointer-events:none;white-space:nowrap;backdrop-filter:blur(8px);letter-spacing:.05em}
+#toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* hazard pulsing */
+.hzd{width:8px;height:8px;border-radius:50%;background:var(--danger);animation:hzp 1.4s ease-out infinite}
+@keyframes hzp{0%,100%{box-shadow:0 0 0 0 rgba(217,79,79,.45)}55%{box-shadow:0 0 0 6px rgba(217,79,79,0)}}
+
+/* Info window override */
+.gm-style .gm-style-iw-c{background:rgba(5,8,18,.97)!important;border:1px solid rgba(26,95,180,.25)!important;border-radius:8px!important;padding:0!important;box-shadow:0 6px 24px rgba(0,0,0,.5)!important}
+.gm-style .gm-style-iw-d{overflow:visible!important;padding:0!important}
+.gm-style .gm-style-iw-t::after{display:none!important}
+.gm-style-iw-chr{display:none!important}
+button.gm-ui-hover-effect{display:none!important}
+
+/* scrollbars global */
+::-webkit-scrollbar{width:3px;height:3px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(26,95,180,.22);border-radius:2px}
+</style>
+</head>
+<body>
+
+<!-- ══ INTRO ══ -->
+<div id="intro">
+  <canvas id="ic"></canvas>
+  <div id="orb">
+    <svg width="360" height="360" viewBox="-180 -180 360 360" style="transform:rotateX(70deg)">
+      <ellipse cx="0" cy="0" rx="170" ry="56" fill="none" stroke="rgba(26,95,180,0.16)" stroke-width="1" stroke-dasharray="5 7" class="orb-ring"/>
+      <ellipse cx="0" cy="0" rx="170" ry="56" fill="none" stroke="rgba(245,240,232,0.05)" stroke-width=".6"/>
+      <ellipse cx="0" cy="0" rx="126" ry="42" fill="none" stroke="rgba(26,95,180,0.1)" stroke-width=".8" stroke-dasharray="3 9" class="orb-ring" style="animation-duration:28s;animation-direction:reverse"/>
+    </svg>
+  </div>
+  <div id="iu">
+    <div id="il">TERRANOVA</div>
+    <div id="it">See Earth &nbsp;·&nbsp; Watch Space &nbsp;·&nbsp; Track Everything</div>
+    <div id="ibar"><div id="ibf"></div></div>
+  </div>
+  <div id="iloc"></div>
+  <div id="istat">SYSTEM INITIALIZING...</div>
+  <div id="iskip" onclick="skipIntro()">Skip ›</div>
+</div>
+
+<!-- ══ WELCOME ══ -->
+<div id="welcome">
+  <div class="wc">
+    <div class="w-logo">TERRANOVA</div>
+    <span class="w-tag">Real-Time Earth Intelligence Dashboard</span>
+    <div class="w-grid">
+      <div class="wcard"><div class="wci">🌍</div><div class="wcn">Live Earth<br>Events</div></div>
+      <div class="wcard"><div class="wci">🛸</div><div class="wcn">ISS<br>Live Track</div></div>
+      <div class="wcard"><div class="wci">☄️</div><div class="wcn">Asteroid<br>Radar</div></div>
+      <div class="wcard"><div class="wci">🔭</div><div class="wcn">Daily<br>Astronomy</div></div>
+      <div class="wcard"><div class="wci">🔴</div><div class="wcn">Mars<br>Surface</div></div>
+      <div class="wcard"><div class="wci">🚀</div><div class="wcn">Launch<br>Tracker</div></div>
+    </div>
+    <button class="wbtn" onclick="enterDash()">Enter Dashboard</button>
+  </div>
+</div>
+
+<!-- ══ APP ══ -->
+<div id="app">
+
+  <!-- Left Nav -->
+  <div id="nav">
+    <div id="nav-earth-wrap" onclick="goPage('earth')" title="Earth View">
+      <canvas id="nav-canvas" width="40" height="40"></canvas>
+    </div>
+    <div class="nav-sep"></div>
+    <div class="navbtn on" id="nb-earth"    onclick="goPage('earth')">🌍<span class="tt">Earth</span></div>
+    <div class="navbtn"    id="nb-space"    onclick="goPage('space')">🔭<span class="tt">Space</span></div>
+    <div class="navbtn"    id="nb-events"   onclick="goPage('events')">🌋<span class="tt">Events</span></div>
+    <div class="navbtn"    id="nb-missions" onclick="goPage('missions')">🚀<span class="tt">Missions</span></div>
+    <div class="navbtn"    id="nb-guide"    onclick="goPage('guide')">ℹ️<span class="tt">Guide</span></div>
+    <div class="nav-sep"></div>
+    <div class="nav-bottom">
+      <div class="navbtn" id="nb-set" onclick="doSet()">⚙<span class="tt">Settings</span></div>
+    </div>
+  </div>
+
+  <!-- Pages -->
+  <div id="pages">
+
+    <!-- PAGE 1: EARTH -->
+    <div class="page on" id="p-earth">
+      <div class="ph">
+        <div>
+          <div class="ph-title">Earth View</div>
+          <div class="ph-sub">Interactive Globe</div>
+        </div>
+        <div id="srch-wrap">
+          <input type="text" id="srch" placeholder="Search any location...">
+          <span class="srch-ico">⌕</span>
+        </div>
+        <div class="ph-right">
+          <div class="ib" id="b-sat" onclick="doSat()">🛰<span class="tt">Satellite</span></div>
+          <div class="ib" id="b-hm"  onclick="doHM()">🌡<span class="tt">Heatmap</span></div>
+          <div class="ib" id="b-ms"  onclick="doMS()">📏<span class="tt">Measure</span></div>
+          <div class="ib" id="b-dn"  onclick="doDN()">🌓<span class="tt">Day/Night</span></div>
+        </div>
+      </div>
+      <div id="map-wrap">
+        <div id="map"></div>
+        <div id="srch-wrap" style="position:absolute;top:10px;left:50%;transform:translateX(-50%);z-index:500;width:min(400px,75%)">
+          <input type="text" id="srch2" placeholder="Search places..." style="width:100%;height:35px;background:rgba(4,7,16,.93);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:7px;color:var(--warm);padding:0 32px 0 12px;font-size:.82rem;outline:none;font-family:inherit">
+        </div>
+        <div id="mpills">
+          <div class="mp on"  onclick="mtype('roadmap',this)">Map</div>
+          <div class="mp"     onclick="mtype('satellite',this)">Satellite</div>
+          <div class="mp"     onclick="mtype('terrain',this)">Terrain</div>
+          <div class="mp"     onclick="mtype('hybrid',this)">Hybrid</div>
+        </div>
+        <div id="dist"></div>
+        <div id="cpan">
+          <div id="cph"><div id="cpn">Select a location</div><div class="cpx" onclick="closeCp()">×</div></div>
+          <div id="cpb">
+            <div class="cpc">
+              <div class="ir"><span class="il">Latitude</span><span class="iv" id="cp-lat">—</span></div>
+              <div class="ir"><span class="il">Longitude</span><span class="iv" id="cp-lng">—</span></div>
+              <div class="ir"><span class="il">Country</span><span class="iv" id="cp-cty">—</span></div>
+              <div class="ir"><span class="il">Local Time</span><span class="iv" id="cp-tm">—</span></div>
+              <div class="ir"><span class="il">UTC Offset</span><span class="iv" id="cp-tz">—</span></div>
+            </div>
+            <div id="epr"><img id="epr-img" src="" alt="EPIC"><div class="erl">NASA EPIC</div></div>
+          </div>
+        </div>
+      </div>
+      <div id="sbar">
+        <div class="si"><div class="sdot" id="sd-gm"></div><span>Maps</span></div>
+        <div class="sd"></div>
+        <div class="si"><div class="sdot" id="sd-eo"></div><span id="st-ev">Events —</span></div>
+        <div class="sd"></div>
+        <div class="si"><div class="sdot" id="sd-iss"></div><span id="st-iss">ISS —</span></div>
+        <div class="sd"></div>
+        <div class="si"><div class="sdot" id="sd-ep"></div><span id="st-ep">DSCOVR —</span></div>
+        <div id="coords">Lat — · Lng —</div>
+      </div>
+    </div>
+
+    <!-- PAGE 2: SPACE -->
+    <div class="page" id="p-space">
+      <div class="ph">
+        <div><div class="ph-title">Space Intelligence</div><div class="ph-sub">Astronomy · EPIC · Asteroids</div></div>
+        <div class="ph-right">
+          <div id="hzd-ind" style="display:none;align-items:center;gap:6px;font-size:.65rem;color:var(--danger)"><div class="hzd"></div>Hazardous object</div>
+        </div>
+      </div>
+      <div class="space-body">
+        <!-- APOD -->
+        <div class="panel" id="apod-p">
+          <div class="panel-hdr"><span class="panel-t">Astronomy · Picture of the Day</span><input type="date" id="adp" class="adp" onchange="fetchAPOD(this.value)"></div>
+          <div id="apod-imgw" onclick="openAMod()"><div id="apod-sk"></div><img id="apod-img" alt="APOD"><div id="apod-ov"><div id="apod-ttl">Loading...</div><div id="apod-dt"></div></div></div>
+          <div id="apod-exp">Loading astronomy picture...</div>
+        </div>
+        <!-- EPIC -->
+        <div class="panel" id="epic-p">
+          <div class="panel-hdr"><span class="panel-t">DSCOVR · EPIC Camera</span><span style="font-size:.6rem;color:var(--muted)" id="epic-cycle">Live</span></div>
+          <div id="epic-imgw"><img id="epic-img" src="" alt="Earth from space"><div id="epic-ov"><div id="epic-lbl">Earth from L1 Point</div><div id="epic-date">—</div></div></div>
+          <div style="padding:10px 14px;font-size:.65rem;color:var(--muted);line-height:1.6">Full-disc Earth imagery captured 1.5 million km away. Images cycle automatically every 5 seconds.</div>
+        </div>
+        <!-- NeoWs -->
+        <div class="panel" id="neo-p">
+          <div class="panel-hdr"><span class="panel-t">Near-Earth Objects · Today</span><div id="hzd2" style="display:none"><div class="hzd"></div></div></div>
+          <div id="neo-inner">
+            <div id="acnt"><span id="an">—</span>passing today</div>
+            <canvas id="acan" width="200" height="200"></canvas>
+            <div class="aleg"><span style="color:var(--danger)">● Hazardous</span><span style="color:var(--green)">● Safe</span></div>
+          </div>
+          <div id="ainf">Hover a dot on the radar to see details</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 3: EVENTS -->
+    <div class="page" id="p-events">
+      <div class="ph">
+        <div><div class="ph-title">Natural Events Monitor</div><div class="ph-sub">Active Events Worldwide</div></div>
+        <div class="ph-right">
+          <span style="font-size:.65rem;color:var(--muted)" id="ev-total">Select categories to show events</span>
+          <div class="ib" id="b-ev-hm" onclick="doEvHM()">🌡<span class="tt">Quake Heatmap</span></div>
+        </div>
+      </div>
+      <div class="ev-body">
+        <div id="ev-side">
+          <div id="ev-filters">
+            <div class="fc" data-t="wildfires"    onclick="filt(this)">🔥 Fires    <span class="bj" id="bj-w">0</span></div>
+            <div class="fc" data-t="severeStorms" onclick="filt(this)">🌀 Storms   <span class="bj" id="bj-s">0</span></div>
+            <div class="fc" data-t="earthquakes"  onclick="filt(this)">🔴 Quakes   <span class="bj" id="bj-q">0</span></div>
+            <div class="fc" data-t="volcanoes"    onclick="filt(this)">🌋 Volcanoes <span class="bj" id="bj-v">0</span></div>
+            <div class="fc" data-t="floods"       onclick="filt(this)">💧 Floods   <span class="bj" id="bj-f">0</span></div>
+            <div class="fc" data-t="other"        onclick="filt(this)">◦ Other     <span class="bj" id="bj-o">0</span></div>
+          </div>
+          <div id="ev-list">
+            <div style="padding:24px 12px;text-align:center;font-size:.72rem;color:rgba(245,240,232,.28);line-height:1.7">
+              Select a category above<br>to load events on the map
+            </div>
+          </div>
+          <div class="ev-ft"><div class="ld"></div><span class="lu" id="lupd">—</span></div>
+        </div>
+        <div id="ev-map"><div id="ev-map-canvas"></div></div>
+      </div>
+    </div>
+
+    <!-- PAGE 4: MISSIONS -->
+    <div class="page" id="p-missions">
+      <div class="ph">
+        <div><div class="ph-title">Mission Center</div><div class="ph-sub">ISS · Mars · Launches</div></div>
+        <div class="ph-right">
+          <button class="iss-btn" onclick="flyISS()">🛸 Fly to ISS</button>
+        </div>
+      </div>
+      <div class="miss-body">
+        <!-- ISS -->
+        <div class="panel" id="iss-p">
+          <div class="panel-hdr"><span class="panel-t">International Space Station · Live</span></div>
+          <div class="iss-bar">
+            <div class="iss-dot"></div>
+            <div class="iss-info">
+              <div class="iss-name">ISS · Orbit ~408 km altitude</div>
+              <div class="iss-coords" id="iss-ll">Acquiring signal...</div>
+              <div class="iss-spd" id="iss-spd"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Mars -->
+        <div class="panel" id="mars-p">
+          <div class="panel-hdr"><span class="panel-t">Curiosity Rover · Mars Surface</span><span style="font-size:.6rem;color:var(--muted)" id="mars-sol"></span></div>
+          <div class="mars-grid" id="mars-grid"><div style="grid-column:1/3;padding:24px;text-align:center;color:var(--muted);font-size:.72rem">Loading Martian surface...</div></div>
+        </div>
+        <!-- Launches -->
+        <div class="panel" id="launch-p">
+          <div class="panel-hdr"><span class="panel-t">Upcoming Space Launches</span></div>
+          <div class="launch-scroll" id="launch-list"><div style="padding:20px;text-align:center;color:var(--muted);font-size:.72rem">Loading launch schedule...</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 5: GUIDE -->
+    <div class="page" id="p-guide">
+      <div class="ph">
+        <div><div class="ph-title">How It Works</div><div class="ph-sub">Guide · Features · Shortcuts</div></div>
+      </div>
+      <div class="guide-body">
+        <div class="g-section">
+          <div class="g-h1">🌍 The Five Worlds</div>
+          <div class="g-card"><div class="g-feature"><div class="g-ico">🌍</div><div><div class="g-ft-t">Earth View</div><div class="g-ft-d">Full-screen interactive globe with custom dark cartographic styling. Click anywhere to reveal coordinates, local time, and live satellite imagery of that exact region. Switch between map, satellite, terrain, and hybrid views. Measure distances between any two points on Earth.</div></div></div></div>
+          <div class="g-card"><div class="g-feature"><div class="g-ico">🔭</div><div><div class="g-ft-t">Space Intelligence</div><div class="g-ft-d">Today's Astronomy Picture of the Day with full explanation. Watch the full disc of Earth from deep space — 1.5 million kilometres away — with images cycling every 5 seconds. Track every asteroid passing near Earth today on an animated radar display.</div></div></div></div>
+          <div class="g-card"><div class="g-feature"><div class="g-ico">🌋</div><div><div class="g-ft-t">Natural Events Monitor</div><div class="g-ft-d">Every active wildfire, storm, earthquake, volcano, and flood on Earth — plotted live on the map. Choose which categories to display using the filter chips. Click any event to fly the camera to that location instantly.</div></div></div></div>
+          <div class="g-card"><div class="g-feature"><div class="g-ico">🚀</div><div><div class="g-ft-t">Mission Center</div><div class="g-ft-d">Track the International Space Station in real time — position updates every 5 seconds. Browse the latest photos taken on the surface of Mars by the Curiosity rover. Follow the countdown to the next rocket launches from spaceports worldwide.</div></div></div></div>
+          <div class="g-card"><div class="g-feature"><div class="g-ico">ℹ️</div><div><div class="g-ft-t">Guide (You Are Here)</div><div class="g-ft-d">This page explains every feature, lists all keyboard shortcuts, and describes how the data flows in real time from global monitoring networks to your screen.</div></div></div></div>
+        </div>
+        <div class="g-section">
+          <div class="g-h1">⌨️ Keyboard Shortcuts</div>
+          <div class="g-card">
+            <table class="g-table">
+              <thead><tr><th>Key</th><th>Action</th></tr></thead>
+              <tbody>
+                <tr><td><span class="kbd">1</span></td><td>Go to Earth View</td></tr>
+                <tr><td><span class="kbd">2</span></td><td>Go to Space Intelligence</td></tr>
+                <tr><td><span class="kbd">3</span></td><td>Go to Natural Events</td></tr>
+                <tr><td><span class="kbd">4</span></td><td>Go to Mission Center</td></tr>
+                <tr><td><span class="kbd">5</span></td><td>Go to Guide</td></tr>
+                <tr><td><span class="kbd">Esc</span></td><td>Close open panels / modals</td></tr>
+                <tr><td><span class="kbd">S</span></td><td>Toggle satellite view (Earth page)</td></tr>
+                <tr><td><span class="kbd">M</span></td><td>Toggle measure tool</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="g-section">
+          <div class="g-h1">📡 Live Data Feeds</div>
+          <div class="g-card" style="display:flex;flex-wrap:wrap;gap:6px;padding:14px">
+            <span class="g-badge"><span class="dot"></span>Natural Events — refreshes every 5 min</span>
+            <span class="g-badge"><span class="dot"></span>ISS Position — updates every 5 sec</span>
+            <span class="g-badge"><span class="dot"></span>Asteroid Feed — refreshes every 30 min</span>
+            <span class="g-badge"><span class="dot"></span>Earth Imagery — hourly cycles</span>
+            <span class="g-badge"><span class="dot"></span>Daily Astronomy — refreshes at midnight UTC</span>
+            <span class="g-badge"><span class="dot"></span>Mars Photos — daily from rover</span>
+            <span class="g-badge"><span class="dot"></span>Launch Schedule — refreshes every 30 min</span>
+          </div>
+        </div>
+        <div class="g-section">
+          <div class="g-h1">🗺️ Map Controls (Earth Page)</div>
+          <div class="g-card">
+            <table class="g-table">
+              <thead><tr><th>Control</th><th>What It Does</th></tr></thead>
+              <tbody>
+                <tr><td>🛰 Satellite</td><td>Toggle satellite imagery layer</td></tr>
+                <tr><td>🌡 Heatmap</td><td>Show earthquake density heatmap</td></tr>
+                <tr><td>📏 Measure</td><td>Click two points to measure distance</td></tr>
+                <tr><td>🌓 Day/Night</td><td>Overlay current day/night terminator</td></tr>
+                <tr><td>Click map</td><td>Show location info: coords, time, EPIC image</td></tr>
+                <tr><td>Search bar</td><td>Jump to any place on Earth</td></tr>
+                <tr><td>Street View</td><td>Drag the orange person icon onto any road</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="g-section">
+          <div class="g-h1">💾 Data &amp; Privacy</div>
+          <div class="g-card"><div class="g-ft-d" style="padding:4px 0">All data is fetched directly from public monitoring services and cached locally in your browser. No personal data is collected. The cache expires automatically — typically within 5–30 minutes — ensuring you always see fresh intelligence. Your API settings are stored only in your own browser's local storage and never transmitted anywhere.</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /pages -->
+</div><!-- /app -->
+
+<!-- Modals -->
+<div id="amod" onclick="if(event.target===this)closeAMod()">
+  <div id="amod-c"><img id="amod-img" src="" alt=""><div id="amod-txt"><div id="amod-ttl"></div><div style="font-size:.58rem;letter-spacing:.13em;color:var(--muted);margin-bottom:13px" id="amod-d2"></div><div id="amod-exp"></div></div></div>
+  <div class="mod-x" onclick="closeAMod()">×</div>
+</div>
+<div id="mmod" onclick="if(event.target===this)closeMM()">
+  <div id="mmod-c"><img id="mmod-img" src="" alt=""><div id="mmod-info"><div><div id="mmod-ttl"></div><div id="mmod-dt"></div></div><div class="mod-x" style="position:static;background:none" onclick="closeMM()">×</div></div></div>
+</div>
+
+<!-- Settings -->
+<div id="spn">
+  <div style="font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--warm);font-weight:700;margin-bottom:12px">Settings</div>
+  <div class="srow"><label class="sl">NASA API Key</label><input type="password" class="si2" id="nki" placeholder="Your key"></div>
+  <button class="sbtn" onclick="applySt()">Apply &amp; Refresh</button>
+  <div style="margin-top:12px;font-size:.56rem;color:rgba(245,240,232,.2);line-height:1.65">Free key: api.nasa.gov<br>Stored only in your browser.</div>
+</div>
+
+<!-- Toast -->
+<div id="toast"></div>
+
+<!-- Three.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
+<script>
+var GM_KEY   = 'AIzaSyD9fWFZba8LusR8P0scQ-yJSwCv2saG6xo';
+var NASA_KEY = localStorage.getItem('nasa_key') || 'ayCkaMQ3IxsyZTYSIsPgsmwf8XeeE9yZEXi7Xkxi';
+
+/* ── helpers ── */
+function el(id){return document.getElementById(id)}
+function toast(msg,dur=2600){const t=el('toast');t.textContent=msg;t.classList.add('on');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('on'),dur)}
+function setDot(id,ok){const e=el('sd-'+id);if(e)e.classList.toggle('err',!ok)}
+
+/* ══ INTRO ══ */
+(function(){
+  const cnv=el('ic');
+  let W=window.innerWidth,H=window.innerHeight;
+  const ren=new THREE.WebGLRenderer({canvas:cnv,antialias:true,powerPreference:'high-performance'});
+  ren.setSize(W,H);ren.setPixelRatio(Math.min(window.devicePixelRatio,1.8));ren.setClearColor(0x000005,1);
+  const scene=new THREE.Scene(),cam=new THREE.PerspectiveCamera(42,W/H,.1,1500);
+  cam.position.set(0,0,7.8);
+
+  /* Stars */
+  const sg=new THREE.BufferGeometry(),sc=6000,sp=new Float32Array(sc*3);
+  for(let i=0;i<sc;i++){const r=260+Math.random()*240,t=Math.random()*Math.PI*2,p=Math.acos(2*Math.random()-1);sp[i*3]=r*Math.sin(p)*Math.cos(t);sp[i*3+1]=r*Math.sin(p)*Math.sin(t);sp[i*3+2]=r*Math.cos(p)}
+  sg.setAttribute('position',new THREE.BufferAttribute(sp,3));
+  const sm=new THREE.PointsMaterial({color:0xf5f0e8,size:.3,sizeAttenuation:true,transparent:true,opacity:0});
+  scene.add(new THREE.Points(sg,sm));
+
+  /* Earth */
+  const EM=new THREE.MeshPhongMaterial({color:0x1a4a7a,specular:0x112244,shininess:28,transparent:true,opacity:0});
+  const earth=new THREE.Mesh(new THREE.SphereGeometry(1.5,80,80),EM);scene.add(earth);
+  const CM=new THREE.MeshPhongMaterial({transparent:true,opacity:0,depthWrite:false});
+  const clouds=new THREE.Mesh(new THREE.SphereGeometry(1.525,56,56),CM);scene.add(clouds);
+  const AM=new THREE.MeshPhongMaterial({color:0x1a5fa8,transparent:true,opacity:0,side:THREE.BackSide,depthWrite:false});
+  scene.add(new THREE.Mesh(new THREE.SphereGeometry(1.58,40,40),AM));
+  const OM=new THREE.MeshPhongMaterial({color:0x0044aa,transparent:true,opacity:0,side:THREE.BackSide,depthWrite:false});
+  scene.add(new THREE.Mesh(new THREE.SphereGeometry(1.74,30,30),OM));
+
+  const TL=new THREE.TextureLoader();
+  const BASE='https://raw.githubusercontent.com/mrdoob/three.js/r134/examples/textures/planets/';
+  TL.load(BASE+'earth_atmos_2048.jpg',t=>{EM.map=t;EM.needsUpdate=true});
+  TL.load(BASE+'earth_specular_2048.jpg',t=>{EM.specularMap=t;EM.needsUpdate=true});
+  TL.load(BASE+'earth_normal_2048.jpg',t=>{EM.normalMap=t;EM.normalScale.set(.4,.4);EM.needsUpdate=true});
+  TL.load(BASE+'earth_clouds_1024.png',t=>{CM.alphaMap=t;CM.map=t;CM.needsUpdate=true});
+
+  const sun=new THREE.DirectionalLight(0xfff8e8,1.35);sun.position.set(6,3,5);scene.add(sun);
+  scene.add(new THREE.AmbientLight(0x112244,.4));
+  const fill=new THREE.DirectionalLight(0x223366,.1);fill.position.set(-5,-2,-4);scene.add(fill);
+
+  const KF=[[0,0,0,7.8],[2.5,0,.5,6.4],[6,2.2,.88,5.2],[10,.7,-.5,4.6],[14,-2,.98,5.1],[18,0,.22,6.0],[22,0,0,7.0]];
+  const CITIES=[{t:6,l:'NORTH AMERICA'},{t:10,l:'EUROPE · AFRICA'},{t:14,l:'ASIA PACIFIC'},{t:18,l:'FULL EARTH'}];
+  const STATS=[{t:1,s:'CONNECTING TO SATELLITE NETWORK...'},{t:5,s:'LOADING NATURAL EVENTS DATA...'},{t:9,s:'ACQUIRING EPIC CAMERA FEED...'},{t:13,s:'TRACKING NEAR-EARTH OBJECTS...'},{t:17,s:'CALIBRATING ISS POSITION...'},{t:20,s:'SYSTEM READY — WELCOME TO TERRANOVA'}];
+
+  function ease(t){return t<.5?2*t*t:-1+(4-2*t)*t}
+  function lerp(a,b,t){return a+(b-a)*t}
+  function getCam(e){
+    let k0=KF[0],k1=KF[KF.length-1];
+    for(let i=0;i<KF.length-1;i++)if(e>=KF[i][0]&&e<KF[i+1][0]){k0=KF[i];k1=KF[i+1];break}
+    const d=k1[0]-k0[0],ft=d>0?Math.min(1,(e-k0[0])/d):1,et=ease(ft);
+    return[lerp(k0[1],k1[1],et),lerp(k0[2],k1[2],et),lerp(k0[3],k1[3],et)];
+  }
+
+  const TOTAL=24;
+  let t0=null,alive=true,textOn=false,lastC=-1,lastS=-1;
+  const logo=el('il'),tag=el('it'),bar=el('ibar'),fill2=el('ibf'),iloc=el('iloc'),istat=el('istat'),orb=el('orb');
+
+  function frame(ts){
+    if(!alive)return;
+    requestAnimationFrame(frame);
+    if(!t0)t0=ts;
+    const e=(ts-t0)/1000;
+    sm.opacity=Math.min(.82,e/2.5);
+    const eo=Math.min(1,e/3.8);
+    EM.opacity=eo;CM.opacity=eo*.46;AM.opacity=eo*.2;OM.opacity=eo*.06;
+    earth.rotation.y+=.00092;clouds.rotation.y+=.0012;clouds.rotation.x+=.00005;
+    const[cx,cy,cz]=getCam(e);
+    if(window._mx){cam.position.set(cx+(window._mx/W-.5)*.1,cy-(window._my/H-.5)*.07,cz);}
+    else cam.position.set(cx,cy,cz);
+    cam.lookAt(0,0,0);
+    if(e>2.5&&!textOn){textOn=true;logo.classList.add('on');tag.classList.add('on');setTimeout(()=>bar.classList.add('on'),900);orb.classList.add('on')}
+    if(e>2.5)fill2.style.width=(Math.min(1,(e-2.5)/(TOTAL-2.5))*100)+'%';
+    for(let i=CITIES.length-1;i>=0;i--)if(e>=CITIES[i].t&&lastC!==i){lastC=i;iloc.style.opacity='0';setTimeout(()=>{iloc.textContent=CITIES[i].l;iloc.style.opacity='1'},500);break}
+    for(let i=STATS.length-1;i>=0;i--)if(e>=STATS[i].t&&lastS!==i){lastS=i;istat.textContent=STATS[i].s;break}
+    if(e>=TOTAL){endIntro();return}
+    ren.render(scene,cam);
+  }
+  requestAnimationFrame(frame);
+  window.addEventListener('mousemove',e=>{window._mx=e.clientX;window._my=e.clientY});
+
+  function endIntro(){
+    alive=false;
+    const ov=el('intro');ov.style.transition='opacity 1.3s ease';ov.style.opacity='0';
+    el('app').style.display='flex';
+    setTimeout(()=>el('app').classList.add('on'),80);
+    setTimeout(()=>{ov.style.display='none';try{ren.dispose()}catch(e){}},1500);
+  }
+  window.skipIntro=endIntro;
+  window.addEventListener('resize',()=>{W=window.innerWidth;H=window.innerHeight;ren.setSize(W,H);cam.aspect=W/H;cam.updateProjectionMatrix()});
+})();
+
+/* ══ NAV MINI EARTH ══ */
+(function(){
+  const cnv=el('nav-canvas');
+  const ren=new THREE.WebGLRenderer({canvas:cnv,antialias:true,alpha:true,powerPreference:'high-performance'});
+  ren.setSize(40,40);ren.setPixelRatio(window.devicePixelRatio);ren.setClearColor(0x000000,0);
+  const scene=new THREE.Scene(),cam=new THREE.PerspectiveCamera(45,1,.1,100);
+  cam.position.set(0,0,2.8);
+  const EM2=new THREE.MeshPhongMaterial({color:0x1a4a7a,specular:0x112244,shininess:20});
+  const earth2=new THREE.Mesh(new THREE.SphereGeometry(1,48,48),EM2);scene.add(earth2);
+  const CM2=new THREE.MeshPhongMaterial({transparent:true,opacity:.4,depthWrite:false});
+  const clouds2=new THREE.Mesh(new THREE.SphereGeometry(1.03,36,36),CM2);scene.add(clouds2);
+  const sun2=new THREE.DirectionalLight(0xfff8e8,1.2);sun2.position.set(4,2,3);scene.add(sun2);
+  scene.add(new THREE.AmbientLight(0x112244,.4));
+  const TL2=new THREE.TextureLoader();
+  const BASE='https://raw.githubusercontent.com/mrdoob/three.js/r134/examples/textures/planets/';
+  TL2.load(BASE+'earth_atmos_2048.jpg',t=>{EM2.map=t;EM2.needsUpdate=true});
+  TL2.load(BASE+'earth_clouds_1024.png',t=>{CM2.alphaMap=t;CM2.map=t;CM2.needsUpdate=true});
+  function loop(){requestAnimationFrame(loop);earth2.rotation.y+=.008;clouds2.rotation.y+=.011;ren.render(scene,cam)}
+  loop();
+})();
+
+/* ══ WELCOME ══ */
+function enterDash(){el('welcome').classList.add('gone')}
+
+/* ══ PAGE NAVIGATION ══ */
+const PAGES=['earth','space','events','missions','guide'];
+function goPage(name){
+  PAGES.forEach(p=>{
+    el('p-'+p).classList.toggle('on',p===name);
+    el('nb-'+p).classList.toggle('on',p===name);
+  });
+  if(name==='events'&&S.map2)google.maps.event.trigger(S.map2,'resize');
+}
+
+/* ══ STATE ══ */
+const S={
+  map:null,map2:null,geo:null,ac:null,iw:null,
+  sat:false,hm:false,ms:false,dn:false,evhm:false,
+  mspts:[],msmk:[],mspl:null,dnov:null,
+  evmk:{},filters:new Set(),
+  events:[],asts:[],epicImgs:[],apodData:null,hmLayer:null,evHmLayer:null,
+  issMarker:null,issData:null,
+};
+
+/* ── Fetch with cache ── */
+async function go(url,key,maxAge=300000){
+  if(key){try{const c=JSON.parse(localStorage.getItem('c_'+key)||'null');if(c&&Date.now()-c.ts<maxAge)return c.d}catch(e){}}
+  const ctrl=new AbortController(),tid=setTimeout(()=>ctrl.abort(),10000);
+  try{
+    const r=await fetch(url,{signal:ctrl.signal});clearTimeout(tid);
+    if(!r.ok)throw new Error(r.status);
+    const d=await r.json();
+    if(key)localStorage.setItem('c_'+key,JSON.stringify({d,ts:Date.now()}));
+    return d;
+  }catch(e){
+    clearTimeout(tid);
+    if(key){try{const c=JSON.parse(localStorage.getItem('c_'+key)||'null');if(c)return c.d}catch(e2){}}
+    throw e;
+  }
+}
+
+/* ══ GOOGLE MAPS ══ */
+const MSTYLES=[
+  {elementType:'geometry',stylers:[{color:'#09102b'}]},
+  {elementType:'labels.text.fill',stylers:[{color:'#a8bdd4'}]},
+  {elementType:'labels.text.stroke',stylers:[{color:'#050a1a'}]},
+  {featureType:'administrative',elementType:'geometry.stroke',stylers:[{color:'#1a3060'}]},
+  {featureType:'administrative.country',elementType:'geometry.stroke',stylers:[{color:'#253a72'},{weight:.9}]},
+  {featureType:'poi',stylers:[{visibility:'off'}]},
+  {featureType:'poi.park',elementType:'geometry',stylers:[{color:'#0b2218'}]},
+  {featureType:'road',elementType:'geometry',stylers:[{color:'#172240'}]},
+  {featureType:'road.arterial',elementType:'geometry',stylers:[{color:'#1e3060'}]},
+  {featureType:'road.highway',elementType:'geometry',stylers:[{color:'#1a5fb4'}]},
+  {featureType:'road.highway',elementType:'geometry.stroke',stylers:[{color:'#08205a'}]},
+  {featureType:'road.highway',elementType:'labels.text.fill',stylers:[{color:'#f5f0e8'}]},
+  {featureType:'road.local',elementType:'labels',stylers:[{visibility:'off'}]},
+  {featureType:'transit',stylers:[{visibility:'off'}]},
+  {featureType:'water',elementType:'geometry',stylers:[{color:'#0b1f36'}]},
+  {featureType:'water',elementType:'labels.text.fill',stylers:[{color:'#3a5070'}]},
+  {featureType:'landscape.man_made',elementType:'geometry',stylers:[{color:'#0e1830'}]},
+  {featureType:'landscape.natural',elementType:'geometry',stylers:[{color:'#091520'}]},
+  {featureType:'landscape.natural.terrain',elementType:'geometry',stylers:[{color:'#0b2218'}]},
+];
+
+const MAP_OPTS={styles:MSTYLES,mapTypeControl:false,fullscreenControl:false,zoomControl:true,zoomControlOptions:{position:5},streetViewControl:true,streetViewControlOptions:{position:5},scaleControl:true,gestureHandling:'greedy',backgroundColor:'#070c1a',clickableIcons:false};
+
+function initMap(){
+  /* Main Earth map */
+  S.map=new google.maps.Map(el('map'),{...MAP_OPTS,center:{lat:20,lng:0},zoom:2,minZoom:1,maxZoom:20});
+  /* Events map */
+  S.map2=new google.maps.Map(el('ev-map-canvas'),{...MAP_OPTS,center:{lat:20,lng:0},zoom:2,minZoom:1,maxZoom:18});
+
+  S.geo=new google.maps.Geocoder();
+  S.iw=new google.maps.InfoWindow({maxWidth:230,disableAutoPan:false});
+
+  S.map.addListener('mousemove',e=>{
+    const la=e.latLng.lat().toFixed(4),ln=e.latLng.lng().toFixed(4);
+    el('coords').textContent=`Lat ${la} · Lng ${ln}`;
+  });
+  S.map.addListener('click',e=>{if(S.ms){msClick(e.latLng);return}mapClick(e.latLng)});
+
+  /* Search on Earth page */
+  const inp=el('srch2');
+  if(inp&&google.maps.places){
+    S.ac=new google.maps.places.Autocomplete(inp,{fields:['geometry','name','address_components']});
+    S.ac.bindTo('bounds',S.map);
+    S.ac.addListener('place_changed',()=>{
+      const p=S.ac.getPlace();if(!p||!p.geometry)return;
+      S.map.panTo(p.geometry.location);S.map.setZoom(11);mapClick(p.geometry.location);
+    });
+  }
+
+  setDot('gm',true);
+  boot();
+}
+
+/* ── Map click ── */
+function mapClick(ll){
+  const la=ll.lat(),ln=ll.lng();
+  el('cp-lat').textContent=la.toFixed(6);
+  el('cp-lng').textContent=ln.toFixed(6);
+  el('cp-cty').textContent='—';el('cpn').textContent='Locating...';
+  el('cpan').classList.add('on');
+  S.geo.geocode({location:{lat:la,lng:ln}},(res,st)=>{
+    if(st==='OK'&&res[0]){
+      let country='—',local=res[0].formatted_address.split(',')[0];
+      for(const c of res[0].address_components){
+        if(c.types.includes('country'))country=c.long_name;
+        if(c.types.includes('locality'))local=c.long_name;
+      }
+      el('cpn').textContent=local;el('cp-cty').textContent=country;
+    }else{el('cpn').textContent=`${la.toFixed(3)}°, ${ln.toFixed(3)}°`}
+  });
+  const off=Math.round(ln/15);
+  const lc=new Date(Date.now()+off*3600000);
+  el('cp-tm').textContent=lc.toUTCString().slice(17,25);
+  el('cp-tz').textContent=`UTC${off>=0?'+':''}${off}`;
+  if(S.epicImgs.length){
+    const ep=S.epicImgs[0],ds=ep.date.replace(/[-: ]/g,'').slice(0,8);
+    el('epr-img').src=`https://epic.gsfc.nasa.gov/archive/natural/${ds.slice(0,4)}/${ds.slice(4,6)}/${ds.slice(6,8)}/jpg/${ep.image}.jpg`;
+  }
+}
+function closeCp(){el('cpan').classList.remove('on')}
+
+/* ══ EONET ══ */
+const EI={
+  wildfires:{e:'🔥',c:'#ff6a2f'},severeStorms:{e:'🌀',c:'#4db8f0'},
+  earthquakes:{e:'🔴',c:'#e84444'},volcanoes:{e:'🌋',c:'#ff7733'},
+  floods:{e:'💧',c:'#38b6f5'},other:{e:'◦',c:'#7a9ab5'},
+};
+const BJ_MAP={wildfires:'bj-w',severeStorms:'bj-s',earthquakes:'bj-q',volcanoes:'bj-v',floods:'bj-f',other:'bj-o'};
+
+function evType(cats){
+  if(!cats||!cats.length)return'other';
+  const id=(cats[0].id||'').toLowerCase();
+  if(id==='wildfires')return'wildfires';
+  if(id==='severestorms'||id.includes('storm')||id.includes('hurricane')||id.includes('cyclone')||id.includes('typhoon'))return'severeStorms';
+  if(id==='earthquakes'||id.includes('earthquake'))return'earthquakes';
+  if(id==='volcanoes'||id.includes('volcan'))return'volcanoes';
+  if(id==='floods'||id.includes('flood'))return'floods';
+  return'other';
+}
+
+function mkIcon(tp){
+  const i=EI[tp]||EI.other;
+  return'data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(
+    `<svg xmlns="http://www.w3.org/2000/svg" width="34" height="34"><circle cx="17" cy="17" r="15" fill="${i.c}22" stroke="${i.c}" stroke-width="1.5"/><text x="17" y="22" text-anchor="middle" font-size="14">${i.e}</text></svg>`
+  );
+}
+
+async function fetchEONET(){
+  try{
+    const d=await go('https://eonet.gsfc.nasa.gov/api/v3/events?status=open&limit=300','eonet',300000);
+    S.events=d.events||[];
+    const cnt={};
+    S.events.forEach(ev=>{const t=evType(ev.categories);cnt[t]=(cnt[t]||0)+1});
+    Object.keys(BJ_MAP).forEach(t=>{const b=el(BJ_MAP[t]);if(b)b.textContent=cnt[t]||0});
+    el('st-ev').textContent=`${S.events.length} events`;
+    setDot('eo',true);
+    el('lupd').textContent='Updated '+new Date().toLocaleTimeString();
+    renderEvents();
+  }catch(e){console.warn('EONET',e);setDot('eo',false)}
+}
+
+function renderEvents(){
+  /* Clear old markers from BOTH maps */
+  Object.values(S.evmk).forEach(a=>a.forEach(m=>m.setMap(null)));
+  S.evmk={};
+  el('ev-list').innerHTML='';
+  let shown=0;
+
+  if(S.filters.size===0){
+    el('ev-list').innerHTML='<div style="padding:24px 12px;text-align:center;font-size:.72rem;color:rgba(245,240,232,.28);line-height:1.7">Select a category above<br>to load events on the map</div>';
+    el('ev-total').textContent='Select categories to show events';
+    return;
+  }
+
+  S.events.forEach(ev=>{
+    const tp=evType(ev.categories);
+    if(!S.filters.has(tp))return;
+    const gm=ev.geometry;if(!gm||!gm.length)return;
+    const g=gm[gm.length-1];if(!g||!g.coordinates)return;
+    const coords=Array.isArray(g.coordinates[0])?g.coordinates[0]:g.coordinates;
+    if(!Array.isArray(coords)||coords.length<2)return;
+    const[ln,la]=coords;if(isNaN(la)||isNaN(ln))return;
+
+    const icon={url:mkIcon(tp),scaledSize:new google.maps.Size(34,34),anchor:new google.maps.Point(17,17)};
+    /* marker on events map */
+    const mk2=new google.maps.Marker({position:{lat:la,lng:ln},map:S.map2,icon,title:ev.title,optimized:true});
+    /* marker on earth map (hidden by default) */
+    const mk1=new google.maps.Marker({position:{lat:la,lng:ln},map:S.map,icon,title:ev.title,optimized:true});
+
+    const info=EI[tp]||EI.other;
+    const ihtml=`<div style="padding:12px 14px;font-family:system-ui;min-width:175px"><div style="font-weight:700;font-size:.8rem;color:#f5f0e8;margin-bottom:4px">${info.e} ${ev.title}</div><div style="font-size:.65rem;color:#a8bdd4;margin-bottom:3px">${ev.categories[0]?.title||'Event'}</div><div style="font-size:.63rem;color:#a8bdd4;margin-bottom:7px">${g.date?g.date.slice(0,10):'—'}</div>${ev.sources&&ev.sources[0]?`<a href="${ev.sources[0].url}" target="_blank" style="color:#7ab3f0;font-size:.63rem">Source ↗</a>`:''}</div>`;
+    [mk1,mk2].forEach((mk,mi)=>{
+      const mapRef=mi===0?S.map:S.map2;
+      mk.addListener('click',()=>{
+        S.iw.setContent(ihtml);S.iw.open(mapRef,mk);
+        mapRef.panTo({lat:la,lng:ln});
+      });
+    });
+    if(!S.evmk[tp])S.evmk[tp]=[];
+    S.evmk[tp].push(mk1,mk2);
+    shown++;
+
+    const d=document.createElement('div');d.className='ei';
+    d.innerHTML=`<div class="eih"><span>${info.e}</span><span class="ein">${ev.title}</span></div><div class="eid">${g.date?g.date.slice(0,10):'—'}</div>`;
+    d.onclick=()=>{
+      goPage('events');
+      S.map2.panTo({lat:la,lng:ln});S.map2.setZoom(6);
+      google.maps.event.trigger(mk2,'click');
+    };
+    el('ev-list').appendChild(d);
+  });
+
+  el('ev-total').textContent=`${shown} events shown`;
+}
+
+function filt(chip){
+  const t=chip.dataset.t;
+  if(S.filters.has(t)){S.filters.delete(t);chip.classList.remove('on')}
+  else{S.filters.add(t);chip.classList.add('on')}
+  renderEvents();
+}
+
+/* ══ APOD ══ */
+let _aTimer=null;
+async function fetchAPOD(date){
+  const today=new Date().toISOString().split('T')[0];
+  const dp=date||today;
+  clearTimeout(_aTimer);
+  _aTimer=setTimeout(async()=>{
+    try{
+      const d=await go(`https://api.nasa.gov/planetary/apod?api_key=${NASA_KEY}&date=${dp}`,`apod_${dp}`,86400000);
+      S.apodData=d;
+      const img=el('apod-img'),sk=el('apod-sk'),ov=el('apod-ov'),exp=el('apod-exp');
+      const url=d.media_type==='video'?(d.thumbnail_url||''):(d.hdurl||d.url);
+      img.onload=()=>{sk.style.display='none';img.style.display='block';ov.style.display='flex'};
+      img.onerror=()=>{sk.innerHTML=`<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--muted);font-size:.72rem;padding:12px">📹 ${d.title}</div>`};
+      img.src=url;
+      el('apod-ttl').textContent=d.title;
+      el('apod-dt').textContent=d.date+(d.copyright?' · ©'+d.copyright.replace(/\n/g,' '):'');
+      exp.textContent=d.explanation||'';
+      setDot('ap',true);
+    }catch(e){console.warn('APOD',e);setDot('ap',false)}
+  },300);
+}
+function openAMod(){
+  if(!S.apodData)return;
+  const d=S.apodData;
+  el('amod-img').src=d.media_type==='video'?(d.thumbnail_url||''):(d.hdurl||d.url);
+  el('amod-ttl').textContent=d.title;
+  el('amod-d2').textContent=d.date+(d.copyright?' · '+d.copyright.replace(/\n/g,' '):'');
+  el('amod-exp').textContent=d.explanation;
+  el('amod').classList.add('on');
+}
+function closeAMod(){el('amod').classList.remove('on')}
+
+/* ══ NeoWs ══ */
+let rafAst=null,radA=0,hovAst=null;
+async function fetchNeoWs(){
+  const today=new Date().toISOString().split('T')[0];
+  try{
+    const d=await go(`https://api.nasa.gov/neo/rest/v1/feed?start_date=${today}&end_date=${today}&api_key=${NASA_KEY}`,`neo_${today}`,1800000);
+    S.asts=d.near_earth_objects[today]||[];
+    el('an').textContent=S.asts.length;
+    el('st-as')&&(el('st-as').textContent=`${S.asts.length} asteroids`);
+    const hz=S.asts.some(a=>a.is_potentially_hazardous_asteroid);
+    el('hzd-ind').style.display=hz?'flex':'none';
+    el('hzd2').style.display=hz?'block':'none';
+    setDot('ne',true);
+    startRadar();
+  }catch(e){console.warn('NeoWs',e);setDot('ne',false)}
+}
+function startRadar(){
+  const cnv=el('acan'),ctx=cnv.getContext('2d');
+  const W=cnv.width,H=cnv.height,cx=W/2,cy=H/2,R=W/2-7;
+  const dots=S.asts.map(a=>{
+    const dist=parseFloat(a.close_approach_data?.[0]?.miss_distance?.kilometers||1e7);
+    const logD=Math.max(0,Math.min(1,(Math.log10(dist)-4)/5));
+    const r=16+(R-22)*logD,ang=Math.random()*Math.PI*2;
+    const dm=a.estimated_diameter?.meters;
+    const sz=dm?Math.max(2.5,Math.min(8,2.5+Math.log10(dm.estimated_diameter_max+1))):3;
+    return{x:cx+r*Math.cos(ang),y:cy+r*Math.sin(ang),r:sz,hz:a.is_potentially_hazardous_asteroid,d:a,ang,op:.1};
+  });
+  cnv.onmousemove=e=>{
+    const rc=cnv.getBoundingClientRect(),mx=(e.clientX-rc.left)*(W/rc.width),my=(e.clientY-rc.top)*(H/rc.height);
+    hovAst=null;
+    for(const d of dots)if(Math.hypot(mx-d.x,my-d.y)<d.r+5){hovAst=d;cnv.style.cursor='pointer';break}
+    if(!hovAst)cnv.style.cursor='default';
+  };
+  cnv.onclick=()=>{if(hovAst)showAst(hovAst.d)};
+  if(rafAst)cancelAnimationFrame(rafAst);
+  function draw(){
+    rafAst=requestAnimationFrame(draw);ctx.clearRect(0,0,W,H);
+    ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.fillStyle='#030810';ctx.fill();
+    [.25,.5,.75,1].forEach(f=>{ctx.beginPath();ctx.arc(cx,cy,R*f,0,Math.PI*2);ctx.strokeStyle='rgba(26,95,180,.1)';ctx.lineWidth=.7;ctx.stroke()});
+    for(let i=0;i<8;i++){const a=(i/8)*Math.PI*2;ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx+R*Math.cos(a),cy+R*Math.sin(a));ctx.strokeStyle='rgba(26,95,180,.07)';ctx.lineWidth=.7;ctx.stroke()}
+    radA+=.016;
+    ctx.save();ctx.translate(cx,cy);
+    for(let i=0;i<28;i++){const a=radA-i*.036;ctx.beginPath();ctx.moveTo(0,0);ctx.arc(0,0,R,a-.036,a,false);ctx.fillStyle=`rgba(26,95,180,${(28-i)/28*.1})`;ctx.fill()}
+    ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(R*Math.cos(radA),R*Math.sin(radA));ctx.strokeStyle='rgba(26,95,180,.78)';ctx.lineWidth=1.3;ctx.stroke();
+    ctx.restore();
+    const eg=ctx.createRadialGradient(cx,cy,0,cx,cy,10);
+    eg.addColorStop(0,'#5090cc');eg.addColorStop(1,'#1a3a66');
+    ctx.beginPath();ctx.arc(cx,cy,10,0,Math.PI*2);ctx.fillStyle=eg;ctx.fill();
+    ctx.strokeStyle='rgba(26,95,180,.38)';ctx.lineWidth=1;ctx.stroke();
+    dots.forEach(dot=>{
+      const ad=((dot.ang-radA)%(Math.PI*2)+Math.PI*2)%(Math.PI*2);
+      if(ad<.14)dot.op=1; else dot.op=Math.max(.1,dot.op-.0018);
+      const hov=hovAst===dot,col=dot.hz?'#d94f4f':'#3db87a';
+      if(dot.op>.2||hov){const g=ctx.createRadialGradient(dot.x,dot.y,0,dot.x,dot.y,dot.r*3.5);g.addColorStop(0,col+'50');g.addColorStop(1,col+'00');ctx.beginPath();ctx.arc(dot.x,dot.y,dot.r*3.5,0,Math.PI*2);ctx.fillStyle=g;ctx.fill()}
+      ctx.beginPath();ctx.arc(dot.x,dot.y,hov?dot.r*1.4:dot.r,0,Math.PI*2);
+      ctx.fillStyle=col+Math.floor(dot.op*255).toString(16).padStart(2,'0');ctx.fill();
+      if(hov){ctx.strokeStyle=col;ctx.lineWidth=1.3;ctx.stroke()}
+    });
+    ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.strokeStyle='rgba(26,95,180,.2)';ctx.lineWidth=1;ctx.stroke();
+  }
+  draw();
+}
+function showAst(a){
+  const ap=a.close_approach_data?.[0],dm=a.estimated_diameter?.meters;
+  el('ainf').innerHTML=`<div style="font-weight:700;color:${a.is_potentially_hazardous_asteroid?'#d94f4f':'#f5f0e8'};margin-bottom:7px;font-size:.78rem">${a.is_potentially_hazardous_asteroid?'⚠ ':''}${a.name.replace(/[()]/g,'')}</div>
+    <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="color:rgba(245,240,232,.32);font-size:.6rem">DIAMETER</span><span style="font-size:.7rem">${dm?Math.round(dm.estimated_diameter_min)+'–'+Math.round(dm.estimated_diameter_max)+' m':'—'}</span></div>
+    <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="color:rgba(245,240,232,.32);font-size:.6rem">VELOCITY</span><span style="font-size:.7rem">${ap?parseInt(ap.relative_velocity?.kilometers_per_hour).toLocaleString()+' km/h':'—'}</span></div>
+    <div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="color:rgba(245,240,232,.32);font-size:.6rem">MISS DIST</span><span style="font-size:.7rem">${ap?parseInt(ap.miss_distance?.kilometers).toLocaleString()+' km':'—'}</span></div>
+    <div style="display:flex;justify-content:space-between"><span style="color:rgba(245,240,232,.32);font-size:.6rem">APPROACH</span><span style="font-size:.7rem">${ap?ap.close_approach_date:'—'}</span></div>`;
+}
+
+/* ══ EPIC ══ */
+async function fetchEPIC(){
+  try{
+    const d=await go('https://epic.gsfc.nasa.gov/api/natural/images','epic',3600000);
+    if(!d||!d.length)return;
+    S.epicImgs=d.slice(0,5);
+    const ep=d[0],ds=ep.date.replace(/[-: ]/g,'').slice(0,8);
+    const u=`https://epic.gsfc.nasa.gov/archive/natural/${ds.slice(0,4)}/${ds.slice(4,6)}/${ds.slice(6,8)}/jpg/${ep.image}.jpg`;
+    el('epic-img').src=u;
+    el('epic-date').textContent=ep.date.slice(0,10);
+    el('st-ep').textContent='DSCOVR '+ep.date.slice(0,10);
+    setDot('ep',true);
+    let idx=0;
+    setInterval(()=>{
+      idx=(idx+1)%S.epicImgs.length;
+      const e2=S.epicImgs[idx],ds2=e2.date.replace(/[-: ]/g,'').slice(0,8);
+      const u2=`https://epic.gsfc.nasa.gov/archive/natural/${ds2.slice(0,4)}/${ds2.slice(4,6)}/${ds2.slice(6,8)}/jpg/${e2.image}.jpg`;
+      const img=el('epic-img');img.style.opacity='0';
+      setTimeout(()=>{img.src=u2;img.style.opacity='.82';el('epic-date').textContent=e2.date.slice(0,10)},900);
+    },5500);
+  }catch(e){console.warn('EPIC',e);setDot('ep',false)}
+}
+
+/* ══ ISS ══ */
+const ISS_ICON='data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(
+  '<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36"><circle cx="18" cy="18" r="16" fill="rgba(245,194,66,0.14)" stroke="#f5c242" stroke-width="1.5"/><text x="18" y="23" text-anchor="middle" font-size="14">🛸</text></svg>'
+);
+async function fetchISS(){
+  try{
+    const d=await fetch('https://api.wheretheiss.at/v1/satellites/25544').then(r=>r.json());
+    S.issData=d;
+    const la=d.latitude,ln=d.longitude;
+    el('iss-ll').textContent=`${la.toFixed(3)}° ${la>=0?'N':'S'}  ·  ${ln.toFixed(3)}° ${ln>=0?'E':'W'}`;
+    el('iss-spd').textContent=`${(d.velocity||0).toFixed(0)} km/h  ·  Altitude ${(d.altitude||0).toFixed(0)} km`;
+    el('st-iss').textContent=`ISS ${la.toFixed(1)}°, ${ln.toFixed(1)}°`;
+    setDot('iss',true);
+    if(!S.issMarker){
+      S.issMarker=new google.maps.Marker({position:{lat:la,lng:ln},map:S.map,icon:{url:ISS_ICON,scaledSize:new google.maps.Size(36,36),anchor:new google.maps.Point(18,18)},title:'ISS',zIndex:200});
+      S.issMarker.addListener('click',()=>{
+        S.iw.setContent(`<div style="padding:12px 14px;font-family:system-ui"><div style="font-weight:700;font-size:.8rem;color:#f5f0e8;margin-bottom:5px">🛸 International Space Station</div><div style="font-size:.66rem;color:#a8bdd4;margin-bottom:2px">Altitude: ${d.altitude?.toFixed(1)} km</div><div style="font-size:.66rem;color:#a8bdd4;margin-bottom:2px">Speed: ${d.velocity?.toFixed(0)} km/h</div><div style="font-size:.65rem;color:#c8a96e">Orbital period: ~92 minutes</div></div>`);
+        S.iw.open(S.map,S.issMarker);
+      });
+    }else S.issMarker.setPosition({lat:la,lng:ln});
+  }catch(e){setDot('iss',false)}
+}
+function flyISS(){
+  if(!S.map||!S.issData){toast('ISS position loading...');return}
+  goPage('earth');
+  S.map.panTo({lat:S.issData.latitude,lng:S.issData.longitude});
+  S.map.setZoom(4);
+  setTimeout(()=>google.maps.event.trigger(S.issMarker,'click'),400);
+}
+
+/* ══ MARS ══ */
+async function fetchMars(){
+  try{
+    const d=await go(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/latest_photos?api_key=${NASA_KEY}`,'mars',3600000);
+    const photos=(d.latest_photos||[]).slice(0,8);if(!photos.length)return;
+    el('mars-sol').textContent='Sol '+photos[0].sol;
+    const grid=el('mars-grid');grid.innerHTML='';
+    photos.forEach(p=>{
+      const c=document.createElement('div');c.className='mars-card';
+      c.innerHTML=`<img src="${p.img_src}" loading="lazy" alt="${p.camera.name}"><div class="mars-ci">${p.camera.name} · Sol ${p.sol}</div>`;
+      c.onclick=()=>{el('mmod-img').src=p.img_src;el('mmod-ttl').textContent=p.camera.full_name;el('mmod-dt').textContent=`Sol ${p.sol} · ${p.earth_date} · Curiosity`;el('mmod').classList.add('on')};
+      grid.appendChild(c);
+    });
+  }catch(e){console.warn('Mars',e);el('mars-grid').innerHTML='<div style="padding:20px;text-align:center;color:var(--muted);font-size:.72rem;grid-column:1/3">Could not load Mars photos</div>'}
+}
+function closeMM(){el('mmod').classList.remove('on')}
+
+/* ══ LAUNCHES ══ */
+async function fetchLaunches(){
+  try{
+    const d=await go('https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=6&format=json','launches',1800000);
+    const results=d.results||[];
+    const list=el('launch-list');
+    if(!results.length){list.innerHTML='<div style="padding:20px;text-align:center;color:var(--muted);font-size:.72rem">No upcoming launches found</div>';return}
+    list.innerHTML='';
+    results.forEach(l=>{
+      const net=l.net?new Date(l.net):null,now=Date.now();
+      let cd='—';
+      if(net){const diff=net-now;if(diff>0){const d2=Math.floor(diff/86400000),h=Math.floor(diff%86400000/3600000),m=Math.floor(diff%3600000/60000);cd=d2>0?`T-${d2}d ${h}h ${m}m`:`T-${h}h ${m}m`}else cd='LAUNCHED'}
+      const c=document.createElement('div');c.className='lc';
+      c.innerHTML=`<div class="lc-name">${l.name||'Unknown'}</div><div class="lc-rocket">${l.rocket?.configuration?.name||''} · ${l.launch_service_provider?.name||''}</div><div class="lc-cd"><span>🚀</span>${cd}</div><div class="lc-net">${net?net.toUTCString().slice(0,25):''}</div>`;
+      list.appendChild(c);
+    });
+  }catch(e){el('launch-list').innerHTML='<div style="padding:20px;text-align:center;color:var(--muted);font-size:.72rem">Launch data temporarily unavailable</div>'}
+}
+
+/* ══ MAP CONTROLS ══ */
+function mtype(type,chip){
+  if(!S.map)return;
+  document.querySelectorAll('.mp').forEach(p=>p.classList.remove('on'));
+  chip.classList.add('on');S.map.setMapTypeId(type);
+}
+function doSat(){
+  if(!S.map)return;
+  S.sat=!S.sat;S.map.setMapTypeId(S.sat?'satellite':'roadmap');
+  el('b-sat').classList.toggle('on',S.sat);toast(S.sat?'Satellite view':'Standard map');
+}
+function doHM(){
+  if(!S.map)return;S.hm=!S.hm;el('b-hm').classList.toggle('on',S.hm);
+  if(S.hm){
+    const pts=S.events.filter(e=>evType(e.categories)==='earthquakes').flatMap(e=>(e.geometry||[]).map(g=>{const c=Array.isArray(g.coordinates[0])?g.coordinates[0]:g.coordinates;return c&&c.length>=2?new google.maps.LatLng(c[1],c[0]):null}).filter(Boolean));
+    S.hmLayer=new google.maps.visualization.HeatmapLayer({data:pts,map:S.map,radius:28,gradient:['rgba(0,0,0,0)','rgba(217,79,79,.25)','rgba(217,79,79,.65)','rgba(217,79,79,1)']});
+    toast('Earthquake heatmap on');
+  }else{if(S.hmLayer){S.hmLayer.setMap(null);S.hmLayer=null}toast('Heatmap off')}
+}
+function doMS(){
+  if(!S.map)return;S.ms=!S.ms;el('b-ms').classList.toggle('on',S.ms);
+  if(!S.ms){S.mspts=[];S.msmk.forEach(m=>m.setMap(null));S.msmk=[];if(S.mspl){S.mspl.setMap(null);S.mspl=null}el('dist').style.display='none';S.map.setOptions({cursor:null});toast('Measure off')}
+  else{S.map.setOptions({cursor:'crosshair'});toast('Click 2 points to measure distance')}
+}
+function msClick(ll){
+  S.mspts.push(ll);
+  S.msmk.push(new google.maps.Marker({position:ll,map:S.map,icon:{path:google.maps.SymbolPath.CIRCLE,scale:5,fillColor:'#1a5fb4',fillOpacity:1,strokeColor:'#f5f0e8',strokeWeight:1.5}}));
+  if(S.mspts.length>=2){
+    if(S.mspl)S.mspl.setMap(null);
+    S.mspl=new google.maps.Polyline({path:S.mspts,geodesic:true,strokeColor:'#1a5fb4',strokeOpacity:.88,strokeWeight:2,map:S.map});
+    const dist=google.maps.geometry.spherical.computeLength(S.mspts);
+    const d=el('dist');d.textContent=`${(dist/1000).toFixed(2)} km · ${(dist/1609.34).toFixed(2)} mi`;d.style.display='block';
+  }
+}
+function doDN(){
+  if(!S.map)return;S.dn=!S.dn;el('b-dn').classList.toggle('on',S.dn);
+  if(!S.dn){if(S.dnov){S.dnov.setMap(null);S.dnov=null}toast('Day/Night off');return}
+  const now=new Date();
+  const day=Math.floor((now-new Date(now.getFullYear(),0,0))/86400000);
+  const decl=-23.45*Math.cos(2*Math.PI/365*(day+10))*Math.PI/180;
+  const hr=now.getUTCHours()+now.getUTCMinutes()/60,sunLng=-(hr-12)*15,sunLat=decl*180/Math.PI;
+  S.dnov=new google.maps.Polygon({
+    paths:buildNightPoly(sunLat,sunLng),map:S.map,
+    fillColor:'#000020',fillOpacity:.32,strokeColor:'#1a5fb4',strokeOpacity:.45,strokeWeight:1.2,
+  });
+  toast('Day/Night terminator on');
+}
+function buildNightPoly(sLat,sLng){
+  const pts=[],SR=sLng*Math.PI/180,SD=sLat*Math.PI/180;
+  for(let i=0;i<=360;i++){
+    const a=i*Math.PI/180;
+    const lat=Math.asin(-Math.sin(SD)*Math.cos(Math.PI/2)+Math.cos(SD)*Math.sin(Math.PI/2)*Math.cos(a));
+    const lng=SR+Math.atan2(Math.sin(a)*Math.sin(Math.PI/2)*Math.cos(SD),Math.cos(Math.PI/2)+Math.sin(SD)*Math.sin(lat));
+    pts.push({lat:lat*180/Math.PI,lng:lng*180/Math.PI});
+  }
+  return pts;
+}
+function doEvHM(){
+  if(!S.map2)return;S.evhm=!S.evhm;el('b-ev-hm').classList.toggle('on',S.evhm);
+  if(S.evhm){
+    const pts=S.events.filter(e=>evType(e.categories)==='earthquakes').flatMap(e=>(e.geometry||[]).map(g=>{const c=Array.isArray(g.coordinates[0])?g.coordinates[0]:g.coordinates;return c&&c.length>=2?new google.maps.LatLng(c[1],c[0]):null}).filter(Boolean));
+    S.evHmLayer=new google.maps.visualization.HeatmapLayer({data:pts,map:S.map2,radius:28,gradient:['rgba(0,0,0,0)','rgba(217,79,79,.25)','rgba(217,79,79,.65)','rgba(217,79,79,1)']});
+    toast('Earthquake heatmap on events map');
+  }else{if(S.evHmLayer){S.evHmLayer.setMap(null);S.evHmLayer=null}toast('Heatmap off')}
+}
+
+/* ══ SETTINGS ══ */
+function doSet(){el('spn').classList.toggle('on')}
+function applySt(){
+  const k=el('nki').value.trim();
+  if(k){NASA_KEY=k;localStorage.setItem('nasa_key',k);toast('Keys saved — refreshing data');fetchAPOD();fetchNeoWs();fetchMars()}
+  el('spn').classList.remove('on');
+}
+
+/* ══ BOOT ══ */
+function boot(){
+  el('nki').value=NASA_KEY;
+  const today=new Date().toISOString().split('T')[0];
+  el('adp').max=today;el('adp').value=today;
+  fetchEONET();fetchAPOD();fetchNeoWs();fetchEPIC();fetchMars();fetchLaunches();
+  setTimeout(()=>{if(S.map)fetchISS()},800);
+  setInterval(()=>{if(S.map)fetchISS()},5000);
+  setInterval(fetchEONET,5*60*1000);
+  setInterval(fetchNeoWs,30*60*1000);
+  setInterval(fetchLaunches,30*60*1000);
+  const now=new Date(),mn=new Date(now);mn.setUTCHours(24,0,0,0);
+  setTimeout(()=>{fetchAPOD();setInterval(fetchAPOD,86400000)},mn-now);
+}
+
+/* Load Maps */
+(function(){
+  const s=document.createElement('script');
+  s.src=`https://maps.googleapis.com/maps/api/js?key=${GM_KEY}&libraries=places,visualization,geometry&callback=initMap&v=weekly`;
+  s.async=true;s.defer=true;document.head.appendChild(s);
+})();
+
+/* Keyboard */
+document.addEventListener('keydown',e=>{
+  if(e.target.tagName==='INPUT')return;
+  const k=e.key;
+  if(k==='1')goPage('earth');
+  else if(k==='2')goPage('space');
+  else if(k==='3')goPage('events');
+  else if(k==='4')goPage('missions');
+  else if(k==='5')goPage('guide');
+  else if(k==='Escape'){closeCp();closeAMod();closeMM();if(S.ms)doMS()}
+  else if(k==='s'||k==='S')doSat();
+  else if(k==='m'||k==='M')doMS();
+});
+
+/* Close settings outside click */
+document.addEventListener('click',e=>{
+  const spn=el('spn'),btn=el('nb-set');
+  if(spn.classList.contains('on')&&!spn.contains(e.target)&&e.target!==btn&&!btn.contains(e.target))
+    spn.classList.remove('on');
+});
+</script>
+</body>
+</html>

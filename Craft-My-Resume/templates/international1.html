@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Resume Template 1</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template international1-template">
+        <div class="header-section">
+            <div class="profile-photo-placeholder"></div>
+            <div class="name-contact">
+                <h1 class="name" id="previewName">Your Name</h1>
+                <h2 class="title" id="previewJobTitle">Professional Title</h2>
+                <div class="contact-grid">
+                    <div class="contact-item" id="previewEmail"></div>
+                    <div class="contact-item" id="previewPhone"></div>
+                    <div class="contact-item" id="previewLocation"></div>
+                    <div class="contact-item" id="previewLinkedIn"></div>
+                </div>
+            </div>
+        </div>
+        <div class="content-grid">
+            <div class="left-column">
+                <div class="section">
+                    <h3>Professional Summary</h3>
+                    <p id="previewSummary"></p>
+                </div>
+                <div class="section">
+                    <h3>Work Experience</h3>
+                    <div id="previewExperience"></div>
+                </div>
+                <div class="section">
+                    <h3>Education</h3>
+                    <div id="previewEducation"></div>
+                </div>
+            </div>
+            <div class="right-column">
+                <div class="section">
+                    <h3>Skills</h3>
+                    <div id="previewSkills" class="skills-list"></div>
+                </div>
+                <div class="section">
+                    <h3>Languages</h3>
+                    <div id="previewLanguages" class="skills-list"></div>
+                </div>
+                <div class="section">
+                    <h3>Projects</h3>
+                    <ul id="previewProjects"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .international1-template { font-family: 'Arial', sans-serif; background: #fff; color: #333; line-height: 1.6; }
+        .international1-template .header-section { display: flex; align-items: center; padding: 2rem; background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; }
+        .international1-template .profile-photo-placeholder { width: 120px; height: 120px; border-radius: 50%; background: rgba(255,255,255,0.2); margin-right: 2rem; border: 3px solid white; }
+        .international1-template .name { font-size: 2.8rem; margin: 0; font-weight: 700; }
+        .international1-template .title { font-size: 1.4rem; margin: 0.5rem 0; opacity: 0.9; font-weight: 300; }
+        .international1-template .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 1rem; }
+        .international1-template .contact-item { font-size: 0.9rem; opacity: 0.9; }
+        .international1-template .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; padding: 2rem; }
+        .international1-template .section { margin-bottom: 2rem; }
+        .international1-template h3 { color: #1e3c72; font-size: 1.3rem; margin-bottom: 1rem; font-weight: 600; border-left: 4px solid #2a5298; padding-left: 1rem; }
+        .international1-template .experience-entry, .international1-template .education-entry { margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid #eee; }
+        .international1-template .entry-title { font-weight: bold; font-size: 1.1rem; color: #1e3c72; }
+        .international1-template .entry-company { color: #666; font-weight: 500; margin: 0.3rem 0; }
+        .international1-template .entry-dates { color: #888; font-size: 0.9rem; }
+        .international1-template .skills-list { display: block; }
+        .international1-template .skill-tag { display: inline-block; background: #f0f4f8; color: #1e3c72; padding: 0.4rem 0.8rem; margin: 0.2rem; border-radius: 20px; font-size: 0.85rem; border: 1px solid #2a5298; }
+    </style>
+    <script src="../script.js"></script>
+</body>
+</html>

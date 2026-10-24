@@ -1,0 +1,69 @@
+<div class="resume-template corporate3-template">
+    <div class="business-header">
+        <div class="header-left">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <h2 class="title" id="previewJobTitle">Professional Title</h2>
+        </div>
+        <div class="header-right">
+            <div class="profile-photo" id="profilePhoto"></div>
+        </div>
+    </div>
+    <div class="contact-bar">
+        <div class="contact-item" id="previewEmail"></div>
+        <div class="contact-item" id="previewPhone"></div>
+        <div class="contact-item" id="previewLocation"></div>
+        <div class="contact-item" id="previewLinkedIn"></div>
+    </div>
+    <div class="main-content">
+        <div class="summary-panel">
+            <h3>Executive Summary</h3>
+            <p id="previewSummary"></p>
+        </div>
+        <div class="content-grid">
+            <div class="left-panel">
+                <div class="section">
+                    <h3>Professional Experience</h3>
+                    <div id="previewExperience"></div>
+                </div>
+                <div class="section">
+                    <h3>Education</h3>
+                    <div id="previewEducation"></div>
+                </div>
+            </div>
+            <div class="right-panel">
+                <div class="section">
+                    <h3>Core Skills</h3>
+                    <div id="previewSkills" class="skills-list"></div>
+                </div>
+                <div class="section">
+                    <h3>Projects</h3>
+                    <ul id="previewProjects"></ul>
+                </div>
+                <div class="section">
+                    <h3>Languages</h3>
+                    <div id="previewLanguages" class="skills-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+.corporate3-template { font-family: 'Arial', sans-serif; background: #fff; color: #333; }
+.corporate3-template .business-header { background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; padding: 2rem; display: flex; justify-content: space-between; align-items: center; }
+.corporate3-template .name { font-size: 2.5rem; margin: 0; font-weight: 700; }
+.corporate3-template .title { font-size: 1.2rem; margin: 0.5rem 0; opacity: 0.9; font-weight: 300; }
+.corporate3-template .profile-photo { width: 100px; height: 100px; border-radius: 8px; background: rgba(255,255,255,0.2); background-size: cover; background-position: center; border: 2px solid white; }
+.corporate3-template .contact-bar { background: #f8f9fa; padding: 1rem 2rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; font-size: 0.9rem; color: #6c757d; }
+.corporate3-template .main-content { padding: 2rem; }
+.corporate3-template .summary-panel { background: #e9ecef; padding: 1.5rem; border-radius: 5px; margin-bottom: 2rem; border-left: 4px solid #1e3c72; }
+.corporate3-template .summary-panel h3 { margin: 0 0 1rem 0; color: #1e3c72; font-size: 1.2rem; }
+.corporate3-template .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; }
+.corporate3-template .section { margin-bottom: 2rem; }
+.corporate3-template h3 { color: #1e3c72; font-size: 1.2rem; margin-bottom: 1rem; font-weight: 600; }
+.corporate3-template .experience-entry, .corporate3-template .education-entry { margin-bottom: 1.5rem; }
+.corporate3-template .entry-title { font-weight: bold; font-size: 1.1rem; color: #212529; }
+.corporate3-template .entry-company { color: #1e3c72; font-weight: 500; }
+.corporate3-template .entry-dates { color: #6c757d; font-size: 0.9rem; }
+.corporate3-template .skills-list { display: block; }
+.corporate3-template .skill-tag { display: inline-block; background: #1e3c72; color: white; padding: 0.3rem 0.8rem; margin: 0.2rem; border-radius: 3px; font-size: 0.85rem; }
+</style>

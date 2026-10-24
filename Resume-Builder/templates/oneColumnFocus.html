@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One-Column Focus Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template one-column-focus-template">
+        <div class="header-section">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <h2 class="title" id="previewJobTitle">Professional Title</h2>
+            <div class="contact-info">
+                <span id="previewEmail"></span> | <span id="previewPhone"></span> | <span id="previewLocation"></span> | <span id="previewLinkedIn"></span>
+            </div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="section">
+                <h3>PROFESSIONAL SUMMARY</h3>
+                <p id="previewSummary"></p>
+            </div>
+            
+            <div class="section">
+                <h3>PROFESSIONAL EXPERIENCE</h3>
+                <div id="previewExperience"></div>
+            </div>
+            
+            <div class="section">
+                <h3>EDUCATION</h3>
+                <div id="previewEducation"></div>
+            </div>
+            
+            <div class="section">
+                <h3>CORE COMPETENCIES</h3>
+                <div id="previewSkills" class="skills-list"></div>
+            </div>
+            
+            <div class="section">
+                <h3>LANGUAGES</h3>
+                <div id="previewLanguages" class="skills-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .one-column-focus-template { 
+            font-family: 'Arial', sans-serif; 
+            background: #ffffff; 
+            color: #333333; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+            padding: 1in;
+        }
+        .one-column-focus-template .header-section { 
+            text-align: center; 
+            margin-bottom: 2rem; 
+            padding-bottom: 1.5rem;
+            border-bottom: 3px solid #333333;
+        }
+        .one-column-focus-template .name { 
+            font-size: 2.8rem; 
+            margin: 0 0 0.5rem 0; 
+            font-weight: bold; 
+            color: #333333;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .one-column-focus-template .title { 
+            font-size: 1.3rem; 
+            margin: 0 0 1rem 0; 
+            font-weight: normal; 
+            color: #666666; 
+        }
+        .one-column-focus-template .contact-info { 
+            font-size: 1rem; 
+            color: #555; 
+        }
+        .one-column-focus-template .content-wrapper { 
+            max-width: 100%; 
+        }
+        .one-column-focus-template .section { 
+            margin-bottom: 2.5rem; 
+        }
+        .one-column-focus-template h3 { 
+            color: #333333; 
+            font-size: 1.1rem; 
+            margin-bottom: 1.5rem; 
+            font-weight: bold; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #333333;
+            padding-bottom: 0.5rem;
+        }
+        .one-column-focus-template .experience-entry, .one-column-focus-template .education-entry { 
+            margin-bottom: 2rem; 
+            padding-bottom: 1.5rem;
+        }
+        .one-column-focus-template .experience-entry:not(:last-child), .one-column-focus-template .education-entry:not(:last-child) { 
+            border-bottom: 1px solid #eee;
+        }
+        .one-column-focus-template .entry-title { 
+            font-weight: bold; 
+            font-size: 1.2rem; 
+            color: #333333; 
+            margin-bottom: 0.5rem;
+        }
+        .one-column-focus-template .entry-company { 
+            color: #666666; 
+            font-weight: normal; 
+            font-size: 1.1rem;
+        }
+        .one-column-focus-template .entry-dates { 
+            color: #888888; 
+            font-size: 1rem; 
+            margin-top: 0.5rem;
+        }
+        .one-column-focus-template .skills-list { 
+            display: block; 
+            line-height: 2;
+        }
+        .one-column-focus-template .skill-tag { 
+            display: inline; 
+            background: transparent; 
+            color: #333333; 
+            padding: 0; 
+            margin: 0; 
+            font-size: 1rem; 
+            font-weight: normal; 
+        }
+        .one-column-focus-template .skill-tag:not(:last-child):after {
+            content: " • ";
+            color: #666666;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

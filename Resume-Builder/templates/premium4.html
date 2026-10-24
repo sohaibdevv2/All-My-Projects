@@ -1,0 +1,84 @@
+<div class="resume-template cyber-neon">
+  <div class="cn-bg">
+    <div class="cn-scanlines"></div>
+    <div class="cn-header">
+      <div id="profilePhoto" class="cn-photo"></div>
+      <div class="cn-header-text">
+        <div class="cn-badge">RESUME_v2.0</div>
+        <h1 id="previewName" class="cn-name">Your Name</h1>
+        <p id="previewJobTitle" class="cn-title">// Job Title</p>
+        <div class="cn-contacts">
+          <span id="previewEmail">email@example.com</span>
+          <span>|</span><span id="previewPhone">+1 234 567 890</span>
+          <span>|</span><span id="previewLocation">City, Country</span>
+          <span>|</span><span id="previewLinkedIn">LinkedIn</span>
+        </div>
+      </div>
+    </div>
+    <div class="cn-body">
+      <div class="cn-main">
+        <div class="cn-section">
+          <h2 class="cn-heading"><span class="cn-bracket">[</span>PROFILE<span class="cn-bracket">]</span></h2>
+          <p id="previewSummary" class="cn-summary">Professional summary here.</p>
+        </div>
+        <div class="cn-section">
+          <h2 class="cn-heading"><span class="cn-bracket">[</span>EXPERIENCE<span class="cn-bracket">]</span></h2>
+          <div id="previewExperience"></div>
+        </div>
+        <div class="cn-section">
+          <h2 class="cn-heading"><span class="cn-bracket">[</span>EDUCATION<span class="cn-bracket">]</span></h2>
+          <div id="previewEducation"></div>
+        </div>
+        <div class="cn-section">
+          <h2 class="cn-heading"><span class="cn-bracket">[</span>PROJECTS<span class="cn-bracket">]</span></h2>
+          <ul id="previewProjects" class="cn-list"></ul>
+        </div>
+      </div>
+      <div class="cn-side">
+        <div class="cn-section">
+          <h2 class="cn-heading"><span class="cn-bracket">[</span>SKILLS<span class="cn-bracket">]</span></h2>
+          <div id="previewSkills" class="skills-list cn-skills"></div>
+        </div>
+        <div class="cn-section">
+          <h2 class="cn-heading"><span class="cn-bracket">[</span>LANGUAGES<span class="cn-bracket">]</span></h2>
+          <div id="previewLanguages" class="skills-list cn-skills"></div>
+        </div>
+        <div class="cn-section">
+          <h2 class="cn-heading"><span class="cn-bracket">[</span>CERTS<span class="cn-bracket">]</span></h2>
+          <ul id="previewCertifications" class="cn-list"></ul>
+        </div>
+        <div class="cn-section">
+          <h2 class="cn-heading"><span class="cn-bracket">[</span>AWARDS<span class="cn-bracket">]</span></h2>
+          <ul id="previewAwards" class="cn-list"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+.cyber-neon { font-family: 'Courier New', monospace; width: 210mm; min-height: 297mm; margin: 0 auto; --primary: var(--primary-color, #00ff88); color: #c8ffd4; }
+.cn-bg { background: #050a0e; min-height: 297mm; position: relative; overflow: hidden; }
+.cn-scanlines { position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,136,0.01) 2px, rgba(0,255,136,0.01) 4px); pointer-events: none; z-index: 0; }
+.cn-header { padding: 24px 32px; border-bottom: 1px solid rgba(0,255,136,0.2); display: flex; align-items: center; gap: 22px; position: relative; z-index: 1; background: linear-gradient(180deg, rgba(0,255,136,0.05) 0%, transparent 100%); }
+.cn-photo { width: 100px; height: 100px; border-radius: 4px; background-size: cover; background-position: center; background-color: rgba(0,255,136,0.05); border: 1px solid var(--primary); box-shadow: 0 0 20px rgba(0,255,136,0.3); flex-shrink: 0; }
+.cn-badge { font-size: 0.6rem; color: var(--primary); letter-spacing: 3px; margin-bottom: 4px; opacity: 0.7; }
+.cn-name { font-size: 2rem; font-weight: 700; color: var(--primary); margin: 0 0 4px; text-shadow: 0 0 20px rgba(0,255,136,0.5); letter-spacing: 2px; }
+.cn-title { font-size: 0.78rem; color: rgba(200,255,212,0.6); margin: 0 0 10px; letter-spacing: 1px; }
+.cn-contacts { display: flex; flex-wrap: wrap; gap: 4px 8px; font-size: 0.65rem; color: rgba(200,255,212,0.5); }
+.cn-body { display: flex; gap: 0; position: relative; z-index: 1; }
+.cn-main { flex: 2; padding: 20px 24px; }
+.cn-side { flex: 1; padding: 20px 18px; border-left: 1px solid rgba(0,255,136,0.15); }
+.cn-section { margin-bottom: 18px; }
+.cn-heading { font-size: 0.62rem; font-weight: 700; letter-spacing: 3px; color: rgba(200,255,212,0.5); margin: 0 0 10px; }
+.cn-bracket { color: var(--primary); }
+.cn-summary { font-size: 0.76rem; line-height: 1.65; color: rgba(200,255,212,0.75); margin: 0; }
+.cyber-neon .experience-entry, .cyber-neon .education-entry { margin-bottom: 14px; padding: 10px 12px; border: 1px solid rgba(0,255,136,0.1); border-left: 2px solid var(--primary); background: rgba(0,255,136,0.03); }
+.cyber-neon .entry-header { margin-bottom: 4px; }
+.cyber-neon .entry-title { font-weight: 700; font-size: 0.82rem; color: var(--primary); display: block; }
+.cyber-neon .entry-company, .cyber-neon .entry-school { font-size: 0.72rem; color: rgba(200,255,212,0.6); }
+.cyber-neon .entry-dates { font-size: 0.65rem; color: rgba(200,255,212,0.4); margin-left: 10px; }
+.cyber-neon .entry-description { font-size: 0.7rem; color: rgba(200,255,212,0.65); line-height: 1.55; margin-top: 5px; }
+.cn-skills { display: flex; flex-direction: column; gap: 4px; }
+.cn-skills .skill-tag { background: rgba(0,255,136,0.07); border: 1px solid rgba(0,255,136,0.2); color: var(--primary); padding: 2px 8px; border-radius: 2px; font-size: 0.65rem; }
+.cn-list { margin: 0; padding-left: 14px; font-size: 0.68rem; color: rgba(200,255,212,0.6); line-height: 1.7; }
+</style>

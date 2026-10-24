@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CodeCrafterz - Build Your Own &lt;Technology&gt;</title>
+  <meta name="description" content="200+ curated step-by-step guides for building your favourite technologies completely from scratch. Learn by building."/>
+  <meta name="author" content="sohaib malik"/>
+  <meta property="og:title" content="CodeCrafterz - Build Your Own Technology"/>
+  <meta property="og:description" content="200+ curated guides for building your favourite tech from scratch."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://sohaibdevv.github.io/code_crafterz"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:      #fdf8f3;
+      --warm:       #fff9f5;
+      --card:       #fffbf7;
+      --p900: #3b0764; --p800: #4c1d95; --p700: #5b21b6;
+      --p600: #7c3aed; --p500: #8b5cf6; --p400: #a78bfa;
+      --p300: #c4b5fd; --p200: #ddd6fe; --p100: #ede9fe;
+      --p50:  #f5f3ff;
+      --text:   #1a0533; --tmid: #4b2882;
+      --tsoft:  #6d4b9a; --tmut: #9c7cbf;
+      --border: #e8d9ff;
+      --r: 14px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+
+    /* ─── PARTICLES CANVAS ─── */
+    #particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; opacity: .5; }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 5rem 1.5rem 4rem; overflow: hidden;
+      background: linear-gradient(135deg,#fdf4ff 0%,#f0ebff 40%,#e9e0ff 100%);
+      z-index: 1;
+    }
+    .hero::before {
+      content:''; position:absolute; inset:0; pointer-events:none;
+      background:
+        radial-gradient(ellipse 80% 60% at 15% 20%,rgba(167,139,250,.22) 0%,transparent 55%),
+        radial-gradient(ellipse 60% 80% at 85% 75%,rgba(139,92,246,.18) 0%,transparent 55%),
+        radial-gradient(ellipse 50% 50% at 50% 0%,rgba(196,181,253,.28) 0%,transparent 50%);
+    }
+
+    /* floating orbs */
+    .orb { position:absolute; border-radius:50%; filter:blur(65px); pointer-events:none; }
+    .orb1 { width:500px;height:500px;background:rgba(124,58,237,.1);top:-120px;left:-150px; animation:floatOrb 9s ease-in-out infinite; }
+    .orb2 { width:380px;height:380px;background:rgba(167,139,250,.12);bottom:-80px;right:-100px; animation:floatOrb 12s ease-in-out 4s infinite; }
+    .orb3 { width:260px;height:260px;background:rgba(196,181,253,.15);top:35%;left:58%; animation:floatOrb 7s ease-in-out 2s infinite; }
+    .orb4 { width:180px;height:180px;background:rgba(139,92,246,.12);top:55%;left:8%; animation:floatOrb 10s ease-in-out 6s infinite; }
+    @keyframes floatOrb {
+      0%,100%{transform:translateY(0) scale(1);}
+      33%{transform:translateY(-24px) scale(1.05);}
+      66%{transform:translateY(12px) scale(.97);}
+    }
+
+    .hero-badge-row { display:flex; gap:.6rem; flex-wrap:wrap; justify-content:center; margin-bottom:2rem; position:relative; }
+    .hbadge {
+      padding:.32rem .85rem; border-radius:999px; font-size:.72rem; font-weight:700;
+      letter-spacing:.06em; text-transform:uppercase;
+      animation: fadeUp .7s ease-out both;
+    }
+    .hbadge:nth-child(1){animation-delay:.1s;background:var(--p100);color:var(--p700);border:1px solid var(--p200);}
+    .hbadge:nth-child(2){animation-delay:.2s;background:#f3e8ff;color:#7e22ce;border:1px solid #e9d5ff;}
+    .hbadge:nth-child(3){animation-delay:.3s;background:var(--p100);color:var(--p700);border:1px solid var(--p200);}
+    .hbadge:nth-child(4){animation-delay:.4s;background:#f3e8ff;color:#7e22ce;border:1px solid #e9d5ff;}
+
+    @keyframes fadeUp { from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);} }
+
+    .hero h1 {
+      position:relative; font-size:clamp(3.2rem,9vw,7rem); font-weight:900;
+      line-height:1.02; letter-spacing:-.03em;
+      background:linear-gradient(135deg,var(--p900) 0%,var(--p600) 45%,var(--p400) 100%);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+      margin-bottom:1rem; animation:fadeUp .9s ease-out .3s both;
+    }
+    .hero h1 .mono {
+      display:block; font-family:'JetBrains Mono',monospace;
+      font-size:.6em; letter-spacing:-.01em;
+      background:linear-gradient(90deg,var(--p500),var(--p300));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+    }
+
+    /* typewriter cursor */
+    .cursor { display:inline-block; width:3px; height:.7em; background:var(--p500); margin-left:2px; vertical-align:middle; animation:blink 1s step-end infinite; }
+    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0;} }
+
+    .hero-sub {
+      font-size:clamp(1rem,2.4vw,1.3rem); color:var(--tsoft); max-width:620px;
+      margin:.5rem auto 2rem; animation:fadeUp .9s ease-out .5s both;
+    }
+    .hero-quote { font-style:italic; color:var(--tmut); font-size:.95rem; margin-bottom:2.5rem; animation:fadeUp .9s ease-out .6s both; }
+    .hero-quote strong { color:var(--tsoft); font-style:normal; font-weight:600; }
+
+    .cta-row { display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; margin-bottom:3rem; animation:fadeUp .9s ease-out .7s both; }
+    .btn { display:inline-flex; align-items:center; gap:.5rem; padding:.9rem 2.2rem; border-radius:999px; font-weight:700; font-size:1rem; text-decoration:none; transition:all .22s ease; }
+    .btn-primary { background:linear-gradient(135deg,var(--p700),var(--p500)); color:#fff; box-shadow:0 4px 22px rgba(124,58,237,.38); }
+    .btn-primary:hover { transform:translateY(-3px); box-shadow:0 8px 30px rgba(124,58,237,.5); }
+    .btn-ghost { background:var(--warm); color:var(--p700); border:2px solid var(--p200); }
+    .btn-ghost:hover { background:var(--p50); transform:translateY(-3px); box-shadow:0 6px 20px rgba(124,58,237,.15); }
+
+    /* stats counter row */
+    .stats-row { display:flex; gap:3rem; flex-wrap:wrap; justify-content:center; animation:fadeUp .9s ease-out .9s both; }
+    .stat { text-align:center; }
+    .stat-num {
+      font-size:2.6rem; font-weight:900; line-height:1;
+      background:linear-gradient(135deg,var(--p700),var(--p400));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+    }
+    .stat-lbl { font-size:.75rem; color:var(--tmut); text-transform:uppercase; letter-spacing:.1em; margin-top:.2rem; }
+
+    /* scroll arrow */
+    .scroll-hint {
+      position:absolute; bottom:2rem; left:50%; transform:translateX(-50%);
+      display:flex; flex-direction:column; align-items:center; gap:.35rem;
+      color:var(--tmut); font-size:.72rem; text-transform:uppercase; letter-spacing:.12em;
+      animation:scrollBounce 2.4s ease-in-out infinite;
+    }
+    .scroll-hint svg { width:22px; opacity:.55; }
+    @keyframes scrollBounce { 0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(9px);} }
+
+    /* ─── PROGRESS BAR ─── */
+    #progress { position:fixed; top:0; left:0; height:3px; background:linear-gradient(90deg,var(--p700),var(--p400)); z-index:200; width:0%; transition:width .1s linear; }
+
+    /* ─── NAV ─── */
+    nav {
+      position:sticky; top:0; z-index:100;
+      background:rgba(253,248,243,.92); backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--border);
+    }
+    .nav-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.75rem 2rem; }
+    .nav-logo { font-family:'JetBrains Mono',monospace; font-weight:800; font-size:1.05rem; text-decoration:none;
+      background:linear-gradient(135deg,var(--p700),var(--p400));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+    .nav-links { display:flex; gap:1.2rem; list-style:none; flex-wrap:wrap; }
+    .nav-links a { font-size:.82rem; font-weight:500; color:var(--tsoft); text-decoration:none; transition:color .18s; }
+    .nav-links a:hover { color:var(--p600); }
+    .nav-right { display:flex; gap:.7rem; }
+    .nav-btn { padding:.38rem .9rem; border-radius:999px; font-size:.8rem; font-weight:600; text-decoration:none; }
+    .nav-btn-outline { border:1.5px solid var(--p200); color:var(--p700); }
+    .nav-btn-outline:hover { background:var(--p50); }
+    .nav-btn-fill { background:linear-gradient(135deg,var(--p700),var(--p500)); color:#fff; }
+    .nav-btn-fill:hover { box-shadow:0 4px 14px rgba(124,58,237,.3); }
+
+    /* ─── FILTER BAR ─── */
+    .filter-zone { max-width:1200px; margin:0 auto; padding:2.5rem 2rem 1rem; }
+    .search-row { position:relative; margin-bottom:1.5rem; }
+    .search-icon { position:absolute; left:1.2rem; top:50%; transform:translateY(-50%); color:var(--tmut); pointer-events:none; }
+    .search-input {
+      width:100%; padding:.9rem 1.2rem .9rem 3rem;
+      border:2px solid var(--p200); border-radius:999px;
+      background:var(--warm); font-size:1rem; font-family:'Inter',sans-serif;
+      color:var(--text); outline:none; transition:border-color .2s,box-shadow .2s;
+    }
+    .search-input:focus { border-color:var(--p500); box-shadow:0 0 0 4px rgba(139,92,246,.14); }
+    .search-input::placeholder { color:var(--tmut); }
+
+    .lang-filters { display:flex; gap:.5rem; flex-wrap:wrap; }
+    .lang-btn {
+      padding:.3rem .8rem; border-radius:999px; font-size:.78rem; font-weight:600;
+      border:1.5px solid var(--p200); background:var(--warm); color:var(--tsoft);
+      cursor:pointer; transition:all .18s; font-family:'Inter',sans-serif;
+    }
+    .lang-btn:hover, .lang-btn.active { background:var(--p600); color:#fff; border-color:var(--p600); }
+    .lang-btn.all-btn.active { background:linear-gradient(135deg,var(--p700),var(--p500)); border:none; color:#fff; }
+
+    /* ─── MAIN ─── */
+    main { max-width:1200px; margin:0 auto; padding:1rem 2rem 6rem; }
+
+    /* category section */
+    .section { margin-bottom:2.5rem; animation:fadeUp .5s ease-out both; }
+    .section-head {
+      display:flex; align-items:center; gap:.75rem;
+      margin-bottom:1rem; padding-bottom:.7rem;
+      border-bottom:2px solid var(--p100);
+    }
+    .s-emoji { font-size:1.5rem; }
+    .s-title { font-size:1.35rem; font-weight:800; color:var(--text); letter-spacing:-.02em; }
+    .s-count { margin-left:auto; background:var(--p100); color:var(--p700); padding:.18rem .6rem; border-radius:999px; font-size:.75rem; font-weight:700; }
+
+    /* card grid */
+    .cards { display:grid; gap:.65rem; }
+
+    .card {
+      display:flex; align-items:center; gap:.9rem; padding:.9rem 1.1rem;
+      background:var(--card); border:1px solid var(--border); border-radius:var(--r);
+      text-decoration:none; color:inherit; transition:all .2s ease;
+      box-shadow:0 1px 4px rgba(124,58,237,.07);
+      position:relative; overflow:hidden;
+    }
+    .card::before {
+      content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
+      background:linear-gradient(180deg,var(--p600),var(--p400));
+      transform:scaleY(0); transform-origin:bottom;
+      transition:transform .2s ease; border-radius:2px 0 0 2px;
+    }
+    .card:hover { border-color:var(--p300); box-shadow:0 4px 18px rgba(124,58,237,.14); transform:translateY(-1px); background:var(--warm); }
+    .card:hover::before { transform:scaleY(1); }
+
+    /* language pill */
+    .lpill {
+      flex-shrink:0; padding:.28rem .65rem; border-radius:6px;
+      font-size:.68rem; font-weight:700; font-family:'JetBrains Mono',monospace;
+      letter-spacing:.02em; min-width:62px; text-align:center; white-space:nowrap;
+    }
+    .lc    {background:#ede9fe;color:#5b21b6;} .lcpp  {background:#f5f3ff;color:#7c3aed;}
+    .lcs   {background:#ede9fe;color:#6d28d9;} .lgo   {background:#ecfdf5;color:#065f46;}
+    .lpy   {background:#fffbeb;color:#92400e;} .ljs   {background:#fefce8;color:#854d0e;}
+    .lts   {background:#eff6ff;color:#1d4ed8;} .lrs   {background:#fff7ed;color:#c2410c;}
+    .ljava {background:#fdf2f8;color:#9d174d;} .lrb   {background:#fef2f2;color:#b91c1c;}
+    .lhs   {background:#f5f3ff;color:#4c1d95;} .lkt   {background:#fdf4ff;color:#7e22ce;}
+    .lnj   {background:#f0fdf4;color:#14532d;} .lphp  {background:#f5f3ff;color:#5b21b6;}
+    .lsh   {background:#1a0533;color:#c4b5fd;} .lasm  {background:#fef2f2;color:#7f1d1d;}
+    .lany  {background:linear-gradient(135deg,var(--p100),#fdf4ff);color:var(--p700);}
+    .lother{background:#f9fafb;color:#374151;}
+
+    .card-title { font-size:.9rem; font-weight:500; color:var(--text); flex:1; line-height:1.4; }
+    .card-tags { display:flex; gap:.4rem; flex-shrink:0; }
+    .ctag {
+      font-size:.65rem; padding:.15rem .5rem; border-radius:4px;
+      background:var(--p100); color:var(--p600); font-weight:600;
+    }
+    .ctag-video { background:#fef9c3; color:#854d0e; }
+    .ctag-book  { background:#ecfdf5; color:#065f46; }
+    .card-arrow { flex-shrink:0; color:var(--p300); transition:transform .2s,color .2s; font-size:1rem; }
+    .card:hover .card-arrow { transform:translateX(5px); color:var(--p600); }
+
+    /* difficulty stars */
+    .diff { font-size:.7rem; flex-shrink:0; letter-spacing:.5px; }
+
+    /* ─── STATS SECTION ─── */
+    .stats-section {
+      background:linear-gradient(135deg,var(--p900),var(--p700));
+      margin:3rem 0; border-radius:20px; padding:3rem 2rem;
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:2rem;
+      text-align:center;
+    }
+    .ss { }
+    .ss-num { font-size:3rem; font-weight:900; color:#fff; line-height:1; }
+    .ss-lbl { font-size:.8rem; color:var(--p300); text-transform:uppercase; letter-spacing:.1em; margin-top:.4rem; }
+
+    /* ─── LEARNING PATHS ─── */
+    .paths-section { margin:3rem 0; }
+    .paths-title { font-size:1.6rem; font-weight:800; color:var(--text); margin-bottom:1.5rem; letter-spacing:-.02em; }
+    .paths-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1rem; }
+    .path-card {
+      padding:1.4rem; background:var(--card); border:1px solid var(--border);
+      border-radius:var(--r); transition:all .2s ease;
+      box-shadow:0 1px 4px rgba(124,58,237,.06);
+    }
+    .path-card:hover { border-color:var(--p300); box-shadow:0 6px 20px rgba(124,58,237,.14); transform:translateY(-2px); }
+    .path-icon { font-size:2rem; margin-bottom:.75rem; }
+    .path-name { font-size:1rem; font-weight:800; color:var(--text); margin-bottom:.4rem; }
+    .path-desc { font-size:.85rem; color:var(--tsoft); line-height:1.5; margin-bottom:.8rem; }
+    .path-meta { display:flex; justify-content:space-between; align-items:center; }
+    .path-steps { font-size:.75rem; color:var(--tmut); }
+    .path-diff { font-size:.7rem; background:var(--p100); color:var(--p700); padding:.18rem .55rem; border-radius:4px; font-weight:700; }
+
+    /* ─── BACK TO TOP ─── */
+    #btt {
+      position:fixed; bottom:2rem; right:2rem; width:46px; height:46px;
+      border-radius:50%; background:linear-gradient(135deg,var(--p700),var(--p500));
+      color:#fff; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;
+      box-shadow:0 4px 18px rgba(124,58,237,.42); opacity:0; pointer-events:none;
+      transition:opacity .3s,transform .3s; z-index:99;
+    }
+    #btt.show { opacity:1; pointer-events:auto; }
+    #btt:hover { transform:translateY(-3px) scale(1.05); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background:linear-gradient(135deg,var(--p900),var(--p700));
+      color:rgba(255,255,255,.85); text-align:center; padding:4rem 2rem;
+    }
+    .footer-logo { font-family:'JetBrains Mono',monospace; font-size:1.8rem; font-weight:900; color:#fff; margin-bottom:.5rem; }
+    .footer-sub  { color:var(--p300); font-size:.95rem; margin-bottom:2rem; }
+    .footer-links { display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap; margin-bottom:2rem; }
+    .footer-links a { color:var(--p300); text-decoration:none; font-size:.88rem; font-weight:500; transition:color .18s; }
+    .footer-links a:hover { color:#fff; }
+    .footer-credit { font-size:.8rem; color:var(--p400); margin-top:1.5rem; }
+    .footer-credit strong { color:var(--p200); }
+
+    .wave-footer { width:100%; display:block; }
+
+    /* ─── HIDDEN ─── */
+    .card.hidden { display:none; }
+    .section.hidden { display:none; }
+
+    /* ─── TOAST ─── */
+    .toast { position:fixed; bottom:5rem; left:50%; transform:translateX(-50%) translateY(20px); opacity:0;
+      background:var(--p800); color:#fff; padding:.6rem 1.4rem; border-radius:999px;
+      font-size:.85rem; font-weight:600; pointer-events:none; transition:all .3s; z-index:200; }
+    .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+
+    /* ─── RESPONSIVE ─── */
+    @media(max-width:640px) {
+      .hero { padding:5rem 1.2rem 3rem; }
+      main { padding:1rem 1.2rem 4rem; }
+      .filter-zone { padding:1.5rem 1.2rem .5rem; }
+      .nav-links, .nav-right { display:none; }
+      .stats-section { padding:2rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+<canvas id="particles"></canvas>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+  <div class="orb orb4"></div>
+
+  <div class="hero-badge-row">
+    <span class="hbadge">200+ Tutorials</span>
+    <span class="hbadge">34 Categories</span>
+    <span class="hbadge">15+ Languages</span>
+    <span class="hbadge">100% Free</span>
+  </div>
+
+  <h1>
+    CodeCrafterz
+    <span class="mono" id="typeTarget">&lt;build-your-own-x /&gt;<span class="cursor"></span></span>
+  </h1>
+
+  <p class="hero-sub">
+    A beautifully curated collection of step-by-step guides for re-creating your favourite technologies completely from scratch.
+  </p>
+
+  <p class="hero-quote">
+    "What I cannot create, I do not understand." &nbsp;-&nbsp; <strong>Richard Feynman</strong>
+  </p>
+
+  <div class="cta-row">
+    <a href="#tutorials" class="btn btn-primary">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      Explore Tutorials
+    </a>
+    <a href="#paths" class="btn btn-ghost">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6-10l6-3m6 3l-6 3m6-3v10l-6 3"/></svg>
+      Learning Paths
+    </a>
+    <a href="https://github.com/sohaibdevv/code_crafterz" target="_blank" class="btn btn-ghost">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+      GitHub
+    </a>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat"><div class="stat-num" data-target="200">0</div><div class="stat-lbl">Tutorials</div></div>
+    <div class="stat"><div class="stat-num" data-target="34">0</div><div class="stat-lbl">Categories</div></div>
+    <div class="stat"><div class="stat-num" data-target="15">0</div><div class="stat-lbl">Languages</div></div>
+    <div class="stat"><div class="stat-num" data-target="8">0</div><div class="stat-lbl">Learning Paths</div></div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Scroll to explore</span>
+    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+  </div>
+</section>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">CodeCrafterz</a>
+    <ul class="nav-links">
+      <li><a href="#tutorials">Tutorials</a></li>
+      <li><a href="#paths">Paths</a></li>
+      <li><a href="#database">Database</a></li>
+      <li><a href="#os">OS</a></li>
+      <li><a href="#game">Game</a></li>
+      <li><a href="#language">Language</a></li>
+      <li><a href="#ai">AI</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="CONTRIBUTING.md" class="nav-btn nav-btn-outline">Contribute</a>
+      <a href="https://github.com/sohaibdevv/code_crafterz" target="_blank" class="nav-btn nav-btn-fill">⭐ Star</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── FILTER BAR ─── -->
+<div class="filter-zone" id="tutorials">
+  <div class="search-row">
+    <span class="search-icon">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+    </span>
+    <input class="search-input" type="text" id="search" placeholder="Search 200+ tutorials, languages, technologies…" autocomplete="off"/>
+  </div>
+  <div class="lang-filters" id="langFilters">
+    <button class="lang-btn all-btn active" data-lang="all">All</button>
+    <button class="lang-btn" data-lang="C">C</button>
+    <button class="lang-btn" data-lang="C++">C++</button>
+    <button class="lang-btn" data-lang="Go">Go</button>
+    <button class="lang-btn" data-lang="Python">Python</button>
+    <button class="lang-btn" data-lang="JavaScript">JavaScript</button>
+    <button class="lang-btn" data-lang="Rust">Rust</button>
+    <button class="lang-btn" data-lang="TypeScript">TypeScript</button>
+    <button class="lang-btn" data-lang="Java">Java</button>
+    <button class="lang-btn" data-lang="Ruby">Ruby</button>
+    <button class="lang-btn" data-lang="Haskell">Haskell</button>
+  </div>
+</div>
+
+<!-- ─── MAIN ─── -->
+<main id="main">
+
+  <!-- 3D Renderer -->
+  <div class="section" id="renderer">
+    <div class="section-head"><span class="s-emoji">🖥️</span><h2 class="s-title">3D Renderer</h2><span class="s-count">10</span></div>
+    <div class="cards">
+      <a href="https://www.scratchapixel.com/lessons/3d-basic-rendering/introduction-to-ray-tracing/how-does-it-work" target="_blank" class="card" data-lang="C++"><span class="lpill lcpp">C++</span><span class="card-title">Introduction to Ray Tracing: a Simple Method for Creating 3D Images</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://github.com/ssloy/tinyrenderer/wiki" target="_blank" class="card" data-lang="C++"><span class="lpill lcpp">C++</span><span class="card-title">How OpenGL works: software rendering in 500 lines of code</span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="http://lodev.org/cgtutor/raycasting.html" target="_blank" class="card" data-lang="C++"><span class="lpill lcpp">C++</span><span class="card-title">Raycasting engine of Wolfenstein 3D</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="http://www.pbr-book.org/" target="_blank" class="card" data-lang="C++"><span class="lpill lcpp">C++</span><span class="card-title">Physically Based Rendering: From Theory To Implementation</span><span class="diff">⭐⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://raytracing.github.io/books/RayTracingInOneWeekend.html" target="_blank" class="card" data-lang="C++"><span class="lpill lcpp">C++</span><span class="card-title">Ray Tracing in One Weekend</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://www.davrous.com/2013/06/13/tutorial-series-learning-how-to-write-a-3d-soft-engine-from-scratch-in-c-typescript-or-javascript/" target="_blank" class="card" data-lang="JavaScript"><span class="lpill lcs">C# / TS / JS</span><span class="card-title">Learning how to write a 3D soft engine from scratch</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="http://blog.rogach.org/2015/08/how-to-create-your-own-simple-3d-render.html" target="_blank" class="card" data-lang="Java"><span class="lpill ljava">Java</span><span class="card-title">How to create your own simple 3D render engine in pure Java</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="http://www.gabrielgambetta.com/computer-graphics-from-scratch/introduction.html" target="_blank" class="card" data-lang="JavaScript"><span class="lpill ljs">JavaScript</span><span class="card-title">Computer Graphics from scratch</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="http://aosabook.org/en/500L/a-3d-modeller.html" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">A 3D Modeller</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+    </div>
+  </div>
+
+  <!-- AI Model -->
+  <div class="section" id="ai">
+    <div class="section-head"><span class="s-emoji">🤖</span><h2 class="s-title">AI Model</h2><span class="s-count">8</span></div>
+    <div class="cards">
+      <a href="https://github.com/rasbt/LLMs-from-scratch" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">A Large Language Model (LLM) from Scratch</span><span class="diff">⭐⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://www.youtube.com/watch?v=l8pRSuU81PU" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">Build GPT: Reproduce GPT-2 from Scratch</span><span class="card-tags"><span class="ctag ctag-video">📹 Video</span></span><span class="diff">⭐⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://peterbloem.nl/blog/transformers" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">Building a Transformer from Scratch</span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://huggingface.co/learn/diffusion-course/en/unit1/3" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">Diffusion Models for Image Generation</span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://github.com/langchain-ai/rag-from-scratch" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">RAG for Document Search from Scratch</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://www.youtube.com/watch?v=zduSFxRajkE" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">Let's build the GPT Tokenizer</span><span class="card-tags"><span class="ctag ctag-video">📹 Video</span></span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://towardsdatascience.com/word2vec-from-scratch-with-numpy-8786ddd49b37" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">Word2Vec from Scratch with NumPy</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">Neural Networks: Zero to Hero (Karpathy)</span><span class="card-tags"><span class="ctag ctag-video">📹 Video</span></span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+    </div>
+  </div>
+
+  <!-- Blockchain -->
+  <div class="section" id="blockchain">
+    <div class="section-head"><span class="s-emoji">⛓️</span><h2 class="s-title">Blockchain / Cryptocurrency</h2><span class="s-count">10</span></div>
+    <div class="cards">
+      <a href="https://medium.com/crypto-currently/lets-build-the-tiniest-blockchain-e70965a248b" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">Let's Build the Tiniest Blockchain</span><span class="diff">⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://hackernoon.com/learn-blockchains-by-building-one-117428612f46" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">Learn Blockchains by Building One</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://github.com/nambrot/blockchain-in-js" target="_blank" class="card" data-lang="JavaScript"><span class="lpill ljs">JavaScript</span><span class="card-title">Build your own Blockchain in JavaScript</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://jeiwan.net/posts/building-blockchain-in-go-part-1/" target="_blank" class="card" data-lang="Go"><span class="lpill lgo">Go</span><span class="card-title">Building Blockchain in Go</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://lhartikk.github.io/" target="_blank" class="card" data-lang="TypeScript"><span class="lpill lts">TypeScript</span><span class="card-title">Naivecoin: a tutorial for building a cryptocurrency</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://naivecoinstake.learn.uno/" target="_blank" class="card" data-lang="TypeScript"><span class="lpill lts">TypeScript</span><span class="card-title">NaivecoinStake: cryptocurrency with Proof of Stake</span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://hackernoon.com/building-a-blockchain-in-rust-and-substrate-a-step-by-step-guide-for-developers-kc223ybp" target="_blank" class="card" data-lang="Rust"><span class="lpill lrs">Rust</span><span class="card-title">Building A Blockchain in Rust &amp; Substrate</span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://medium.com/programmers-blockchain/create-simple-blockchain-java-tutorial-from-scratch-6eeed3cb03fa" target="_blank" class="card" data-lang="Java"><span class="lpill ljava">Java</span><span class="card-title">Creating Your First Blockchain with Java</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://medium.com/@vasilyf/lets-implement-a-cryptocurrency-in-kotlin-part-1-blockchain-8704069f8580" target="_blank" class="card" data-lang="Kotlin"><span class="lpill lkt">Kotlin</span><span class="card-title">Let's implement a cryptocurrency in Kotlin</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+    </div>
+  </div>
+
+  <!-- Database -->
+  <div class="section" id="database">
+    <div class="section-head"><span class="s-emoji">🗄️</span><h2 class="s-title">Database</h2><span class="s-count">10</span></div>
+    <div class="cards">
+      <a href="https://cstack.github.io/db_tutorial/" target="_blank" class="card" data-lang="C"><span class="lpill lc">C</span><span class="card-title">Let's Build a Simple Database</span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://build-your-own.org/redis" target="_blank" class="card" data-lang="C++"><span class="lpill lcpp">C++</span><span class="card-title">Build Your Own Redis from Scratch</span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://build-your-own.org/database/" target="_blank" class="card" data-lang="Go"><span class="lpill lgo">Go</span><span class="card-title">Build Your Own Database: From B+Tree To SQL in 3000 Lines</span><span class="diff">⭐⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://www.build-redis-from-scratch.dev/" target="_blank" class="card" data-lang="Go"><span class="lpill lgo">Go</span><span class="card-title">Build Your Own Redis from Scratch - Go Edition</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="http://aosabook.org/en/500L/dagoba-an-in-memory-graph-database.html" target="_blank" class="card" data-lang="JavaScript"><span class="lpill ljs">JavaScript</span><span class="card-title">Dagoba: an in-memory graph database</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="http://aosabook.org/en/500L/dbdb-dog-bed-database.html" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">DBDB: Dog Bed Database</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="http://charlesleifer.com/blog/building-a-simple-redis-server-with-python/" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">Write your own miniature Redis with Python</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://dineshgowda.com/posts/build-your-own-persistent-kv-store/" target="_blank" class="card" data-lang="Ruby"><span class="lpill lrb">Ruby</span><span class="card-title">Build your own fast, persistent KV store in Ruby</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://tokio.rs/tokio/tutorial/setup" target="_blank" class="card" data-lang="Rust"><span class="lpill lrs">Rust</span><span class="card-title">Build your own Redis client and server</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+    </div>
+  </div>
+
+  <!-- Docker -->
+  <div class="section" id="docker">
+    <div class="section-head"><span class="s-emoji">🐳</span><h2 class="s-title">Docker / Container</h2><span class="s-count">6</span></div>
+    <div class="cards">
+      <a href="https://blog.lizzie.io/linux-containers-in-500-loc.html" target="_blank" class="card" data-lang="C"><span class="lpill lc">C</span><span class="card-title">Linux containers in 500 lines of code</span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://www.infoq.com/articles/build-a-container-golang" target="_blank" class="card" data-lang="Go"><span class="lpill lgo">Go</span><span class="card-title">Build Your Own Container Using Less than 100 Lines of Go</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://www.youtube.com/watch?v=8fi7uSYlOdc" target="_blank" class="card" data-lang="Go"><span class="lpill lgo">Go</span><span class="card-title">Building a container from scratch in Go</span><span class="card-tags"><span class="ctag ctag-video">📹 Video</span></span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://github.com/Fewbytes/rubber-docker" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">A workshop on Linux containers: Rebuild Docker from Scratch</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://github.com/tonybaloney/mocker" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">A proof-of-concept imitation of Docker, written in 100% Python</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://github.com/p8952/bocker" target="_blank" class="card" data-lang="Shell"><span class="lpill lsh">Shell</span><span class="card-title">Docker implemented in around 100 lines of bash</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+    </div>
+  </div>
+
+  <!-- Emulator -->
+  <div class="section" id="emulator">
+    <div class="section-head"><span class="s-emoji">💻</span><h2 class="s-title">Emulator / Virtual Machine</h2><span class="s-count">9</span></div>
+    <div class="cards">
+      <a href="https://justinmeiners.github.io/lc3-vm/" target="_blank" class="card" data-lang="C"><span class="lpill lc">C</span><span class="card-title">Write your Own Virtual Machine (LC-3)</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://cturt.github.io/cinoop.html" target="_blank" class="card" data-lang="C"><span class="lpill lc">C</span><span class="card-title">Writing a Game Boy emulator, Cinoop</span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="http://www.multigesture.net/articles/how-to-write-an-emulator-chip-8-interpreter/" target="_blank" class="card" data-lang="C++"><span class="lpill lcpp">C++</span><span class="card-title">How to write an emulator (CHIP-8 interpreter)</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://www.youtube.com/playlist?list=PLrOv9FMX8xJHqMvSGB_9G9nZZ_4IgteYf" target="_blank" class="card" data-lang="C++"><span class="lpill lcpp">C++</span><span class="card-title">NES Emulator From Scratch</span><span class="card-tags"><span class="ctag ctag-video">📹 Video</span></span><span class="diff">⭐⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="http://stevelosh.com/blog/2016/12/chip8-cpu/" target="_blank" class="card" data-lang="Haskell"><span class="lpill lhs">Haskell</span><span class="card-title">CHIP-8 in Common Lisp</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="http://imrannazar.com/GameBoy-Emulation-in-JavaScript" target="_blank" class="card" data-lang="JavaScript"><span class="lpill ljs">JavaScript</span><span class="card-title">GameBoy Emulation in JavaScript</span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="http://omokute.blogspot.com.br/2012/06/emulation-basics-write-your-own-chip-8.html" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">Emulation Basics: Write your own Chip 8 Emulator/Interpreter</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://jeremybanks.github.io/0dmg/" target="_blank" class="card" data-lang="Rust"><span class="lpill lrs">Rust</span><span class="card-title">0dmg: Learning Rust by building a partial Game Boy emulator</span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+    </div>
+  </div>
+
+  <!-- Frontend Framework -->
+  <div class="section" id="frontend">
+    <div class="section-head"><span class="s-emoji">⚛️</span><h2 class="s-title">Front-end Framework / Library</h2><span class="s-count">9</span></div>
+    <div class="cards">
+      <a href="https://pomb.us/build-your-own-react/" target="_blank" class="card" data-lang="JavaScript"><span class="lpill ljs">JavaScript</span><span class="card-title">Build your own React</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://jasonformat.com/wtf-is-jsx/" target="_blank" class="card" data-lang="JavaScript"><span class="lpill ljs">JavaScript</span><span class="card-title">WTF is JSX (Let's Build a JSX Renderer)</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://github.com/hexacta/didact" target="_blank" class="card" data-lang="JavaScript"><span class="lpill ljs">JavaScript</span><span class="card-title">A DIY guide to build your own React (Didact)</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://zapier.com/engineering/how-to-build-redux/" target="_blank" class="card" data-lang="JavaScript"><span class="lpill ljs">JavaScript</span><span class="card-title">Build Yourself a Redux</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://medium.com/@deathmood/how-to-write-your-own-virtual-dom-ee74acc13060" target="_blank" class="card" data-lang="JavaScript"><span class="lpill ljs">JavaScript</span><span class="card-title">How to write your own Virtual DOM</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://blog.mgechev.com/2015/03/09/build-learn-your-own-light-lightweight-angularjs/" target="_blank" class="card" data-lang="JavaScript"><span class="lpill ljs">JavaScript</span><span class="card-title">Build Your own Simplified AngularJS in 200 Lines</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://medium.com/@sweetpalma/gooact-react-in-160-lines-of-javascript-44e0742ad60f" target="_blank" class="card" data-lang="JavaScript"><span class="lpill ljs">JavaScript</span><span class="card-title">Gooact: React in 160 lines of JavaScript</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://mfrachet.github.io/create-frontend-framework/" target="_blank" class="card" data-lang="JavaScript"><span class="lpill ljs">JavaScript</span><span class="card-title">Building a frontend framework from scratch with components</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://youtu.be/CGpMlWVcHok" target="_blank" class="card" data-lang="JavaScript"><span class="lpill ljs">JavaScript</span><span class="card-title">Building a Custom React Renderer</span><span class="card-tags"><span class="ctag ctag-video">📹 Video</span></span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+    </div>
+  </div>
+
+  <!-- Game -->
+  <div class="section" id="game">
+    <div class="section-head"><span class="s-emoji">🎮</span><h2 class="s-title">Game</h2><span class="s-count">18</span></div>
+    <div class="cards">
+      <a href="https://handmadehero.org/" target="_blank" class="card" data-lang="C"><span class="lpill lc">C</span><span class="card-title">Handmade Hero - Complete game from scratch</span><span class="diff">⭐⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://nesdoug.com/" target="_blank" class="card" data-lang="C"><span class="lpill lc">C</span><span class="card-title">How to Program an NES game in C</span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://www.youtube.com/playlist?list=PLZ1QII7yudbc-Ky058TEaOstZHVbT-2hg" target="_blank" class="card" data-lang="C"><span class="lpill lc">C</span><span class="card-title">Chess Engine In C</span><span class="card-tags"><span class="ctag ctag-video">📹 Video</span></span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://brennan.io/2015/06/12/tetris-reimplementation/" target="_blank" class="card" data-lang="C"><span class="lpill lc">C</span><span class="card-title">On Tetris and Reimplementation</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://learnopengl.com/In-Practice/2D-Game/Breakout" target="_blank" class="card" data-lang="C++"><span class="lpill lcpp">C++</span><span class="card-title">Breakout - LearnOpenGL</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="http://lazyfoo.net/tutorials/SDL/" target="_blank" class="card" data-lang="C++"><span class="lpill lcpp">C++</span><span class="card-title">Beginning Game Programming v2.0</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="http://nicktasios.nl/posts/space-invaders-from-scratch-part-1.html" target="_blank" class="card" data-lang="C++"><span class="lpill lcpp">C++</span><span class="card-title">Space Invaders from Scratch</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="http://scottlilly.com/learn-c-by-building-a-simple-rpg-index/" target="_blank" class="card" data-lang="C#"><span class="lpill lcs">C#</span><span class="card-title">Learn C# by Building a Simple RPG</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://www.youtube.com/watch?v=025QFeZfeyM" target="_blank" class="card" data-lang="Java"><span class="lpill ljava">Java</span><span class="card-title">Code a 2D Game Engine using Java - Full Course</span><span class="card-tags"><span class="ctag ctag-video">📹 Video</span></span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="http://www.lessmilk.com/tutorial/flappy-bird-phaser-1" target="_blank" class="card" data-lang="JavaScript"><span class="lpill ljs">JavaScript</span><span class="card-title">How to Make Flappy Bird in HTML5 With Phaser</span><span class="diff">⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://medium.freecodecamp.org/think-like-a-programmer-how-to-build-snake-using-only-javascript-html-and-css-7b1479c3339e" target="_blank" class="card" data-lang="JavaScript"><span class="lpill ljs">JavaScript</span><span class="card-title">Think like a programmer: Build Snake with JS, HTML &amp; CSS</span><span class="diff">⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://auth0.com/blog/developing-games-with-react-redux-and-svg-part-1/" target="_blank" class="card" data-lang="JavaScript"><span class="lpill ljs">JavaScript</span><span class="card-title">Developing Games with React, Redux, and SVG</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://github.com/SSYGEN/blog/issues/30" target="_blank" class="card" data-lang="Lua"><span class="lpill lother">Lua</span><span class="card-title">BYTEPATH - Complete game in Lua (LÖVE)</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://pythonprogramming.net/pygame-python-3-part-1-intro/" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">Developing Games With PyGame</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="http://rogueliketutorials.com/" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">Roguelike Tutorial Revised</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://a5huynh.github.io/posts/2018/adventures-in-rust/" target="_blank" class="card" data-lang="Rust"><span class="lpill lrs">Rust</span><span class="card-title">Adventures in Rust: A Basic 2D Game</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://tomassedovic.github.io/roguelike-tutorial/" target="_blank" class="card" data-lang="Rust"><span class="lpill lrs">Rust</span><span class="card-title">Roguelike Tutorial in Rust + tcod</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+    </div>
+  </div>
+
+  <!-- Git -->
+  <div class="section" id="git">
+    <div class="section-head"><span class="s-emoji">📦</span><h2 class="s-title">Git</h2><span class="s-count">7</span></div>
+    <div class="cards">
+      <a href="http://stefan.saasen.me/articles/git-clone-in-haskell-from-the-bottom-up/" target="_blank" class="card" data-lang="Haskell"><span class="lpill lhs">Haskell</span><span class="card-title">Reimplementing "git clone" in Haskell from the bottom up</span><span class="diff">⭐⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="http://gitlet.maryrosecook.com/docs/gitlet.html" target="_blank" class="card" data-lang="JavaScript"><span class="lpill ljs">JavaScript</span><span class="card-title">Gitlet</span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://benhoyt.com/writings/pygit/" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">Just enough of a Git client to create a repo, commit, and push itself to GitHub</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://wyag.thb.lt/" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">Write yourself a Git!</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://www.leshenko.net/p/ugit/" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">ugit: Learn Git Internals by Building Git Yourself</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://robots.thoughtbot.com/rebuilding-git-in-ruby" target="_blank" class="card" data-lang="Ruby"><span class="lpill lrb">Ruby</span><span class="card-title">Rebuilding Git in Ruby</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+    </div>
+  </div>
+
+  <!-- Neural Network -->
+  <div class="section" id="nn">
+    <div class="section-head"><span class="s-emoji">🧬</span><h2 class="s-title">Neural Network</h2><span class="s-count">9</span></div>
+    <div class="cards">
+      <a href="https://iamtrask.github.io/2015/07/12/basic-python-network/" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">A Neural Network in 11 lines of Python</span><span class="diff">⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://victorzhou.com/blog/intro-to-neural-networks/" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">Implement a Neural Network from Scratch</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://victorzhou.com/blog/intro-to-cnns-part-1/" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">An Introduction to Convolutional Neural Networks</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://towardsdatascience.com/how-to-generate-music-using-a-lstm-neural-network-in-keras-68786834d4c5" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">Generate Music using LSTM Neural Network in Keras</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://github.com/xames3/slowtorch" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">SlowTorch: Implementation of PyTorch from the ground up</span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://made2591.github.io/posts/neuralnetwork" target="_blank" class="card" data-lang="Go"><span class="lpill lgo">Go</span><span class="card-title">Build a multilayer perceptron with Golang</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://hackernoon.com/neural-networks-from-scratch-for-javascript-linguists-part1-the-perceptron-632a4d1fbad2" target="_blank" class="card" data-lang="JavaScript"><span class="lpill ljs">JavaScript</span><span class="card-title">Neural networks from scratch for JavaScript linguists - The Perceptron</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://www.codeproject.com/Articles/11285/Neural-Network-OCR" target="_blank" class="card" data-lang="C#"><span class="lpill lcs">C#</span><span class="card-title">Neural Network OCR</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+    </div>
+  </div>
+
+  <!-- Operating System -->
+  <div class="section" id="os">
+    <div class="section-head"><span class="s-emoji">🖥️</span><h2 class="s-title">Operating System</h2><span class="s-count">13</span></div>
+    <div class="cards">
+      <a href="http://joebergeron.io/posts/post_two.html" target="_blank" class="card" data-lang="Assembly"><span class="lpill lasm">Assembly</span><span class="card-title">Writing a Tiny x86 Bootloader</span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://tuhdo.github.io/os01/" target="_blank" class="card" data-lang="C"><span class="lpill lc">C</span><span class="card-title">Operating Systems: From 0 to 1</span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://littleosbook.github.io/" target="_blank" class="card" data-lang="C"><span class="lpill lc">C</span><span class="card-title">The little book about OS development</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="http://jamesmolloy.co.uk/tutorial_html/" target="_blank" class="card" data-lang="C"><span class="lpill lc">C</span><span class="card-title">Roll your own toy UNIX-clone OS</span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://arjunsreedharan.org/post/82710718100/kernel-101-lets-write-a-kernel" target="_blank" class="card" data-lang="C"><span class="lpill lc">C</span><span class="card-title">Kernel 101 – Let's write a Kernel</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://github.com/cfenollosa/os-tutorial" target="_blank" class="card" data-lang="C"><span class="lpill lc">C</span><span class="card-title">How to create an OS from scratch</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://github.com/s-matyukevich/raspberry-pi-os" target="_blank" class="card" data-lang="C"><span class="lpill lc">C</span><span class="card-title">Learning OS development using Linux kernel and Raspberry Pi</span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://www.youtube.com/playlist?list=PLHh55M_Kq4OApWScZyPl5HhgsTJS9MZ6M" target="_blank" class="card" data-lang="C++"><span class="lpill lcpp">C++</span><span class="card-title">Write your own Operating System</span><span class="card-tags"><span class="ctag ctag-video">📹 Video</span></span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="http://3zanders.co.uk/2017/10/13/writing-a-bootloader/" target="_blank" class="card" data-lang="C++"><span class="lpill lcpp">C++</span><span class="card-title">Writing a Bootloader</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://os.phil-opp.com/" target="_blank" class="card" data-lang="Rust"><span class="lpill lrs">Rust</span><span class="card-title">Writing an OS in Rust</span><span class="diff">⭐⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://osblog.stephenmarz.com/" target="_blank" class="card" data-lang="Rust"><span class="lpill lrs">Rust</span><span class="card-title">Add RISC-V Rust Operating System Tutorial</span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://linuxfromscratch.org/lfs" target="_blank" class="card" data-lang="Any"><span class="lpill lany">Any</span><span class="card-title">Linux from scratch</span><span class="diff">⭐⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+    </div>
+  </div>
+
+  <!-- Programming Language -->
+  <div class="section" id="language">
+    <div class="section-head"><span class="s-emoji">🗣️</span><h2 class="s-title">Programming Language</h2><span class="s-count">17</span></div>
+    <div class="cards">
+      <a href="https://github.com/kanaka/mal#mal---make-a-lisp" target="_blank" class="card" data-lang="Any"><span class="lpill lany">Any</span><span class="card-title">mal - Make a Lisp (in 82+ languages)</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="http://www.buildyourownlisp.com/" target="_blank" class="card" data-lang="C"><span class="lpill lc">C</span><span class="card-title">Build Your Own Lisp: Learn C and build your own programming language in 1000 lines</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://github.com/DoctorWkt/acwj" target="_blank" class="card" data-lang="C"><span class="lpill lc">C</span><span class="card-title">A journey explaining how to build a C compiler from scratch</span><span class="diff">⭐⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://llvm.org/docs/tutorial/MyFirstLanguageFrontend/index.html" target="_blank" class="card" data-lang="C++"><span class="lpill lcpp">C++</span><span class="card-title">Kaleidoscope: Implementing a Language with LLVM</span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://github.com/hazbo/the-super-tiny-compiler" target="_blank" class="card" data-lang="Go"><span class="lpill lgo">Go</span><span class="card-title">The Super Tiny Compiler</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="http://dev.stephendiehl.com/fun/" target="_blank" class="card" data-lang="Haskell"><span class="lpill lhs">Haskell</span><span class="card-title">Write You a Haskell</span><span class="diff">⭐⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://en.wikibooks.org/wiki/Write_Yourself_a_Scheme_in_48_Hours" target="_blank" class="card" data-lang="Haskell"><span class="lpill lhs">Haskell</span><span class="card-title">Write Yourself a Scheme in 48 Hours</span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="http://www.craftinginterpreters.com/" target="_blank" class="card" data-lang="Java"><span class="lpill ljava">Java</span><span class="card-title">Crafting Interpreters: A handbook for making programming languages</span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://github.com/jamiebuilds/the-super-tiny-compiler" target="_blank" class="card" data-lang="JavaScript"><span class="lpill ljs">JavaScript</span><span class="card-title">The Super Tiny Compiler</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="http://lisperator.net/pltut/" target="_blank" class="card" data-lang="JavaScript"><span class="lpill ljs">JavaScript</span><span class="card-title">How to implement a programming language in JavaScript</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="http://aosabook.org/en/500L/a-python-interpreter-written-in-python.html" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">A Python Interpreter Written in Python</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://ruslanspivak.com/lsbasi-part1/" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">Let's Build A Simple Interpreter</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://build-your-own.org/compiler/" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">From Source Code To Machine Code: Build Your Own Compiler</span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://bodil.lol/parser-combinators/" target="_blank" class="card" data-lang="Rust"><span class="lpill lrs">Rust</span><span class="card-title">Learning Parser Combinators With Rust</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://blog.scottlogic.com/2019/05/17/webassembly-compiler.html" target="_blank" class="card" data-lang="TypeScript"><span class="lpill lts">TypeScript</span><span class="card-title">Build your own WebAssembly Compiler</span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+    </div>
+  </div>
+
+  <!-- Shell -->
+  <div class="section" id="shell">
+    <div class="section-head"><span class="s-emoji">🐚</span><h2 class="s-title">Shell</h2><span class="s-count">7</span></div>
+    <div class="cards">
+      <a href="https://brennan.io/2015/01/16/write-a-shell-in-c/" target="_blank" class="card" data-lang="C"><span class="lpill lc">C</span><span class="card-title">Tutorial - Write a Shell in C</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://github.com/kamalmarhubi/shell-workshop" target="_blank" class="card" data-lang="C"><span class="lpill lc">C</span><span class="card-title">Let's build a shell!</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://indradhanush.github.io/blog/writing-a-unix-shell-part-1/" target="_blank" class="card" data-lang="C"><span class="lpill lc">C</span><span class="card-title">Writing a UNIX Shell</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://github.com/tokenrove/build-your-own-shell" target="_blank" class="card" data-lang="C"><span class="lpill lc">C</span><span class="card-title">Build Your Own Shell</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://sj14.gitlab.io/post/2018-07-01-go-unix-shell/" target="_blank" class="card" data-lang="Go"><span class="lpill lgo">Go</span><span class="card-title">Writing a simple shell in Go</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://www.joshmcguigan.com/blog/build-your-own-shell-rust/" target="_blank" class="card" data-lang="Rust"><span class="lpill lrs">Rust</span><span class="card-title">Build Your Own Shell using Rust</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+    </div>
+  </div>
+
+  <!-- Distributed Systems -->
+  <div class="section" id="distributed">
+    <div class="section-head"><span class="s-emoji">🔀</span><h2 class="s-title">Distributed Systems</h2><span class="s-count">6</span></div>
+    <div class="cards">
+      <a href="https://github.com/buildthingsuseful/build-your-own-kafka" target="_blank" class="card" data-lang="Java"><span class="lpill ljava">Java</span><span class="card-title">Building Your Own Kafka-like System From Scratch</span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://github.com/otoolep/hraftd" target="_blank" class="card" data-lang="Go"><span class="lpill lgo">Go</span><span class="card-title">Build Your Own Distributed Key-Value Store with Raft</span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://kasvith.me/posts/lets-create-a-simple-lb-go/" target="_blank" class="card" data-lang="Go"><span class="lpill lgo">Go</span><span class="card-title">Let's Create a Simple Load Balancer</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://eli.thegreenplace.net/2020/implementing-raft-part-0-introduction/" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">Implementing Raft Consensus Algorithm from Scratch</span><span class="diff">⭐⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://codepr.github.io/posts/sol-mqtt-broker" target="_blank" class="card" data-lang="C"><span class="lpill lc">C</span><span class="card-title">Sol - An MQTT broker from scratch</span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://github.com/leandromoreira/cdn-up-and-running" target="_blank" class="card" data-lang="Lua"><span class="lpill lother">Lua</span><span class="card-title">Building a CDN from Scratch to Learn about CDN</span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+    </div>
+  </div>
+
+  <!-- Web Server -->
+  <div class="section" id="webserver">
+    <div class="section-head"><span class="s-emoji">🖧</span><h2 class="s-title">Web Server</h2><span class="s-count">9</span></div>
+    <div class="cards">
+      <a href="https://www.codeproject.com/Articles/859108/Writing-a-Web-Server-from-Scratch" target="_blank" class="card" data-lang="C#"><span class="lpill lcs">C#</span><span class="card-title">Writing a Web Server from Scratch</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://build-your-own.org/webserver/" target="_blank" class="card" data-lang="JavaScript"><span class="lpill lnj">Node.js</span><span class="card-title">Build Your Own Web Server From Scratch In JavaScript</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://station.clancats.com/writing-a-webserver-in-pure-php/" target="_blank" class="card" data-lang="PHP"><span class="lpill lphp">PHP</span><span class="card-title">Writing a webserver in pure PHP</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="http://aosabook.org/en/500L/a-simple-web-server.html" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">A Simple Web Server</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://ruslanspivak.com/lsbaws-part1/" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">Let's Build A Web Server</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="http://joaoventura.net/blog/2017/python-webserver/" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">Building a basic HTTP Server from scratch in Python</span><span class="diff">⭐</span><span class="card-arrow">→</span></a>
+      <a href="http://blog.luisrei.com/articles/flaskrest.html" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">Implementing a RESTful Web API with Python &amp; Flask</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="http://blog.honeybadger.io/building-a-simple-websockets-server-from-scratch-in-ruby/" target="_blank" class="card" data-lang="Ruby"><span class="lpill lrb">Ruby</span><span class="card-title">Building a simple websockets server from scratch in Ruby</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://github.com/antoaravinth/lets-build-express" target="_blank" class="card" data-lang="JavaScript"><span class="lpill lnj">Node.js</span><span class="card-title">lets-build-express - Build Express.js from scratch</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+    </div>
+  </div>
+
+  <!-- Regex -->
+  <div class="section" id="regex">
+    <div class="section-head"><span class="s-emoji">🔍</span><h2 class="s-title">Regex Engine</h2><span class="s-count">6</span></div>
+    <div class="cards">
+      <a href="https://www.cs.princeton.edu/courses/archive/spr09/cos333/beautiful.html" target="_blank" class="card" data-lang="C"><span class="lpill lc">C</span><span class="card-title">A Regular Expression Matcher</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://swtch.com/~rsc/regexp/regexp1.html" target="_blank" class="card" data-lang="C"><span class="lpill lc">C</span><span class="card-title">Regular Expression Matching Can Be Simple And Fast</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://rhaeguard.github.io/posts/regex" target="_blank" class="card" data-lang="Go"><span class="lpill lgo">Go</span><span class="card-title">How to build a regex engine from scratch</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://nickdrane.com/build-your-own-regex/" target="_blank" class="card" data-lang="JavaScript"><span class="lpill ljs">JavaScript</span><span class="card-title">Build a Regex Engine in Less than 40 Lines of Code</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://deniskyashif.com/2019/02/17/implementing-a-regular-expression-engine/" target="_blank" class="card" data-lang="JavaScript"><span class="lpill ljs">JavaScript</span><span class="card-title">Implementing a Regular Expression Engine</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://build-your-own.org/b2a/r0_intro" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">Build Your Own Regular Expression Engines: Backtracking, NFA, DFA</span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+    </div>
+  </div>
+
+  <!-- Text Editor -->
+  <div class="section" id="editor">
+    <div class="section-head"><span class="s-emoji">✏️</span><h2 class="s-title">Text Editor</h2><span class="s-count">5</span></div>
+    <div class="cards">
+      <a href="https://viewsourcecode.org/snaptoken/kilo/" target="_blank" class="card" data-lang="C"><span class="lpill lc">C</span><span class="card-title">Build Your Own Text Editor (Kilo)</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="http://www.fltk.org/doc-1.1/editor.html" target="_blank" class="card" data-lang="C++"><span class="lpill lcpp">C++</span><span class="card-title">Designing a Simple Text Editor</span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://www.youtube.com/watch?v=xqDonHEYPgA" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">Python Tutorial: Make Your Own Text Editor</span><span class="card-tags"><span class="ctag ctag-video">📹 Video</span></span><span class="diff">⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://blog.aha.io/text-editor/" target="_blank" class="card" data-lang="Ruby"><span class="lpill lrb">Ruby</span><span class="card-title">Build a Collaborative Text Editor Using Rails</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://www.flenker.blog/hecto/" target="_blank" class="card" data-lang="Rust"><span class="lpill lrs">Rust</span><span class="card-title">Hecto: Build your own text editor in Rust</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+    </div>
+  </div>
+
+  <!-- Web Browser -->
+  <div class="section" id="browser">
+    <div class="section-head"><span class="s-emoji">🌐</span><h2 class="s-title">Web Browser</h2><span class="s-count">3</span></div>
+    <div class="cards">
+      <a href="https://limpet.net/mbrubeck/2014/08/08/toy-layout-engine-1.html" target="_blank" class="card" data-lang="Rust"><span class="lpill lrs">Rust</span><span class="card-title">Let's build a browser engine</span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://browser.engineering" target="_blank" class="card" data-lang="Python"><span class="lpill lpy">Python</span><span class="card-title">Browser Engineering</span><span class="diff">⭐⭐⭐⭐</span><span class="card-arrow">→</span></a>
+      <a href="https://medium.com/@lucie.barreau/understanding-a-rendering-engine-lets-build-our-own-2cd6044db2d6" target="_blank" class="card" data-lang="JavaScript"><span class="lpill ljs">JavaScript</span><span class="card-title">Build Your Own Browser Rendering Engine</span><span class="diff">⭐⭐⭐</span><span class="card-arrow">→</span></a>
+    </div>
+  </div>
+
+  <!-- Stats Section -->
+  <div class="stats-section">
+    <div class="ss"><div class="ss-num">200+</div><div class="ss-lbl">Tutorials</div></div>
+    <div class="ss"><div class="ss-num">34</div><div class="ss-lbl">Categories</div></div>
+    <div class="ss"><div class="ss-num">15+</div><div class="ss-lbl">Languages</div></div>
+    <div class="ss"><div class="ss-num">40+</div><div class="ss-lbl">Video Guides</div></div>
+    <div class="ss"><div class="ss-num">8</div><div class="ss-lbl">Learning Paths</div></div>
+    <div class="ss"><div class="ss-num">100%</div><div class="ss-lbl">Free Forever</div></div>
+  </div>
+
+  <!-- Learning Paths -->
+  <div class="paths-section" id="paths">
+    <div class="section-head"><span class="s-emoji">🗺️</span><h2 class="s-title">Learning Paths</h2></div>
+    <div class="paths-grid">
+      <div class="path-card">
+        <div class="path-icon">💻</div>
+        <div class="path-name">Systems Programmer</div>
+        <div class="path-desc">OS, kernel, memory allocators, virtual machines, compilers from scratch.</div>
+        <div class="path-meta"><span class="path-steps">8 steps</span><span class="path-diff">⭐⭐⭐⭐⭐</span></div>
+      </div>
+      <div class="path-card">
+        <div class="path-icon">🤖</div>
+        <div class="path-name">AI / ML Engineer</div>
+        <div class="path-desc">From perceptrons to GPT-2. Build every piece of the AI stack yourself.</div>
+        <div class="path-meta"><span class="path-steps">10 steps</span><span class="path-diff">⭐⭐⭐⭐</span></div>
+      </div>
+      <div class="path-card">
+        <div class="path-icon">🌐</div>
+        <div class="path-name">Web Developer</div>
+        <div class="path-desc">Web servers, React, Redux, module bundlers, auth systems from the ground up.</div>
+        <div class="path-meta"><span class="path-steps">8 steps</span><span class="path-diff">⭐⭐</span></div>
+      </div>
+      <div class="path-card">
+        <div class="path-icon">🎮</div>
+        <div class="path-name">Game Developer</div>
+        <div class="path-desc">Snake to full 3D game engines. Build every component yourself.</div>
+        <div class="path-meta"><span class="path-steps">8 steps</span><span class="path-diff">⭐⭐⭐</span></div>
+      </div>
+      <div class="path-card">
+        <div class="path-icon">⛓️</div>
+        <div class="path-name">Blockchain Developer</div>
+        <div class="path-desc">Tiniest blockchain to Proof-of-Stake networks. Build crypto from scratch.</div>
+        <div class="path-meta"><span class="path-steps">7 steps</span><span class="path-diff">⭐⭐⭐</span></div>
+      </div>
+      <div class="path-card">
+        <div class="path-icon">🔐</div>
+        <div class="path-name">Security Engineer</div>
+        <div class="path-desc">TCP stacks, VPNs, auth systems, debuggers, system calls.</div>
+        <div class="path-meta"><span class="path-steps">7 steps</span><span class="path-diff">⭐⭐⭐⭐</span></div>
+      </div>
+      <div class="path-card">
+        <div class="path-icon">🗄️</div>
+        <div class="path-name">Database Engineer</div>
+        <div class="path-desc">Redis to distributed SQL. Every storage engine concept from scratch.</div>
+        <div class="path-meta"><span class="path-steps">7 steps</span><span class="path-diff">⭐⭐⭐⭐</span></div>
+      </div>
+      <div class="path-card">
+        <div class="path-icon">🗣️</div>
+        <div class="path-name">Language Designer</div>
+        <div class="path-desc">Lexers, parsers, GC, type inference, JIT - design your own language.</div>
+        <div class="path-meta"><span class="path-steps">7 steps</span><span class="path-diff">⭐⭐⭐⭐</span></div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <svg class="wave-footer" viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="#3b0764"/>
+  </svg>
+  <div class="footer-logo">CodeCrafterz</div>
+  <div class="footer-sub">Build Your Own &lt;Technology&gt; - 200+ Tutorials</div>
+  <div class="footer-links">
+    <a href="https://github.com/sohaibdevv/code_crafterz" target="_blank">GitHub Repository</a>
+    <a href="CONTRIBUTING.md">Contribute</a>
+    <a href="LEARNING_PATHS.md">Learning Paths</a>
+    <a href="https://github.com/sohaibdevv/code_crafterz/issues/new" target="_blank">Suggest a Tutorial</a>
+    <a href="https://github.com/sohaibdevv" target="_blank">About the Author</a>
+  </div>
+  <div class="footer-credit">
+    Curated &amp; maintained by <strong>sohaib malik</strong> &nbsp;·&nbsp; CC0 Public Domain
+  </div>
+</footer>
+
+<button id="btt" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<div class="toast" id="toast">Link copied!</div>
+
+<script>
+// ── PARTICLES ──
+(function(){
+  const c = document.getElementById('particles');
+  const ctx = c.getContext('2d');
+  let W, H, particles = [];
+  function resize(){ W = c.width = innerWidth; H = c.height = innerHeight; }
+  resize(); window.addEventListener('resize', resize);
+
+  const COLORS = ['#c084fc','#a855f7','#ddd6fe','#e9d5ff','#8b5cf6'];
+  function mkParticle(){
+    return {
+      x: Math.random()*W, y: Math.random()*H,
+      r: Math.random()*2.5+.5,
+      vx: (Math.random()-.5)*.4, vy: (Math.random()-.5)*.4,
+      color: COLORS[Math.floor(Math.random()*COLORS.length)],
+      alpha: Math.random()*.6+.2
+    };
+  }
+  for(let i=0;i<100;i++) particles.push(mkParticle());
+
+  function frame(){
+    ctx.clearRect(0,0,W,H);
+    particles.forEach(p=>{
+      p.x += p.vx; p.y += p.vy;
+      if(p.x<0)p.x=W; if(p.x>W)p.x=0;
+      if(p.y<0)p.y=H; if(p.y>H)p.y=0;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle = p.color;
+      ctx.globalAlpha = p.alpha;
+      ctx.fill();
+    });
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(frame);
+  }
+  frame();
+})();
+
+// ── PROGRESS BAR ──
+const prog = document.getElementById('progress');
+window.addEventListener('scroll',()=>{
+  const h = document.documentElement;
+  const p = (scrollY/(h.scrollHeight-h.clientHeight))*100;
+  prog.style.width = p+'%';
+});
+
+// ── COUNTER ANIMATION ──
+function animateCounters(){
+  document.querySelectorAll('.stat-num[data-target]').forEach(el=>{
+    const target = parseInt(el.dataset.target);
+    const suffix = target===200?'+': target===15?'+': '';
+    let current = 0;
+    const step = Math.ceil(target/40);
+    const timer = setInterval(()=>{
+      current = Math.min(current+step, target);
+      el.textContent = current+suffix;
+      if(current>=target) clearInterval(timer);
+    }, 30);
+  });
+}
+// trigger when hero is visible
+new IntersectionObserver((entries)=>{
+  if(entries[0].isIntersecting){ animateCounters(); }
+},{threshold:.5}).observe(document.querySelector('.hero'));
+
+// ── TYPEWRITER ──
+const phrases = ['<build-your-own-x />', '<make-a-database />', '<write-an-os />', '<craft-a-compiler />', '<create-anything />'];
+let pi=0, ci=0, deleting=false;
+const el = document.querySelector('.mono');
+if(el){
+  const cursor = el.querySelector('.cursor');
+  function type(){
+    const phrase = phrases[pi];
+    if(!deleting){
+      if(ci <= phrase.length){
+        el.innerHTML = phrase.slice(0,ci) + '<span class="cursor"></span>';
+        ci++;
+        setTimeout(type, ci===phrase.length ? 2200 : 70);
+      }
+    } else {
+      if(ci >= 0){
+        el.innerHTML = phrase.slice(0,ci) + '<span class="cursor"></span>';
+        ci--;
+        setTimeout(type, 40);
+      } else {
+        deleting=false; pi=(pi+1)%phrases.length; ci=0;
+        setTimeout(type, 400);
+      }
+    }
+    if(!deleting && ci===phrase.length+1){
+      deleting=true;
+      setTimeout(type, 2200);
+    }
+  }
+  setTimeout(type, 1200);
+}
+
+// ── BACK TO TOP ──
+window.addEventListener('scroll',()=>{
+  document.getElementById('btt').classList.toggle('show', scrollY>400);
+});
+
+// ── SEARCH ──
+const input = document.getElementById('search');
+input.addEventListener('input',()=>{
+  const q = input.value.toLowerCase().trim();
+  const activeLang = document.querySelector('.lang-btn.active')?.dataset.lang || 'all';
+  filterCards(q, activeLang);
+});
+
+// ── LANGUAGE FILTER ──
+document.querySelectorAll('.lang-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const q = input.value.toLowerCase().trim();
+    filterCards(q, btn.dataset.lang);
+  });
+});
+
+function filterCards(q, lang){
+  document.querySelectorAll('.card').forEach(card=>{
+    const matchQ = !q || card.textContent.toLowerCase().includes(q);
+    const matchL = lang==='all' || (card.dataset.lang||'').toLowerCase().includes(lang.toLowerCase());
+    card.classList.toggle('hidden', !matchQ || !matchL);
+  });
+  document.querySelectorAll('.section').forEach(sec=>{
+    const visible = sec.querySelectorAll('.card:not(.hidden)').length;
+    sec.classList.toggle('hidden', visible===0);
+  });
+}
+
+// ── SCROLL REVEAL ──
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.style.animationDelay='0s'; e.target.style.opacity='1'; }
+  });
+},{threshold:.07});
+document.querySelectorAll('.section').forEach((s,i)=>{
+  s.style.opacity='0';
+  s.style.animationDelay = (i*.05)+'s';
+  observer.observe(s);
+});
+</script>
+</body>
+</html>

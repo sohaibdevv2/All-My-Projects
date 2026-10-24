@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Template 3</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template elite3-template">
+        <div class="header-banner">
+            <div class="banner-content">
+                <h1 class="name" id="previewName">Your Name</h1>
+                <h2 class="title" id="previewJobTitle">Design Director</h2>
+                <div class="contact-info">
+                    <span id="previewEmail"></span> | <span id="previewPhone"></span> | <span id="previewLocation"></span> | <span id="previewLinkedIn"></span>
+                </div>
+            </div>
+            <div class="geometric-accent"></div>
+        </div>
+        
+        <div class="content-grid">
+            <div class="left-column">
+                <div class="summary-card">
+                    <h3>Creative Vision</h3>
+                    <p id="previewSummary"></p>
+                </div>
+                
+                <div class="skills-card">
+                    <h3>Design Expertise</h3>
+                    <div id="previewSkills" class="skills-list"></div>
+                </div>
+                
+                <div class="languages-card">
+                    <h3>Languages</h3>
+                    <div id="previewLanguages" class="skills-list"></div>
+                </div>
+            </div>
+            
+            <div class="right-column">
+                <div class="experience-section">
+                    <h3>Professional Journey</h3>
+                    <div id="previewExperience"></div>
+                </div>
+                
+                <div class="education-section">
+                    <h3>Education & Credentials</h3>
+                    <div id="previewEducation"></div>
+                </div>
+                
+                <div class="portfolio-section">
+                    <h3>Portfolio Highlights</h3>
+                    <div class="portfolio-grid">
+                        <div class="portfolio-item">Brand Identity System</div>
+                        <div class="portfolio-item">Digital Product Design</div>
+                        <div class="portfolio-item">Creative Campaign Strategy</div>
+                        <div class="portfolio-item">User Experience Innovation</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .elite3-template { 
+            font-family: 'Avenir', 'Helvetica Neue', sans-serif; 
+            background: #ffffff; 
+            color: #2d3748; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+        }
+        .elite3-template .header-banner { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            color: white; 
+            padding: 3rem 2.5rem; 
+            position: relative;
+            overflow: hidden;
+        }
+        .elite3-template .geometric-accent {
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(45deg);
+            border-radius: 20px;
+        }
+        .elite3-template .geometric-accent::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+        .elite3-template .banner-content {
+            position: relative;
+            z-index: 2;
+        }
+        .elite3-template .name { 
+            font-size: 3.5rem; 
+            margin: 0; 
+            font-weight: 200; 
+            letter-spacing: 3px; 
+        }
+        .elite3-template .title { 
+            font-size: 1.8rem; 
+            margin: 1rem 0 2rem 0; 
+            font-weight: 300; 
+            opacity: 0.95; 
+        }
+        .elite3-template .contact-info { 
+            font-size: 1.1rem; 
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        .elite3-template .content-grid { 
+            display: grid; 
+            grid-template-columns: 1fr 2fr; 
+            gap: 3rem; 
+            padding: 3rem 2.5rem; 
+        }
+        .elite3-template .left-column > div, .elite3-template .right-column > div { 
+            margin-bottom: 2.5rem; 
+            padding: 2rem; 
+            background: #f8fafc; 
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        .elite3-template .summary-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+        .elite3-template .skills-card {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+        .elite3-template .languages-card {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+        }
+        .elite3-template h3 { 
+            font-size: 1.3rem; 
+            margin-bottom: 1.5rem; 
+            font-weight: 600; 
+            position: relative;
+        }
+        .elite3-template .left-column h3 {
+            color: white;
+        }
+        .elite3-template .right-column h3 {
+            color: #2d3748;
+            padding-left: 1.5rem;
+        }
+        .elite3-template .right-column h3::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background: #667eea;
+            border-radius: 50%;
+        }
+        .elite3-template .experience-entry, .elite3-template .education-entry { 
+            margin-bottom: 2rem; 
+            padding: 2rem; 
+            background: white; 
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-left: 6px solid #667eea;
+            position: relative;
+        }
+        .elite3-template .experience-entry::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 2rem;
+            width: 18px;
+            height: 18px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+        .elite3-template .entry-title { 
+            font-weight: 700; 
+            font-size: 1.2rem; 
+            color: #2d3748; 
+            margin-bottom: 0.5rem;
+        }
+        .elite3-template .entry-company { 
+            color: #667eea; 
+            font-weight: 600; 
+            font-size: 1.1rem;
+        }
+        .elite3-template .entry-dates { 
+            color: #718096; 
+            font-size: 0.95rem; 
+            font-weight: 500;
+            float: right;
+            background: #edf2f7;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+        }
+        .elite3-template .skill-tag { 
+            display: inline-block; 
+            background: rgba(255, 255, 255, 0.2); 
+            color: white; 
+            padding: 0.6rem 1.2rem; 
+            margin: 0.3rem; 
+            border-radius: 25px; 
+            font-size: 0.85rem; 
+            font-weight: 500; 
+            backdrop-filter: blur(10px);
+        }
+        .elite3-template .portfolio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .elite3-template .portfolio-item {
+            padding: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            text-align: center;
+            font-weight: 500;
+            border-top: 4px solid #667eea;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

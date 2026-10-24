@@ -1,0 +1,63 @@
+<div class="resume-template proTimeline-template">
+<style>
+.proTimeline-template { background:#fff; color:#2d2d2d; font-family:'Inter',sans-serif; font-size:9.2pt; line-height:1.5; padding:40px 46px; max-width:794px; margin:0 auto; }
+.proTimeline-template .pt-head { margin-bottom:6px; }
+.proTimeline-template .pt-name { font-size:24pt; font-weight:700; color:#1a1a1a; letter-spacing:-0.5px; }
+.proTimeline-template .pt-title { font-size:11pt; color:var(--primary-color,#2d8653); font-weight:600; margin:4px 0 8px; }
+.proTimeline-template .pt-contact { display:flex; flex-wrap:wrap; gap:6px 16px; font-size:8.3pt; color:#555; border-bottom:2px solid var(--primary-color,#2d8653); padding-bottom:14px; margin-bottom:16px; }
+.proTimeline-template .pt-sec-title { font-size:10pt; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--primary-color,#2d8653); margin:0 0 12px; }
+.proTimeline-template .pt-block { margin-bottom:20px; }
+.proTimeline-template .pt-summary { font-size:9pt; color:#444; line-height:1.6; margin-bottom:18px; }
+.proTimeline-template .experience-entry, .proTimeline-template .education-entry { display:grid; grid-template-columns:90px 1fr; gap:14px; margin-bottom:15px; position:relative; }
+.proTimeline-template .experience-entry::before { content:''; position:absolute; left:96px; top:5px; bottom:-15px; width:2px; background:#e5e5e5; }
+.proTimeline-template .experience-entry:last-child::before { display:none; }
+.proTimeline-template .entry-dates { font-size:8pt; color:#888; padding-top:2px; text-align:right; }
+.proTimeline-template .entry-header { display:flex; flex-direction:column; gap:1px; padding-left:14px; position:relative; }
+.proTimeline-template .entry-header::before { content:''; position:absolute; left:-4px; top:4px; width:9px; height:9px; border-radius:50%; background:var(--primary-color,#2d8653); }
+.proTimeline-template .entry-title { font-size:10pt; font-weight:700; color:#1a1a1a; margin:0; }
+.proTimeline-template .entry-company, .proTimeline-template .entry-school { font-size:8.8pt; color:var(--primary-color,#2d8653); font-weight:600; }
+.proTimeline-template .entry-description { font-size:8.6pt; color:#555; line-height:1.55; margin-top:4px; padding-left:14px; }
+.proTimeline-template .education-entry .entry-header { padding-left:14px; }
+.proTimeline-template .skill-tag { display:inline-block; background:#f0f6f2; color:#2d5a3f; padding:3px 10px; border-radius:14px; font-size:8.2pt; margin:0 5px 5px 0; }
+.proTimeline-template ul { margin:0; padding-left:16px; }
+.proTimeline-template li { font-size:8.6pt; color:#555; margin-bottom:3px; }
+.proTimeline-template .pt-cols { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+</style>
+  <div class="pt-head">
+    <div class="pt-name" id="previewName">Your Name</div>
+    <div class="pt-title" id="previewJobTitle">Professional Title</div>
+  </div>
+  <div class="pt-contact">
+    <span id="previewEmail">email@example.com</span>
+    <span id="previewPhone">+1 555 123 4567</span>
+    <span id="previewLocation">City, Country</span>
+    <span id="previewLinkedIn"></span>
+  </div>
+  <p class="pt-summary" id="previewSummary">Professional summary...</p>
+  <div class="pt-block">
+    <div class="pt-sec-title">Experience</div>
+    <div id="previewExperience"></div>
+  </div>
+  <div class="pt-block">
+    <div class="pt-sec-title">Education</div>
+    <div id="previewEducation"></div>
+  </div>
+  <div class="pt-cols">
+    <div class="pt-block">
+      <div class="pt-sec-title">Skills</div>
+      <div id="previewSkills"></div>
+    </div>
+    <div class="pt-block">
+      <div class="pt-sec-title">Languages</div>
+      <div id="previewLanguages"></div>
+    </div>
+    <div class="pt-block">
+      <div class="pt-sec-title">Certifications</div>
+      <ul id="previewCertifications"></ul>
+    </div>
+    <div class="pt-block">
+      <div class="pt-sec-title">Projects</div>
+      <ul id="previewProjects"></ul>
+    </div>
+  </div>
+</div>

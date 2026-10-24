@@ -1,0 +1,85 @@
+<div class="resume-template creativePhoto4-template">
+  <div class="cp4-header">
+    <div class="cp4-watercolor-bg"></div>
+    <div class="cp4-header-inner">
+      <div class="cp4-photo-frame">
+        <div id="profilePhoto" class="cp4-photo"></div>
+      </div>
+      <div class="cp4-header-text">
+        <h1 id="previewName" class="cp4-name">Your Name</h1>
+        <div id="previewJobTitle" class="cp4-title">Professional Title</div>
+        <div class="cp4-contact">
+          <span id="previewEmail">email@example.com</span>
+          <span>·</span>
+          <span id="previewPhone">+1 555 0000</span>
+          <span>·</span>
+          <span id="previewLocation">Location</span>
+          <div id="previewLinkedIn"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cp4-body">
+    <div class="cp4-summary-section">
+      <p id="previewSummary" class="cp4-summary"></p>
+    </div>
+    <div class="cp4-columns">
+      <div class="cp4-left">
+        <div class="cp4-section">
+          <h2 class="cp4-sh">✦ Experience</h2>
+          <div id="previewExperience"></div>
+        </div>
+        <div class="cp4-section">
+          <h2 class="cp4-sh">✦ Education</h2>
+          <div id="previewEducation"></div>
+        </div>
+        <div class="cp4-section">
+          <h2 class="cp4-sh">✦ Projects</h2>
+          <ul id="previewProjects"></ul>
+        </div>
+      </div>
+      <div class="cp4-right">
+        <div class="cp4-section">
+          <h2 class="cp4-sh">✦ Skills</h2>
+          <div id="previewSkills" class="skills-list"></div>
+        </div>
+        <div class="cp4-section">
+          <h2 class="cp4-sh">✦ Languages</h2>
+          <div id="previewLanguages" class="skills-list"></div>
+        </div>
+        <div class="cp4-section">
+          <h2 class="cp4-sh">✦ Certifications</h2>
+          <ul id="previewCertifications"></ul>
+        </div>
+        <div class="cp4-section">
+          <h2 class="cp4-sh">✦ Awards</h2>
+          <ul id="previewAwards"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+.creativePhoto4-template{font-family:'Georgia',serif;background:#fef9f0;color:#3d2b1f;--accent:var(--primary-color,#c2846a)}
+.cp4-header{background:linear-gradient(135deg,#fde8d8,#fef0e6,#f9e4cc);padding:2.5rem 2rem;position:relative;overflow:hidden;border-bottom:3px solid var(--accent)}
+.cp4-watercolor-bg{position:absolute;inset:0;opacity:.3;background:radial-gradient(ellipse at 20% 50%,#f9c8a8,transparent 50%),radial-gradient(ellipse at 80% 20%,#f5b8d0,transparent 50%),radial-gradient(ellipse at 60% 80%,#c8d8f9,transparent 50%)}
+.cp4-header-inner{display:flex;align-items:center;gap:2rem;position:relative}
+.cp4-photo-frame{flex-shrink:0;width:110px;height:110px;border-radius:50%;padding:4px;background:linear-gradient(135deg,var(--accent),#f5b8d0,#c8d8f9)}
+.cp4-photo{width:100%;height:100%;border-radius:50%;background:#f5dcc8;background-size:cover;background-position:center}
+.cp4-name{font-size:2.2rem;font-weight:700;color:#2d1a0e;margin:0 0 .4rem;font-style:italic}
+.cp4-title{color:var(--accent);font-size:1.05rem;margin-bottom:.6rem;font-weight:400;letter-spacing:.05em}
+.cp4-contact{font-size:.82rem;color:#7a5c4a;display:flex;flex-wrap:wrap;gap:.4rem;align-items:center}
+.cp4-body{padding:0 2rem 2rem}
+.cp4-summary-section{padding:1.5rem 0;border-bottom:1px solid #e8d5c4;margin-bottom:1.5rem}
+.cp4-summary{font-style:italic;color:#5a3e2b;line-height:1.8;font-size:.92rem;margin:0;text-align:center}
+.cp4-columns{display:grid;grid-template-columns:1fr 260px;gap:2rem}
+.cp4-section{margin-bottom:1.5rem}
+.cp4-sh{font-size:1rem;color:var(--accent);margin-bottom:.8rem;font-weight:600;letter-spacing:.05em}
+.creativePhoto4-template .experience-entry,.creativePhoto4-template .education-entry{margin-bottom:1.2rem;padding-bottom:1rem;border-bottom:1px dashed #e8d5c4}
+.creativePhoto4-template .entry-title{font-weight:700;color:#2d1a0e;font-size:.95rem}
+.creativePhoto4-template .entry-company{color:var(--accent);font-size:.87rem}
+.creativePhoto4-template .entry-dates{color:#9a7060;font-size:.8rem;font-style:italic}
+.creativePhoto4-template .entry-description{color:#5a3e2b;font-size:.83rem;line-height:1.6;margin-top:.4rem}
+.creativePhoto4-template .skill-tag{background:rgba(194,132,106,.15);border:1px solid rgba(194,132,106,.3);color:#7a4a2e;padding:.3rem .7rem;border-radius:25px;font-size:.78rem;display:inline-block;margin:.2rem}
+.creativePhoto4-template ul{padding-left:1.2rem;font-size:.83rem;color:#5a3e2b;line-height:1.7}
+</style>

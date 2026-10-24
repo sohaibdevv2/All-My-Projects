@@ -1,0 +1,36 @@
+﻿@page
+@attribute [Microsoft.AspNetCore.Authorization.Authorize(Roles = "User")];
+@model SafeVault_FinalProject.Pages.Models.LoginInputModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="card border-primary shadow-sm rounded-3">
+                <div class="card-header bg-primary text-white text-center">
+                    <h2 class="mb-0">Hello, @User.Identity?.Name!</h2>
+                </div>
+                <div class="card-body">
+                    <p class="lead text-secondary mb-4">
+                        Welcome back! Here’s your personal dashboard.
+                    </p>
+
+                    <div class="alert alert-info" role="alert">
+                        <strong>Note:</strong> Your account is set up with standard user privileges.
+                    </div>
+
+                    <hr />
+
+                    <p>Your username: <strong>@User.Identity?.Name</strong></p>
+                    <p>Your role: <strong>User</strong></p>
+
+                    <div class="text-end mt-4">
+                        <a class="btn btn-outline-danger" href="/Logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

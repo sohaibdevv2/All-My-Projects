@@ -1,0 +1,152 @@
+@using System.ComponentModel.DataAnnotations
+
+<!-- Navigation -->
+<nav class="mb-4 d-flex align-items-center gap-2">
+    @if (IsValid)
+    {
+        <a class="btn btn-success" href="@($"/events/register/{EventId}")">Register for Event</a>
+    }
+</nav>
+
+@* EventCard.razor *@
+@if (!IsValid)
+{
+    <div class="alert alert-danger mt-3">
+        <a href="/events">event list</a>.
+    </div>
+}
+else
+{
+    <div class="event-card">
+        <h3>@EventName</h3>
+        <p><strong>Date:</strong> @EventDate.ToString("MMMM dd, yyyy")</p>
+        <p><strong>Location:</strong> @Location</p>
+        <a class="btn btn-primary" href="@($"/events/details/{EventId}")">View Details</a>
+    </div>
+}
+
+
+@* Registration Form with data validation *@
+@if (ShowRegistrationForm)
+{
+    <EditForm Model="registrationModel" OnValidSubmit="HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <InputText id="name" class="form-control" @bind-Value="registrationModel.Name" />
+            <ValidationMessage For="@(() => registrationModel.Name)" />
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <InputText id="email" class="form-control" @bind-Value="registrationModel.Email" />
+            <ValidationMessage For="@(() => registrationModel.Email)" />
+        </div>
+        <button type="submit" class="btn btn-success">Submit Registration</button>
+        <button type="button" class="btn btn-secondary ms-2" @onclick="() => ShowRegistrationForm = false">Cancel</button>
+    </EditForm>
+}
+@if (RegistrationSuccess)
+{
+    <div class="alert alert-success mt-3">
+        Registration successful! Welcome, @registrationModel.Name.
+    </div>
+}
+
+@* Attendance Tracker *@
+@if (AttendanceList.Any())
+{
+    <div class="mt-4">
+        <h5>Attendance Tracker</h5>
+        <ul class="list-group">
+            @foreach (var attendee in AttendanceList)
+            {
+                <li class="list-group-item">@attendee.Name (@attendee.Email)</li>
+            }
+        </ul>
+    </div>
+}
+
+    @code {
+    [Parameter]
+    public int EventId { get; set; }
+
+    [Parameter]
+    public string EventName { get; set; } = string.Empty;
+
+    [Parameter]
+    public DateTime EventDate { get; set; }
+
+    [Parameter]
+    public string Location { get; set; } = string.Empty;
+
+    private bool IsValid { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        // Validate event data
+        IsValid = EventId > 0
+            && !string.IsNullOrWhiteSpace(EventName)
+            && EventDate > DateTime.MinValue
+            && !string.IsNullOrWhiteSpace(Location);
+    }
+
+    // Example usage with mock data for testing
+    protected override void OnInitialized()
+    {
+        if (EventId == 0)
+        {
+            EventId = 1;
+            EventName = "Sample Event";
+            EventDate = DateTime.Now.AddDays(2);
+            Location = "Downtown Conference Center";
+        }
+    }
+    // Registration form state
+    private bool ShowRegistrationForm { get; set; } = false;
+    private bool RegistrationSuccess { get; set; } = false;
+
+    // Registration model with validation
+    private RegistrationModel registrationModel = new();
+
+    // Attendance tracker
+    private List<RegistrationModel> AttendanceList { get; set; } = new();
+
+    // Session state (simple example)
+    private string? CurrentUserEmail { get; set; }
+
+    // Show registration form when user clicks register
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender && IsValid && string.IsNullOrEmpty(CurrentUserEmail))
+        {
+            ShowRegistrationForm = true;
+            StateHasChanged();
+        }
+    }
+
+    private void HandleValidSubmit()
+    {
+        RegistrationSuccess = true;
+        ShowRegistrationForm = false;
+        CurrentUserEmail = registrationModel.Email;
+        AttendanceList.Add(new RegistrationModel
+        {
+            Name = registrationModel.Name,
+            Email = registrationModel.Email
+        });
+        registrationModel = new RegistrationModel();
+    }
+
+    // Registration model with validation attributes
+    public class RegistrationModel
+    {
+        [Required(ErrorMessage = "Name is required")]
+        public string Name { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "Email is required")]
+        [EmailAddress(ErrorMessage = "Invalid email address")]
+        public string Email { get; set; } = string.Empty;
+    }
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline Style Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template timeline-style-template">
+        <div class="header">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <div class="contact-info">
+                <div id="previewEmail"></div>
+                <div id="previewPhone"></div>
+                <div id="previewLocation"></div>
+                <div id="previewLinkedIn"></div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Professional Summary</h2>
+            <p id="previewSummary"></p>
+        </div>
+        
+        <div class="section">
+            <h2>Professional Experience</h2>
+            <div id="previewExperience" class="timeline-section"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Education</h2>
+            <div id="previewEducation" class="timeline-section"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Skills</h2>
+            <div id="previewSkills"></div>
+        </div>
+    </div>
+
+    <style>
+        .timeline-style-template { 
+            font-family: 'Arial', sans-serif; 
+            background: #ffffff; 
+            color: #000000; 
+            line-height: 1.5; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+            padding: 0.75in;
+        }
+        .timeline-style-template .header { 
+            margin-bottom: 2rem; 
+            text-align: center;
+        }
+        .timeline-style-template .name { 
+            font-size: 2.2rem; 
+            margin: 0 0 1rem 0; 
+            font-weight: bold; 
+            color: #000000;
+        }
+        .timeline-style-template .contact-info { 
+            font-size: 0.9rem; 
+            color: #333333;
+        }
+        .timeline-style-template .contact-info div { 
+            display: inline-block; 
+            margin: 0 0.8rem; 
+        }
+        .timeline-style-template .section { 
+            margin-bottom: 2rem; 
+        }
+        .timeline-style-template h2 { 
+            color: #000000; 
+            font-size: 1.3rem; 
+            margin-bottom: 1rem; 
+            font-weight: bold; 
+            text-transform: uppercase;
+        }
+        .timeline-style-template .timeline-section .experience-entry, 
+        .timeline-style-template .timeline-section .education-entry { 
+            margin-bottom: 1.5rem; 
+            padding-left: 1rem;
+            border-left: 2px solid #cccccc;
+            position: relative;
+        }
+        .timeline-style-template .timeline-section .experience-entry:before, 
+        .timeline-style-template .timeline-section .education-entry:before { 
+            content: "●"; 
+            position: absolute; 
+            left: -0.5rem; 
+            top: 0; 
+            background: #ffffff; 
+            color: #000000; 
+            font-size: 1rem;
+        }
+        .timeline-style-template .entry-title { 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            color: #000000; 
+            margin-bottom: 0.2rem;
+        }
+        .timeline-style-template .entry-company { 
+            color: #333333; 
+            font-weight: normal; 
+            font-size: 1rem;
+        }
+        .timeline-style-template .entry-dates { 
+            color: #000000; 
+            font-size: 0.9rem; 
+            margin-top: 0.2rem;
+            font-weight: bold;
+        }
+        .timeline-style-template .skills-list { 
+            display: block; 
+        }
+        .timeline-style-template .skill-tag { 
+            display: inline-block; 
+            background: transparent; 
+            color: #333333; 
+            padding: 0.3rem 0.8rem; 
+            margin: 0.2rem 0.3rem 0.2rem 0; 
+            font-size: 0.9rem; 
+            border: 1px solid #cccccc;
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

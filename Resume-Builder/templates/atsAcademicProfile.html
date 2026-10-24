@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATS Academic Profile Template</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="resume-template ats-academic-profile-template">
+        <div class="header">
+            <h1 class="name" id="previewName">Your Name</h1>
+            <div class="contact-info">
+                <div id="previewEmail"></div>
+                <div id="previewPhone"></div>
+                <div id="previewLocation"></div>
+                <div id="previewLinkedIn"></div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Research Interests</h2>
+            <p id="previewSummary"></p>
+        </div>
+        
+        <div class="section">
+            <h2>Education</h2>
+            <div id="previewEducation"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Academic & Professional Experience</h2>
+            <div id="previewExperience"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Skills & Competencies</h2>
+            <div id="previewSkills"></div>
+        </div>
+    </div>
+
+    <style>
+        .ats-academic-profile-template { 
+            font-family: 'Times New Roman', serif; 
+            background: #ffffff; 
+            color: #000000; 
+            line-height: 1.6; 
+            max-width: 8.5in; 
+            margin: 0 auto; 
+            padding: 1in;
+        }
+        .ats-academic-profile-template .header { 
+            text-align: center; 
+            margin-bottom: 2rem; 
+        }
+        .ats-academic-profile-template .name { 
+            font-size: 2rem; 
+            margin: 0 0 0.8rem 0; 
+            font-weight: bold; 
+            color: #000000;
+        }
+        .ats-academic-profile-template .contact-info div { 
+            font-size: 1rem; 
+            color: #000000;
+            margin: 0.2rem 0;
+        }
+        .ats-academic-profile-template .section { 
+            margin-bottom: 2rem; 
+        }
+        .ats-academic-profile-template h2 { 
+            color: #000000; 
+            font-size: 1.2rem; 
+            margin-bottom: 1rem; 
+            font-weight: bold; 
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .ats-academic-profile-template .experience-entry, .ats-academic-profile-template .education-entry { 
+            margin-bottom: 1.5rem; 
+        }
+        .ats-academic-profile-template .entry-title { 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            color: #000000; 
+            margin-bottom: 0.2rem;
+            font-style: italic;
+        }
+        .ats-academic-profile-template .entry-company { 
+            color: #000000; 
+            font-weight: normal; 
+            font-size: 1rem;
+        }
+        .ats-academic-profile-template .entry-dates { 
+            color: #000000; 
+            font-size: 1rem; 
+            margin-top: 0.2rem;
+        }
+        .ats-academic-profile-template .skills-list { 
+            display: block; 
+        }
+        .ats-academic-profile-template .skill-tag { 
+            display: inline; 
+            color: #000000; 
+            font-size: 1rem; 
+        }
+        .ats-academic-profile-template .skill-tag:after {
+            content: "; ";
+        }
+        .ats-academic-profile-template .skill-tag:last-child:after {
+            content: "";
+        }
+    </style>
+
+    <script src="../script.js"></script>
+</body>
+</html>

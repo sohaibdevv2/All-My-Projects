@@ -1,0 +1,5 @@
+streamlit==1.28.0
+transformers==4.35.0
+huggingface-hub==0.16.4
+python-dotenv==1.0.0
+torch==2.2.0
